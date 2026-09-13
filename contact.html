@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | PocketRuler.app</title>
+  <meta name="description" content="Contact the PocketRuler.app team for inquiries, feedback, feature requests, or partnership opportunities." />
+  <link rel="canonical" href="https://pocketruler.app/contact.html" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800 antialiased flex flex-col justify-between">
+
+  <!-- TOP HEADER -->
+  <header class="w-full bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="index.html" class="flex items-center space-x-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-xs group-hover:bg-emerald-500 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </div>
+          <span class="text-base sm:text-lg font-black text-slate-900 tracking-tight">
+            PocketRuler<span class="text-emerald-600">.app</span>
+          </span>
+        </a>
+      </div>
+
+      <nav class="flex items-center space-x-4 text-xs font-semibold text-slate-600">
+        <a href="index.html" class="hover:text-emerald-600 transition-colors">Calculators</a>
+        <a href="about.html" class="hover:text-emerald-600 transition-colors">About</a>
+        <a href="contact.html" class="text-emerald-600 font-semibold">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 w-full flex-grow space-y-8">
+    
+    <!-- Breadcrumbs -->
+    <nav class="text-xs text-slate-400 flex items-center space-x-2" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-slate-600">Home</a>
+      <span>/</span>
+      <span class="text-slate-700 font-semibold">Contact Us</span>
+    </nav>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Contact Info Sidebar -->
+      <aside class="space-y-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+          <h2 class="text-lg font-bold text-slate-900">Get in Touch</h2>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Have a question about our calculations, discovered a bug, or want to suggest a new tool for the PocketRuler suite? We’d love to hear from you.
+          </p>
+
+          <div class="pt-2 border-t border-slate-100 space-y-3 text-xs">
+            <div>
+              <span class="font-bold text-slate-700 block">General &amp; Support Email</span>
+              <a href="mailto:support@pocketruler.app" class="text-emerald-600 hover:underline">support@pocketruler.app</a>
+            </div>
+            <div>
+              <span class="font-bold text-slate-700 block">Typical Response Time</span>
+              <span class="text-slate-500">Within 24 to 48 hours</span>
+            </div>
+            <div>
+              <span class="font-bold text-slate-700 block">Location</span>
+              <span class="text-slate-500">Global Web Utility &bull; Hosted on GitHub Pages</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-50/60 p-5 rounded-2xl border border-emerald-100 text-xs text-slate-600 space-y-2">
+          <h3 class="font-bold text-slate-900 flex items-center">
+            <svg class="w-4 h-4 text-emerald-600 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Quick Answers
+          </h3>
+          <p class="text-slate-500 text-[11px] leading-relaxed">
+            Looking for calculation formulas or currency conversion sources? Check out our <a href="index.html#faqSection" class="text-emerald-600 font-semibold underline">interactive FAQ section</a> on the homepage.
+          </p>
+        </div>
+      </aside>
+
+      <!-- Contact Form -->
+      <section class="md:col-span-2 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
+        <div>
+          <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+            Send Us a Message
+          </h1>
+          <p class="text-xs text-slate-500 mt-1">
+            Fill out the form below, and your default email client will launch with your pre-filled inquiry.
+          </p>
+        </div>
+
+        <form id="contactForm" class="space-y-4 text-xs" onsubmit="handleContactSubmit(event)">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="space-y-1">
+              <label for="contactName" class="font-bold text-slate-700">Your Name *</label>
+              <input type="text" id="contactName" required placeholder="Jane Doe" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:bg-white text-xs outline-none" />
+            </div>
+            <div class="space-y-1">
+              <label for="contactEmail" class="font-bold text-slate-700">Email Address *</label>
+              <input type="email" id="contactEmail" required placeholder="jane@example.com" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:bg-white text-xs outline-none" />
+            </div>
+          </div>
+
+          <div class="space-y-1">
+            <label for="contactTopic" class="font-bold text-slate-700">Topic</label>
+            <select id="contactTopic" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:bg-white text-xs outline-none cursor-pointer">
+              <option value="General Feedback">General Feedback</option>
+              <option value="Feature Request">Feature Request (Suggest a new tool)</option>
+              <option value="Bug Report">Bug Report / Calculation Discrepancy</option>
+              <option value="Partnership Inquiry">Partnership / Advertising Inquiry</option>
+            </select>
+          </div>
+
+          <div class="space-y-1">
+            <label for="contactMessage" class="font-bold text-slate-700">Message *</label>
+            <textarea id="contactMessage" rows="5" required placeholder="How can we help you?" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:bg-white text-xs outline-none leading-relaxed"></textarea>
+          </div>
+
+          <div class="pt-2 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400">All inquiries handled privately.</span>
+            <button type="submit" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-xs transition-colors inline-flex items-center">
+              Send Message
+              <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+        </form>
+
+        <div id="contactSuccessNotice" class="hidden p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800 space-y-1">
+          <p class="font-bold">Thank you for reaching out!</p>
+          <p class="text-[11px] text-emerald-700">Your message has been formatted. If your email client didn't open automatically, please send your email directly to <a href="mailto:support@pocketruler.app" class="underline font-semibold">support@pocketruler.app</a>.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value;
+      const email = document.getElementById('contactEmail').value;
+      const topic = document.getElementById('contactTopic').value;
+      const message = document.getElementById('contactMessage').value;
+
+      const subject = encodeURIComponent(`[PocketRuler ${topic}] from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nTopic: ${topic}\n\nMessage:\n${message}`);
+
+      window.location.href = `mailto:support@pocketruler.app?subject=${subject}&body=${body}`;
+      document.getElementById('contactSuccessNotice').classList.remove('hidden');
+    }
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-white border-t border-slate-200 py-6 text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <p class="font-bold text-slate-700">
+          PocketRuler<span class="text-emerald-600">.app</span> &bull; Free Solopreneur Tools
+        </p>
+        <p class="text-slate-400 text-[11px] mt-0.5">
+          &copy; 2026 PocketRuler.app. All rights reserved.
+        </p>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="about.html" class="hover:text-slate-800 transition-colors">About</a>
+        <a href="contact.html" class="text-emerald-600 font-semibold">Contact</a>
+        <a href="privacy.html" class="hover:text-slate-800 transition-colors">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-slate-800 transition-colors">Terms of Service</a>
+        <a href="disclaimer.html" class="hover:text-slate-800 transition-colors">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

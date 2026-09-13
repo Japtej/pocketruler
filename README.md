@@ -27,11 +27,19 @@
 │       └── deploy.yml          # Automated GitHub Pages deployment pipeline
 ├── css/
 │   └── style.css               # Range sliders, diagnostics, and modal design
+├── about.html                  # Standalone E-E-A-T About & Methodology page
+├── ads.txt                     # IAB standard AdSense seller authorization
+├── calculator.js               # Calculation engine, Live FX fetch, and Cookie consent
 ├── CNAME                       # Custom domain binding for pocketruler.app
+├── contact.html                # Standalone Contact & inquiry page
+├── disclaimer.html             # Financial & estimation disclaimer page
 ├── .gitignore                  # Git ignore rules
-├── calculator.js               # Calculation engine, Live FX fetch, and Chart.js logic
-├── index.html                  # Main responsive layout, AdSense slots, and FAQ schema
-└── README.md                   # Project documentation & configuration guide
+├── index.html                  # Main interactive calculator, benchmarks & AdSense units
+├── privacy.html                # Standalone GDPR & Google AdSense Privacy Policy
+├── README.md                   # Project documentation & configuration guide
+├── robots.txt                  # Search engine & AdSense crawler permissions
+├── sitemap.xml                 # XML Sitemap indexing all canonical pages
+└── terms.html                  # Terms of Service page
 ```
 
 ---

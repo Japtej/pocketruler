@@ -137,6 +137,11 @@
     btnCopy: document.getElementById('btnCopy'),
     toast: document.getElementById('toastNotification'),
     toastMsg: document.getElementById('toastMessage'),
+
+    // Cookie Consent
+    cookieConsentBanner: document.getElementById('cookieConsentBanner'),
+    btnAcceptCookies: document.getElementById('btnAcceptCookies'),
+    btnRejectCookies: document.getElementById('btnRejectCookies'),
   };
 
   /**
@@ -729,6 +734,34 @@ Best regards,
   }
 
   /**
+   * Cookie Consent Banner (GDPR & Google EU User Consent Policy)
+   */
+  function initCookieConsent() {
+    if (!el.cookieConsentBanner) return;
+    const consent = localStorage.getItem('pocketruler_cookie_consent');
+    if (consent) {
+      el.cookieConsentBanner.classList.add('hidden');
+      return;
+    }
+
+    if (el.btnAcceptCookies) {
+      el.btnAcceptCookies.addEventListener('click', () => {
+        localStorage.setItem('pocketruler_cookie_consent', 'accepted');
+        el.cookieConsentBanner.classList.add('opacity-0', 'translate-y-4');
+        setTimeout(() => el.cookieConsentBanner.classList.add('hidden'), 300);
+      });
+    }
+
+    if (el.btnRejectCookies) {
+      el.btnRejectCookies.addEventListener('click', () => {
+        localStorage.setItem('pocketruler_cookie_consent', 'essential');
+        el.cookieConsentBanner.classList.add('opacity-0', 'translate-y-4');
+        setTimeout(() => el.cookieConsentBanner.classList.add('hidden'), 300);
+      });
+    }
+  }
+
+  /**
    * Reset to default values
    */
   function resetDefaults() {
@@ -825,6 +858,7 @@ Clients Needed: Just ${res.retainerClientsNeeded.toFixed(1)} retainer clients co
     }
 
     initModals();
+    initCookieConsent();
     initChart();
     updateUI();
 
