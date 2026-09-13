@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculation Methodology, Formulas &amp; Data Integrity | PocketRuler.app</title>
+  <meta name="description" content="Explore the quantitative methodology, statutory tax models, data sources, and mathematical algorithms powering the PocketRuler RelocateTrue expat tax and relocation calculator." />
+  <link rel="canonical" href="https://pocketruler.app/relocation-calculator/methodology.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://pocketruler.app/relocation-calculator/methodology.html" />
+  <meta property="og:title" content="Calculation Methodology &amp; Data Integrity | PocketRuler.app" />
+  <meta property="og:description" content="Transparent, peer-reviewed financial models and cost-of-living data sources powering cross-border remote work comparisons." />
+  <meta property="og:site_name" content="PocketRuler.app" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <!-- JSON-LD Structured Data: AboutPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "PocketRuler Relocation Methodology & Data Governance",
+    "url": "https://pocketruler.app/relocation-calculator/methodology.html",
+    "description": "Methodology, mathematical formulas, and data sources powering the PocketRuler cross-border cost of living and expat tax calculator.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "PocketRuler.app",
+      "url": "https://pocketruler.app"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
+
+  <!-- Main Navigation Header -->
+  <header class="w-full bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/80 p-1 flex items-center justify-center shadow-xs shrink-0 hover:border-slate-300 transition-colors" aria-label="PocketRuler Home">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-7 h-7" />
+        </a>
+        <div>
+          <div class="flex items-center space-x-2">
+            <a href="../index.html" class="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none hover:text-blue-600 transition-colors">
+              PocketRuler<span class="text-blue-600">.app</span>
+            </a>
+            <span class="text-[10px] bg-blue-50 text-blue-800 font-bold px-2 py-0.5 rounded-full border border-blue-200">Methodology</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-0.5 hidden sm:block">
+            Data Governance &amp; Mathematical Rigor
+          </p>
+        </div>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center space-x-6 text-xs sm:text-sm font-bold text-slate-600">
+        <!-- Tools Dropdown -->
+        <div class="relative group py-2">
+          <button type="button" class="flex items-center gap-1.5 text-blue-700 hover:text-blue-600 font-bold transition-colors focus:outline-none" aria-haspopup="true">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/></svg>
+            <span>All Apps</span>
+            <svg class="w-3 h-3 text-blue-500 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-200 p-2 hidden group-hover:block transition-all z-50">
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-3 py-1">Suite Directory</div>
+            <a href="../index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-colors">
+              <span>🏠 Main Tools Hub</span>
+            </a>
+            <a href="index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-blue-50 text-slate-700 hover:text-blue-700 transition-colors">
+              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+              <div>
+                <div class="font-bold text-xs">Expat Tax Calculator</div>
+                <div class="text-[11px] text-slate-400 font-normal">85+ cities &bull; Tax arbitrage simulator</div>
+              </div>
+            </a>
+            <a href="../freelance-calculator/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 transition-colors">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <div>
+                <div class="font-bold text-xs">Freelance Rate Calculator</div>
+                <div class="text-[11px] text-slate-400 font-normal">Pricing, retainers &amp; pitch generator</div>
+              </div>
+            </a>
+            <div class="border-t border-slate-100 my-1"></div>
+            <a href="guide.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 text-xs text-slate-600 hover:text-slate-900 transition-colors">
+              <span>📖 Expat Tax &amp; Visa Guide</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="index.html" class="hover:text-blue-600 transition">Calculator</a>
+        <a href="guide.html" class="hover:text-blue-600 transition">Expat Tax &amp; Visa Guide</a>
+        <a href="methodology.html" class="text-blue-600 font-bold">Methodology</a>
+        <a href="../about.html" class="hover:text-slate-900 transition">About</a>
+        <a href="../contact.html" class="hover:text-slate-900 transition">Contact</a>
+      </div>
+
+      <!-- Action Buttons & Hamburger -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">
+          Launch Calculator &rarr;
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button type="button" id="mobileMenuToggle" class="p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors lg:hidden focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER & BACKDROP -->
+  <div id="mobileDrawerBackdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
+  <aside id="mobileDrawer" class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="p-5 border-b border-slate-200 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center space-x-2.5">
+        <div class="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 p-1 flex items-center justify-center">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" />
+        </div>
+        <span class="text-base font-black text-slate-900 tracking-tight">
+          PocketRuler<span class="text-blue-600">.app</span>
+        </span>
+      </a>
+      <button type="button" id="mobileDrawerClose" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors" aria-label="Close Mobile Navigation">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="p-5 space-y-6 flex-grow">
+      <!-- Section: Calculator Navigation -->
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">Relocation Suite</div>
+        <a href="index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">
+          Relocation Calculator
+        </a>
+        <a href="guide.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">
+          📖 Expat Tax &amp; Visa Deep Dive
+        </a>
+        <a href="methodology.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-blue-700 bg-blue-50">
+          📐 Methodology &amp; Data Models
+        </a>
+      </div>
+
+      <!-- Section: Web Apps Suite -->
+      <div class="space-y-2 pt-2 border-t border-slate-100">
+        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">Other Apps in Suite</div>
+        <a href="../index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-800 font-bold text-xs transition-colors border border-slate-200/60">
+          <span>🏠 Main Tools Hub</span>
+          <span class="text-[10px] text-slate-400 font-semibold">View All</span>
+        </a>
+        <a href="../freelance-calculator/" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-800 hover:text-emerald-700 font-bold text-xs transition-colors border border-slate-200/60">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Freelance Rate Calculator</span>
+          </div>
+          <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Launch</span>
+        </a>
+      </div>
+
+      <!-- Section: Platform & Legal -->
+      <div class="space-y-1 pt-2 border-t border-slate-100">
+        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">Platform &amp; Legal</div>
+        <a href="../about.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">About Us</a>
+        <a href="../contact.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">Contact</a>
+        <a href="../privacy.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">Privacy Policy</a>
+        <a href="../terms.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">Terms of Service</a>
+        <a href="../disclaimer.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">Financial Disclaimer</a>
+      </div>
+    </div>
+
+    <div class="p-4 bg-slate-50 border-t border-slate-200 text-center text-[11px] text-slate-400">
+      PocketRuler.app &bull; 100% Free Forever
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+
+    <header class="mb-8 text-center sm:text-left border-b border-slate-200 pb-8">
+      <span class="text-xs font-bold uppercase tracking-widest text-blue-600">Editorial Standards &amp; Principles</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-1">
+        Methodology, Mathematical Models &amp; Data Governance
+      </h1>
+      <p class="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
+        We believe cross-border financial decisions require total mathematical transparency, peer-reviewed data feeds, and rigorous editorial ethics.
+      </p>
+
+      <!-- ====================================================================
+           MONETIZATION SLOT 1: TOP RESPONSIVE ADSENSE BANNER
+           ==================================================================== -->
+      <aside role="region" aria-label="Advertisement" class="adsense-placeholder rounded-xl p-3 text-center max-w-3xl mx-auto flex flex-col items-center justify-center min-h-[85px] text-slate-400 mt-6">
+        <!--
+          GOOGLE ADSENSE TOP BANNER
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+               data-ad-slot="XXXXXXXXXX"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        -->
+        <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Advertisement &bull; Google AdSense Placement</span>
+        <span class="text-xs text-slate-400 mt-0.5">Top viewability responsive leaderboard &bull; Slot 1</span>
+      </aside>
+    </header>
+
+    <div class="space-y-10 text-slate-800 text-sm sm:text-base leading-relaxed">
+
+      <!-- Mission Statement -->
+      <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 mb-3">Our Mission</h2>
+        <p>
+          PocketRuler's relocation engine was created by a collective of veteran remote engineers, international tax researchers, and financial economists who experienced firsthand the informational chaos of international relocation.
+        </p>
+        <p class="mt-3">
+          Existing cost-of-living aggregators routinely fail remote workers by calculating costs solely through the lens of short-term tourists or by omitting the single largest financial expense anyone incurs: <strong>taxes and social security contributions</strong>. Earning $120,000 remotely in a high-tax European city without a special expat scheme looks radically different than earning that same salary in Dubai or Canggu.
+        </p>
+        <p class="mt-3">
+          Our mission is to provide an <strong>unbiased, 100% free, mathematically transparent simulation platform</strong> that models the complete fiscal and lifestyle equation of international remote work.
+        </p>
+      </section>
+
+      <!-- Data Sources -->
+      <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 mb-3">Primary Data Sources</h2>
+        <p>
+          Our dataset is updated bi-annually and cross-referenced against multiple authoritative statistical and governmental databases:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-1">Cost of Living &amp; Housing</h3>
+            <p class="text-slate-600">
+              Aggregated from verified crowd-sourced consumer price indices reconciled against municipal housing registries and local classified portals.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-1">Statutory Tax Brackets</h3>
+            <p class="text-slate-600">
+              Derived directly from statutory tax legislation issued by national tax authorities, including the IRS, HMRC, Spanish AEAT, and Portuguese AT.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-1">Nomad Visas &amp; Income Thresholds</h3>
+            <p class="text-slate-600">
+              Audited against official government gazettes and foreign ministry decrees for minimum gross salary requirements and renewal mandates.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-1">Foreign Exchange &amp; PPP</h3>
+            <p class="text-slate-600">
+              Spot exchange rates and Purchasing Power Parity conversion factors sourced from the International Monetary Fund (IMF) and European Central Bank (ECB).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mathematical Formulas -->
+      <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 mb-3">Mathematical Formulation &amp; Logic</h2>
+        <p>
+          We do not believe in proprietary black-box calculations. Below is the exact mathematical formulation executing inside our zero-dependency JavaScript engine:
+        </p>
+
+        <div class="space-y-4 mt-4 font-mono text-xs bg-slate-900 text-slate-200 p-4 sm:p-6 rounded-xl overflow-x-auto">
+          <div>
+            <span class="text-emerald-400">// 1. Effective Income Tax Model</span><br />
+            TaxableIncome = max(0, GrossAnnualIncome - StandardDeduction)<br />
+            BaseTax = &sum;(BracketAmount_i &times; BracketRate_i)<br />
+            TotalTaxAnnual = BaseTax + (GrossAnnualIncome &times; StateTaxRate) + min(GrossAnnualIncome, Cap) &times; SocialRate<br />
+            EffectiveTaxRate = TotalTaxAnnual / GrossAnnualIncome
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 2. True Living Expenses Model</span><br />
+            MonthlyLivingCost = Rent(HousingTier) + (Utilities &times; UtilMultiplier) + (Groceries &times; LifestyleMult) + (Dining &times; DiningMult) + (Transit &times; TransitMult)
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 3. Monthly Discretionary Surplus</span><br />
+            NetTakeHomeMonthly = (GrossAnnualIncome - TotalTaxAnnual) / 12<br />
+            MonthlyDiscretionary = NetTakeHomeMonthly - MonthlyLivingCost
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 4. The Arbitrage Metric</span><br />
+            ArbitrageSurplusMonthly = DestinationDiscretionary - OriginDiscretionary<br />
+            AnnualExtraSavings = ArbitrageSurplusMonthly &times; 12<br />
+            RunwayMonthsBanked = max(0, DestinationDiscretionaryAnnual) / DestinationMonthlyLivingCost
+          </div>
+        </div>
+      </section>
+
+      <!-- Editorial Independence & Disclaimer -->
+      <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 mb-3">Editorial Independence &amp; Quality Commitment</h2>
+        <p>
+          PocketRuler maintains an unwavering commitment to mathematical objectivity:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 mt-3 text-slate-700">
+          <li>
+            <strong>Zero Sponsored Rankings:</strong> No city or destination can pay to rank higher in our comparisons or adjust cost numbers.
+          </li>
+          <li>
+            <strong>Client-Side Processing:</strong> All salary, tax, and budget inputs are calculated locally in your browser. We never log or store your personal financial data.
+          </li>
+          <li>
+            <strong>Discrepancy Reporting:</strong> If you identify a changing visa salary requirement or tax rate update, report it to our editorial desk via our <a href="../contact.html" class="text-blue-600 font-semibold underline">contact portal</a>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- ====================================================================
+           MONETIZATION SLOT 3: BOTTOM RESPONSIVE ADSENSE BANNER
+           ==================================================================== -->
+      <aside role="region" aria-label="Advertisement" class="adsense-placeholder rounded-xl p-3 text-center max-w-3xl mx-auto flex flex-col items-center justify-center min-h-[85px] text-slate-400 my-8 no-print">
+        <!--
+          GOOGLE ADSENSE BOTTOM BANNER
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+               data-ad-slot="XXXXXXXXXX"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        -->
+        <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Advertisement &bull; Google AdSense Placement</span>
+        <span class="text-xs text-slate-400 mt-0.5">Bottom viewability responsive unit &bull; Slot 3</span>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- Unified Site Footer -->
+  <footer class="w-full bg-slate-900 text-slate-400 text-xs py-10 border-t border-slate-800 no-print mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+      
+      <!-- Col 1: Brand & Mission -->
+      <div class="space-y-3">
+        <div class="flex items-center space-x-2">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" />
+          <span class="text-sm font-black text-white">PocketRuler<span class="text-blue-500">.app</span></span>
+        </div>
+        <p class="text-[11px] text-slate-400 leading-relaxed">
+          The one-stop suite of free client-side calculation engines for solopreneurs, digital nomads, and independent consultants.
+        </p>
+        <p class="text-[10px] text-slate-500">
+          &copy; 2026 PocketRuler.app &bull; RelocateTrue Engine. All rights reserved.
+        </p>
+      </div>
+
+      <!-- Col 2: Active Tools -->
+      <div class="space-y-2.5">
+        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Web Apps</h4>
+        <ul class="space-y-1.5 text-slate-400">
+          <li><a href="../index.html" class="hover:text-blue-400 transition-colors">Tools Hub Dashboard</a></li>
+          <li><a href="index.html" class="hover:text-blue-400 transition-colors">Expat Tax &amp; Relocation</a></li>
+          <li><a href="../freelance-calculator/" class="hover:text-blue-400 transition-colors">Freelance Rate Calculator</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Resources & Guides -->
+      <div class="space-y-2.5">
+        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Resources</h4>
+        <ul class="space-y-1.5 text-slate-400">
+          <li><a href="guide.html" class="hover:text-blue-400 transition-colors">Expat Tax &amp; Visa Guide</a></li>
+          <li><a href="methodology.html" class="text-blue-400 font-bold">Methodology &amp; Formulas</a></li>
+          <li><a href="../about.html" class="hover:text-blue-400 transition-colors">About Us &amp; Mission</a></li>
+          <li><a href="../contact.html" class="hover:text-blue-400 transition-colors">Contact &amp; Feedback</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Legal & AdSense Compliance -->
+      <div class="space-y-2.5">
+        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Legal &amp; Privacy</h4>
+        <ul class="space-y-1.5 text-slate-400">
+          <li><a href="../privacy.html" class="hover:text-blue-400 transition-colors">Privacy Policy &amp; Cookies</a></li>
+          <li><a href="../terms.html" class="hover:text-blue-400 transition-colors">Terms of Service</a></li>
+          <li><a href="../disclaimer.html" class="hover:text-blue-400 transition-colors">Financial Disclaimer</a></li>
+          <li><a href="../ads.txt" class="text-slate-500 hover:text-slate-400 transition-colors">ads.txt (IAB Standard)</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+      <p>Independent research and methodology. Calculations do not constitute certified tax or immigration advice.</p>
+      <div class="flex items-center space-x-4">
+        <a href="../privacy.html" class="hover:text-slate-400">Privacy</a>
+        <span>&bull;</span>
+        <a href="../terms.html" class="hover:text-slate-400">Terms</a>
+        <span>&bull;</span>
+        <a href="../disclaimer.html" class="hover:text-slate-400">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Navigation Drawer Handler -->
+  <script>
+    (function() {
+      const menuBtn = document.getElementById('mobileMenuToggle');
+      const drawerCloseBtn = document.getElementById('mobileDrawerClose');
+      const drawer = document.getElementById('mobileDrawer');
+      const backdrop = document.getElementById('mobileDrawerBackdrop');
+
+      function openDrawer() {
+        if (!drawer || !backdrop) return;
+        drawer.classList.add('active');
+        backdrop.classList.add('active');
+        menuBtn?.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        if (!drawer || !backdrop) return;
+        drawer.classList.remove('active');
+        backdrop.classList.remove('active');
+        menuBtn?.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      menuBtn?.addEventListener('click', openDrawer);
+      drawerCloseBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer?.classList.contains('active')) {
+          closeDrawer();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
