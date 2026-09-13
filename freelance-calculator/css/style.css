@@ -193,6 +193,16 @@ details[open] summary svg {
   transform: translateX(0);
 }
 
+/* Enforce desktop suppression of mobile drawer */
+@media (min-width: 768px) {
+  .mobile-nav-drawer,
+  .mobile-nav-backdrop,
+  #mobileDrawer,
+  #mobileDrawerBackdrop {
+    display: none !important;
+  }
+}
+
 /* Google AdSense Optimization & Zero-CLS Layout */
 .adsense-slot {
   width: 100%;
@@ -216,13 +226,188 @@ details[open] summary svg {
   justify-content: center;
   overflow: hidden;
   position: relative;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .adsbygoogle {
   display: block !important;
   margin: 0 auto;
   max-width: 100%;
+}
+
+/* ==========================================================================
+   Dark Mode Overrides - High Contrast Typography & Surfaces
+   ========================================================================== */
+html.dark body {
+  background-color: #020617;
+  color: #f1f5f9;
+}
+
+/* Typography High Contrast */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #f8fafc !important;
+}
+
+html.dark p {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-900 {
+  color: #ffffff !important;
+}
+
+html.dark .text-slate-800 {
+  color: #f1f5f9 !important;
+}
+
+html.dark .text-slate-700 {
+  color: #e2e8f0 !important;
+}
+
+html.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+html.dark strong {
+  color: #ffffff !important;
+}
+
+/* Card Surfaces & Borders */
+html.dark .bg-white {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+}
+
+html.dark .bg-slate-50 {
+  background-color: #0b1329 !important;
+}
+
+html.dark .bg-slate-100 {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+}
+
+html.dark .border-slate-50,
+html.dark .border-slate-100,
+html.dark .border-slate-200 {
+  border-color: #1e293b !important;
+}
+
+html.dark .border-slate-300 {
+  border-color: #334155 !important;
+}
+
+/* Inputs, Selects & Sliders */
+html.dark input[type="text"],
+html.dark input[type="number"],
+html.dark select {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+html.dark input[type="text"]::placeholder,
+html.dark input[type="number"]::placeholder {
+  color: #64748b !important;
+}
+
+html.dark select option {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+html.dark input[type="range"] {
+  background: #334155;
+}
+
+/* Presets & Buttons */
+html.dark [data-preset],
+html.dark .preset-btn {
+  background-color: #1e293b !important;
+  color: #e2e8f0 !important;
+  border-color: #334155 !important;
+}
+
+html.dark [data-preset]:hover,
+html.dark .preset-btn:hover {
+  background-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+html.dark .adsense-card {
+  background-color: #0f172a;
+  border-color: #1e293b;
+}
+
+html.dark .adsense-placeholder {
+  background: repeating-linear-gradient(
+    45deg,
+    #0f172a,
+    #0f172a 10px,
+    #1e293b 10px,
+    #1e293b 20px
+  );
+  border-color: #334155;
+}
+
+html.dark .mobile-nav-drawer {
+  background-color: #0f172a;
+  color: #f8fafc;
+  box-shadow: -4px 0 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Rate Health Badges in Dark Mode */
+html.dark .health-badge-good {
+  background-color: rgba(6, 95, 70, 0.25);
+  color: #6ee7b7;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+html.dark .health-badge-warning {
+  background-color: rgba(146, 64, 14, 0.25);
+  color: #fcd34d;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+html.dark .health-badge-danger {
+  background-color: rgba(153, 27, 27, 0.25);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+/* Tables in Dark Mode */
+html.dark table th {
+  color: #94a3b8 !important;
+  border-color: #1e293b !important;
+}
+
+html.dark table td {
+  color: #e2e8f0 !important;
+  border-color: #1e293b !important;
+}
+
+html.dark table tr:hover {
+  background-color: rgba(30, 41, 59, 0.5) !important;
+}
+
+/* Modals */
+html.dark .modal-overlay > div {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+  color: #f8fafc !important;
 }
 
 /* Print Optimization */

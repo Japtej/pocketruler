@@ -3,10 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
   <title>Calculation Methodology, Formulas &amp; Data Integrity | PocketRuler.app</title>
   <meta name="description" content="Explore the quantitative methodology, statutory tax models, data sources, and mathematical algorithms powering the PocketRuler RelocateTrue expat tax and relocation calculator." />
   <link rel="canonical" href="https://pocketruler.app/relocation-calculator/methodology.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Zero-FOUC Theme Detection Script -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
@@ -18,10 +35,11 @@
   <meta property="og:description" content="Transparent, peer-reviewed financial models and cost-of-living data sources powering cross-border remote work comparisons." />
   <meta property="og:site_name" content="PocketRuler.app" />
 
-  <!-- Tailwind CSS via CDN -->
+  <!-- Tailwind CSS via CDN with Dark Mode -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -56,80 +74,84 @@
   </script>
 </head>
 
-<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-blue-100 selection:text-blue-900 transition-colors duration-200">
 
   <!-- Main Navigation Header -->
-  <header class="w-full bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs no-print">
+  <header class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs no-print transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
       
       <!-- Brand Logo -->
       <div class="flex items-center space-x-3">
-        <a href="../index.html" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/80 p-1 flex items-center justify-center shadow-xs shrink-0 hover:border-slate-300 transition-colors" aria-label="PocketRuler Home">
+        <a href="../index.html" class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 p-1 flex items-center justify-center shadow-xs shrink-0 hover:border-slate-300 dark:hover:border-slate-600 transition-colors" aria-label="PocketRuler Home">
           <img src="logo.svg" alt="PocketRuler.app Logo" class="w-7 h-7" />
         </a>
         <div>
           <div class="flex items-center space-x-2">
-            <a href="../index.html" class="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none hover:text-blue-600 transition-colors">
-              PocketRuler<span class="text-blue-600">.app</span>
+            <a href="../index.html" class="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight leading-none hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              PocketRuler<span class="text-blue-600 dark:text-blue-400">.app</span>
             </a>
-            <span class="text-[10px] bg-blue-50 text-blue-800 font-bold px-2 py-0.5 rounded-full border border-blue-200">Methodology</span>
+            <span class="text-[10px] bg-blue-50 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 font-bold px-2 py-0.5 rounded-full border border-blue-200 dark:border-blue-800">Methodology</span>
           </div>
-          <p class="text-xs text-slate-500 mt-0.5 hidden sm:block">
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden sm:block">
             Data Governance &amp; Mathematical Rigor
           </p>
         </div>
       </div>
 
       <!-- Desktop Nav Links -->
-      <div class="hidden lg:flex items-center space-x-6 text-xs sm:text-sm font-bold text-slate-600">
+      <div class="hidden lg:flex items-center space-x-4 lg:space-x-6 text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300">
         <!-- Tools Dropdown -->
         <div class="relative group py-2">
-          <button type="button" class="flex items-center gap-1.5 text-blue-700 hover:text-blue-600 font-bold transition-colors focus:outline-none" aria-haspopup="true">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/></svg>
-            <span>All Apps</span>
-            <svg class="w-3 h-3 text-blue-500 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <button type="button" class="flex items-center gap-1.5 text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 font-bold transition-colors focus:outline-none" aria-haspopup="true">
+            <span>All Tools</span>
+            <svg class="w-3 h-3 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="absolute left-0 top-full mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-200 p-2 hidden group-hover:block transition-all z-50">
-            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-3 py-1">Suite Directory</div>
-            <a href="../index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-colors">
+          <div class="absolute left-0 top-full mt-1 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 p-2 hidden group-hover:block transition-all z-50">
+            <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3 py-1">Suite Directory</div>
+            <a href="../index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-slate-700 dark:text-slate-200 text-xs font-semibold transition-colors">
               <span>🏠 Main Tools Hub</span>
             </a>
-            <a href="index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-blue-50 text-slate-700 hover:text-blue-700 transition-colors">
+            <a href="index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-700 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
               <span class="w-2 h-2 rounded-full bg-blue-500"></span>
               <div>
                 <div class="font-bold text-xs">Expat Tax Calculator</div>
-                <div class="text-[11px] text-slate-400 font-normal">85+ cities &bull; Tax arbitrage simulator</div>
+                <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">85+ cities &bull; Tax arbitrage simulator</div>
               </div>
             </a>
-            <a href="../freelance-calculator/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 transition-colors">
+            <a href="../freelance-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
               <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
               <div>
                 <div class="font-bold text-xs">Freelance Rate Calculator</div>
-                <div class="text-[11px] text-slate-400 font-normal">Pricing, retainers &amp; pitch generator</div>
+                <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">Pricing, retainers &amp; pitch generator</div>
               </div>
             </a>
-            <div class="border-t border-slate-100 my-1"></div>
-            <a href="guide.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 text-xs text-slate-600 hover:text-slate-900 transition-colors">
+            <div class="border-t border-slate-100 dark:border-slate-700 my-1"></div>
+            <a href="guide.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-xs text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
               <span>📖 Expat Tax &amp; Visa Guide</span>
             </a>
           </div>
         </div>
 
-        <a href="index.html" class="hover:text-blue-600 transition">Calculator</a>
-        <a href="guide.html" class="hover:text-blue-600 transition">Expat Tax &amp; Visa Guide</a>
-        <a href="methodology.html" class="text-blue-600 font-bold">Methodology</a>
-        <a href="../about.html" class="hover:text-slate-900 transition">About</a>
-        <a href="../contact.html" class="hover:text-slate-900 transition">Contact</a>
+        <a href="index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Calculator</a>
+        <a href="guide.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Expat Tax &amp; Visa Guide</a>
+        <a href="methodology.html" class="text-blue-600 dark:text-blue-400 font-bold">Methodology</a>
+        <a href="../about.html" class="hover:text-slate-900 dark:hover:text-white transition">About</a>
+        <a href="../contact.html" class="hover:text-slate-900 dark:hover:text-white transition">Contact</a>
       </div>
 
-      <!-- Action Buttons & Hamburger -->
-      <div class="flex items-center gap-3">
+      <!-- Action Buttons, Theme Toggle & Hamburger -->
+      <div class="flex items-center gap-2 sm:gap-3">
         <a href="index.html" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition">
           Launch Calculator &rarr;
         </a>
 
+        <!-- Theme Toggle Button -->
+        <button type="button" data-theme-toggle class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Toggle Theme" title="Toggle theme">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </button>
+
         <!-- Mobile Hamburger Toggle -->
-        <button type="button" id="mobileMenuToggle" class="p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors lg:hidden focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <button type="button" id="openMobileMenuBtn" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors lg:hidden focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -139,81 +161,15 @@
     </div>
   </header>
 
-  <!-- MOBILE NAVIGATION DRAWER & BACKDROP -->
-  <div id="mobileDrawerBackdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
-  <aside id="mobileDrawer" class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-    <div class="p-5 border-b border-slate-200 flex items-center justify-between">
-      <a href="../index.html" class="flex items-center space-x-2.5">
-        <div class="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 p-1 flex items-center justify-center">
-          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" />
-        </div>
-        <span class="text-base font-black text-slate-900 tracking-tight">
-          PocketRuler<span class="text-blue-600">.app</span>
-        </span>
-      </a>
-      <button type="button" id="mobileDrawerClose" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors" aria-label="Close Mobile Navigation">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-
-    <div class="p-5 space-y-6 flex-grow">
-      <!-- Section: Calculator Navigation -->
-      <div class="space-y-1">
-        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">Relocation Suite</div>
-        <a href="index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">
-          Relocation Calculator
-        </a>
-        <a href="guide.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">
-          📖 Expat Tax &amp; Visa Deep Dive
-        </a>
-        <a href="methodology.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-blue-700 bg-blue-50">
-          📐 Methodology &amp; Data Models
-        </a>
-      </div>
-
-      <!-- Section: Web Apps Suite -->
-      <div class="space-y-2 pt-2 border-t border-slate-100">
-        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">Other Apps in Suite</div>
-        <a href="../index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-800 font-bold text-xs transition-colors border border-slate-200/60">
-          <span>🏠 Main Tools Hub</span>
-          <span class="text-[10px] text-slate-400 font-semibold">View All</span>
-        </a>
-        <a href="../freelance-calculator/" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-800 hover:text-emerald-700 font-bold text-xs transition-colors border border-slate-200/60">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-            <span>Freelance Rate Calculator</span>
-          </div>
-          <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Launch</span>
-        </a>
-      </div>
-
-      <!-- Section: Platform & Legal -->
-      <div class="space-y-1 pt-2 border-t border-slate-100">
-        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">Platform &amp; Legal</div>
-        <a href="../about.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">About Us</a>
-        <a href="../contact.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">Contact</a>
-        <a href="../privacy.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">Privacy Policy</a>
-        <a href="../terms.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">Terms of Service</a>
-        <a href="../disclaimer.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">Financial Disclaimer</a>
-      </div>
-    </div>
-
-    <div class="p-4 bg-slate-50 border-t border-slate-200 text-center text-[11px] text-slate-400">
-      PocketRuler.app &bull; 100% Free Forever
-    </div>
-  </aside>
-
   <!-- Main Content -->
   <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
 
-    <header class="mb-8 text-center sm:text-left border-b border-slate-200 pb-8">
-      <span class="text-xs font-bold uppercase tracking-widest text-blue-600">Editorial Standards &amp; Principles</span>
-      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-1">
+    <header class="mb-8 text-center sm:text-left border-b border-slate-200 dark:border-slate-800 pb-8">
+      <span class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Editorial Standards &amp; Principles</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight mt-1">
         Methodology, Mathematical Models &amp; Data Governance
       </h1>
-      <p class="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
+      <p class="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
         We believe cross-border financial decisions require total mathematical transparency, peer-reviewed data feeds, and rigorous editorial ethics.
       </p>
 
@@ -235,50 +191,50 @@
       </aside>
     </header>
 
-    <div class="space-y-10 text-slate-800 text-sm sm:text-base leading-relaxed">
+    <div class="space-y-10 text-slate-800 dark:text-slate-200 text-sm sm:text-base leading-relaxed">
 
       <!-- Mission Statement -->
-      <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
-        <h2 class="text-xl font-bold text-slate-900 mb-3">Our Mission</h2>
+      <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Our Mission</h2>
         <p>
           PocketRuler's relocation engine was created by a collective of veteran remote engineers, international tax researchers, and financial economists who experienced firsthand the informational chaos of international relocation.
         </p>
         <p class="mt-3">
-          Existing cost-of-living aggregators routinely fail remote workers by calculating costs solely through the lens of short-term tourists or by omitting the single largest financial expense anyone incurs: <strong>taxes and social security contributions</strong>. Earning $120,000 remotely in a high-tax European city without a special expat scheme looks radically different than earning that same salary in Dubai or Canggu.
+          Existing cost-of-living aggregators routinely fail remote workers by calculating costs solely through the lens of short-term tourists or by omitting the single largest financial expense anyone incurs: <strong class="text-slate-900 dark:text-white">taxes and social security contributions</strong>. Earning $120,000 remotely in a high-tax European city without a special expat scheme looks radically different than earning that same salary in Dubai or Canggu.
         </p>
         <p class="mt-3">
-          Our mission is to provide an <strong>unbiased, 100% free, mathematically transparent simulation platform</strong> that models the complete fiscal and lifestyle equation of international remote work.
+          Our mission is to provide an <strong class="text-slate-900 dark:text-white">unbiased, 100% free, mathematically transparent simulation platform</strong> that models the complete fiscal and lifestyle equation of international remote work.
         </p>
       </section>
 
       <!-- Data Sources -->
-      <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
-        <h2 class="text-xl font-bold text-slate-900 mb-3">Primary Data Sources</h2>
+      <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Primary Data Sources</h2>
         <p>
           Our dataset is updated bi-annually and cross-referenced against multiple authoritative statistical and governmental databases:
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm">
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-            <h3 class="font-bold text-slate-900 mb-1">Cost of Living &amp; Housing</h3>
-            <p class="text-slate-600">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">Cost of Living &amp; Housing</h3>
+            <p class="text-slate-600 dark:text-slate-400">
               Aggregated from verified crowd-sourced consumer price indices reconciled against municipal housing registries and local classified portals.
             </p>
           </div>
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-            <h3 class="font-bold text-slate-900 mb-1">Statutory Tax Brackets</h3>
-            <p class="text-slate-600">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">Statutory Tax Brackets</h3>
+            <p class="text-slate-600 dark:text-slate-400">
               Derived directly from statutory tax legislation issued by national tax authorities, including the IRS, HMRC, Spanish AEAT, and Portuguese AT.
             </p>
           </div>
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-            <h3 class="font-bold text-slate-900 mb-1">Nomad Visas &amp; Income Thresholds</h3>
-            <p class="text-slate-600">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">Nomad Visas &amp; Income Thresholds</h3>
+            <p class="text-slate-600 dark:text-slate-400">
               Audited against official government gazettes and foreign ministry decrees for minimum gross salary requirements and renewal mandates.
             </p>
           </div>
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
-            <h3 class="font-bold text-slate-900 mb-1">Foreign Exchange &amp; PPP</h3>
-            <p class="text-slate-600">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">Foreign Exchange &amp; PPP</h3>
+            <p class="text-slate-600 dark:text-slate-400">
               Spot exchange rates and Purchasing Power Parity conversion factors sourced from the International Monetary Fund (IMF) and European Central Bank (ECB).
             </p>
           </div>
@@ -286,13 +242,13 @@
       </section>
 
       <!-- Mathematical Formulas -->
-      <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
-        <h2 class="text-xl font-bold text-slate-900 mb-3">Mathematical Formulation &amp; Logic</h2>
+      <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Mathematical Formulation &amp; Logic</h2>
         <p>
           We do not believe in proprietary black-box calculations. Below is the exact mathematical formulation executing inside our zero-dependency JavaScript engine:
         </p>
 
-        <div class="space-y-4 mt-4 font-mono text-xs bg-slate-900 text-slate-200 p-4 sm:p-6 rounded-xl overflow-x-auto">
+        <div class="space-y-4 mt-4 font-mono text-xs bg-slate-900 text-slate-200 p-4 sm:p-6 rounded-xl overflow-x-auto border border-slate-800">
           <div>
             <span class="text-emerald-400">// 1. Effective Income Tax Model</span><br />
             TaxableIncome = max(0, GrossAnnualIncome - StandardDeduction)<br />
@@ -319,20 +275,20 @@
       </section>
 
       <!-- Editorial Independence & Disclaimer -->
-      <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
-        <h2 class="text-xl font-bold text-slate-900 mb-3">Editorial Independence &amp; Quality Commitment</h2>
+      <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Editorial Independence &amp; Quality Commitment</h2>
         <p>
           PocketRuler maintains an unwavering commitment to mathematical objectivity:
         </p>
-        <ul class="list-disc pl-5 space-y-2 mt-3 text-slate-700">
+        <ul class="list-disc pl-5 space-y-2 mt-3 text-slate-700 dark:text-slate-300">
           <li>
-            <strong>Zero Sponsored Rankings:</strong> No city or destination can pay to rank higher in our comparisons or adjust cost numbers.
+            <strong class="text-slate-900 dark:text-white">Zero Sponsored Rankings:</strong> No city or destination can pay to rank higher in our comparisons or adjust cost numbers.
           </li>
           <li>
-            <strong>Client-Side Processing:</strong> All salary, tax, and budget inputs are calculated locally in your browser. We never log or store your personal financial data.
+            <strong class="text-slate-900 dark:text-white">Client-Side Processing:</strong> All salary, tax, and budget inputs are calculated locally in your browser. We never log or store your personal financial data.
           </li>
           <li>
-            <strong>Discrepancy Reporting:</strong> If you identify a changing visa salary requirement or tax rate update, report it to our editorial desk via our <a href="../contact.html" class="text-blue-600 font-semibold underline">contact portal</a>.
+            <strong class="text-slate-900 dark:text-white">Discrepancy Reporting:</strong> If you identify a changing visa salary requirement or tax rate update, report it to our editorial desk via our <a href="../contact.html" class="text-blue-600 dark:text-blue-400 font-semibold underline">contact portal</a>.
           </li>
         </ul>
       </section>
@@ -422,40 +378,80 @@
     </div>
   </footer>
 
-  <!-- Mobile Navigation Drawer Handler -->
-  <script>
-    (function() {
-      const menuBtn = document.getElementById('mobileMenuToggle');
-      const drawerCloseBtn = document.getElementById('mobileDrawerClose');
-      const drawer = document.getElementById('mobileDrawer');
-      const backdrop = document.getElementById('mobileDrawerBackdrop');
+  <!-- MOBILE NAVIGATION DRAWER & BACKDROP (Positioned before body end; strictly hidden on desktop) -->
+  <div id="mobileDrawerBackdrop" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm opacity-0 hidden transition-opacity duration-300 md:hidden" aria-hidden="true"></div>
 
-      function openDrawer() {
-        if (!drawer || !backdrop) return;
-        drawer.classList.add('active');
-        backdrop.classList.add('active');
-        menuBtn?.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-      }
+  <aside id="mobileDrawer" class="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out hidden md:hidden flex flex-col justify-between" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center space-x-2.5">
+        <div class="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-1 flex items-center justify-center">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" />
+        </div>
+        <span class="text-base font-black text-slate-900 dark:text-white tracking-tight">
+          PocketRuler<span class="text-blue-600 dark:text-blue-400">.app</span>
+        </span>
+      </a>
+      <button type="button" id="closeMobileMenuBtn" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Close Mobile Navigation">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
 
-      function closeDrawer() {
-        if (!drawer || !backdrop) return;
-        drawer.classList.remove('active');
-        backdrop.classList.remove('active');
-        menuBtn?.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
+    <!-- Drawer Navigation Content -->
+    <div class="p-5 space-y-6 flex-grow overflow-y-auto">
+      <!-- Section: Calculator Navigation -->
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Relocation Suite</div>
+        <a href="index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">
+          Relocation Calculator
+        </a>
+        <a href="guide.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">
+          📖 Expat Tax &amp; Visa Deep Dive
+        </a>
+        <a href="methodology.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/50">
+          📐 Methodology &amp; Data Models
+        </a>
+      </div>
 
-      menuBtn?.addEventListener('click', openDrawer);
-      drawerCloseBtn?.addEventListener('click', closeDrawer);
-      backdrop?.addEventListener('click', closeDrawer);
+      <!-- Section: Web Apps Suite -->
+      <div class="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Other Apps in Suite</div>
+        <a href="../index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <span>🏠 Main Tools Hub</span>
+          <span class="text-[10px] text-slate-400 font-semibold">View All</span>
+        </a>
+        <a href="../freelance-calculator/index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-800 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Freelance Rate Calculator</span>
+          </div>
+          <span class="text-[10px] bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-2 py-0.5 rounded-full font-bold">Launch</span>
+        </a>
+      </div>
 
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && drawer?.classList.contains('active')) {
-          closeDrawer();
-        }
-      });
-    })();
-  </script>
+      <!-- Section: Platform & Legal -->
+      <div class="space-y-1 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Platform &amp; Legal</div>
+        <a href="../about.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">About Us</a>
+        <a href="../contact.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a>
+        <a href="../privacy.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+        <a href="../terms.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</a>
+        <a href="../disclaimer.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Financial Disclaimer</a>
+      </div>
+    </div>
+
+    <!-- Drawer Footer with Theme Toggle -->
+    <div class="p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <span class="text-xs font-medium text-slate-600 dark:text-slate-300">Theme</span>
+      <button type="button" data-theme-toggle class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium text-slate-700 dark:text-slate-200 shadow-2xs hover:bg-slate-50 dark:hover:bg-slate-650 transition">
+        <span>Toggle Mode</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Theme Controller Script -->
+  <script src="../js/theme.js"></script>
 </body>
 </html>

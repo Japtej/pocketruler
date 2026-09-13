@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
   <title>Contact Us &amp; Tool Suggestions | PocketRuler.app</title>
   <meta name="description" content="Contact the PocketRuler.app team for inquiries, feedback, feature requests, or new web app suggestions for the solopreneur suite." />
   <link rel="canonical" href="https://pocketruler.app/contact.html" />
@@ -13,13 +14,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
+  <!-- Zero-FOUC Theme Detection Script -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Google AdSense Official Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
 
-  <!-- Tailwind CSS via CDN -->
+  <!-- Tailwind CSS via CDN with dark mode configured -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -31,165 +49,99 @@
   </script>
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="min-h-screen bg-slate-50 text-slate-800 antialiased flex flex-col justify-between">
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
 
   <!-- TOP HEADER -->
-  <header class="w-full bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+  <header class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
       
       <!-- Brand Logo -->
       <div class="flex items-center space-x-3">
         <a href="index.html" class="flex items-center space-x-3 group" aria-label="PocketRuler.app Home">
-          <div class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/80 p-1 flex items-center justify-center shadow-xs group-hover:bg-slate-100 group-hover:border-slate-300 transition-all shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 p-1 flex items-center justify-center shadow-xs group-hover:bg-slate-100 dark:group-hover:bg-slate-700 group-hover:border-slate-300 dark:group-hover:border-slate-600 transition-all shrink-0">
             <img src="logo.svg" alt="PocketRuler.app Logo" class="w-7 h-7" />
           </div>
           <div>
             <div class="flex items-center space-x-2">
-              <span class="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none">
-                PocketRuler<span class="text-emerald-600">.app</span>
+              <span class="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight leading-none">
+                PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span>
               </span>
-              <span class="text-[10px] bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded-full border border-emerald-200">Tools Hub</span>
+              <span class="text-[10px] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-bold px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">Tools Hub</span>
             </div>
-            <p class="text-xs text-slate-500 mt-0.5 hidden sm:block">
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden sm:block">
               One-Stop Suite for Solopreneurs &amp; Remote Professionals
             </p>
           </div>
         </a>
       </div>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center space-x-5 text-xs sm:text-sm font-bold text-slate-600">
-        <!-- Tools Dropdown -->
-        <div class="relative group py-2">
-          <button type="button" class="flex items-center gap-1.5 text-slate-700 hover:text-emerald-600 font-bold transition-colors focus:outline-none" aria-haspopup="true">
-            <span>All Tools</span>
-            <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-          </button>
-          <div class="absolute left-0 top-full mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-200 p-2 hidden group-hover:block transition-all z-50">
-            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-3 py-1">Active Web Apps</div>
-            <a href="freelance-calculator/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 transition-colors">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <div>
-                <div class="font-bold text-xs">Freelance Rate vs Retainer</div>
-                <div class="text-[11px] text-slate-400 font-normal">Capacity &amp; burnout protection</div>
-              </div>
-            </a>
-            <a href="relocation-calculator/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-blue-50 text-slate-700 hover:text-blue-700 transition-colors mt-0.5">
-              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-              <div>
-                <div class="font-bold text-xs">Expat Tax &amp; Relocation</div>
-                <div class="text-[11px] text-slate-400 font-normal">85+ cities &bull; Tax arbitrage simulator</div>
-              </div>
-            </a>
-            <div class="border-t border-slate-100 my-1"></div>
-            <a href="relocation-calculator/guide.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 text-xs text-slate-600 hover:text-slate-900 transition-colors">
-              <span>📖 Expat Tax &amp; Visa Deep Dive</span>
-            </a>
-            <a href="relocation-calculator/methodology.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 text-xs text-slate-600 hover:text-slate-900 transition-colors">
-              <span>📐 Methodology &amp; Formulas</span>
-            </a>
+      <!-- Desktop Navigation Links & Controls -->
+      <div class="flex items-center space-x-3 lg:space-x-5">
+        <nav class="hidden md:flex items-center space-x-4 lg:space-x-5 text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300">
+          <!-- Tools Dropdown -->
+          <div class="relative group py-2">
+            <button type="button" class="flex items-center gap-1.5 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 font-bold transition-colors focus:outline-none" aria-haspopup="true">
+              <span>All Tools</span>
+              <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="absolute left-0 top-full mt-1 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 p-2 hidden group-hover:block transition-all z-50">
+              <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3 py-1">Active Web Apps</div>
+              <a href="freelance-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <div>
+                  <div class="font-bold text-xs">Freelance Rate vs Retainer</div>
+                  <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">Capacity &amp; burnout protection</div>
+                </div>
+              </a>
+              <a href="relocation-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-700 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-300 transition-colors mt-0.5">
+                <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                <div>
+                  <div class="font-bold text-xs">Expat Tax &amp; Relocation</div>
+                  <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">85+ cities &bull; Tax arbitrage simulator</div>
+                </div>
+              </a>
+              <div class="border-t border-slate-100 dark:border-slate-700 my-1"></div>
+              <a href="relocation-calculator/guide.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-xs text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+                <span>📖 Expat Tax &amp; Visa Deep Dive</span>
+              </a>
+              <a href="relocation-calculator/methodology.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-xs text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+                <span>📐 Methodology &amp; Formulas</span>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <a href="freelance-calculator/" class="hover:text-emerald-600 transition-colors">Freelance Tool</a>
-        <a href="relocation-calculator/" class="hover:text-blue-600 transition-colors">Relocation Tool</a>
-        <a href="about.html" class="hover:text-emerald-600 transition-colors">About</a>
-        <a href="contact.html" class="text-emerald-600 font-bold">Contact</a>
-      </nav>
+          <a href="freelance-calculator/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Freelance Tool</a>
+          <a href="relocation-calculator/index.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Relocation Tool</a>
+          <a href="about.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
+          <a href="contact.html" class="text-emerald-600 dark:text-emerald-400 font-bold">Contact</a>
+        </nav>
 
-      <!-- Mobile Hamburger Button -->
-      <div class="flex items-center md:hidden">
-        <button type="button" id="mobileMenuToggle" class="p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <!-- Theme Toggle Button -->
+        <button type="button" data-theme-toggle class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-label="Toggle Theme" title="Toggle theme">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
         </button>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex items-center md:hidden">
+          <button type="button" id="openMobileMenuBtn" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
       </div>
 
     </div>
   </header>
 
-  <!-- MOBILE NAVIGATION DRAWER & BACKDROP -->
-  <div id="mobileDrawerBackdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
-  <aside id="mobileDrawer" class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-    <div class="p-5 border-b border-slate-200 flex items-center justify-between">
-      <a href="index.html" class="flex items-center space-x-2.5">
-        <div class="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 p-1 flex items-center justify-center">
-          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" />
-        </div>
-        <span class="text-base font-black text-slate-900 tracking-tight">
-          PocketRuler<span class="text-emerald-600">.app</span>
-        </span>
-      </a>
-      <button type="button" id="mobileDrawerClose" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors" aria-label="Close Mobile Navigation">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-
-    <div class="p-5 space-y-6 flex-grow">
-      <div class="space-y-2">
-        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">Active Web Apps</div>
-        <a href="freelance-calculator/" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-800 hover:text-emerald-700 font-bold text-xs transition-colors border border-slate-200/60">
-          <div class="flex items-center gap-2.5">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-            <span>Freelance Rate Calculator</span>
-          </div>
-          <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Launch</span>
-        </a>
-        <a href="relocation-calculator/" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-blue-50 text-slate-800 hover:text-blue-700 font-bold text-xs transition-colors border border-slate-200/60">
-          <div class="flex items-center gap-2.5">
-            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-            <span>Relocation &amp; Tax Calculator</span>
-          </div>
-          <span class="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-bold">Launch</span>
-        </a>
-      </div>
-
-      <div class="space-y-1">
-        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">Guides &amp; Methodology</div>
-        <a href="relocation-calculator/guide.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">
-          📖 Expat Tax &amp; Visa Deep Dive
-        </a>
-        <a href="relocation-calculator/methodology.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">
-          📐 Data Sources &amp; Formulas
-        </a>
-      </div>
-
-      <div class="space-y-1 pt-2 border-t border-slate-100">
-        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">Platform</div>
-        <a href="about.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">
-          About PocketRuler
-        </a>
-        <a href="contact.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-emerald-700 bg-emerald-50">
-          Contact &amp; Feedback
-        </a>
-        <a href="privacy.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">
-          Privacy Policy
-        </a>
-        <a href="terms.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">
-          Terms of Service
-        </a>
-        <a href="disclaimer.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">
-          Financial Disclaimer
-        </a>
-      </div>
-    </div>
-
-    <div class="p-4 bg-slate-50 border-t border-slate-200 text-center text-[11px] text-slate-400">
-      PocketRuler.app &bull; 100% Free Forever
-    </div>
-  </aside>
-
   <!-- MAIN CONTENT -->
   <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow space-y-6">
     
     <!-- Breadcrumbs -->
-    <nav class="text-xs text-slate-400 flex items-center space-x-2" aria-label="Breadcrumb">
-      <a href="index.html" class="hover:text-slate-600">Home</a>
+    <nav class="text-xs text-slate-400 dark:text-slate-500 flex items-center space-x-2" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-slate-600 dark:hover:text-slate-300 transition-colors">Home</a>
       <span>/</span>
-      <span class="text-slate-700 font-semibold">Contact Us</span>
+      <span class="text-slate-700 dark:text-slate-300 font-semibold">Contact Us</span>
     </nav>
 
     <!-- ====================================================================
@@ -213,46 +165,46 @@
       
       <!-- Contact Info Sidebar -->
       <aside class="space-y-6">
-        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-          <h2 class="text-lg font-bold text-slate-900">Get in Touch</h2>
-          <p class="text-xs text-slate-500 leading-relaxed">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white">Get in Touch</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
             Have a question about our calculations, discovered a discrepancy, or want to suggest a new web app for the PocketRuler suite? We’d love to hear from you.
           </p>
 
-          <div class="pt-2 border-t border-slate-100 space-y-3 text-xs">
+          <div class="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-3 text-xs">
             <div>
-              <span class="font-bold text-slate-700 block">General &amp; Support Email</span>
-              <a href="mailto:support@pocketruler.app" class="text-emerald-600 hover:underline">support@pocketruler.app</a>
+              <span class="font-bold text-slate-700 dark:text-slate-300 block">General &amp; Support Email</span>
+              <a href="mailto:support@pocketruler.app" class="text-emerald-600 dark:text-emerald-400 hover:underline">support@pocketruler.app</a>
             </div>
             <div>
-              <span class="font-bold text-slate-700 block">Typical Response Time</span>
-              <span class="text-slate-500">Within 24 to 48 hours</span>
+              <span class="font-bold text-slate-700 dark:text-slate-300 block">Typical Response Time</span>
+              <span class="text-slate-500 dark:text-slate-400">Within 24 to 48 hours</span>
             </div>
             <div>
-              <span class="font-bold text-slate-700 block">Infrastructure</span>
-              <span class="text-slate-500">Global Static CDN &bull; Hosted on GitHub Pages</span>
+              <span class="font-bold text-slate-700 dark:text-slate-300 block">Infrastructure</span>
+              <span class="text-slate-500 dark:text-slate-400">Global Static CDN &bull; Hosted on GitHub Pages</span>
             </div>
           </div>
         </div>
 
-        <div class="bg-emerald-50/60 p-5 rounded-2xl border border-emerald-100 text-xs text-slate-600 space-y-2">
-          <h3 class="font-bold text-slate-900 flex items-center">
-            <svg class="w-4 h-4 text-emerald-600 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="bg-emerald-50/60 dark:bg-emerald-950/40 p-5 rounded-2xl border border-emerald-100 dark:border-emerald-900/60 text-xs text-slate-600 dark:text-slate-300 space-y-2">
+          <h3 class="font-bold text-slate-900 dark:text-white flex items-center">
+            <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             Quick Answers
           </h3>
-          <p class="text-slate-500 text-[11px] leading-relaxed">
-            Looking for calculation formulas or currency conversion sources? Check out our <a href="index.html#faqSection" class="text-emerald-600 font-semibold underline">interactive FAQ section</a> on the homepage or our <a href="relocation-calculator/methodology.html" class="text-emerald-600 font-semibold underline">Relocation Methodology</a>.
+          <p class="text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed">
+            Looking for calculation formulas or currency conversion sources? Check out our <a href="index.html#faqSection" class="text-emerald-600 dark:text-emerald-400 font-semibold underline">interactive FAQ section</a> on the homepage or our <a href="relocation-calculator/methodology.html" class="text-emerald-600 dark:text-emerald-400 font-semibold underline">Relocation Methodology</a>.
           </p>
         </div>
       </aside>
 
       <!-- Contact Form -->
-      <section class="md:col-span-2 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-6">
+      <section class="md:col-span-2 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs space-y-6">
         <div>
-          <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+          <h1 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
             Send Us a Message
           </h1>
-          <p class="text-xs text-slate-500 mt-1">
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
             Fill out the form below, and your default email client will launch with your pre-filled inquiry.
           </p>
         </div>
@@ -260,18 +212,18 @@
         <form id="contactForm" class="space-y-4 text-xs" onsubmit="handleContactSubmit(event)">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="space-y-1">
-              <label for="contactName" class="font-bold text-slate-700">Your Name *</label>
-              <input type="text" id="contactName" required placeholder="Jane Doe" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:bg-white text-xs outline-none" />
+              <label for="contactName" class="font-bold text-slate-700 dark:text-slate-300">Your Name *</label>
+              <input type="text" id="contactName" required placeholder="Jane Doe" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:bg-white dark:focus:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 outline-none" />
             </div>
             <div class="space-y-1">
-              <label for="contactEmail" class="font-bold text-slate-700">Email Address *</label>
-              <input type="email" id="contactEmail" required placeholder="jane@example.com" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:bg-white text-xs outline-none" />
+              <label for="contactEmail" class="font-bold text-slate-700 dark:text-slate-300">Email Address *</label>
+              <input type="email" id="contactEmail" required placeholder="jane@example.com" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:bg-white dark:focus:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 outline-none" />
             </div>
           </div>
 
           <div class="space-y-1">
-            <label for="contactTopic" class="font-bold text-slate-700">Topic</label>
-            <select id="contactTopic" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:bg-white text-xs outline-none cursor-pointer">
+            <label for="contactTopic" class="font-bold text-slate-700 dark:text-slate-300">Topic</label>
+            <select id="contactTopic" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:bg-white dark:focus:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 outline-none cursor-pointer">
               <option value="General Feedback">General Feedback</option>
               <option value="Feature Request">Feature Request (Suggest a new tool)</option>
               <option value="Bug Report">Bug Report / Calculation Discrepancy</option>
@@ -280,12 +232,12 @@
           </div>
 
           <div class="space-y-1">
-            <label for="contactMessage" class="font-bold text-slate-700">Message *</label>
-            <textarea id="contactMessage" rows="5" required placeholder="How can we help you?" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:bg-white text-xs outline-none leading-relaxed"></textarea>
+            <label for="contactMessage" class="font-bold text-slate-700 dark:text-slate-300">Message *</label>
+            <textarea id="contactMessage" rows="5" required placeholder="How can we help you?" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:bg-white dark:focus:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 outline-none leading-relaxed"></textarea>
           </div>
 
           <div class="pt-2 flex items-center justify-between">
-            <span class="text-[11px] text-slate-400">All inquiries handled privately. Zero data tracking.</span>
+            <span class="text-[11px] text-slate-400 dark:text-slate-500">All inquiries handled privately. Zero data tracking.</span>
             <button type="submit" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-xs transition-colors inline-flex items-center">
               Send Message
               <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -293,9 +245,9 @@
           </div>
         </form>
 
-        <div id="contactSuccessNotice" class="hidden p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800 space-y-1">
+        <div id="contactSuccessNotice" class="hidden p-4 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 rounded-xl text-xs text-emerald-800 dark:text-emerald-300 space-y-1">
           <p class="font-bold">Thank you for reaching out!</p>
-          <p class="text-[11px] text-emerald-700">Your message has been formatted. If your email client didn't open automatically, please send your email directly to <a href="mailto:support@pocketruler.app" class="underline font-semibold">support@pocketruler.app</a>.</p>
+          <p class="text-[11px] text-emerald-700 dark:text-emerald-300">Your message has been formatted. If your email client didn't open automatically, please send your email directly to <a href="mailto:support@pocketruler.app" class="underline font-semibold">support@pocketruler.app</a>.</p>
         </div>
       </section>
 
@@ -321,65 +273,65 @@
   </main>
 
   <!-- FOOTER: PocketRuler.app & COMPLIANCE LINKS -->
-  <footer class="w-full bg-white border-t border-slate-200 py-10 text-xs text-slate-500">
+  <footer class="w-full bg-slate-900 text-slate-400 text-xs py-10 border-t border-slate-800 mt-auto">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
       
       <!-- Col 1: Brand & Mission -->
       <div class="space-y-3">
         <div class="flex items-center space-x-2">
           <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" />
-          <span class="text-sm font-black text-slate-900">PocketRuler<span class="text-emerald-600">.app</span></span>
+          <span class="text-sm font-black text-white">PocketRuler<span class="text-emerald-500">.app</span></span>
         </div>
-        <p class="text-[11px] text-slate-500 leading-relaxed">
+        <p class="text-[11px] text-slate-400 leading-relaxed">
           The one-stop suite of free client-side calculation engines for solopreneurs, digital nomads, and independent consultants.
         </p>
-        <p class="text-[10px] text-slate-400">
+        <p class="text-[10px] text-slate-500">
           &copy; 2026 PocketRuler.app. All rights reserved.
         </p>
       </div>
 
       <!-- Col 2: Active Tools -->
       <div class="space-y-2.5">
-        <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Web Apps</h4>
-        <ul class="space-y-1.5 text-slate-600">
-          <li><a href="index.html" class="hover:text-emerald-600 transition-colors">Tools Hub Dashboard</a></li>
-          <li><a href="freelance-calculator/" class="hover:text-emerald-600 transition-colors">Freelance Rate Calculator</a></li>
-          <li><a href="relocation-calculator/" class="hover:text-emerald-600 transition-colors">Expat Tax &amp; Relocation</a></li>
+        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Web Apps</h4>
+        <ul class="space-y-1.5 text-slate-400">
+          <li><a href="index.html" class="hover:text-emerald-400 transition-colors">Tools Hub Dashboard</a></li>
+          <li><a href="freelance-calculator/index.html" class="hover:text-emerald-400 transition-colors">Freelance Rate Calculator</a></li>
+          <li><a href="relocation-calculator/index.html" class="hover:text-emerald-400 transition-colors">Expat Tax &amp; Relocation</a></li>
         </ul>
       </div>
 
       <!-- Col 3: Resources & Guides -->
       <div class="space-y-2.5">
-        <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Resources</h4>
-        <ul class="space-y-1.5 text-slate-600">
-          <li><a href="relocation-calculator/guide.html" class="hover:text-emerald-600 transition-colors">Expat Tax &amp; Visa Guide</a></li>
-          <li><a href="relocation-calculator/methodology.html" class="hover:text-emerald-600 transition-colors">Methodology &amp; Formulas</a></li>
-          <li><a href="about.html" class="hover:text-emerald-600 transition-colors">About Us &amp; Mission</a></li>
-          <li><a href="contact.html" class="text-emerald-700 font-bold">Contact &amp; Feedback</a></li>
+        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Resources</h4>
+        <ul class="space-y-1.5 text-slate-400">
+          <li><a href="relocation-calculator/guide.html" class="hover:text-emerald-400 transition-colors">Expat Tax &amp; Visa Guide</a></li>
+          <li><a href="relocation-calculator/methodology.html" class="hover:text-emerald-400 transition-colors">Methodology &amp; Formulas</a></li>
+          <li><a href="about.html" class="hover:text-emerald-400 transition-colors">About Us &amp; Mission</a></li>
+          <li><a href="contact.html" class="text-emerald-400 font-bold">Contact &amp; Feedback</a></li>
         </ul>
       </div>
 
       <!-- Col 4: Legal & AdSense Compliance -->
       <div class="space-y-2.5">
-        <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Legal &amp; Privacy</h4>
-        <ul class="space-y-1.5 text-slate-600">
-          <li><a href="privacy.html" class="hover:text-emerald-600 transition-colors">Privacy Policy &amp; Cookies</a></li>
-          <li><a href="terms.html" class="hover:text-emerald-600 transition-colors">Terms of Service</a></li>
-          <li><a href="disclaimer.html" class="hover:text-emerald-600 transition-colors">Financial Disclaimer</a></li>
-          <li><a href="ads.txt" class="text-slate-400 hover:text-slate-600 transition-colors">ads.txt (IAB Standard)</a></li>
+        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Legal &amp; Privacy</h4>
+        <ul class="space-y-1.5 text-slate-400">
+          <li><a href="privacy.html" class="hover:text-emerald-400 transition-colors">Privacy Policy &amp; Cookies</a></li>
+          <li><a href="terms.html" class="hover:text-emerald-400 transition-colors">Terms of Service</a></li>
+          <li><a href="disclaimer.html" class="hover:text-emerald-400 transition-colors">Financial Disclaimer</a></li>
+          <li><a href="ads.txt" class="text-slate-500 hover:text-slate-400 transition-colors">ads.txt (IAB Standard)</a></li>
         </ul>
       </div>
 
     </div>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
       <p>Precision tools engineered with privacy-first client-side architecture. No tracking of financial figures.</p>
       <div class="flex items-center space-x-4">
-        <a href="privacy.html" class="hover:text-slate-600">Privacy</a>
+        <a href="privacy.html" class="hover:text-slate-400">Privacy</a>
         <span>&bull;</span>
-        <a href="terms.html" class="hover:text-slate-600">Terms</a>
+        <a href="terms.html" class="hover:text-slate-400">Terms</a>
         <span>&bull;</span>
-        <a href="disclaimer.html" class="hover:text-slate-600">Disclaimer</a>
+        <a href="disclaimer.html" class="hover:text-slate-400">Disclaimer</a>
       </div>
     </div>
   </footer>
@@ -399,40 +351,93 @@
       window.location.href = `mailto:support@pocketruler.app?subject=${subject}&body=${body}`;
       document.getElementById('contactSuccessNotice').classList.remove('hidden');
     }
-
-    (function() {
-      const menuBtn = document.getElementById('mobileMenuToggle');
-      const drawerCloseBtn = document.getElementById('mobileDrawerClose');
-      const drawer = document.getElementById('mobileDrawer');
-      const backdrop = document.getElementById('mobileDrawerBackdrop');
-
-      function openDrawer() {
-        if (!drawer || !backdrop) return;
-        drawer.classList.add('active');
-        backdrop.classList.add('active');
-        menuBtn?.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeDrawer() {
-        if (!drawer || !backdrop) return;
-        drawer.classList.remove('active');
-        backdrop.classList.remove('active');
-        menuBtn?.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
-
-      menuBtn?.addEventListener('click', openDrawer);
-      drawerCloseBtn?.addEventListener('click', closeDrawer);
-      backdrop?.addEventListener('click', closeDrawer);
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && drawer?.classList.contains('active')) {
-          closeDrawer();
-        }
-      });
-    })();
   </script>
+
+  <!-- MOBILE NAVIGATION DRAWER & BACKDROP (Positioned at end of body; strictly hidden on desktop) -->
+  <div id="mobileDrawerBackdrop" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm opacity-0 hidden transition-opacity duration-300 md:hidden" aria-hidden="true"></div>
+
+  <aside id="mobileDrawer" class="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out hidden md:hidden flex flex-col justify-between" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-2.5">
+        <div class="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-1 flex items-center justify-center">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" />
+        </div>
+        <span class="text-base font-black text-slate-900 dark:text-white tracking-tight">
+          PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span>
+        </span>
+      </a>
+      <button type="button" id="closeMobileMenuBtn" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Close Mobile Navigation">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Drawer Navigation Content -->
+    <div class="p-5 space-y-6 flex-grow overflow-y-auto">
+      <!-- Active Web Apps -->
+      <div class="space-y-2">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Active Web Apps</div>
+        <a href="freelance-calculator/index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-800 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Freelance Rate Calculator</span>
+          </div>
+          <span class="text-[10px] bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-2 py-0.5 rounded-full font-bold">Launch</span>
+        </a>
+        <a href="relocation-calculator/index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-800 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-300 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <div class="flex items-center gap-2.5">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            <span>Relocation &amp; Tax Calculator</span>
+          </div>
+          <span class="text-[10px] bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 rounded-full font-bold">Launch</span>
+        </a>
+      </div>
+
+      <!-- Editorial & Methodology -->
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Guides &amp; Methodology</div>
+        <a href="relocation-calculator/guide.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">
+          📖 Expat Tax &amp; Visa Deep Dive
+        </a>
+        <a href="relocation-calculator/methodology.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">
+          📐 Calculation Methodology &amp; Sources
+        </a>
+      </div>
+
+      <!-- Suite Directory & Company -->
+      <div class="space-y-1 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">PocketRuler Suite</div>
+        <a href="about.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">
+          About PocketRuler
+        </a>
+        <a href="contact.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50">
+          Contact &amp; Feedback
+        </a>
+        <a href="privacy.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">
+          Privacy Policy
+        </a>
+        <a href="terms.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">
+          Terms of Service
+        </a>
+        <a href="disclaimer.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">
+          Financial Disclaimer
+        </a>
+      </div>
+    </div>
+
+    <!-- Drawer Footer with Theme Toggle -->
+    <div class="p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <span class="text-xs font-medium text-slate-600 dark:text-slate-300">Theme</span>
+      <button type="button" data-theme-toggle class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium text-slate-700 dark:text-slate-200 shadow-2xs hover:bg-slate-50 dark:hover:bg-slate-650 transition">
+        <span>Toggle Mode</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Theme Controller Script -->
+  <script src="js/theme.js"></script>
 
 </body>
 </html>

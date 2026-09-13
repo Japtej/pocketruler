@@ -3,7 +3,8 @@
 > A privacy-first suite of client-side web utilities for freelancers, solopreneurs, and digital nomads. Hosted statically on GitHub Pages with zero server maintenance, unified responsive navigation, and standardized Google AdSense monetization across all pages.
 
 **Live Domain:** [https://pocketruler.app](https://pocketruler.app)  
-**Primary Architecture Guide:** [PROJECT_TEMPLATE.md](PROJECT_TEMPLATE.md) *(Mandatory reading for any developer or AI agent before making changes)*
+**Primary Architecture Guide:** [PROJECT_TEMPLATE.md](PROJECT_TEMPLATE.md) *(Mandatory reading for any developer or AI agent before making changes)*  
+**Master Design, AdSense & SEO Guidelines:** [DESIGN_GUIDELINES.md](DESIGN_GUIDELINES.md) *(Design system tokens, WCAG 2.1/2.2 AA, AdSense viewability >70%, and Core Web Vitals)*
 
 ---
 
@@ -11,8 +12,9 @@
 
 PocketRuler.app is engineered as the **one-stop shop** for modern independent professionals:
 - **Zero Backend / 100% Client-Side:** Calculations happen entirely in the user's browser. Zero private financial or tax numbers are stored or transmitted.
-- **Unified Navigation System:** Every page features our sticky top header, "All Tools" mega-dropdown, and responsive off-canvas mobile navigation drawer (`mobileDrawer`).
-- **Standardized AdSense Monetization:** Every page implements standardized ad placeholder regions (Top Slot 1, Mid Slot 2 where appropriate, Bottom Slot 3) ready for single-step Google AdSense publisher ID activation.
+- **Unified Navigation & Drawer Architecture:** Every page features a sticky top header, "All Tools" mega-dropdown, and an isolated responsive mobile navigation drawer (`mobileDrawer`) strictly positioned to prevent desktop flow defects.
+- **OS-Aware Dark & Light Theming:** Standardized theme controller (`js/theme.js`) automatically adapting to the user's OS / Windows preference (`prefers-color-scheme`), with live system change listeners, manual toggle button (`data-theme-toggle`), zero-FOUC initialization, and dynamic chart theme adaptation.
+- **Standardized AdSense Monetization:** Every page implements standardized ad placeholder regions (Top Slot 1, Mid Slot 2 where appropriate, Bottom Slot 3) ready for single-step Google AdSense publisher ID activation (`ca-pub-3008088352823319`).
 - **Single-Domain Authority:** All micro-apps share the root custom domain `pocketruler.app` under GitHub Pages, allowing new apps to inherit root Google AdSense approvals and domain authority instantly.
 
 ---
@@ -31,7 +33,7 @@ PocketRuler.app is engineered as the **one-stop shop** for modern independent pr
    - Dynamic real-time exchange rates via `open.er-api.com` across 15 global currencies.
    - Real-time "Rate Health" diagnostic assessment (burnout & undercharging warnings).
    - 1-Click dynamic "Client Retainer Pitch" proposal email generator.
-   - Revenue breakdown doughnut chart (Chart.js) and 3-Tier retainer packaging playbook.
+   - Revenue breakdown doughnut chart (Chart.js) dynamically adapting to dark/light theme.
    - Integrated with unified header, mobile drawer, and 3 AdSense slots.
 
 3. **Remote Work Relocation & Expat Tax Arbitrage Calculator** (`/relocation-calculator/`):
@@ -56,11 +58,14 @@ PocketRuler.app is engineered as the **one-stop shop** for modern independent pr
 .
 ├── .github/workflows/deploy.yml          # Automated GitHub Pages deployment pipeline
 ├── CNAME                                 # Custom domain binding for pocketruler.app
+├── DESIGN_GUIDELINES.md                  # Master Design System, AdSense, SEO & UI/UX Standards
 ├── PROJECT_TEMPLATE.md                   # Operational standards, AdSense rules & dev blueprint
 ├── README.md                             # Repository documentation & guide
 ├── index.html                            # Master Tools Hub Dashboard
 ├── favicon.svg                           # High-res SVG favicon (ruler motif)
 ├── logo.svg                              # Brand identity logo
+├── js/
+│   └── theme.js                          # Universal OS & manual dark/light theme controller & mobile drawer handler
 ├── css/
 │   └── style.css                         # Shared CSS, mobile drawer, filters & AdSense styling
 ├── freelance-calculator/                 # [Web App 1] Freelance Rate vs. Retainer
@@ -93,22 +98,23 @@ PocketRuler.app is engineered as the **one-stop shop** for modern independent pr
 
 ## 💰 Google AdSense Monetization Standard
 
-All pages adhere to the 3-Slot monetization pattern detailed in [PROJECT_TEMPLATE.md](PROJECT_TEMPLATE.md):
+All pages adhere to the 3-Slot monetization pattern detailed in [PROJECT_TEMPLATE.md](PROJECT_TEMPLATE.md) and [DESIGN_GUIDELINES.md](DESIGN_GUIDELINES.md):
 
 1. **Slot 1: Top Leaderboard Banner**
    - Position: Below top header, above primary interactive tool/content.
    - Recommended dimensions: Responsive (728x90 desktop / 320x100 mobile).
 2. **Slot 2: Mid-Content / In-Feed Native Unit**
    - Position: Between tool calculation results and secondary educational/table content.
-   - Recommended dimensions: Fluid In-Article / In-Feed responsive unit.
+   - Recommended dimensions: Fluid In-Article / In-Feed responsive unit (`min-height: 280px;`).
 3. **Slot 3: Bottom High-Viewability Banner**
    - Position: Directly above the 4-column footer on all pages.
-   - Recommended dimensions: Responsive auto-ad display.
+   - Recommended dimensions: Responsive auto-ad display (`min-height: 90px;`).
 
 ### Active Publisher ID & Monetization Setup
-AdSense is implemented across all 10 pages with active publisher ID `ca-pub-3008088352823319`:
+AdSense is implemented across all pages with active publisher ID `ca-pub-3008088352823319`:
 - **Head Script**: Pre-loaded in `<head>` of every HTML file for responsive Auto Ads & fast CDN serving.
-- **In-Page Units**: Placed in standardized zero-CLS `.adsense-card` containers (`min-height: 90px;`).
+- **In-Page Units**: Placed in standardized zero-CLS `.adsense-card` containers (`min-height: 90px;` or `min-height: 280px;`).
+- **Policy Compliance**: Strict >70% viewability architecture, mobile ad density <30%, and 25px clear button margins (see [DESIGN_GUIDELINES.md](DESIGN_GUIDELINES.md)).
 - **ads.txt**: Verified and committed with authorized record:
   ```
   google.com, pub-3008088352823319, DIRECT, f08c47fec0942fa0
@@ -118,15 +124,15 @@ AdSense is implemented across all 10 pages with active publisher ID `ca-pub-3008
 
 ## 🛠️ Adding a New Web App to PocketRuler.app
 
-Follow the 8-step blueprint outlined in **[PROJECT_TEMPLATE.md](PROJECT_TEMPLATE.md)**:
+Follow the 8-step blueprint outlined in **[PROJECT_TEMPLATE.md](PROJECT_TEMPLATE.md)** and verify against the **[DESIGN_GUIDELINES.md Checklist](DESIGN_GUIDELINES.md#7-contributor--ai-agent-verification-checklist)**:
 1. Create a dedicated subfolder (e.g., `pocketruler.app/invoice-generator/`).
-2. Add standalone `index.html` using the PocketRuler Design System (Tailwind + Plus Jakarta Sans).
-3. Include the standard PocketRuler sticky header with "All Tools" dropdown and mobile drawer.
-4. Insert AdSense Slot 1, Slot 2, and Slot 3 placeholders.
-5. Add the unified 4-column footer.
-6. Register the new app in `index.html` (hub cards) and the "All Tools" dropdowns.
-7. Add the URL to `sitemap.xml`.
-8. Verify internally in responsive browser viewports before committing to `git`.
+2. Add standalone `index.html` adhering to the PocketRuler Design System (Tailwind + Plus Jakarta Sans + WCAG 2.1/2.2 AA).
+3. Include the standard PocketRuler sticky header with "All Tools" dropdown and accessible mobile drawer (`inert` supported).
+4. Insert zero-CLS AdSense Slot 1, Slot 2, and Slot 3 placeholders with 25px control margins.
+5. Include $\ge 1,500$ words of educational E-E-A-T content, formula breakdowns, and JSON-LD structured data (`WebApplication` & `FAQPage`).
+6. Add the unified 4-column footer.
+7. Register the new app in `index.html` (hub cards) and the "All Tools" dropdowns.
+8. Add the URL to `sitemap.xml` and verify in responsive viewports before committing to `git`.
 
 ---
 

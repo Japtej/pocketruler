@@ -3,11 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
   <title>Expat Tax &amp; Cost of Living Arbitrage Calculator | PocketRuler.app</title>
   <meta name="description" content="Calculate real-time cost of living, effective expat tax rates, net take-home pay, and purchasing power parity arbitrage across 85+ global cities or add any custom city worldwide." />
   <meta name="keywords" content="remote work calculator, cost of living comparison, expat tax calculator, digital nomad visa income requirements, purchasing power parity, geoarbitrage, pocketruler" />
   <link rel="canonical" href="https://pocketruler.app/relocation-calculator/" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Zero-FOUC Theme Detection Script -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Google AdSense Official Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
@@ -24,10 +41,11 @@
   <meta name="twitter:title" content="RelocateTrue &bull; Expat Tax &amp; Cost of Living Calculator | PocketRuler.app" />
   <meta name="twitter:description" content="Compare net take-home pay, local expenses, and digital nomad visa eligibility across 85+ global remote hubs." />
 
-  <!-- Tailwind CSS via CDN -->
+  <!-- Tailwind CSS via CDN with Dark Mode -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -68,10 +86,10 @@
   </script>
 </head>
 
-<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-blue-100 selection:text-blue-900 transition-colors duration-200">
 
   <!-- Top Announcement / Ticker Bar -->
-  <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
+  <div class="bg-slate-900 dark:bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
         <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">85+ Global Hubs + Custom City Engine</span>
@@ -91,74 +109,78 @@
   </div>
 
   <!-- Main Navigation Header -->
-  <header class="w-full bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs no-print">
+  <header class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs no-print transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
       
       <!-- Brand Logo -->
       <div class="flex items-center space-x-3">
-        <a href="../index.html" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200/80 p-1 flex items-center justify-center shadow-xs shrink-0 hover:border-slate-300 transition-colors" aria-label="PocketRuler Home">
+        <a href="../index.html" class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 p-1 flex items-center justify-center shadow-xs shrink-0 hover:border-slate-300 dark:hover:border-slate-600 transition-colors" aria-label="PocketRuler Home">
           <img src="logo.svg" alt="PocketRuler.app Logo" class="w-7 h-7" />
         </a>
         <div>
           <div class="flex items-center space-x-2">
-            <a href="../index.html" class="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none hover:text-blue-600 transition-colors">
-              PocketRuler<span class="text-blue-600">.app</span>
+            <a href="../index.html" class="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight leading-none hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              PocketRuler<span class="text-blue-600 dark:text-blue-400">.app</span>
             </a>
-            <span class="text-[10px] bg-blue-50 text-blue-800 font-bold px-2 py-0.5 rounded-full border border-blue-200">Relocation Suite</span>
+            <span class="text-[10px] bg-blue-50 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 font-bold px-2 py-0.5 rounded-full border border-blue-200 dark:border-blue-800">Relocation Suite</span>
           </div>
-          <p class="text-xs text-slate-500 mt-0.5 hidden sm:block">
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden sm:block">
             RelocateTrue &bull; Expat Tax &amp; Cost of Living Arbitrage
           </p>
         </div>
       </div>
 
       <!-- Desktop Nav Links -->
-      <div class="hidden lg:flex items-center space-x-6 text-xs sm:text-sm font-bold text-slate-600">
+      <div class="hidden lg:flex items-center space-x-4 lg:space-x-6 text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300">
         <!-- Tools Dropdown -->
         <div class="relative group py-2">
-          <button type="button" class="flex items-center gap-1.5 text-blue-700 hover:text-blue-600 font-bold transition-colors focus:outline-none" aria-haspopup="true">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/></svg>
-            <span>All Apps</span>
-            <svg class="w-3 h-3 text-blue-500 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <button type="button" class="flex items-center gap-1.5 text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 font-bold transition-colors focus:outline-none" aria-haspopup="true">
+            <span>All Tools</span>
+            <svg class="w-3 h-3 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="absolute left-0 top-full mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-200 p-2 hidden group-hover:block transition-all z-50">
-            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-3 py-1">Suite Directory</div>
-            <a href="../index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-700 text-xs font-semibold transition-colors">
+          <div class="absolute left-0 top-full mt-1 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 p-2 hidden group-hover:block transition-all z-50">
+            <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3 py-1">Suite Directory</div>
+            <a href="../index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-slate-700 dark:text-slate-200 text-xs font-semibold transition-colors">
               <span>🏠 Main Tools Hub</span>
             </a>
-            <a href="../freelance-calculator/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 transition-colors">
+            <a href="../freelance-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
               <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
               <div>
                 <div class="font-bold text-xs">Freelance Rate Calculator</div>
-                <div class="text-[11px] text-slate-400 font-normal">Pricing, retainers &amp; pitch generator</div>
+                <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">Pricing, retainers &amp; pitch generator</div>
               </div>
             </a>
-            <div class="border-t border-slate-100 my-1"></div>
-            <a href="guide.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 text-xs text-slate-600 hover:text-slate-900 transition-colors">
+            <div class="border-t border-slate-100 dark:border-slate-700 my-1"></div>
+            <a href="guide.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-xs text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
               <span>📖 Expat Tax &amp; Visa Guide</span>
             </a>
-            <a href="methodology.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 text-xs text-slate-600 hover:text-slate-900 transition-colors">
+            <a href="methodology.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-xs text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
               <span>📐 Methodology &amp; Formulas</span>
             </a>
           </div>
         </div>
 
-        <a href="index.html" class="text-blue-600 font-bold">Calculator</a>
-        <a href="guide.html" class="hover:text-blue-600 transition">Expat Tax &amp; Visa Guide</a>
-        <a href="methodology.html" class="hover:text-blue-600 transition">Methodology</a>
-        <a href="../about.html" class="hover:text-slate-900 transition">About</a>
-        <a href="../contact.html" class="hover:text-slate-900 transition">Contact</a>
+        <a href="index.html" class="text-blue-600 dark:text-blue-400 font-bold">Calculator</a>
+        <a href="guide.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Expat Tax &amp; Visa Guide</a>
+        <a href="methodology.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Methodology</a>
+        <a href="../about.html" class="hover:text-slate-900 dark:hover:text-white transition">About</a>
+        <a href="../contact.html" class="hover:text-slate-900 dark:hover:text-white transition">Contact</a>
       </div>
 
-      <!-- Action Buttons & Hamburger -->
-      <div class="flex items-center gap-3">
-        <button id="print-report-btn" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 transition">
-          <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+      <!-- Action Buttons, Theme Toggle & Hamburger -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="print-report-btn" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 transition">
+          <svg class="w-4 h-4 text-slate-500 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
           <span class="hidden sm:inline">Print Report</span>
         </button>
 
+        <!-- Theme Toggle Button -->
+        <button type="button" data-theme-toggle class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Toggle Theme" title="Toggle theme">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </button>
+
         <!-- Mobile Hamburger Toggle -->
-        <button type="button" id="mobileMenuToggle" class="p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors lg:hidden focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <button type="button" id="openMobileMenuBtn" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors lg:hidden focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -168,80 +190,14 @@
     </div>
   </header>
 
-  <!-- MOBILE NAVIGATION DRAWER & BACKDROP -->
-  <div id="mobileDrawerBackdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
-  <aside id="mobileDrawer" class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-    <div class="p-5 border-b border-slate-200 flex items-center justify-between">
-      <a href="../index.html" class="flex items-center space-x-2.5">
-        <div class="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 p-1 flex items-center justify-center">
-          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" />
-        </div>
-        <span class="text-base font-black text-slate-900 tracking-tight">
-          PocketRuler<span class="text-blue-600">.app</span>
-        </span>
-      </a>
-      <button type="button" id="mobileDrawerClose" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition-colors" aria-label="Close Mobile Navigation">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-
-    <div class="p-5 space-y-6 flex-grow">
-      <!-- Section: Calculator Navigation -->
-      <div class="space-y-1">
-        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">Relocation Suite</div>
-        <a href="index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-blue-700 bg-blue-50">
-          Relocation Calculator
-        </a>
-        <a href="guide.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">
-          📖 Expat Tax &amp; Visa Deep Dive
-        </a>
-        <a href="methodology.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">
-          📐 Methodology &amp; Data Models
-        </a>
-      </div>
-
-      <!-- Section: Web Apps Suite -->
-      <div class="space-y-2 pt-2 border-t border-slate-100">
-        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">Other Apps in Suite</div>
-        <a href="../index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-800 font-bold text-xs transition-colors border border-slate-200/60">
-          <span>🏠 Main Tools Hub</span>
-          <span class="text-[10px] text-slate-400 font-semibold">View All</span>
-        </a>
-        <a href="../freelance-calculator/" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-800 hover:text-emerald-700 font-bold text-xs transition-colors border border-slate-200/60">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-            <span>Freelance Rate Calculator</span>
-          </div>
-          <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Launch</span>
-        </a>
-      </div>
-
-      <!-- Section: Platform & Legal -->
-      <div class="space-y-1 pt-2 border-t border-slate-100">
-        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">Platform &amp; Legal</div>
-        <a href="../about.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">About Us</a>
-        <a href="../contact.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">Contact</a>
-        <a href="../privacy.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">Privacy Policy</a>
-        <a href="../terms.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">Terms of Service</a>
-        <a href="../disclaimer.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors">Financial Disclaimer</a>
-      </div>
-    </div>
-
-    <div class="p-4 bg-slate-50 border-t border-slate-200 text-center text-[11px] text-slate-400">
-      PocketRuler.app &bull; 100% Free Forever
-    </div>
-  </aside>
-
   <!-- Hero Intro Section -->
   <header class="pt-6 pb-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
     <div class="text-center max-w-3xl mx-auto">
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 leading-tight">
-        Remote Work Cost of Living &amp; <span class="text-blue-600">Expat Tax Arbitrage</span> Calculator
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
+        Remote Work Cost of Living &amp; <span class="text-blue-600 dark:text-blue-400">Expat Tax Arbitrage</span> Calculator
       </h1>
-      <p class="mt-3 text-base sm:text-lg text-slate-600">
-        Calculate your true net take-home pay after local taxes, benchmark living costs, discover your monthly geoarbitrage surplus, and verify digital nomad visa income requirements across <strong>85+ major global cities</strong> or <strong>any custom city in the world</strong>.
+      <p class="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-300">
+        Calculate your true net take-home pay after local taxes, benchmark living costs, discover your monthly geoarbitrage surplus, and verify digital nomad visa income requirements across <strong class="text-slate-900 dark:text-white">85+ major global cities</strong> or <strong class="text-slate-900 dark:text-white">any custom city in the world</strong>.
       </p>
 
       <!-- Quick Preset Buttons Bar -->
@@ -282,32 +238,32 @@
       <section class="lg:col-span-5 flex flex-col gap-6">
 
         <!-- Input Parameters Card -->
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6 card-print">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
-            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-5 sm:p-6 card-print">
+          <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4 mb-5">
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
               1. Salary &amp; City Selection
             </h2>
-            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-blue-50 text-blue-700">85+ Hubs</span>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">85+ Hubs</span>
           </div>
 
           <!-- Gross Income Input & Slider -->
           <div class="mb-6">
             <div class="flex items-center justify-between mb-1.5">
-              <label for="income-input" class="text-sm font-semibold text-slate-700">Annual Gross Income (USD)</label>
-              <span class="text-xs text-slate-500">Worldwide remote salary</span>
+              <label for="income-input" class="text-sm font-semibold text-slate-700 dark:text-slate-200">Annual Gross Income (USD)</label>
+              <span class="text-xs text-slate-500 dark:text-slate-400">Worldwide remote salary</span>
             </div>
             <div class="relative rounded-xl shadow-sm mb-3">
               <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
                 <span class="text-slate-400 font-bold">$</span>
               </div>
               <input type="number" id="income-input" min="20000" max="500000" step="1000" value="95000"
-                     class="block w-full rounded-xl border border-slate-300 pl-8 pr-4 py-2.5 text-base font-bold text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition" />
+                     class="block w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 pl-8 pr-4 py-2.5 text-base font-bold text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition" />
             </div>
             <!-- Range Slider -->
             <input type="range" id="income-slider" min="30000" max="300000" step="2500" value="95000"
                    class="custom-slider w-full cursor-pointer" />
-            <div class="flex justify-between text-[11px] font-medium text-slate-400 mt-1">
+            <div class="flex justify-between text-[11px] font-medium text-slate-400 dark:text-slate-500 mt-1">
               <span>$30,000</span>
               <span>$100,000</span>
               <span>$200,000</span>
@@ -320,21 +276,21 @@
             <!-- Origin City Selection -->
             <div>
               <div class="flex items-center justify-between mb-1.5">
-                <label for="origin-city-select" class="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                <label for="origin-city-select" class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Origin / Current Base City
                 </label>
-                <button type="button" id="open-custom-origin-btn" class="text-[11px] font-semibold text-blue-600 hover:text-blue-800 transition">
+                <button type="button" id="open-custom-origin-btn" class="text-[11px] font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition">
                   + Add Custom City
                 </button>
               </div>
               <!-- Fast Filter Input -->
               <input type="text" id="origin-city-search" placeholder="Type to filter cities..."
-                     class="w-full mb-1.5 px-3 py-1.5 text-xs rounded-lg border border-slate-200 bg-slate-50 text-slate-700 focus:bg-white focus:border-blue-400 outline-none transition" />
+                     class="w-full mb-1.5 px-3 py-1.5 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:bg-white dark:focus:bg-slate-750 focus:border-blue-400 outline-none transition" />
               <div class="relative">
-                <select id="origin-city-select" class="block w-full appearance-none rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 pr-8 text-sm font-semibold text-slate-800 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition">
+                <select id="origin-city-select" class="block w-full appearance-none rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3.5 py-2.5 pr-8 text-sm font-semibold text-slate-800 dark:text-slate-100 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition">
                   <!-- Injected via JavaScript -->
                 </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500 dark:text-slate-400">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
               </div>
@@ -342,7 +298,7 @@
 
             <!-- Swap Cities Button -->
             <div class="flex justify-center -my-1">
-              <button type="button" id="swap-cities-btn" title="Swap Origin and Destination" class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 transition border border-slate-200 shadow-sm">
+              <button type="button" id="swap-cities-btn" title="Swap Origin and Destination" class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-blue-950 text-slate-600 dark:text-slate-300 hover:text-blue-700 dark:hover:text-blue-300 transition border border-slate-200 dark:border-slate-700 shadow-sm">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path></svg>
                 Swap Cities
               </button>
@@ -351,21 +307,21 @@
             <!-- Destination City Selection -->
             <div>
               <div class="flex items-center justify-between mb-1.5">
-                <label for="dest-city-select" class="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                <label for="dest-city-select" class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Destination / Target Relocation City
                 </label>
-                <button type="button" id="open-custom-dest-btn" class="text-[11px] font-semibold text-blue-600 hover:text-blue-800 transition">
+                <button type="button" id="open-custom-dest-btn" class="text-[11px] font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition">
                   + Add Custom City
                 </button>
               </div>
               <!-- Fast Filter Input -->
               <input type="text" id="dest-city-search" placeholder="Type to filter cities..."
-                     class="w-full mb-1.5 px-3 py-1.5 text-xs rounded-lg border border-slate-200 bg-slate-50 text-slate-700 focus:bg-white focus:border-blue-400 outline-none transition" />
+                     class="w-full mb-1.5 px-3 py-1.5 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:bg-white dark:focus:bg-slate-750 focus:border-blue-400 outline-none transition" />
               <div class="relative">
-                <select id="dest-city-select" class="block w-full appearance-none rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 pr-8 text-sm font-semibold text-slate-800 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition">
+                <select id="dest-city-select" class="block w-full appearance-none rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3.5 py-2.5 pr-8 text-sm font-semibold text-slate-800 dark:text-slate-100 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition">
                   <!-- Injected via JavaScript -->
                 </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500 dark:text-slate-400">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </div>
               </div>
@@ -373,28 +329,28 @@
           </div>
 
           <!-- Housing & Lifestyle Toggles -->
-          <div class="mt-6 pt-5 border-t border-slate-100 space-y-4">
+          <div class="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800 space-y-4">
             <!-- Housing Preference -->
             <div>
-              <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
                 Housing Type
               </label>
               <div class="grid grid-cols-3 gap-2">
                 <label class="cursor-pointer">
                   <input type="radio" name="housing" value="center" class="peer sr-only" checked />
-                  <div class="text-center p-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
+                  <div class="text-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 peer-checked:border-blue-600 dark:peer-checked:border-blue-500 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-950/60 peer-checked:text-blue-700 dark:peer-checked:text-blue-300 transition">
                     1-Bed Center
                   </div>
                 </label>
                 <label class="cursor-pointer">
                   <input type="radio" name="housing" value="outside" class="peer sr-only" />
-                  <div class="text-center p-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
+                  <div class="text-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 peer-checked:border-blue-600 dark:peer-checked:border-blue-500 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-950/60 peer-checked:text-blue-700 dark:peer-checked:text-blue-300 transition">
                     Outside Center
                   </div>
                 </label>
                 <label class="cursor-pointer">
                   <input type="radio" name="housing" value="coliving" class="peer sr-only" />
-                  <div class="text-center p-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
+                  <div class="text-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 peer-checked:border-blue-600 dark:peer-checked:border-blue-500 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-950/60 peer-checked:text-blue-700 dark:peer-checked:text-blue-300 transition">
                     Coliving / Room
                   </div>
                 </label>
@@ -403,25 +359,25 @@
 
             <!-- Lifestyle Multiplier -->
             <div>
-              <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
                 Lifestyle Level
               </label>
               <div class="grid grid-cols-3 gap-2">
                 <label class="cursor-pointer">
                   <input type="radio" name="lifestyle" value="frugal" class="peer sr-only" />
-                  <div class="text-center p-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
+                  <div class="text-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 peer-checked:border-blue-600 dark:peer-checked:border-blue-500 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-950/60 peer-checked:text-blue-700 dark:peer-checked:text-blue-300 transition">
                     Frugal (0.75x)
                   </div>
                 </label>
                 <label class="cursor-pointer">
                   <input type="radio" name="lifestyle" value="moderate" class="peer sr-only" checked />
-                  <div class="text-center p-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
+                  <div class="text-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 peer-checked:border-blue-600 dark:peer-checked:border-blue-500 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-950/60 peer-checked:text-blue-700 dark:peer-checked:text-blue-300 transition">
                     Moderate (1.0x)
                   </div>
                 </label>
                 <label class="cursor-pointer">
                   <input type="radio" name="lifestyle" value="luxury" class="peer sr-only" />
-                  <div class="text-center p-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
+                  <div class="text-center p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 peer-checked:border-blue-600 dark:peer-checked:border-blue-500 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-950/60 peer-checked:text-blue-700 dark:peer-checked:text-blue-300 transition">
                     Comfortable (1.45x)
                   </div>
                 </label>
@@ -430,34 +386,32 @@
           </div>
         </div>
 
-
-
         <!-- Digital Nomad Visa Check Card -->
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6 card-print">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-5 sm:p-6 card-print">
           <div class="flex items-center justify-between mb-3">
-            <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
-              <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <svg class="w-5 h-5 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
               Nomad Visa Qualification
             </h3>
-            <span id="visa-badge" class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-slate-100 text-slate-700">Checking...</span>
+            <span id="visa-badge" class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700">Checking...</span>
           </div>
 
-          <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-100">
-            <div class="text-xs text-slate-500 font-medium" id="visa-name">Visa Program</div>
+          <div class="bg-slate-50 dark:bg-slate-800/80 rounded-xl p-3.5 border border-slate-100 dark:border-slate-700">
+            <div class="text-xs text-slate-500 dark:text-slate-400 font-medium" id="visa-name">Visa Program</div>
             <div class="mt-1 flex items-baseline justify-between">
-              <span class="text-xs text-slate-600">Official Requirement:</span>
-              <span class="text-xs font-bold text-slate-900" id="visa-min-income">$0/mo</span>
+              <span class="text-xs text-slate-600 dark:text-slate-300">Official Requirement:</span>
+              <span class="text-xs font-bold text-slate-900 dark:text-white" id="visa-min-income">$0/mo</span>
             </div>
             <div class="flex items-baseline justify-between mt-0.5">
-              <span class="text-xs text-slate-600">Your Monthly Gross:</span>
-              <span class="text-xs font-bold text-blue-600" id="visa-user-income">$0/mo</span>
+              <span class="text-xs text-slate-600 dark:text-slate-300">Your Monthly Gross:</span>
+              <span class="text-xs font-bold text-blue-600 dark:text-blue-400" id="visa-user-income">$0/mo</span>
             </div>
           </div>
 
-          <div id="visa-verdict" class="text-xs font-medium text-slate-700 mt-3"></div>
-          <p id="visa-details" class="text-xs text-slate-500 mt-1 leading-relaxed"></p>
+          <div id="visa-verdict" class="text-xs font-medium text-slate-700 dark:text-slate-300 mt-3"></div>
+          <p id="visa-details" class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed"></p>
           <div class="mt-3 text-right">
-            <a id="visa-official-link" href="#" class="text-xs font-bold text-blue-600 hover:text-blue-800 transition">
+            <a id="visa-official-link" href="#" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition">
               Official Visa Guidelines &rarr;
             </a>
           </div>
@@ -518,86 +472,86 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
           <!-- Origin Card -->
-          <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 card-print">
-            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+          <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-5 card-print">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-3">
               <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Current Base</span>
-                <h4 id="origin-name-title" class="text-base font-extrabold text-slate-900 leading-tight">Origin City</h4>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Current Base</span>
+                <h4 id="origin-name-title" class="text-base font-extrabold text-slate-900 dark:text-white leading-tight">Origin City</h4>
               </div>
-              <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">Origin</span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">Origin</span>
             </div>
 
             <div class="space-y-2.5 text-xs">
-              <div class="flex justify-between items-center py-1 border-b border-slate-50">
-                <span class="text-slate-500">Effective Tax &amp; Levies:</span>
+              <div class="flex justify-between items-center py-1 border-b border-slate-50 dark:border-slate-800">
+                <span class="text-slate-500 dark:text-slate-400">Effective Tax &amp; Levies:</span>
                 <div class="text-right">
-                  <span id="origin-tax-rate" class="font-bold text-slate-800">0%</span>
-                  <span id="origin-tax-annual" class="text-[11px] text-slate-400 block">-$0/yr</span>
+                  <span id="origin-tax-rate" class="font-bold text-slate-800 dark:text-slate-200">0%</span>
+                  <span id="origin-tax-annual" class="text-[11px] text-slate-400 dark:text-slate-500 block">-$0/yr</span>
                 </div>
               </div>
-              <div class="text-[10px] text-slate-400 italic" id="origin-tax-regime">Tax Regime</div>
+              <div class="text-[10px] text-slate-400 dark:text-slate-500 italic" id="origin-tax-regime">Tax Regime</div>
 
-              <div class="flex justify-between items-center py-1 border-b border-slate-50">
-                <span class="text-slate-500">Net Take-Home Pay:</span>
+              <div class="flex justify-between items-center py-1 border-b border-slate-50 dark:border-slate-800">
+                <span class="text-slate-500 dark:text-slate-400">Net Take-Home Pay:</span>
                 <div class="text-right">
-                  <span id="origin-net-takehome" class="font-extrabold text-slate-900">$0/mo</span>
-                  <span id="origin-net-annual" class="text-[10px] text-slate-400 block">$0/yr</span>
+                  <span id="origin-net-takehome" class="font-extrabold text-slate-900 dark:text-white">$0/mo</span>
+                  <span id="origin-net-annual" class="text-[10px] text-slate-400 dark:text-slate-500 block">$0/yr</span>
                 </div>
               </div>
 
-              <div class="flex justify-between items-center py-1 border-b border-slate-50">
-                <span class="text-slate-500">Living Expenses:</span>
-                <span id="origin-monthly-expenses" class="font-bold text-rose-600">-$0/mo</span>
+              <div class="flex justify-between items-center py-1 border-b border-slate-50 dark:border-slate-800">
+                <span class="text-slate-500 dark:text-slate-400">Living Expenses:</span>
+                <span id="origin-monthly-expenses" class="font-bold text-rose-600 dark:text-rose-400">-$0/mo</span>
               </div>
 
-              <div class="flex justify-between items-center py-1 bg-slate-50 px-2.5 rounded-lg border border-slate-100 mt-2">
-                <span class="font-semibold text-slate-700">Monthly Disposable:</span>
-                <span id="origin-discretionary" class="font-black text-slate-900">$0/mo</span>
+              <div class="flex justify-between items-center py-1 bg-slate-50 dark:bg-slate-800/80 px-2.5 rounded-lg border border-slate-100 dark:border-slate-700 mt-2">
+                <span class="font-semibold text-slate-700 dark:text-slate-200">Monthly Disposable:</span>
+                <span id="origin-discretionary" class="font-black text-slate-900 dark:text-white">$0/mo</span>
               </div>
             </div>
           </div>
 
           <!-- Destination Card -->
-          <div class="bg-white rounded-2xl shadow-sm border-2 border-blue-500/30 p-5 relative overflow-hidden card-print">
-            <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-0.5 rounded-bl-lg">
+          <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border-2 border-blue-500/40 dark:border-blue-500/50 p-5 relative overflow-hidden card-print">
+            <div class="absolute top-0 right-0 bg-blue-600 dark:bg-blue-500 text-white text-[10px] font-bold px-3 py-0.5 rounded-bl-lg">
               TARGET
             </div>
 
-            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-3">
               <div>
-                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600">Relocation Target</span>
-                <h4 id="dest-name-title" class="text-base font-extrabold text-slate-900 leading-tight">Destination City</h4>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">Relocation Target</span>
+                <h4 id="dest-name-title" class="text-base font-extrabold text-slate-900 dark:text-white leading-tight">Destination City</h4>
               </div>
             </div>
 
             <div class="space-y-2.5 text-xs">
-              <div class="flex justify-between items-center py-1 border-b border-slate-50">
-                <span class="text-slate-500">Effective Tax &amp; Levies:</span>
+              <div class="flex justify-between items-center py-1 border-b border-slate-50 dark:border-slate-800">
+                <span class="text-slate-500 dark:text-slate-400">Effective Tax &amp; Levies:</span>
                 <div class="text-right">
-                  <span id="dest-tax-rate" class="font-bold text-slate-800">0%</span>
-                  <span id="dest-tax-annual" class="text-[11px] text-slate-400 block">-$0/yr</span>
+                  <span id="dest-tax-rate" class="font-bold text-slate-800 dark:text-slate-200">0%</span>
+                  <span id="dest-tax-annual" class="text-[11px] text-slate-400 dark:text-slate-500 block">-$0/yr</span>
                 </div>
               </div>
-              <div class="text-[10px] text-slate-400 italic" id="dest-tax-regime">Tax Regime</div>
+              <div class="text-[10px] text-slate-400 dark:text-slate-500 italic" id="dest-tax-regime">Tax Regime</div>
 
-              <div class="flex justify-between items-center py-1 border-b border-slate-50">
-                <span class="text-slate-500">Net Take-Home Pay:</span>
+              <div class="flex justify-between items-center py-1 border-b border-slate-50 dark:border-slate-800">
+                <span class="text-slate-500 dark:text-slate-400">Net Take-Home Pay:</span>
                 <div class="text-right">
-                  <span id="dest-net-takehome" class="font-extrabold text-blue-700">$0/mo</span>
-                  <span id="dest-net-annual" class="text-[10px] text-slate-400 block">$0/yr</span>
+                  <span id="dest-net-takehome" class="font-extrabold text-blue-700 dark:text-blue-400">$0/mo</span>
+                  <span id="dest-net-annual" class="text-[10px] text-slate-400 dark:text-slate-500 block">$0/yr</span>
                 </div>
               </div>
 
-              <div class="flex justify-between items-center py-1 border-b border-slate-50">
-                <span class="text-slate-500">Living Expenses:</span>
-                <span id="dest-monthly-expenses" class="font-bold text-rose-600">-$0/mo</span>
+              <div class="flex justify-between items-center py-1 border-b border-slate-50 dark:border-slate-800">
+                <span class="text-slate-500 dark:text-slate-400">Living Expenses:</span>
+                <span id="dest-monthly-expenses" class="font-bold text-rose-600 dark:text-rose-400">-$0/mo</span>
               </div>
 
-              <div class="flex justify-between items-center py-1 bg-blue-50/80 px-2.5 rounded-lg border border-blue-100 mt-2">
-                <span class="font-semibold text-blue-900">Monthly Disposable:</span>
+              <div class="flex justify-between items-center py-1 bg-blue-50/80 dark:bg-blue-950/40 px-2.5 rounded-lg border border-blue-100 dark:border-blue-800 mt-2">
+                <span class="font-semibold text-blue-900 dark:text-blue-200">Monthly Disposable:</span>
                 <div class="text-right">
-                  <span id="dest-discretionary" class="font-black text-blue-900 text-sm">$0/mo</span>
-                  <span id="dest-local-currency-badge" class="block text-[10px] text-blue-600 font-medium">≈ 0 local</span>
+                  <span id="dest-discretionary" class="font-black text-blue-900 dark:text-blue-300 text-sm">$0/mo</span>
+                  <span id="dest-local-currency-badge" class="block text-[10px] text-blue-600 dark:text-blue-400 font-medium">≈ 0 local</span>
                 </div>
               </div>
             </div>
@@ -606,31 +560,31 @@
         </div>
 
         <!-- INTERACTIVE SVG COMPARISON CHART -->
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6 card-print">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-5 sm:p-6 card-print">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div>
-              <h3 class="text-sm font-bold text-slate-900">Visual Allocation Comparison (Monthly USD)</h3>
-              <p class="text-xs text-slate-500">Side-by-side stack of estimated Taxes, Living Expenses, and Savings</p>
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white">Visual Allocation Comparison (Monthly USD)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Side-by-side stack of estimated Taxes, Living Expenses, and Savings</p>
             </div>
             <!-- Legend -->
             <div class="flex items-center gap-3 text-xs">
-              <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-rose-500"></span> Taxes</span>
-              <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-amber-500"></span> Living Costs</span>
-              <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-emerald-500"></span> Discretionary Surplus</span>
+              <span class="flex items-center gap-1 text-slate-600 dark:text-slate-300"><span class="w-2.5 h-2.5 rounded-sm bg-rose-500"></span> Taxes</span>
+              <span class="flex items-center gap-1 text-slate-600 dark:text-slate-300"><span class="w-2.5 h-2.5 rounded-sm bg-amber-500"></span> Living Costs</span>
+              <span class="flex items-center gap-1 text-slate-600 dark:text-slate-300"><span class="w-2.5 h-2.5 rounded-sm bg-emerald-500"></span> Discretionary Surplus</span>
             </div>
           </div>
 
-          <div id="chart-container" class="w-full flex items-center justify-center min-h-[260px] bg-slate-50/50 rounded-xl p-3 border border-slate-100">
+          <div id="chart-container" class="w-full flex items-center justify-center min-h-[260px] bg-slate-50/50 dark:bg-slate-800/40 rounded-xl p-3 border border-slate-100 dark:border-slate-800">
             <!-- Injected via app.js (Pure SVG) -->
           </div>
         </div>
 
         <!-- ITEMIZED EXPENSE BREAKDOWN TABLE -->
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6 overflow-x-auto card-print">
-          <h3 class="text-sm font-bold text-slate-900 mb-3">Itemized Living Expenses &amp; Cost Delta</h3>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-5 sm:p-6 overflow-x-auto card-print">
+          <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-3">Itemized Living Expenses &amp; Cost Delta</h3>
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="border-b border-slate-200 text-slate-400 uppercase tracking-wider font-semibold">
+              <tr class="border-b border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500 uppercase tracking-wider font-semibold">
                 <th class="py-2.5 px-4">Category</th>
                 <th class="py-2.5 px-4 text-right">Origin</th>
                 <th class="py-2.5 px-4 text-right">Destination</th>
@@ -664,20 +618,20 @@
     </aside>
 
     <!-- RICH CONTEXTUAL REFERENCE GUIDE (1,200+ WORDS) -->
-    <article class="mt-8 bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm leading-relaxed prose max-w-none">
-      <header class="border-b border-slate-200 pb-6 mb-8">
-        <span class="text-xs font-bold uppercase tracking-widest text-blue-600">Comprehensive Practical Framework</span>
-        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">
+    <article class="mt-8 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm leading-relaxed prose max-w-none">
+      <header class="border-b border-slate-200 dark:border-slate-800 pb-6 mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Comprehensive Practical Framework</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-1">
           The Architecture of Geoarbitrage: Purchasing Power Parity, Tax Residency &amp; Digital Nomad Visas
         </h2>
-        <p class="text-sm text-slate-500 mt-2">
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">
           By the PocketRuler &amp; RelocateTrue Quantitative Research Team &bull; Published for remote knowledge workers, cross-border contractors, and location-independent founders.
         </p>
       </header>
 
-      <section class="space-y-6 text-slate-700 text-sm sm:text-base">
+      <section class="space-y-6 text-slate-700 dark:text-slate-300 text-sm sm:text-base">
         <div>
-          <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">1. The Fundamentals of Geographic Arbitrage</h3>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">1. The Fundamentals of Geographic Arbitrage</h3>
           <p>
             Geographic arbitrage (often abbreviated as <strong>geoarbitrage</strong>) is the economic practice of earning income in a high-currency, strong-economic jurisdiction (such as the United States, the United Kingdom, Switzerland, or Northern Europe) while residing and spending in a country with a significantly lower cost of living. For decades, multinational corporations exploited this dynamic through offshoring, nearshoring, and distributed assembly lines. Today, the global proliferation of high-speed asynchronous remote work has democratized this advantage for individual software engineers, designers, product managers, digital marketers, and solo entrepreneurs.
           </p>
@@ -687,7 +641,7 @@
         </div>
 
         <div>
-          <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">2. Purchasing Power Parity (PPP) in Everyday Remote Life</h3>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">2. Purchasing Power Parity (PPP) in Everyday Remote Life</h3>
           <p>
             Purchasing Power Parity (PPP) is an economic metric that compares different countries' currencies through a "basket of goods" approach. When applied to personal finance and remote salaries, PPP demonstrates that nominal compensation is fundamentally meaningless without adjusting for local price levels. Earning $100,000 USD gross in Manhattan (New York) or downtown San Francisco affords an entirely different standard of living compared to earning that exact same $100,000 in Lisbon, Bansko, Medellín, or Bangkok.
           </p>
@@ -697,20 +651,20 @@
         </div>
 
         <div>
-          <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">3. The 183-Day Fiscal Residence Rule &amp; Dual Tax Exposure</h3>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">3. The 183-Day Fiscal Residence Rule &amp; Dual Tax Exposure</h3>
           <p>
             The single most consequential legal reality for international remote workers is the <strong>183-Day Rule</strong>. Under the statutory law of nearly every sovereign state in the OECD and European Union, an individual who physically spends 183 or more days within the national territory during a calendar year (or any consecutive 12-month rolling period) is automatically deemed an unlimited <em>fiscal resident</em>.
           </p>
           <p class="mt-3">
             Becoming a fiscal resident triggers statutory liability on your <em>worldwide income</em>, meaning the host country has the jurisdictional authority to levy domestic progressive income tax rates—which can exceed 45% in European destinations—regardless of where your clients, employers, or bank accounts are situated.
           </p>
-          <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg my-4 text-xs sm:text-sm text-blue-950">
+          <div class="bg-blue-50 dark:bg-blue-950/40 border-l-4 border-blue-600 p-4 rounded-r-lg my-4 text-xs sm:text-sm text-blue-950 dark:text-blue-200">
             <strong>Key Takeaway:</strong> Spending fewer than 183 days in a country does not automatically guarantee zero tax liability. Many jurisdictions enforce "center of vital interests" tests (evaluating where your primary dwelling, spouse, children, or financial assets reside) or permanent establishment rules for independent contractors. Always consult a licensed cross-border tax CPA before establishing physical residency.
           </div>
         </div>
 
         <div>
-          <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">4. US Citizens, Worldwide Taxation &amp; The Foreign Earned Income Exclusion (FEIE)</h3>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">4. US Citizens, Worldwide Taxation &amp; The Foreign Earned Income Exclusion (FEIE)</h3>
           <p>
             Unlike almost every other country on Earth, the United States taxes its citizens on their <strong>worldwide income based strictly on citizenship</strong>, rather than physical residence or territorial source. American digital nomads who relocate abroad remain legally obligated to file annual IRS Form 1040 returns and disclose foreign financial accounts under FBAR (FinCEN Report 114) and FATCA (Form 8938).
           </p>
@@ -724,7 +678,7 @@
         </div>
 
         <div>
-          <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">5. Special Tax Regimes for Remote Workers &amp; Digital Nomads</h3>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">5. Special Tax Regimes for Remote Workers &amp; Digital Nomads</h3>
           <p>
             To attract international remote capital, high-earning foreign tech talent, and entrepreneurial investment, several progressive governments have introduced codified tax holidays and preferential flat tax schemes:
           </p>
@@ -738,7 +692,7 @@
         </div>
 
         <div>
-          <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">6. Foreign Exchange Risk &amp; Currency Hedging for Digital Expats</h3>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">6. Foreign Exchange Risk &amp; Currency Hedging for Digital Expats</h3>
           <p>
             When living on an international salary, currency volatility directly affects your real purchasing power. If your contract is denominated in US Dollars (USD) but your daily living expenses, apartment lease, and local taxes are denominated in Euros (EUR), Japanese Yen (JPY), or Thai Baht (THB), unexpected macroeconomic shifts can swing your living costs by 10% to 20% over a single calendar quarter.
           </p>
@@ -770,60 +724,60 @@
 
   <!-- UNIVERSAL CUSTOM CITY CREATOR MODAL -->
   <div id="custom-city-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 no-print">
-    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-md w-full p-6 relative animate-in fade-in zoom-in-95 duration-200">
-      <button type="button" id="close-custom-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1.5 rounded-lg border border-slate-100" title="Close">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 max-w-md w-full p-6 relative animate-in fade-in zoom-in-95 duration-200">
+      <button type="button" id="close-custom-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1.5 rounded-lg border border-slate-100 dark:border-slate-800" title="Close">
         ✕
       </button>
 
       <div class="mb-4">
-        <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600">Universal City Engine</span>
-        <h3 class="text-xl font-extrabold text-slate-900 mt-0.5">Add Custom City</h3>
-        <p class="text-xs text-slate-500 mt-1">
-          Set up custom benchmark costs for <span id="modal-role-title" class="font-bold text-slate-800">Destination</span>. Compare any city or town on Earth!
+        <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Universal City Engine</span>
+        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mt-0.5">Add Custom City</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          Set up custom benchmark costs for <span id="modal-role-title" class="font-bold text-slate-800 dark:text-slate-200">Destination</span>. Compare any city or town on Earth!
         </p>
       </div>
 
       <form id="custom-city-form" class="space-y-3.5 text-xs">
         <div>
-          <label for="custom-city-name" class="block font-bold text-slate-700 mb-1">City Name *</label>
+          <label for="custom-city-name" class="block font-bold text-slate-700 dark:text-slate-300 mb-1">City Name *</label>
           <input type="text" id="custom-city-name" required placeholder="e.g. Valencia, Honolulu, Chiang Rai, Reykjavik"
-                 class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+                 class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3.5 py-2 text-sm text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
         </div>
 
         <div>
-          <label for="custom-city-country" class="block font-bold text-slate-700 mb-1">Country / Jurisdiction *</label>
+          <label for="custom-city-country" class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Country / Jurisdiction *</label>
           <input type="text" id="custom-city-country" required placeholder="e.g. Spain, United States, Thailand, Iceland"
-                 class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+                 class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3.5 py-2 text-sm text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label for="custom-city-rent" class="block font-bold text-slate-700 mb-1">1-Bed Center Rent (USD) *</label>
+            <label for="custom-city-rent" class="block font-bold text-slate-700 dark:text-slate-300 mb-1">1-Bed Center Rent (USD) *</label>
             <div class="relative">
               <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-bold">$</span>
               <input type="number" id="custom-city-rent" required min="100" max="10000" step="50" value="1200"
-                     class="w-full rounded-xl border border-slate-300 pl-7 pr-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+                     class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 pl-7 pr-3 py-2 text-sm text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
             </div>
           </div>
 
           <div>
-            <label for="custom-city-tax" class="block font-bold text-slate-700 mb-1">Est. Income Tax Rate (%)</label>
+            <label for="custom-city-tax" class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Est. Income Tax Rate (%)</label>
             <div class="relative">
               <input type="number" id="custom-city-tax" min="0" max="60" step="1" value="20"
-                     class="w-full rounded-xl border border-slate-300 px-3 py-2 pr-7 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+                     class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 pr-7 text-sm text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
               <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 font-bold">%</span>
             </div>
           </div>
         </div>
 
         <div>
-          <label for="custom-city-currency" class="block font-bold text-slate-700 mb-1">Local Currency Symbol</label>
+          <label for="custom-city-currency" class="block font-bold text-slate-700 dark:text-slate-300 mb-1">Local Currency Symbol</label>
           <input type="text" id="custom-city-currency" placeholder="$ / € / £ / ¥" value="$"
-                 class="w-24 rounded-xl border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+                 class="w-24 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 text-sm text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
         </div>
 
-        <div class="pt-2 flex items-center justify-end gap-2 border-t border-slate-100 mt-4">
-          <button type="button" id="cancel-custom-modal-btn" class="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold transition">
+        <div class="pt-2 flex items-center justify-end gap-2 border-t border-slate-100 dark:border-slate-800 mt-4">
+          <button type="button" id="cancel-custom-modal-btn" class="px-4 py-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold transition">
             Cancel
           </button>
           <button type="submit" class="px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md shadow-blue-500/20 transition">
@@ -898,41 +852,81 @@
     </div>
   </footer>
 
-  <!-- Mobile Navigation Drawer Handler -->
-  <script>
-    (function() {
-      const menuBtn = document.getElementById('mobileMenuToggle');
-      const drawerCloseBtn = document.getElementById('mobileDrawerClose');
-      const drawer = document.getElementById('mobileDrawer');
-      const backdrop = document.getElementById('mobileDrawerBackdrop');
+  <!-- MOBILE NAVIGATION DRAWER & BACKDROP (Positioned before body end; strictly hidden on desktop) -->
+  <div id="mobileDrawerBackdrop" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm opacity-0 hidden transition-opacity duration-300 md:hidden" aria-hidden="true"></div>
 
-      function openDrawer() {
-        if (!drawer || !backdrop) return;
-        drawer.classList.add('active');
-        backdrop.classList.add('active');
-        menuBtn?.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-      }
+  <aside id="mobileDrawer" class="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out hidden md:hidden flex flex-col justify-between" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center space-x-2.5">
+        <div class="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-1 flex items-center justify-center">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" />
+        </div>
+        <span class="text-base font-black text-slate-900 dark:text-white tracking-tight">
+          PocketRuler<span class="text-blue-600 dark:text-blue-400">.app</span>
+        </span>
+      </a>
+      <button type="button" id="closeMobileMenuBtn" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Close Mobile Navigation">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
 
-      function closeDrawer() {
-        if (!drawer || !backdrop) return;
-        drawer.classList.remove('active');
-        backdrop.classList.remove('active');
-        menuBtn?.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
+    <!-- Drawer Navigation Content -->
+    <div class="p-5 space-y-6 flex-grow overflow-y-auto">
+      <!-- Section: Calculator Navigation -->
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Relocation Suite</div>
+        <a href="index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/50">
+          Relocation Calculator
+        </a>
+        <a href="guide.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">
+          📖 Expat Tax &amp; Visa Deep Dive
+        </a>
+        <a href="methodology.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">
+          📐 Methodology &amp; Data Models
+        </a>
+      </div>
 
-      menuBtn?.addEventListener('click', openDrawer);
-      drawerCloseBtn?.addEventListener('click', closeDrawer);
-      backdrop?.addEventListener('click', closeDrawer);
+      <!-- Section: Web Apps Suite -->
+      <div class="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Other Apps in Suite</div>
+        <a href="../index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <span>🏠 Main Tools Hub</span>
+          <span class="text-[10px] text-slate-400 font-semibold">View All</span>
+        </a>
+        <a href="../freelance-calculator/index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-800 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Freelance Rate Calculator</span>
+          </div>
+          <span class="text-[10px] bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-2 py-0.5 rounded-full font-bold">Launch</span>
+        </a>
+      </div>
 
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && drawer?.classList.contains('active')) {
-          closeDrawer();
-        }
-      });
-    })();
-  </script>
+      <!-- Section: Platform & Legal -->
+      <div class="space-y-1 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Platform &amp; Legal</div>
+        <a href="../about.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">About Us</a>
+        <a href="../contact.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a>
+        <a href="../privacy.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+        <a href="../terms.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</a>
+        <a href="../disclaimer.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Financial Disclaimer</a>
+      </div>
+    </div>
+
+    <!-- Drawer Footer with Theme Toggle -->
+    <div class="p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <span class="text-xs font-medium text-slate-600 dark:text-slate-300">Theme</span>
+      <button type="button" data-theme-toggle class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium text-slate-700 dark:text-slate-200 shadow-2xs hover:bg-slate-50 dark:hover:bg-slate-650 transition">
+        <span>Toggle Mode</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Theme Controller Script -->
+  <script src="../js/theme.js"></script>
 
   <!-- Application Scripts -->
   <script src="js/data.js"></script>

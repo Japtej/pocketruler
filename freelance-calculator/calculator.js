@@ -519,6 +519,7 @@ Best regards,
     if (!ctx) return;
 
     const res = calculate();
+    const isDark = document.documentElement.classList.contains('dark');
 
     chartInstance = new Chart(ctx, {
       type: 'doughnut',
@@ -539,7 +540,7 @@ Best regards,
               '#8b5cf6', // Violet
             ],
             borderWidth: 2,
-            borderColor: '#ffffff',
+            borderColor: isDark ? '#0f172a' : '#ffffff',
             hoverOffset: 4,
           },
         ],
@@ -568,10 +569,20 @@ Best regards,
         },
       },
     });
+
+    // Listen for dark / light theme switches to update chart borders
+    window.addEventListener('themechange', function (e) {
+      if (!chartInstance) return;
+      const darkActive = e.detail ? e.detail.isDark : document.documentElement.classList.contains('dark');
+      chartInstance.data.datasets[0].borderColor = darkActive ? '#0f172a' : '#ffffff';
+      chartInstance.update();
+    });
   }
 
   function updateChart(res) {
     if (!chartInstance) return;
+    const isDark = document.documentElement.classList.contains('dark');
+    chartInstance.data.datasets[0].borderColor = isDark ? '#0f172a' : '#ffffff';
     chartInstance.data.datasets[0].data = [
       state.targetTakeHome,
       res.annualTaxes / 12,
