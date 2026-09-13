@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freelance Rate vs. Retainer Calculator | PocketRuler.app</title>
+  <meta name="description" content="Free calculator by PocketRuler.app to compare freelance hourly rates against monthly retainers. Factor in non-billable hours, taxes, and expenses with live currency API data and 1-click client proposal email generator." />
+  <meta name="keywords" content="pocketruler, freelance rate calculator, retainer calculator, hourly vs retainer, freelance pricing, consulting day rate" />
+
+  <!-- Canonical & Open Graph -->
+  <link rel="canonical" href="https://pocketruler.app/freelance-calculator/" />
+  <meta property="og:title" content="Freelance Rate vs. Retainer Calculator | PocketRuler.app" />
+  <meta property="og:description" content="Calculate your true freelance hourly rate and compare it with monthly client retainers. 100% free tool by PocketRuler.app." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/freelance-calculator/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+  <!-- Schema.org WebApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PocketRuler Freelance Rate vs. Retainer Calculator",
+    "url": "https://pocketruler.app/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free interactive utility by PocketRuler.app to compare freelance hourly rates against monthly client retainers with live exchange rates and proposal generator."
+  }
+  </script>
+
+  <!-- Schema.org FAQPage JSON-LD for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is a freelance hourly rate calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A reliable freelance hourly rate accounts for target net take-home pay, self-employment and income taxes, overhead expenses, and a 10% emergency reserve, divided by your actual annual billable hours (typically 1,100 to 1,350 hours per year)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why should freelancers pitch monthly retainers over hourly billing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Monthly retainers provide predictable, recurring income paid on the 1st of every month. This eliminates unpaid dry spells and time spent on non-billable pitching, while guaranteeing clients reserved capacity and faster turnaround SLAs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much discount should I offer for a client retainer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A standard loyalty discount for an upfront monthly retainer is between 5% and 10%. In exchange, the client commits to regular monthly payments and reserved hours."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen text-slate-800 antialiased flex flex-col justify-between">
+
+  <!-- TOP HEADER -->
+  <header class="w-full bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+      
+      <!-- Brand Logo & Title: PocketRuler.app -->
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-xs shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <a href="../index.html" class="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none hover:text-emerald-600 transition-colors">
+              PocketRuler<span class="text-emerald-600">.app</span>
+            </a>
+            <span class="text-[10px] bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded-full border border-emerald-200">Tools Hub</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-0.5 hidden sm:block">
+            Freelance Rate vs. Retainer Calculator &bull; Smart pricing for solopreneurs
+          </p>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center space-x-5 text-xs font-bold text-slate-600">
+        <a href="../index.html" class="flex items-center text-emerald-700 hover:text-emerald-600 transition-colors">
+          <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          All Tools
+        </a>
+        <a href="#calculatorCard" class="hover:text-emerald-600 transition-colors">Calculator</a>
+        <a href="#benchmarksSection" class="hover:text-emerald-600 transition-colors">Market Benchmarks</a>
+        <a href="#playbookSection" class="hover:text-emerald-600 transition-colors">Retainer Guide</a>
+        <a href="../about.html" class="hover:text-emerald-600 transition-colors">About</a>
+        <a href="../contact.html" class="hover:text-emerald-600 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Controls: Currency, Embed, Reset -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <div class="relative">
+          <label for="currencySelect" class="sr-only">Currency</label>
+          <select id="currencySelect" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs sm:text-sm font-semibold rounded-lg py-1.5 pl-2.5 pr-7 cursor-pointer focus:ring-2 focus:ring-emerald-500">
+            <option value="USD">USD ($) - US Dollar</option>
+            <option value="EUR">EUR (€) - Euro</option>
+            <option value="GBP">GBP (£) - British Pound</option>
+            <option value="CAD">CAD (CA$) - Canadian Dollar</option>
+            <option value="AUD">AUD (A$) - Australian Dollar</option>
+            <option value="INR">INR (₹) - Indian Rupee</option>
+            <option value="JPY">JPY (¥) - Japanese Yen</option>
+            <option value="CHF">CHF (CHF) - Swiss Franc</option>
+            <option value="SGD">SGD (S$) - Singapore Dollar</option>
+            <option value="AED">AED (AED) - UAE Dirham</option>
+            <option value="NZD">NZD (NZ$) - New Zealand Dollar</option>
+            <option value="BRL">BRL (R$) - Brazilian Real</option>
+            <option value="SEK">SEK (kr) - Swedish Krona</option>
+            <option value="ZAR">ZAR (R) - South African Rand</option>
+            <option value="PHP">PHP (₱) - Philippine Peso</option>
+          </select>
+        </div>
+
+        <button type="button" id="btnOpenEmbed" class="hidden sm:inline-flex items-center text-xs font-bold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors" title="Embed widget on your site">
+          <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          Embed
+        </button>
+
+        <button type="button" id="btnReset" title="Reset defaults" class="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition-colors" aria-label="Reset defaults">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Calculator Workspace -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 w-full flex-1 space-y-6">
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 1: TOP ADSENSE LEADERBOARD BANNER (728x90)
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-placeholder rounded-xl p-3 text-center max-w-3xl mx-auto flex flex-col items-center justify-center min-h-[85px] text-slate-400">
+      <!--
+        GOOGLE ADSENSE CODE SNIPPET (Leaderboard 728x90 / Responsive)
+        To activate your AdSense ads, replace the inner contents with:
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      -->
+      <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Advertisement &bull; Google AdSense Leaderboard Placement (728&times;90)</span>
+      <span class="text-xs text-slate-400 mt-0.5">Top responsive display banner placeholder</span>
+    </aside>
+
+    <!-- LIVE API STATUS BAR -->
+    <div class="bg-white rounded-xl border border-slate-200 p-2.5 px-4 flex flex-wrap items-center justify-between text-xs gap-2 shadow-xs">
+      <div class="flex items-center space-x-2">
+        <span id="apiStatusDot" class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+        <span class="text-slate-600 font-medium" id="apiStatusText">Connecting to Live Exchange Rates API...</span>
+      </div>
+      <div class="flex items-center space-x-3 text-[11px] text-slate-500">
+        <span id="apiRateBadge" class="font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded">1 USD = 1.00 USD</span>
+        <span id="apiUpdatedBadge" class="hidden sm:inline">Syncing...</span>
+        <button type="button" id="btnRefreshApi" class="text-emerald-700 hover:text-emerald-900 font-bold hover:underline flex items-center">
+          <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          Refresh API
+        </button>
+      </div>
+    </div>
+
+    <!-- QUICK PERSONA PRESETS BAR -->
+    <div class="flex flex-wrap items-center gap-2 bg-white border border-slate-200 rounded-xl p-3 shadow-xs">
+      <span class="text-xs font-bold uppercase tracking-wider text-slate-400 pr-1 flex items-center">
+        <svg class="w-3.5 h-3.5 mr-1 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Quick Benchmarks:
+      </span>
+      <button type="button" data-preset="developer" class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+        Web Developer ($7.5k)
+      </button>
+      <button type="button" data-preset="designer" class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+        UI/Brand Designer ($6k)
+      </button>
+      <button type="button" data-preset="consultant" class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+        SEO / Consultant ($9k)
+      </button>
+      <button type="button" data-preset="copywriter" class="px-2.5 py-1 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors">
+        Copywriter / Content ($5.5k)
+      </button>
+    </div>
+
+    <!-- MAIN TWO-COLUMN WORKSPACE -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- ====================================================================
+           LEFT COLUMN: 4 INPUT SLIDERS (+ Retainer Hours) & RATE HEALTH SCORE
+           ==================================================================== -->
+      <section class="lg:col-span-5 bg-white rounded-2xl p-5 border border-slate-200 shadow-xs space-y-5" aria-label="Calculator Inputs">
+        <div>
+          <h2 class="text-base font-bold text-slate-900">1. Financial &amp; Workload Inputs</h2>
+          <p class="text-xs text-slate-500">Fine-tune your targets. Results recalculate in real-time.</p>
+        </div>
+
+        <!-- 1. Target Take-Home Pay -->
+        <div class="space-y-2">
+          <div class="flex justify-between items-center text-xs font-bold text-slate-700">
+            <label for="takeHomeSlider">Target Take-Home Pay (Monthly):</label>
+            <div class="flex items-center space-x-1">
+              <span id="takeHomeCurrencySymbol" class="text-slate-500 text-xs font-bold">$</span>
+              <input type="number" id="takeHomeInput" value="6000" min="1000" max="25000" step="250" class="w-24 border border-slate-300 rounded px-1.5 py-0.5 text-right font-bold text-slate-900 bg-slate-50 text-xs" />
+            </div>
+          </div>
+          <input type="range" id="takeHomeSlider" min="1500" max="20000" step="250" value="6000" aria-label="Take-home pay slider" />
+          <p class="text-[11px] text-slate-400">Net take-home cash in your pocket after taxes and business overhead.</p>
+        </div>
+
+        <!-- 2. Non-Billable Hours / Week -->
+        <div class="space-y-2 pt-3 border-t border-slate-100">
+          <div class="flex justify-between items-center text-xs font-bold text-slate-700">
+            <label for="nonBillableSlider">Non-Billable Hours / Week (Admin/Sales):</label>
+            <div class="flex items-center space-x-1">
+              <input type="number" id="nonBillableInput" value="12" min="0" max="35" class="w-14 border border-slate-300 rounded px-1.5 py-0.5 text-center font-bold text-slate-900 bg-slate-50 text-xs" />
+              <span class="text-slate-500 text-xs">hrs</span>
+            </div>
+          </div>
+          <input type="range" id="nonBillableSlider" min="0" max="30" step="1" value="12" aria-label="Non-billable hours per week slider" />
+          <p class="text-[11px] text-slate-400">Time spent on emails, proposals, invoicing, marketing, and client discovery.</p>
+        </div>
+
+        <!-- 3. Tax & Self-Employment Buffer -->
+        <div class="space-y-2 pt-3 border-t border-slate-100">
+          <div class="flex justify-between items-center text-xs font-bold text-slate-700">
+            <label for="taxRateSlider">Tax &amp; Self-Employment Buffer:</label>
+            <div class="flex items-center space-x-1">
+              <input type="number" id="taxRateInput" value="25" min="5" max="50" class="w-14 border border-slate-300 rounded px-1.5 py-0.5 text-center font-bold text-slate-900 bg-slate-50 text-xs" />
+              <span class="text-slate-500 text-xs">%</span>
+            </div>
+          </div>
+          <input type="range" id="taxRateSlider" min="10" max="45" step="1" value="25" aria-label="Tax rate buffer percentage slider" />
+          <p class="text-[11px] text-slate-400">Set-aside for income and self-employment payroll taxes (FICA).</p>
+        </div>
+
+        <!-- 4. Monthly Business Expenses -->
+        <div class="space-y-2 pt-3 border-t border-slate-100">
+          <div class="flex justify-between items-center text-xs font-bold text-slate-700">
+            <label for="expensesSlider">Monthly Business Expenses &amp; Overhead:</label>
+            <div class="flex items-center space-x-1">
+              <span id="expensesCurrencySymbol" class="text-slate-500 text-xs font-bold">$</span>
+              <input type="number" id="expensesInput" value="500" min="0" max="5000" step="50" class="w-20 border border-slate-300 rounded px-1.5 py-0.5 text-right font-bold text-slate-900 bg-slate-50 text-xs" />
+            </div>
+          </div>
+          <input type="range" id="expensesSlider" min="0" max="3000" step="50" value="500" aria-label="Monthly business expenses slider" />
+          <p class="text-[11px] text-slate-400">Software subscriptions, hardware, accountant fees, and insurance.</p>
+        </div>
+
+        <!-- 5. Retainer Hours Commitment -->
+        <div class="space-y-2 pt-3 border-t border-slate-100">
+          <div class="flex justify-between items-center text-xs font-bold text-slate-700">
+            <label for="retainerHoursSlider">Client Retainer Hours / Month:</label>
+            <div class="flex items-center space-x-1">
+              <input type="number" id="retainerHoursInput" value="20" min="5" max="60" class="w-14 border border-slate-300 rounded px-1.5 py-0.5 text-center font-bold text-slate-900 bg-slate-50 text-xs" />
+              <span class="text-slate-500 text-xs">hrs</span>
+            </div>
+          </div>
+          <input type="range" id="retainerHoursSlider" min="5" max="50" step="5" value="20" aria-label="Client retainer hours per month slider" />
+          <p class="text-[11px] text-slate-400">The monthly block of hours a client pre-purchases.</p>
+        </div>
+
+        <!-- VIRAL HOOK: RATE HEALTH DIAGNOSTIC CARD -->
+        <div id="healthBadge" class="p-3.5 rounded-xl border health-badge-good flex items-start space-x-3 text-xs">
+          <div class="mt-0.5 shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold tracking-tight" id="healthTitle">Healthy &amp; Sustainable Workload</h3>
+            <p class="mt-0.5 leading-relaxed opacity-90" id="healthDesc">
+              Great balance! You have dedicated time for business development, a solid tax buffer, and a safety margin.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           RIGHT COLUMN: HOURLY VS. RETAINER COMPARISON & REVENUE ALLOCATION
+           ==================================================================== -->
+      <section class="lg:col-span-7 space-y-6" aria-label="Comparison Results">
+
+        <div class="flex items-center justify-between">
+          <h2 class="text-base font-bold text-slate-900">2. Hourly vs. Retainer Comparison</h2>
+          <button type="button" id="btnCopy" class="inline-flex items-center text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200 transition-colors">
+            <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Copy Summary
+          </button>
+        </div>
+
+        <!-- 1. SIDE-BY-SIDE CARDS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          <!-- CARD A: HOURLY BILLING MODEL -->
+          <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-slate-600 uppercase tracking-wider">Hourly Model</span>
+                <span class="text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded-full">
+                  Variable Income
+                </span>
+              </div>
+              
+              <div class="text-3xl font-extrabold text-slate-900 tracking-tight" id="hourlyRateDisplay">
+                $85/hr
+              </div>
+              <p class="text-xs text-slate-500 mt-1">
+                Your minimum recommended billing rate for ad-hoc hourly work.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-slate-100 space-y-2 text-xs text-slate-600">
+                <div class="flex justify-between">
+                  <span class="text-slate-500">Day Rate (8 hrs):</span>
+                  <strong class="text-slate-800 font-bold" id="dayRateDisplay">$680</strong>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-500">Billable Target:</span>
+                  <span class="text-slate-800 font-semibold" id="billableHoursWeekDisplay">28 hrs/wk</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-500">Monthly Gross Goal:</span>
+                  <span class="text-slate-800 font-semibold" id="hourlyMonthlyTargetDisplay">$9,444</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-amber-700 bg-amber-50/60 p-2.5 rounded-lg">
+              <strong>Risk:</strong> Requires constant pitching. Unbilled hours directly reduce your take-home pay.
+            </div>
+          </div>
+
+          <!-- CARD B: MONTHLY RETAINER MODEL -->
+          <div class="bg-emerald-50/50 rounded-2xl p-5 border-2 border-emerald-500 shadow-xs flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider">Monthly Retainer</span>
+                <span class="text-[10px] font-bold bg-emerald-600 text-white px-2 py-0.5 rounded-full">
+                  Guaranteed Cash Flow
+                </span>
+              </div>
+
+              <div class="text-3xl font-extrabold text-emerald-900 tracking-tight" id="retainerFeeDisplay">
+                $1,615/mo
+              </div>
+              <p class="text-xs text-emerald-700 mt-1" id="retainerEffectiveRateDisplay">
+                $80.75/hr (5% discount for guaranteed upfront payment)
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-emerald-200/60 space-y-2 text-xs text-emerald-950">
+                <div class="flex justify-between">
+                  <span class="text-emerald-800">Committed Hours:</span>
+                  <strong class="font-bold" id="retainerMonthlyHoursDisplay">20 hrs/mo</strong>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-emerald-800">Clients Needed for 100% Goal:</span>
+                  <strong class="font-bold text-emerald-700" id="retainerClientsNeededDisplay">5.8 clients</strong>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-emerald-800">Payment Terms:</span>
+                  <span class="font-semibold">Paid 1st of every month</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-emerald-200/60 text-[11px] text-emerald-900 bg-emerald-100/70 p-2.5 rounded-lg">
+              <strong>Benefit:</strong> Upfront cash flow on the 1st of every month. Eliminates non-billable pitching time.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 2. REVENUE ALLOCATION BREAKDOWN CHART -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900">Gross Revenue Allocation</h3>
+              <p class="text-xs text-slate-500">How every dollar of your gross billing is distributed</p>
+            </div>
+            <div class="text-right">
+              <span class="text-[11px] text-slate-400 block">Gross Monthly Required</span>
+              <strong class="text-sm font-extrabold text-slate-900" id="grossRevenueDisplay">$9,444</strong>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+            <div class="sm:col-span-5 h-44 relative flex items-center justify-center">
+              <canvas id="breakdownChart" aria-label="Revenue distribution doughnut chart"></canvas>
+            </div>
+
+            <div class="sm:col-span-7 grid grid-cols-2 gap-2 text-xs">
+              <div class="p-2 rounded-lg bg-slate-50 border border-slate-100">
+                <div class="flex items-center space-x-1.5 text-slate-500 text-[11px]">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span>Take-Home Pay</span>
+                </div>
+                <strong class="block text-slate-900 font-bold mt-1" id="legendTakeHome">$6,000</strong>
+              </div>
+
+              <div class="p-2 rounded-lg bg-slate-50 border border-slate-100">
+                <div class="flex items-center space-x-1.5 text-slate-500 text-[11px]">
+                  <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                  <span>Taxes &amp; Buffer</span>
+                </div>
+                <strong class="block text-slate-900 font-bold mt-1" id="legendTaxes">$2,000</strong>
+              </div>
+
+              <div class="p-2 rounded-lg bg-slate-50 border border-slate-100">
+                <div class="flex items-center space-x-1.5 text-slate-500 text-[11px]">
+                  <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                  <span>Expenses</span>
+                </div>
+                <strong class="block text-slate-900 font-bold mt-1" id="legendExpenses">$500</strong>
+              </div>
+
+              <div class="p-2 rounded-lg bg-slate-50 border border-slate-100">
+                <div class="flex items-center space-x-1.5 text-slate-500 text-[11px]">
+                  <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                  <span>Safety Buffer</span>
+                </div>
+                <strong class="block text-slate-900 font-bold mt-1" id="legendBuffer">$944</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 2: MID-CONTENT IN-FEED NATIVE AD UNIT
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-placeholder rounded-xl p-3 text-center max-w-3xl mx-auto flex flex-col items-center justify-center min-h-[75px] text-slate-400">
+      <!--
+        GOOGLE ADSENSE IN-FEED AD UNIT
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-format="fluid"
+             data-ad-layout-key="-fb+5w+4e-db+86"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      -->
+      <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Advertisement &bull; Google AdSense In-Feed Unit</span>
+      <span class="text-xs text-slate-400 mt-0.5">High-engagement banner rendered above the pitch generator</span>
+    </aside>
+
+    <!-- ====================================================================
+         HIGH-UTILITY FEATURE: 1-CLICK "CLIENT RETAINER PITCH" GENERATOR
+         ==================================================================== -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-xs space-y-3" aria-label="Client Retainer Pitch Generator">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <h3 class="text-sm sm:text-base font-bold text-slate-900">1-Click Client Retainer Proposal Email</h3>
+          </div>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Auto-generated proposal script ready to send to clients based on your active calculations.
+          </p>
+        </div>
+        <button type="button" id="btnCopyPitch" class="inline-flex items-center justify-center text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 px-4 py-2 rounded-xl transition-all shadow-xs shrink-0">
+          <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          Copy Pitch Email
+        </button>
+      </div>
+
+      <div class="relative">
+        <textarea id="pitchEmailText" readonly rows="9" class="w-full p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-700 leading-relaxed focus:outline-none focus:ring-1 focus:ring-emerald-500 select-all"></textarea>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         DYNAMIC CALCULATION TABLE (POWERED BY LIVE API FX DATA)
+         ==================================================================== -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs space-y-3" aria-label="Calculation Table">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500">Live Dynamic Calculation Table</h3>
+        <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full font-semibold" id="tableApiIndicator">
+          Live API Synced
+        </span>
+      </div>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left">
+          <thead>
+            <tr class="border-b border-slate-200 text-slate-400">
+              <th class="pb-2 font-semibold">Metric / Feature</th>
+              <th class="pb-2 font-semibold text-slate-700">Hourly Billing</th>
+              <th class="pb-2 font-semibold text-emerald-700">Monthly Retainer</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700">
+            <tr>
+              <td class="py-2.5 font-medium text-slate-500">Effective Billing Rate</td>
+              <td class="py-2.5 font-bold" id="tableHourlyRate">$85 / hr</td>
+              <td class="py-2.5 font-bold text-emerald-700" id="tableRetainerRate">$80.75 / hr (Guaranteed)</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 font-medium text-slate-500">Revenue per 20h Client</td>
+              <td class="py-2.5" id="tableHourlyMonth">$1,700 (Variable)</td>
+              <td class="py-2.5 font-bold text-emerald-700" id="tableRetainerMonth">$1,615 (Paid upfront)</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 font-medium text-slate-500">Clients to hit 100% Target</td>
+              <td class="py-2.5" id="tableClientsHourly">~6 separate projects</td>
+              <td class="py-2.5 font-bold text-emerald-700" id="tableClientsRetainer">~6 recurring clients</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 font-medium text-slate-500">USD International Benchmark</td>
+              <td class="py-2.5 font-mono text-slate-600" id="tableUsdHourlyEquiv">$85.00 USD/hr</td>
+              <td class="py-2.5 font-mono text-emerald-800 font-semibold" id="tableUsdRetainerEquiv">$1,615.00 USD/mo</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 font-medium text-slate-500">Cash Flow Timing</td>
+              <td class="py-2.5">Net 30 after invoice</td>
+              <td class="py-2.5 font-semibold text-emerald-700">Day 1 before work begins</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 font-medium text-slate-500">Unused Hours Policy</td>
+              <td class="py-2.5">Not paid if not worked</td>
+              <td class="py-2.5 font-semibold text-emerald-700">Reserved monthly capacity</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         EDITORIAL ENGINE: GLOBAL FREELANCE BENCHMARKS TABLE
+         Anti-"Low Value Content" rich statistical and market reference data
+         ==================================================================== -->
+    <section class="max-w-4xl mx-auto pt-6 space-y-4" aria-label="Global Freelance Benchmarks" id="benchmarksSection">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+          Market Intelligence &bull; 2026 Standards
+        </span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mt-1.5">
+          Global Freelance Rate &amp; Retainer Benchmarks
+        </h2>
+        <p class="text-xs text-slate-500 mt-1">
+          Market-validated median rates for independent professionals across primary disciplines (USD international baseline).
+        </p>
+      </div>
+
+      <div class="overflow-x-auto bg-white rounded-2xl border border-slate-200 shadow-xs">
+        <table class="w-full text-left text-xs">
+          <thead>
+            <tr class="bg-slate-50 text-slate-500 border-b border-slate-200 uppercase tracking-wider text-[10px]">
+              <th class="py-3 px-4 font-bold">Specialization</th>
+              <th class="py-3 px-4 font-bold">Mid-Level Hourly</th>
+              <th class="py-3 px-4 font-bold">Senior / Lead Hourly</th>
+              <th class="py-3 px-4 font-bold text-emerald-700">Standard 20h Retainer</th>
+              <th class="py-3 px-4 font-bold">Typical SLA / Deliverable</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700 font-medium">
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="py-3 px-4 font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                Full-Stack &amp; Web Developer
+              </td>
+              <td class="py-3 px-4 font-mono text-slate-600">$65 &ndash; $90 /hr</td>
+              <td class="py-3 px-4 font-mono text-slate-900 font-semibold">$110 &ndash; $165+ /hr</td>
+              <td class="py-3 px-4 font-mono font-bold text-emerald-700">$2,200 &ndash; $3,200 /mo</td>
+              <td class="py-3 px-4 text-slate-500">Sprints, CI/CD, feature builds, emergency SLA</td>
+            </tr>
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="py-3 px-4 font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+                UI/UX &amp; Product Designer
+              </td>
+              <td class="py-3 px-4 font-mono text-slate-600">$55 &ndash; $80 /hr</td>
+              <td class="py-3 px-4 font-mono text-slate-900 font-semibold">$95 &ndash; $145+ /hr</td>
+              <td class="py-3 px-4 font-mono font-bold text-emerald-700">$1,900 &ndash; $2,800 /mo</td>
+              <td class="py-3 px-4 text-slate-500">Figma systems, prototyping, user testing cycles</td>
+            </tr>
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="py-3 px-4 font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                Growth Marketer &amp; Paid Media
+              </td>
+              <td class="py-3 px-4 font-mono text-slate-600">$50 &ndash; $75 /hr</td>
+              <td class="py-3 px-4 font-mono text-slate-900 font-semibold">$90 &ndash; $140+ /hr</td>
+              <td class="py-3 px-4 font-mono font-bold text-emerald-700">$1,800 &ndash; $2,700 /mo</td>
+              <td class="py-3 px-4 text-slate-500">Funnel optimization, ad spend management, analytics</td>
+            </tr>
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="py-3 px-4 font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                Technical Copywriter &amp; Content
+              </td>
+              <td class="py-3 px-4 font-mono text-slate-600">$45 &ndash; $70 /hr</td>
+              <td class="py-3 px-4 font-mono text-slate-900 font-semibold">$80 &ndash; $130+ /hr</td>
+              <td class="py-3 px-4 font-mono font-bold text-emerald-700">$1,600 &ndash; $2,500 /mo</td>
+              <td class="py-3 px-4 text-slate-500">Whitepapers, SEO content pipelines, launch copy</td>
+            </tr>
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="py-3 px-4 font-bold text-slate-900 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                AI Automation &amp; Data Engineer
+              </td>
+              <td class="py-3 px-4 font-mono text-slate-600">$75 &ndash; $110 /hr</td>
+              <td class="py-3 px-4 font-mono text-slate-900 font-semibold">$135 &ndash; $200+ /hr</td>
+              <td class="py-3 px-4 font-mono font-bold text-emerald-700">$2,700 &ndash; $3,900 /mo</td>
+              <td class="py-3 px-4 text-slate-500">Workflow automation, agent orchestration, data pipelines</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[11px] text-slate-500 leading-relaxed italic">
+        * Note: Rates represent median international direct-to-client contracts. Clients in North America and Western Europe generally support upper-quartile brackets, while APAC and Latin America clients index around the mid-tier ranges. Use our currency selector above to benchmark in your local economy.
+      </p>
+    </section>
+
+    <!-- ====================================================================
+         EDITORIAL PLAYBOOK: 3-TIER RETAINER PACKAGING & REAL CASE STUDIES
+         ==================================================================== -->
+    <section class="max-w-4xl mx-auto pt-6 space-y-6" aria-label="Retainer Packaging Framework" id="playbookSection">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-[10px] bg-indigo-100 text-indigo-700 font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+          Strategy Guide
+        </span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mt-1.5">
+          How to Structure &amp; Sell 3-Tier Client Retainers
+        </h2>
+        <p class="text-xs text-slate-500 mt-1">
+          Stop selling isolated hours. Move clients into predictable, value-anchored monthly tiers that protect your calendar.
+        </p>
+      </div>
+
+      <!-- 3 Tier Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Tier 1 &bull; Advisory</span>
+            <h3 class="text-sm font-black text-slate-900">Audit &amp; Advisory Retainer</h3>
+            <p class="text-slate-500 leading-relaxed text-[11px]">
+              For clients with internal staff who need expert oversight, architectural reviews, and roadmap guidance without daily task execution.
+            </p>
+            <ul class="text-[11px] text-slate-600 space-y-1 pt-1">
+              <li class="flex items-center gap-1.5">&bull; 5 &ndash; 8 hours reserved / month</li>
+              <li class="flex items-center gap-1.5">&bull; Bi-weekly 45-min strategy call</li>
+              <li class="flex items-center gap-1.5">&bull; Asynchronous code / design review</li>
+            </ul>
+          </div>
+          <div class="pt-3 border-t border-slate-100 font-mono text-xs font-bold text-slate-800">
+            Typical: $1,200 &ndash; $2,000 /mo
+          </div>
+        </div>
+
+        <div class="bg-emerald-50/70 p-5 rounded-2xl border-2 border-emerald-500/40 shadow-xs space-y-3 flex flex-col justify-between relative">
+          <span class="absolute -top-2.5 right-4 bg-emerald-600 text-white font-bold text-[9px] px-2 py-0.5 rounded-full uppercase tracking-wider">
+            Most Popular
+          </span>
+          <div class="space-y-2">
+            <span class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider">Tier 2 &bull; Execution</span>
+            <h3 class="text-sm font-black text-slate-900">Dedicated Sprint Retainer</h3>
+            <p class="text-slate-600 leading-relaxed text-[11px]">
+              The sweet spot for most solopreneurs. Guarantees steady, sprint-based deliverable execution for a primary client while leaving room for life balance.
+            </p>
+            <ul class="text-[11px] text-slate-700 space-y-1 pt-1">
+              <li class="flex items-center gap-1.5">&bull; 15 &ndash; 25 hours reserved / month</li>
+              <li class="flex items-center gap-1.5">&bull; Guaranteed 48-hour SLA response</li>
+              <li class="flex items-center gap-1.5">&bull; 5% loyalty incentive applied</li>
+            </ul>
+          </div>
+          <div class="pt-3 border-t border-emerald-200/60 font-mono text-xs font-black text-emerald-800">
+            Typical: $2,800 &ndash; $4,500 /mo
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-3 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Tier 3 &bull; Fractional</span>
+            <h3 class="text-sm font-black text-slate-900">Fractional Lead Retainer</h3>
+            <p class="text-slate-500 leading-relaxed text-[11px]">
+              You function as an embedded fractional team lead, handling end-to-end technical or creative execution alongside executive leadership.
+            </p>
+            <ul class="text-[11px] text-slate-600 space-y-1 pt-1">
+              <li class="flex items-center gap-1.5">&bull; 30 &ndash; 40 hours reserved / month</li>
+              <li class="flex items-center gap-1.5">&bull; Same-day urgent slack access</li>
+              <li class="flex items-center gap-1.5">&bull; Quarterly strategic roadmap planning</li>
+            </ul>
+          </div>
+          <div class="pt-3 border-t border-slate-100 font-mono text-xs font-bold text-slate-800">
+            Typical: $5,500 &ndash; $9,000+ /mo
+          </div>
+        </div>
+      </div>
+
+      <!-- Real Case Studies -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-slate-900 text-xs">Case Study: Full-Stack Dev Transition</span>
+            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">+42% Net Income</span>
+          </div>
+          <p class="text-slate-600 leading-relaxed text-[11px]">
+            <strong>Before:</strong> Billed $55/hr on Upwork. Struggled with 18 unbillable weekly hours spent writing bids and onboarding erratic clients. Average monthly net income: $3,600.
+          </p>
+          <p class="text-slate-600 leading-relaxed text-[11px]">
+            <strong>After Retainers:</strong> Converted two satisfied hourly clients into $2,800/mo ongoing sprint retainers (totaling $5,600/mo guaranteed). Eliminated bidding stress and recovered 14 hours per week.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-slate-900 text-xs">Case Study: Brand &amp; UI/UX Designer</span>
+            <span class="text-[10px] bg-indigo-100 text-indigo-700 font-bold px-2 py-0.5 rounded-full">Zero Dry Spells</span>
+          </div>
+          <p class="text-slate-600 leading-relaxed text-[11px]">
+            <strong>Before:</strong> Sold $2,500 fixed-scope landing page packages. Experienced 3-week unpaid dry spells between client delivery and new pipeline close.
+          </p>
+          <p class="text-slate-600 leading-relaxed text-[11px]">
+            <strong>After Retainers:</strong> Introduced a "Continuous Design Retainer" ($3,200/mo) for post-launch marketing assets, social templates, and conversion tests. Retained 3 startup clients for 9+ months.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SEO ENGINE: PRICING GUIDE & ACCORDION FAQ
+         ==================================================================== -->
+    <section class="max-w-4xl mx-auto pt-6 space-y-6" aria-label="Freelance Pricing Guide & FAQ" id="faqSection">
+      <div class="text-center mb-6">
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+          How to Calculate Your True Freelance Rate
+        </h2>
+        <p class="text-xs text-slate-500 mt-1">
+          Why traditional corporate salary math leads to contractor burnout and undercharging.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-600">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs space-y-1.5">
+          <span class="w-6 h-6 rounded-md bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-[11px]">1</span>
+          <h3 class="font-bold text-slate-900">Unbillable Hours</h3>
+          <p class="text-slate-500 leading-relaxed">
+            Freelancers only spend 50% to 70% of working hours on paid deliverables. The rest is spent on admin, pitches, and operations.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs space-y-1.5">
+          <span class="w-6 h-6 rounded-md bg-amber-100 text-amber-800 font-bold flex items-center justify-center text-[11px]">2</span>
+          <h3 class="font-bold text-slate-900">Self-Employment Tax</h3>
+          <p class="text-slate-500 leading-relaxed">
+            Independent contractors pay both employer and employee portions of payroll taxes. Always reserve 25% to 35% for taxes off the top.
+          </p>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs space-y-1.5">
+          <span class="w-6 h-6 rounded-md bg-indigo-100 text-indigo-800 font-bold flex items-center justify-center text-[11px]">3</span>
+          <h3 class="font-bold text-slate-900">Retainers = Freedom</h3>
+          <p class="text-slate-500 leading-relaxed">
+            Retainers smooth erratic cash flow into guaranteed monthly income, eliminating unpaid dry spells and endless client pitching.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Accordions -->
+      <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-xs space-y-3">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500">Frequently Asked Questions</h3>
+
+        <details class="group border-b border-slate-100 pb-2.5" open>
+          <summary class="flex justify-between items-center font-semibold text-xs text-slate-800 py-1 hover:text-emerald-600 transition-colors">
+            <span>What is the mathematical formula for a freelance hourly rate?</span>
+            <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+            Formula: <code>Hourly Rate = [(Take-Home / (1 - Tax Rate)) + Expenses] / (1 - Buffer Margin) &divide; Annual Billable Hours</code>. Annual billable hours equal weekly billable hours multiplied by 48 working weeks.
+          </p>
+        </details>
+
+        <details class="group border-b border-slate-100 pb-2.5">
+          <summary class="flex justify-between items-center font-semibold text-xs text-slate-800 py-1 hover:text-emerald-600 transition-colors">
+            <span>How do you convince an hourly client to switch to a retainer?</span>
+            <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+            Frame the retainer around guaranteed capacity and speed: clients get reserved calendar bandwidth, a guaranteed 48-hour response SLA, and a 5% loyalty incentive in exchange for predictable monthly billing.
+          </p>
+        </details>
+
+        <details class="group pb-1">
+          <summary class="flex justify-between items-center font-semibold text-xs text-slate-800 py-1 hover:text-emerald-600 transition-colors">
+            <span>Can I embed this calculator on my blog or resource hub?</span>
+            <svg class="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+            Yes! Click the <strong>"Embed"</strong> button in the top navigation to copy the embed snippet from PocketRuler.app.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         POCKETRULER TOOLS & KNOWLEDGE BASE
+         ==================================================================== -->
+    <section class="max-w-4xl mx-auto pt-6 space-y-4" aria-label="PocketRuler Tools & Resources">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div>
+          <h2 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+            <span>PocketRuler Resource Hub</span>
+            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Free Resources</span>
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Essential tools, mathematical guides, and support resources engineered for independent solopreneurs.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+        <!-- Card 1: Active Calculator -->
+        <a href="#calculatorCard" class="p-4 rounded-xl bg-emerald-50/70 border-2 border-emerald-500/40 relative flex flex-col justify-between hover:bg-emerald-50 transition-colors group">
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+              </span>
+              <span class="text-[10px] bg-emerald-600 text-white font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Interactive</span>
+            </div>
+            <h3 class="text-xs font-bold text-slate-900 pt-1 group-hover:text-emerald-700 transition-colors">Rate vs. Retainer Calculator</h3>
+            <p class="text-[11px] text-slate-600 leading-relaxed">
+              Price hourly contracts against recurring monthly retainers with live FX currency conversion.
+            </p>
+          </div>
+          <span class="text-[11px] font-bold text-emerald-700 mt-3 inline-flex items-center">
+            Use Calculator &rarr;
+          </span>
+        </a>
+
+        <!-- Card 2: About & Methodology -->
+        <a href="about.html" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/20 transition-all flex flex-col justify-between group shadow-xs">
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-xs border border-indigo-100">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </span>
+              <span class="text-[10px] bg-indigo-50 text-indigo-700 font-bold px-2 py-0.5 rounded-full border border-indigo-200">Methodology</span>
+            </div>
+            <h3 class="text-xs font-bold text-slate-900 pt-1 group-hover:text-indigo-700 transition-colors">Mathematical Rigor &amp; E-E-A-T</h3>
+            <p class="text-[11px] text-slate-500 leading-relaxed">
+              Read our mission, how our gross-up formulas protect freelancers from burnout, and our editorial standards.
+            </p>
+          </div>
+          <span class="text-[11px] font-bold text-indigo-600 mt-3 inline-flex items-center">
+            Read Methodology &rarr;
+          </span>
+        </a>
+
+        <!-- Card 3: Support & Feedback Portal -->
+        <a href="contact.html" class="p-4 rounded-xl bg-white border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/20 transition-all flex flex-col justify-between group shadow-xs">
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs border border-emerald-100">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </span>
+              <span class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-full border border-emerald-200">Support</span>
+            </div>
+            <h3 class="text-xs font-bold text-slate-900 pt-1 group-hover:text-emerald-700 transition-colors">Direct Support &amp; Feedback</h3>
+            <p class="text-[11px] text-slate-500 leading-relaxed">
+              Request a new tool, report calculation discrepancies, or get in touch with our publisher team.
+            </p>
+          </div>
+          <span class="text-[11px] font-bold text-emerald-600 mt-3 inline-flex items-center">
+            Contact Team &rarr;
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 3: BOTTOM RESPONSIVE ADSENSE BANNER
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-placeholder rounded-xl p-3 text-center max-w-3xl mx-auto flex flex-col items-center justify-center min-h-[85px] text-slate-400">
+      <!--
+        GOOGLE ADSENSE BOTTOM BANNER
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      -->
+      <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Advertisement &bull; Google AdSense Bottom Placement</span>
+      <span class="text-xs text-slate-400 mt-0.5">High viewability ad unit rendered after calculator analysis</span>
+    </aside>
+
+  </main>
+
+  <!-- FOOTER: PocketRuler.app & COMPLIANCE LINKS -->
+  <footer class="w-full bg-white border-t border-slate-200 py-6 text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <p class="font-bold text-slate-700 flex items-center">
+          PocketRuler<span class="text-emerald-600">.app</span>
+          <span class="text-slate-300 mx-2">&bull;</span>
+          <span>Free Utility Tools for Solopreneurs &amp; Creators</span>
+        </p>
+        <p class="text-slate-400 text-[11px] mt-0.5">
+          Exchange rates refreshed live via Open Exchange Rates API. &copy; 2026 PocketRuler.app. All rights reserved.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-semibold text-slate-600">
+        <a href="../about.html" class="hover:text-emerald-600 transition-colors">About</a>
+        <a href="../contact.html" class="hover:text-emerald-600 transition-colors">Contact</a>
+        <a href="../privacy.html" class="hover:text-emerald-600 transition-colors">Privacy Policy</a>
+        <a href="../terms.html" class="hover:text-emerald-600 transition-colors">Terms of Service</a>
+        <a href="../disclaimer.html" class="hover:text-emerald-600 transition-colors">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- EMBED WIDGET MODAL -->
+  <div id="embedModal" class="modal-overlay" role="dialog" aria-labelledby="embedModalTitle" aria-modal="true">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 border border-slate-200 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 id="embedModalTitle" class="text-base font-bold text-slate-900">Embed PocketRuler Calculator</h3>
+        <button type="button" class="modal-close text-slate-400 hover:text-slate-700 p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <p class="text-xs text-slate-600 leading-relaxed">
+        Add this responsive calculator to your blog or community resources. Copy and paste the snippet below:
+      </p>
+      <div class="relative">
+        <textarea id="embedCodeSnippet" readonly class="w-full h-24 p-3 bg-slate-50 border border-slate-300 rounded-xl text-xs font-mono text-slate-800 select-all"></textarea>
+      </div>
+      <div class="flex justify-end space-x-2">
+        <button type="button" class="modal-close px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg">Cancel</button>
+        <button type="button" id="btnCopyEmbed" class="px-3.5 py-1.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg shadow-xs">Copy Embed Code</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIVACY & TERMS MODAL -->
+  <div id="policyModal" class="modal-overlay" role="dialog" aria-labelledby="policyModalTitle" aria-modal="true">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] flex flex-col border border-slate-200 shadow-2xl">
+      <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+        <h3 id="policyModalTitle" class="text-base font-bold text-slate-900">Legal Policy</h3>
+        <button type="button" class="modal-close text-slate-400 hover:text-slate-700 p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="p-5 overflow-y-auto text-xs text-slate-600 space-y-3" id="policyModalContent"></div>
+      <div class="p-3 border-t border-slate-100 bg-slate-50 flex justify-end">
+        <button type="button" class="modal-close px-3 py-1.5 text-xs font-bold text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-100">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GDPR & EU USER CONSENT COOKIE BANNER (ADSENSE POLICY COMPLIANCE) -->
+  <aside id="cookieConsentBanner" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md bg-slate-900/95 backdrop-blur text-white p-4 sm:p-5 rounded-2xl shadow-2xl border border-slate-800 z-50 flex flex-col space-y-3 transition-all duration-300" role="dialog" aria-label="Cookie and Privacy Consent">
+    <div class="space-y-1">
+      <p class="font-bold text-xs flex items-center gap-1.5">
+        <span>🍪 Privacy &amp; Cookie Preferences</span>
+      </p>
+      <p class="text-[11px] text-slate-300 leading-relaxed">
+        We use cookies and local storage to optimize calculations, remember your preferences, and display relevant ads via Google AdSense. See our <a href="../privacy.html" class="text-emerald-400 underline hover:text-emerald-300">Privacy Policy</a>.
+      </p>
+    </div>
+    <div class="flex items-center justify-end space-x-2 pt-1 text-xs">
+      <button type="button" id="btnRejectCookies" class="px-3 py-1.5 text-slate-400 hover:text-white rounded-lg text-xs font-medium transition-colors">
+        Essential Only
+      </button>
+      <button type="button" id="btnAcceptCookies" class="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-xs shadow-xs transition-colors">
+        Accept All
+      </button>
+    </div>
+  </aside>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastNotification" class="toast-notification bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-lg flex items-center space-x-2" role="status" aria-live="polite">
+    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+    </svg>
+    <span id="toastMessage">Copied to clipboard!</span>
+  </div>
+
+  <!-- Calculator Script -->
+  <script src="calculator.js"></script>
+</body>
+</html>

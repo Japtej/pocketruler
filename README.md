@@ -1,20 +1,28 @@
-# PocketRuler.app — Solopreneur & Freelance Tools Hub
+# PocketRuler.app — Multi-Tool Suite for Solopreneurs & Remote Professionals
 
-> A suite of responsive, high-performance web utilities for freelancers, solopreneurs, and independent contractors. Free static hosting on GitHub Pages, zero backend maintenance, and engineered for Google AdSense monetization.
+> A suite of responsive, high-performance web utilities for freelancers, solopreneurs, and digital nomads. Free static hosting on GitHub Pages, zero backend maintenance, and engineered for Google AdSense monetization.
 
 **Live Domain:** [https://pocketruler.app](https://pocketruler.app)
 
 ---
 
-## 🚀 Active Tools
+## 🚀 Active Flagship Tools
 
-1. **Freelance Rate vs. Retainer Calculator** (`/` root):
+1. **Master Homepage Dashboard** (`/` root &rarr; [`index.html`](https://pocketruler.app/)):
+   - Unified suite landing hub with direct launcher cards, platform guarantees, and AdSense units.
+
+2. **Freelance Rate vs. Retainer Calculator** (`/freelance-calculator/`):
    - Side-by-side hourly, day rate, and client capacity vs. monthly retainers.
    - Dynamic real-time exchange rates via `open.er-api.com` across 15 global currencies.
    - Real-time "Rate Health" diagnostic assessment (burnout & undercharging warnings).
    - 1-Click dynamic "Client Retainer Pitch" proposal email generator.
-   - Revenue breakdown doughnut chart (Chart.js) showing take-home, taxes, overhead, and emergency buffer.
-   - Embeddable widget snippet for backlink distribution.
+   - Revenue breakdown doughnut chart (Chart.js) and 3-Tier retainer packaging playbook.
+
+3. **Remote Work Relocation & Expat Tax Arbitrage Calculator** (`/relocation-calculator/`):
+   - Real-time statutory expat tax calculations across 85+ global remote hubs.
+   - Models special expat regimes (Spain Beckham Law, Portugal IFICI, Dubai 0% Tax, Bansko 10%).
+   - Purchasing power parity (PPP) arbitrage score and Digital Nomad Visa qualification checker.
+   - Custom City Engine & in-depth 2,000+ word Expat Tax & Visa Guide (`/relocation-calculator/guide.html`).
 
 ---
 
@@ -22,24 +30,30 @@
 
 ```
 .
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # Automated GitHub Pages deployment pipeline
-├── css/
-│   └── style.css               # Range sliders, diagnostics, and modal design
-├── about.html                  # Standalone E-E-A-T About & Methodology page
-├── ads.txt                     # IAB standard AdSense seller authorization
-├── calculator.js               # Calculation engine, Live FX fetch, and Cookie consent
-├── CNAME                       # Custom domain binding for pocketruler.app
-├── contact.html                # Standalone Contact & inquiry page
-├── disclaimer.html             # Financial & estimation disclaimer page
-├── .gitignore                  # Git ignore rules
-├── index.html                  # Main interactive calculator, benchmarks & AdSense units
-├── privacy.html                # Standalone GDPR & Google AdSense Privacy Policy
-├── README.md                   # Project documentation & configuration guide
-├── robots.txt                  # Search engine & AdSense crawler permissions
-├── sitemap.xml                 # XML Sitemap indexing all canonical pages
-└── terms.html                  # Terms of Service page
+├── .github/workflows/deploy.yml          # Automated GitHub Pages deployment pipeline
+├── CNAME                                 # Custom domain binding for pocketruler.app
+├── index.html                            # Master Homepage Dashboard
+├── freelance-calculator/                 # [Tool 1] Freelance Rate Calculator
+│   ├── index.html                        # Calculator layout & benchmarks
+│   ├── calculator.js                     # FX sync, formulas, and doughnut chart
+│   └── css/style.css                     # Sliders, status glow, and modal styles
+├── relocation-calculator/                # [Tool 2] Expat Tax & Relocation Calculator
+│   ├── index.html                        # RelocateTrue calculation engine
+│   ├── guide.html                        # Comprehensive Expat Tax & Visa Guide
+│   ├── css/custom.css                    # Comparison table and UI styles
+│   └── js/
+│       ├── data.js                       # 85+ Global cities cost & tax datasets
+│       ├── calculator.js                 # Geoarbitrage & tax algorithm
+│       └── app.js                        # Dynamic rendering & search autocomplete
+├── about.html                            # Centralized E-E-A-T Publisher & Mission page
+├── contact.html                          # Centralized Support & Feedback portal
+├── privacy.html                          # Centralized GDPR & Google AdSense Privacy Policy
+├── terms.html                            # Centralized Terms of Service
+├── disclaimer.html                       # Centralized Financial & Estimation Disclaimer
+├── robots.txt                            # Search engine & AdSense crawler directives
+├── sitemap.xml                           # XML Sitemap indexing all tools and pages
+├── ads.txt                               # IAB standard AdSense seller authorization
+└── README.md                             # Project documentation & configuration guide
 ```
 
 ---

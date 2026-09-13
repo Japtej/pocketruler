@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RelocateTrue | Remote Work Cost of Living & Expat Tax Arbitrage Calculator</title>
+  <meta name="description" content="Calculate real-time cost of living, effective expat tax rates, net take-home pay, and purchasing power parity arbitrage across 85+ global cities or add any custom city worldwide." />
+  <meta name="keywords" content="remote work calculator, cost of living comparison, expat tax calculator, digital nomad visa income requirements, purchasing power parity, geoarbitrage" />
+  <link rel="canonical" href="https://pocketruler.app/relocation-calculator/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/relocation-calculator/" />
+  <meta property="og:title" content="RelocateTrue | Remote Work Cost of Living & Expat Tax Arbitrage Calculator — PocketRuler.app" />
+  <meta property="og:description" content="Compare net take-home pay, local expenses, and digital nomad visa eligibility across 85+ global remote hubs or add any custom city." />
+  <meta property="og:image" content="https://relocatetrue.com/images/og-preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RelocateTrue | Remote Work Cost of Living & Expat Tax Arbitrage Calculator" />
+  <meta name="twitter:description" content="Compare net take-home pay, local expenses, and digital nomad visa eligibility across 85+ global remote hubs." />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS for Range Slider & Print Styles -->
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <!-- Structured Data: WebApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "RelocateTrue Expat Tax & Cost of Living Calculator",
+    "url": "https://relocatetrue.com/",
+    "description": "Interactive geoarbitrage calculator estimating take-home pay, effective international income taxes, true living expenses, and digital nomad visa qualification across 85+ countries.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All modern browsers",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
+
+  <!-- Top Announcement / Ticker Bar -->
+  <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">85+ Global Hubs + Custom City Engine</span>
+        <span>Includes Spain Beckham Law, Portugal IFICI, Dubai 0% Tax, and Japan &amp; Italy DNVs</span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="guide.html" class="hover:text-white transition">Expat Tax Guide</a>
+        <span class="text-slate-700">|</span>
+        <button id="share-btn" class="hover:text-white transition flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+          Share Calculation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-blue-600 transition bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          Tools Hub
+        </a>
+        <a href="index.html" class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-600 flex items-center justify-center text-white font-black text-sm shadow-md shadow-blue-500/20">
+            R
+          </div>
+          <div>
+            <span class="text-lg font-black tracking-tight text-slate-900">Relocate<span class="text-blue-600">True</span></span>
+            <span class="hidden sm:inline-block text-[10px] font-bold tracking-wider text-emerald-700 uppercase ml-2 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">PocketRuler Suite</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Nav Links -->
+      <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600">
+        <a href="index.html" class="text-blue-600 font-semibold">Calculator</a>
+        <a href="guide.html" class="hover:text-blue-600 transition">Expat Tax &amp; Visa Guide</a>
+        <a href="../about.html" class="hover:text-blue-600 transition">About PocketRuler</a>
+        <a href="../contact.html" class="hover:text-blue-600 transition">Contact</a>
+      </div>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-3">
+        <button id="print-report-btn" class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 transition">
+          <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          Print PDF Summary
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- Hero Intro Section -->
+  <header class="pt-6 pb-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <div class="text-center max-w-3xl mx-auto">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+        Remote Work Cost of Living &amp; <span class="text-blue-600">Expat Tax Arbitrage</span> Calculator
+      </h1>
+      <p class="mt-3 text-base sm:text-lg text-slate-600">
+        Calculate your true net take-home pay after local taxes, benchmark living costs, discover your monthly geoarbitrage surplus, and verify digital nomad visa income requirements across <strong>85+ major global cities</strong> or <strong>any custom city in the world</strong>.
+      </p>
+
+      <!-- Quick Preset Buttons Bar -->
+      <div class="mt-5 flex flex-wrap items-center justify-center gap-2" id="preset-buttons">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Printable Header -->
+  <div class="hidden print:block print-header px-6">
+    <h1 class="text-2xl font-bold text-slate-900">RelocateTrue: Expat Tax &amp; Cost of Living Arbitrage Report</h1>
+    <p class="text-sm text-slate-600">Generated from relocatetrue.com</p>
+  </div>
+
+  <!-- Main Calculator Grid -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full flex-grow">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-4">
+
+      <!-- LEFT COLUMN: CONTROLS & INPUTS (5 cols) -->
+      <section class="lg:col-span-5 flex flex-col gap-6">
+
+        <!-- Input Parameters Card -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6 card-print">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
+            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+              1. Salary &amp; City Selection
+            </h2>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded bg-blue-50 text-blue-700">85+ Hubs</span>
+          </div>
+
+          <!-- Gross Income Input & Slider -->
+          <div class="mb-6">
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="income-input" class="text-sm font-semibold text-slate-700">Annual Gross Income (USD)</label>
+              <span class="text-xs text-slate-500">Worldwide remote salary</span>
+            </div>
+            <div class="relative rounded-xl shadow-sm mb-3">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
+                <span class="text-slate-400 font-bold">$</span>
+              </div>
+              <input type="number" id="income-input" min="20000" max="500000" step="1000" value="95000"
+                     class="block w-full rounded-xl border border-slate-300 pl-8 pr-4 py-2.5 text-base font-bold text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition" />
+            </div>
+            <!-- Range Slider -->
+            <input type="range" id="income-slider" min="30000" max="300000" step="2500" value="95000"
+                   class="custom-slider w-full cursor-pointer" />
+            <div class="flex justify-between text-[11px] font-medium text-slate-400 mt-1">
+              <span>$30,000</span>
+              <span>$100,000</span>
+              <span>$200,000</span>
+              <span>$300,000+</span>
+            </div>
+          </div>
+
+          <!-- Cities Selection & Swap -->
+          <div class="space-y-4">
+            <!-- Origin City Selection -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label for="origin-city-select" class="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Origin / Current Base City
+                </label>
+                <button type="button" id="open-custom-origin-btn" class="text-[11px] font-semibold text-blue-600 hover:text-blue-800 transition">
+                  + Add Custom City
+                </button>
+              </div>
+              <!-- Fast Filter Input -->
+              <input type="text" id="origin-city-search" placeholder="Type to filter cities..."
+                     class="w-full mb-1.5 px-3 py-1.5 text-xs rounded-lg border border-slate-200 bg-slate-50 text-slate-700 focus:bg-white focus:border-blue-400 outline-none transition" />
+              <div class="relative">
+                <select id="origin-city-select" class="block w-full appearance-none rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 pr-8 text-sm font-semibold text-slate-800 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition">
+                  <!-- Injected via JavaScript -->
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swap Cities Button -->
+            <div class="flex justify-center -my-1">
+              <button type="button" id="swap-cities-btn" title="Swap Origin and Destination" class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-700 transition border border-slate-200 shadow-sm">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path></svg>
+                Swap Cities
+              </button>
+            </div>
+
+            <!-- Destination City Selection -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label for="dest-city-select" class="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Destination / Target Relocation City
+                </label>
+                <button type="button" id="open-custom-dest-btn" class="text-[11px] font-semibold text-blue-600 hover:text-blue-800 transition">
+                  + Add Custom City
+                </button>
+              </div>
+              <!-- Fast Filter Input -->
+              <input type="text" id="dest-city-search" placeholder="Type to filter cities..."
+                     class="w-full mb-1.5 px-3 py-1.5 text-xs rounded-lg border border-slate-200 bg-slate-50 text-slate-700 focus:bg-white focus:border-blue-400 outline-none transition" />
+              <div class="relative">
+                <select id="dest-city-select" class="block w-full appearance-none rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 pr-8 text-sm font-semibold text-slate-800 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition">
+                  <!-- Injected via JavaScript -->
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Housing & Lifestyle Toggles -->
+          <div class="mt-6 pt-5 border-t border-slate-100 space-y-4">
+            <!-- Housing Preference -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                Housing Type
+              </label>
+              <div class="grid grid-cols-3 gap-2">
+                <label class="cursor-pointer">
+                  <input type="radio" name="housing" value="center" class="peer sr-only" checked />
+                  <div class="text-center p-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
+                    1-Bed Center
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="housing" value="outside" class="peer sr-only" />
+                  <div class="text-center p-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
+                    Outside Center
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="housing" value="coliving" class="peer sr-only" />
+                  <div class="text-center p-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
+                    Coliving / Room
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Lifestyle Multiplier -->
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                Lifestyle Level
+              </label>
+              <div class="grid grid-cols-3 gap-2">
+                <label class="cursor-pointer">
+                  <input type="radio" name="lifestyle" value="frugal" class="peer sr-only" />
+                  <div class="text-center p-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
+                    Frugal (0.75x)
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="lifestyle" value="moderate" class="peer sr-only" checked />
+                  <div class="text-center p-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
+                    Moderate (1.0x)
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="lifestyle" value="luxury" class="peer sr-only" />
+                  <div class="text-center p-2 rounded-lg border border-slate-200 text-xs font-medium text-slate-700 peer-checked:border-blue-600 peer-checked:bg-blue-50 peer-checked:text-blue-700 transition">
+                    Comfortable (1.45x)
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Digital Nomad Visa Check Card -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6 card-print">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+              <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              Nomad Visa Qualification
+            </h3>
+            <span id="visa-badge" class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-slate-100 text-slate-700">Checking...</span>
+          </div>
+
+          <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-100">
+            <div class="text-xs text-slate-500 font-medium" id="visa-name">Visa Program</div>
+            <div class="mt-1 flex items-baseline justify-between">
+              <span class="text-xs text-slate-600">Official Requirement:</span>
+              <span class="text-xs font-bold text-slate-900" id="visa-min-income">$0/mo</span>
+            </div>
+            <div class="flex items-baseline justify-between mt-0.5">
+              <span class="text-xs text-slate-600">Your Monthly Gross:</span>
+              <span class="text-xs font-bold text-blue-600" id="visa-user-income">$0/mo</span>
+            </div>
+          </div>
+
+          <div id="visa-verdict" class="text-xs font-medium text-slate-700 mt-3"></div>
+          <p id="visa-details" class="text-xs text-slate-500 mt-1 leading-relaxed"></p>
+          <div class="mt-3 text-right">
+            <a id="visa-official-link" href="#" class="text-xs font-bold text-blue-600 hover:text-blue-800 transition">
+              Official Visa Guidelines &rarr;
+            </a>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- RIGHT COLUMN: RESULTS, HERO STATS & CHARTS (7 cols) -->
+      <section class="lg:col-span-7 flex flex-col gap-6">
+
+        <!-- THE ARBITRAGE METRIC: HERO CARD -->
+        <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white rounded-2xl shadow-xl p-6 sm:p-7 relative overflow-hidden border border-blue-900/50 glow-blue card-print">
+          <div class="absolute -right-12 -top-12 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -left-12 -bottom-12 w-48 h-48 bg-emerald-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase tracking-widest font-bold text-blue-300">The Geoarbitrage Advantage</span>
+              <span class="text-[11px] font-semibold bg-white/10 px-2.5 py-1 rounded-full text-slate-200 border border-white/10">Tax &amp; Cost Arbitrage</span>
+            </div>
+
+            <!-- Big Metric Display -->
+            <div class="mt-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <div>
+                <div class="text-xs text-slate-300">Net Monthly Discretionary Surplus</div>
+                <div id="stat-monthly-surplus" class="text-4xl sm:text-5xl font-black tracking-tight text-emerald-400 mt-0.5">
+                  +$0/mo
+                </div>
+                <div id="stat-annual-surplus" class="text-xs font-semibold text-emerald-300 mt-1">
+                  +$0/yr extra wealth saved
+                </div>
+              </div>
+
+              <!-- Secondary Metrics Badge Box -->
+              <div class="bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/10 flex flex-col gap-1.5 min-w-[170px] text-right">
+                <div class="flex justify-between items-center text-xs gap-3">
+                  <span class="text-slate-300">Runway Banked:</span>
+                  <span id="stat-runway-multiplier" class="font-bold text-white">0.0 months</span>
+                </div>
+                <div class="flex justify-between items-center text-xs gap-3">
+                  <span class="text-slate-300">Cost of Living:</span>
+                  <span id="stat-col-difference" class="font-bold text-emerald-400">0%</span>
+                </div>
+                <div class="flex justify-between items-center text-xs gap-3">
+                  <span class="text-slate-300">Target Match:</span>
+                  <span id="stat-equivalent-salary" class="font-bold text-slate-200">$0/yr</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="mt-4 text-xs text-slate-300 leading-relaxed border-t border-white/10 pt-3">
+              * Discretionary surplus represents net take-home pay remaining after estimated taxes, social contributions, rent, utilities, food, and local transit.
+            </p>
+          </div>
+        </div>
+
+        <!-- SIDE-BY-SIDE COMPARISON CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <!-- Origin Card -->
+          <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 card-print">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Current Base</span>
+                <h4 id="origin-name-title" class="text-base font-extrabold text-slate-900 leading-tight">Origin City</h4>
+              </div>
+              <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">Origin</span>
+            </div>
+
+            <div class="space-y-2.5 text-xs">
+              <div class="flex justify-between items-center py-1 border-b border-slate-50">
+                <span class="text-slate-500">Effective Tax &amp; Levies:</span>
+                <div class="text-right">
+                  <span id="origin-tax-rate" class="font-bold text-slate-800">0%</span>
+                  <span id="origin-tax-annual" class="text-[11px] text-slate-400 block">-$0/yr</span>
+                </div>
+              </div>
+              <div class="text-[10px] text-slate-400 italic" id="origin-tax-regime">Tax Regime</div>
+
+              <div class="flex justify-between items-center py-1 border-b border-slate-50">
+                <span class="text-slate-500">Net Take-Home Pay:</span>
+                <div class="text-right">
+                  <span id="origin-net-takehome" class="font-extrabold text-slate-900">$0/mo</span>
+                  <span id="origin-net-annual" class="text-[10px] text-slate-400 block">$0/yr</span>
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center py-1 border-b border-slate-50">
+                <span class="text-slate-500">Living Expenses:</span>
+                <span id="origin-monthly-expenses" class="font-bold text-rose-600">-$0/mo</span>
+              </div>
+
+              <div class="flex justify-between items-center py-1 bg-slate-50 px-2.5 rounded-lg border border-slate-100 mt-2">
+                <span class="font-semibold text-slate-700">Monthly Disposable:</span>
+                <span id="origin-discretionary" class="font-black text-slate-900">$0/mo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Destination Card -->
+          <div class="bg-white rounded-2xl shadow-sm border-2 border-blue-500/30 p-5 relative overflow-hidden card-print">
+            <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-0.5 rounded-bl-lg">
+              TARGET
+            </div>
+
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600">Relocation Target</span>
+                <h4 id="dest-name-title" class="text-base font-extrabold text-slate-900 leading-tight">Destination City</h4>
+              </div>
+            </div>
+
+            <div class="space-y-2.5 text-xs">
+              <div class="flex justify-between items-center py-1 border-b border-slate-50">
+                <span class="text-slate-500">Effective Tax &amp; Levies:</span>
+                <div class="text-right">
+                  <span id="dest-tax-rate" class="font-bold text-slate-800">0%</span>
+                  <span id="dest-tax-annual" class="text-[11px] text-slate-400 block">-$0/yr</span>
+                </div>
+              </div>
+              <div class="text-[10px] text-slate-400 italic" id="dest-tax-regime">Tax Regime</div>
+
+              <div class="flex justify-between items-center py-1 border-b border-slate-50">
+                <span class="text-slate-500">Net Take-Home Pay:</span>
+                <div class="text-right">
+                  <span id="dest-net-takehome" class="font-extrabold text-blue-700">$0/mo</span>
+                  <span id="dest-net-annual" class="text-[10px] text-slate-400 block">$0/yr</span>
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center py-1 border-b border-slate-50">
+                <span class="text-slate-500">Living Expenses:</span>
+                <span id="dest-monthly-expenses" class="font-bold text-rose-600">-$0/mo</span>
+              </div>
+
+              <div class="flex justify-between items-center py-1 bg-blue-50/80 px-2.5 rounded-lg border border-blue-100 mt-2">
+                <span class="font-semibold text-blue-900">Monthly Disposable:</span>
+                <div class="text-right">
+                  <span id="dest-discretionary" class="font-black text-blue-900 text-sm">$0/mo</span>
+                  <span id="dest-local-currency-badge" class="block text-[10px] text-blue-600 font-medium">≈ 0 local</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- INTERACTIVE SVG COMPARISON CHART -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6 card-print">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900">Visual Allocation Comparison (Monthly USD)</h3>
+              <p class="text-xs text-slate-500">Side-by-side stack of estimated Taxes, Living Expenses, and Savings</p>
+            </div>
+            <!-- Legend -->
+            <div class="flex items-center gap-3 text-xs">
+              <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-rose-500"></span> Taxes</span>
+              <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-amber-500"></span> Living Costs</span>
+              <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-emerald-500"></span> Discretionary Surplus</span>
+            </div>
+          </div>
+
+          <div id="chart-container" class="w-full flex items-center justify-center min-h-[260px] bg-slate-50/50 rounded-xl p-3 border border-slate-100">
+            <!-- Injected via app.js (Pure SVG) -->
+          </div>
+        </div>
+
+        <!-- ITEMIZED EXPENSE BREAKDOWN TABLE -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 sm:p-6 overflow-x-auto card-print">
+          <h3 class="text-sm font-bold text-slate-900 mb-3">Itemized Living Expenses &amp; Cost Delta</h3>
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 text-slate-400 uppercase tracking-wider font-semibold">
+                <th class="py-2.5 px-4">Category</th>
+                <th class="py-2.5 px-4 text-right">Origin</th>
+                <th class="py-2.5 px-4 text-right">Destination</th>
+                <th class="py-2.5 px-4 text-right">Variance</th>
+              </tr>
+            </thead>
+            <tbody id="category-breakdown-tbody">
+              <!-- Injected via app.js -->
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+    </div>
+
+
+
+    <!-- RICH CONTEXTUAL REFERENCE GUIDE (1,200+ WORDS) -->
+    <article class="mt-12 bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm leading-relaxed prose max-w-none">
+      <header class="border-b border-slate-200 pb-6 mb-8">
+        <span class="text-xs font-bold uppercase tracking-widest text-blue-600">Comprehensive Practical Framework</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">
+          The Architecture of Geoarbitrage: Purchasing Power Parity, Tax Residency &amp; Digital Nomad Visas
+        </h2>
+        <p class="text-sm text-slate-500 mt-2">
+          By the RelocateTrue Editorial &amp; Quantitative Research Team &bull; Published for remote knowledge workers, cross-border contractors, and location-independent founders.
+        </p>
+      </header>
+
+      <section class="space-y-6 text-slate-700 text-sm sm:text-base">
+        <div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">1. The Fundamentals of Geographic Arbitrage</h3>
+          <p>
+            Geographic arbitrage (often abbreviated as <strong>geoarbitrage</strong>) is the economic practice of earning income in a high-currency, strong-economic jurisdiction (such as the United States, the United Kingdom, Switzerland, or Northern Europe) while residing and spending in a country with a significantly lower cost of living. For decades, multinational corporations exploited this dynamic through offshoring, nearshoring, and distributed assembly lines. Today, the global proliferation of high-speed asynchronous remote work has democratized this advantage for individual software engineers, designers, product managers, digital marketers, and solo entrepreneurs.
+          </p>
+          <p class="mt-3">
+            However, naive geoarbitrage calculators frequently mislead remote professionals by focusing exclusively on grocery or nominal rent indices while completely ignoring <em>effective international taxation, mandatory social security contributions, currency transfer frictional spreads, and immigration compliance costs</em>. RelocateTrue was designed specifically to bridge this analytical gap by uniting granular local living expenses with accurate statutory tax regime models.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">2. Purchasing Power Parity (PPP) in Everyday Remote Life</h3>
+          <p>
+            Purchasing Power Parity (PPP) is an economic metric that compares different countries' currencies through a "basket of goods" approach. When applied to personal finance and remote salaries, PPP demonstrates that nominal compensation is fundamentally meaningless without adjusting for local price levels. Earning $100,000 USD gross in Manhattan (New York) or downtown San Francisco affords an entirely different standard of living compared to earning that exact same $100,000 in Lisbon, Bansko, Medellín, or Bangkok.
+          </p>
+          <p class="mt-3">
+            In high-cost global metropolises, fixed nondiscretionary overhead—chiefly residential real estate, private healthcare premiums, domestic transportation, and municipal tax levies—absorbs between 60% and 85% of take-home pay. By relocating to a high-PPP destination, remote workers can reduce essential fixed living overhead to under 30% of gross earnings. This structural inversion creates a substantial monthly "discretionary surplus" that accelerates financial independence, provides immediate lifestyle upgrades, and dramatically extends financial runway.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">3. The 183-Day Fiscal Residence Rule &amp; Dual Tax Exposure</h3>
+          <p>
+            The single most consequential legal reality for international remote workers is the <strong>183-Day Rule</strong>. Under the statutory law of nearly every sovereign state in the OECD and European Union, an individual who physically spends 183 or more days within the national territory during a calendar year (or any consecutive 12-month rolling period) is automatically deemed an unlimited <em>fiscal resident</em>.
+          </p>
+          <p class="mt-3">
+            Becoming a fiscal resident triggers statutory liability on your <em>worldwide income</em>, meaning the host country has the jurisdictional authority to levy domestic progressive income tax rates—which can exceed 45% in European destinations—regardless of where your clients, employers, or bank accounts are situated.
+          </p>
+          <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg my-4 text-xs sm:text-sm text-blue-950">
+            <strong>Key Takeaway:</strong> Spending fewer than 183 days in a country does not automatically guarantee zero tax liability. Many jurisdictions enforce "center of vital interests" tests (evaluating where your primary dwelling, spouse, children, or financial assets reside) or permanent establishment rules for independent contractors. Always consult a licensed cross-border tax CPA before establishing physical residency.
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">4. US Citizens, Worldwide Taxation &amp; The Foreign Earned Income Exclusion (FEIE)</h3>
+          <p>
+            Unlike almost every other country on Earth, the United States taxes its citizens on their <strong>worldwide income based strictly on citizenship</strong>, rather than physical residence or territorial source. American digital nomads who relocate abroad remain legally obligated to file annual IRS Form 1040 returns and disclose foreign financial accounts under FBAR (FinCEN Report 114) and FATCA (Form 8938).
+          </p>
+          <p class="mt-3">
+            Fortunately, the Internal Revenue Code provides two primary relief mechanisms to prevent punitive double taxation:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li><strong>Foreign Earned Income Exclusion (FEIE / Form 2555):</strong> Allows qualifying US expats who meet either the <em>Physical Presence Test</em> (330 full days abroad within any 365-day rolling window) or the <em>Bona Fide Residence Test</em> to exclude up to $126,500 (adjusted annually for inflation) of foreign earned wages from US federal income taxation.</li>
+            <li><strong>Foreign Tax Credit (FTC / Form 1116):</strong> Allows expats paying substantial income taxes in high-tax host countries (such as Germany, the UK, or Spain) to claim dollar-for-dollar tax credits against their US federal income tax liability.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">5. Special Tax Regimes for Remote Workers &amp; Digital Nomads</h3>
+          <p>
+            To attract international remote capital, high-earning foreign tech talent, and entrepreneurial investment, several progressive governments have introduced codified tax holidays and preferential flat tax schemes:
+          </p>
+          <ul class="list-disc pl-5 space-y-2 mt-2">
+            <li><strong>United Arab Emirates (Dubai &amp; Abu Dhabi):</strong> Maintains an unequivocal 0% personal income tax rate, 0% capital gains tax, and zero local social security deductions for foreign remote workers holding official remote work permits.</li>
+            <li><strong>Spain's Beckham Law (Ley Beckham):</strong> Under the Spanish Startups Law and Digital Nomad Visa framework, qualifying remote specialists can opt for a flat 24% tax rate on earned income up to €600,000 for up to 6 consecutive years.</li>
+            <li><strong>Greece (Law 4825/2021 Article 5C):</strong> Offers a legally binding 50% income tax exemption for up to seven consecutive years for digital nomads and foreign workers transferring tax domicile.</li>
+            <li><strong>Bulgaria (Bansko &amp; Sofia):</strong> Features a uniform flat 10% personal income tax rate—the lowest in the European Union.</li>
+            <li><strong>Portugal (IFICI / NHR 2.0):</strong> The new Tax Incentive for Scientific Research and Innovation (IFICI) grants a 20% flat tax on professional employment/freelance income for qualified tech professionals.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">6. Foreign Exchange Risk &amp; Currency Hedging for Digital Expats</h3>
+          <p>
+            When living on an international salary, currency volatility directly affects your real purchasing power. If your contract is denominated in US Dollars (USD) but your daily living expenses, apartment lease, and local taxes are denominated in Euros (EUR), Japanese Yen (JPY), or Thai Baht (THB), unexpected macroeconomic shifts can swing your living costs by 10% to 20% over a single calendar quarter.
+          </p>
+          <p class="mt-3">
+            Experienced digital nomads mitigate this risk by utilizing multi-currency treasury accounts (such as Wise or Revolut) to lock in favorable exchange rates, maintaining rolling 3-month expense buffers in the destination currency, and avoiding high retail banking conversion spreads.
+          </p>
+        </div>
+      </section>
+    </article>
+
+  </main>
+
+  <!-- UNIVERSAL CUSTOM CITY CREATOR MODAL -->
+  <div id="custom-city-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 no-print">
+    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-md w-full p-6 relative animate-in fade-in zoom-in-95 duration-200">
+      <button type="button" id="close-custom-modal-btn" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1.5 rounded-lg border border-slate-100" title="Close">
+        ✕
+      </button>
+
+      <div class="mb-4">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600">Universal City Engine</span>
+        <h3 class="text-xl font-extrabold text-slate-900 mt-0.5">Add Custom City</h3>
+        <p class="text-xs text-slate-500 mt-1">
+          Set up custom benchmark costs for <span id="modal-role-title" class="font-bold text-slate-800">Destination</span>. Compare any city or town on Earth!
+        </p>
+      </div>
+
+      <form id="custom-city-form" class="space-y-3.5 text-xs">
+        <div>
+          <label for="custom-city-name" class="block font-bold text-slate-700 mb-1">City Name *</label>
+          <input type="text" id="custom-city-name" required placeholder="e.g. Valencia, Honolulu, Chiang Rai, Reykjavik"
+                 class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+        </div>
+
+        <div>
+          <label for="custom-city-country" class="block font-bold text-slate-700 mb-1">Country / Jurisdiction *</label>
+          <input type="text" id="custom-city-country" required placeholder="e.g. Spain, United States, Thailand, Iceland"
+                 class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="custom-city-rent" class="block font-bold text-slate-700 mb-1">1-Bed Center Rent (USD) *</label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-bold">$</span>
+              <input type="number" id="custom-city-rent" required min="100" max="10000" step="50" value="1200"
+                     class="w-full rounded-xl border border-slate-300 pl-7 pr-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+            </div>
+          </div>
+
+          <div>
+            <label for="custom-city-tax" class="block font-bold text-slate-700 mb-1">Est. Income Tax Rate (%)</label>
+            <div class="relative">
+              <input type="number" id="custom-city-tax" min="0" max="60" step="1" value="20"
+                     class="w-full rounded-xl border border-slate-300 px-3 py-2 pr-7 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+              <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 font-bold">%</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label for="custom-city-currency" class="block font-bold text-slate-700 mb-1">Local Currency Symbol</label>
+          <input type="text" id="custom-city-currency" placeholder="$ / € / £ / ¥" value="$"
+                 class="w-24 rounded-xl border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition" />
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-2 border-t border-slate-100 mt-4">
+          <button type="button" id="cancel-custom-modal-btn" class="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold transition">
+            Cancel
+          </button>
+          <button type="submit" class="px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md shadow-blue-500/20 transition">
+            Apply Custom City
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <!-- Site Footer -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800 no-print mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <!-- Col 1: About -->
+        <div class="space-y-3 md:col-span-1">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-sm">R</div>
+            <span class="text-base font-black text-white">Relocate<span class="text-blue-500">True</span></span>
+          </div>
+          <p class="text-slate-400 leading-relaxed">
+            The independent, zero-dependency financial simulation engine for digital nomads, international expats, and cross-border remote professionals.
+          </p>
+          <div class="text-[11px] text-slate-500">
+            &copy; 2025&ndash;2026 RelocateTrue. All rights reserved.
+          </div>
+        </div>
+
+        <!-- Col 2: Hub Comparisons -->
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3">Popular Hubs</h4>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="index.html?origin=new-york&dest=lisbon" class="hover:text-white transition">New York to Lisbon</a></li>
+            <li><a href="index.html?origin=san-francisco&dest=bali" class="hover:text-white transition">San Francisco to Bali</a></li>
+            <li><a href="index.html?origin=london&dest=dubai" class="hover:text-white transition">London to Dubai (0% Tax)</a></li>
+            <li><a href="index.html?origin=austin&dest=mexico-city" class="hover:text-white transition">Austin to Mexico City</a></li>
+            <li><a href="index.html?origin=berlin&dest=bansko" class="hover:text-white transition">Berlin to Bansko (10% Tax)</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Resources & Guides -->
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3">Resources</h4>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="guide.html" class="hover:text-white transition">Expat Tax &amp; Visa Deep Dive</a></li>
+            <li><a href="about.html" class="hover:text-white transition">Methodology &amp; Formulas</a></li>
+            <li><a href="../privacy.html" class="hover:text-white transition">Privacy Policy &amp; Cookies</a></li>
+            <li><a href="../terms.html" class="hover:text-white transition">Terms of Service</a></li>
+            <li><a href="../disclaimer.html" class="hover:text-white transition">Disclaimer</a></li>
+            <li><a href="../contact.html" class="hover:text-white transition">Contact &amp; Feedback</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal Disclaimer -->
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3">Important Notice</h4>
+          <p class="text-[11px] text-slate-500 leading-relaxed">
+            RelocateTrue provides estimates based on publicly available cost of living aggregates and statutory tax brackets. We are not certified public accountants (CPAs), tax attorneys, or registered immigration solicitors. Calculations do not constitute official financial or legal advice.
+          </p>
+          <p class="text-[11px] text-slate-500 leading-relaxed">
+            This site participates in affiliate marketing programs. We may earn a commission on qualifying clicks at zero additional cost to you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
