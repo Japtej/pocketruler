@@ -1,68 +1,108 @@
-# Freelance Rate vs. Retainer Calculator
+# PocketRuler.app — Solopreneur & Freelance Tools Hub
 
-> A free, responsive static web utility designed for freelancers, solopreneurs, and independent contractors to accurately compare **Hourly Project Rates against Recurring Monthly Retainers**. Built for $0 static hosting and passive monetization via Google AdSense.
+> A suite of responsive, high-performance web utilities for freelancers, solopreneurs, and independent contractors. Free static hosting on GitHub Pages, zero backend maintenance, and engineered for Google AdSense monetization.
 
----
-
-## Features
-
-- **Side-by-Side Model Comparison**: Directly compares hourly rate, day rate, and client capacity against monthly recurring retainers.
-- **Dynamic Live FX Currency API**: Automatically syncs real-time exchange rates on initial load via `open.er-api.com` with support for 15 global currencies and live international USD benchmarking.
-- **"Rate Health" Diagnostic Score**: Instant visual feedback evaluating utilization, capacity limits, and tax buffer adequacy to protect freelancers from burnout and undercharging.
-- **1-Click "Client Retainer Pitch" Email Generator**: Dynamically crafts a ready-to-send proposal email tailored to the user's active numbers, with one-click clipboard copying.
-- **Interactive Revenue Allocation Doughnut Chart**: High-performance Chart.js visualization displaying the distribution between take-home pay, taxes, expenses, and safety reserves.
-- **Zero Dependencies / Pure Static Architecture**: Written in standard HTML5, Tailwind CSS, and vanilla JavaScript. Runs anywhere without Node.js or build steps.
-- **AdSense & SEO Optimized**:
-  - 3 high-viewability Google AdSense placement slots (`Top Leaderboard 728x90`, `In-Feed Native Unit`, and `Bottom Leaderboard`).
-  - Pre-written **Privacy Policy** (with Google DART cookies clause) and **Terms of Service** modals required for AdSense publisher approval.
-  - `schema.org/WebApplication` and `schema.org/FAQPage` structured JSON-LD data for Google search carousel rich snippets.
-  - Built-in embed widget generator to earn dofollow backlinks from finance blogs.
+**Live Domain:** [https://pocketruler.app](https://pocketruler.app)
 
 ---
 
-## File Structure
+## 🚀 Active Tools
+
+1. **Freelance Rate vs. Retainer Calculator** (`/` root):
+   - Side-by-side hourly, day rate, and client capacity vs. monthly retainers.
+   - Dynamic real-time exchange rates via `open.er-api.com` across 15 global currencies.
+   - Real-time "Rate Health" diagnostic assessment (burnout & undercharging warnings).
+   - 1-Click dynamic "Client Retainer Pitch" proposal email generator.
+   - Revenue breakdown doughnut chart (Chart.js) showing take-home, taxes, overhead, and emergency buffer.
+   - Embeddable widget snippet for backlink distribution.
+
+---
+
+## 📁 Repository Structure
 
 ```
 .
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml      # Automated GitHub Pages deployment workflow
+│       └── deploy.yml          # Automated GitHub Pages deployment pipeline
 ├── css/
-│   └── style.css           # Custom range sliders, health badges, and modal styles
-├── .gitignore              # Ignored files and OS artifacts
-├── calculator.js           # Vanilla JS calculation engine, Live API sync & Chart.js logic
-├── index.html              # Responsive semantic HTML5 layout & AdSense slots
-└── README.md               # Documentation & setup instructions
+│   └── style.css               # Range sliders, diagnostics, and modal design
+├── CNAME                       # Custom domain binding for pocketruler.app
+├── .gitignore                  # Git ignore rules
+├── calculator.js               # Calculation engine, Live FX fetch, and Chart.js logic
+├── index.html                  # Main responsive layout, AdSense slots, and FAQ schema
+└── README.md                   # Project documentation & configuration guide
 ```
 
 ---
 
-## Deployment to GitHub Pages
+## 🌐 Custom Domain & DNS Setup (pocketruler.app)
 
-This repository includes an automated GitHub Actions deployment workflow (`.github/workflows/deploy.yml`).
+To point `pocketruler.app` to this GitHub Pages repository:
 
-### Quick Setup:
-1. Push this repository to GitHub.
-2. In your GitHub repository, go to **Settings** &rarr; **Pages**.
-3. Under **Build and deployment > Source**, ensure **GitHub Actions** is selected.
-4. Your website will be automatically deployed and updated upon every push to the `main` branch!
+### 1. DNS Records
+In your domain registrar's DNS management panel (Cloudflare, Spaceship, Namecheap, etc.), add the following records:
+
+| Type | Name / Host | Value / Target | TTL |
+| :--- | :--- | :--- | :--- |
+| **A** | `@` | `185.199.108.153` | Automatic / 300s |
+| **A** | `@` | `185.199.109.153` | Automatic / 300s |
+| **A** | `@` | `185.199.110.153` | Automatic / 300s |
+| **A** | `@` | `185.199.111.153` | Automatic / 300s |
+| **CNAME** | `www` | `japtej.github.io` | Automatic / 300s |
+
+> [!NOTE]
+> If using Cloudflare DNS, set the Proxy status to **DNS only** (gray cloud) during initial SSL certificate provisioning by GitHub, or use **Proxied** (orange cloud) with SSL mode set to **Full (Strict)**.
+
+### 2. GitHub Pages Settings
+1. Go to your repository on GitHub: `https://github.com/Japtej/freelance-rate-calculator`
+2. Navigate to **Settings** &rarr; **Pages**.
+3. Under **Custom domain**, ensure `pocketruler.app` is listed and saved.
+4. Check **Enforce HTTPS** (GitHub will provision a free Let's Encrypt SSL certificate once DNS records resolve, usually 5–20 minutes).
 
 ---
 
-## How to Add Google AdSense
+## 🗂️ Adding New Pages & Features to PocketRuler.app
 
-1. Open `index.html`.
-2. Add your AdSense verification script inside `<head>...</head>`:
+Because `pocketruler.app` is the root custom domain, you can easily add multiple micro-tools and calculators to this repository without any hosting fees:
+
+### Subfolder Pattern (Recommended)
+Create a new directory for each tool:
+```
+pocketruler.app/
+├── index.html                  # Freelance Rate vs. Retainer Calculator
+├── invoice-generator/
+│   └── index.html              # PocketRuler Invoice & Scope Estimator
+├── runway-calculator/
+│   └── index.html              # PocketRuler Emergency Buffer Calculator
+└── contract-clauses/
+    └── index.html              # PocketRuler Contract Terms Builder
+```
+- Each sub-page is immediately accessible at `https://pocketruler.app/invoice-generator/`.
+- **AdSense Advantage**: Once Google AdSense approves the root domain `pocketruler.app`, every sub-tool automatically inherits monetization approval without requiring separate review!
+
+---
+
+## 💰 Google AdSense Monetization
+
+This repository is pre-configured with high-converting AdSense slots and compliance assets:
+
+1. **Submit Domain**: Once DNS resolves, add `https://pocketruler.app` to your Google AdSense account (**Sites** &rarr; **Add Site**).
+2. **Verification Tag**: Add your AdSense publisher client ID inside `<head>` in `index.html`:
    ```html
    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
    ```
-3. Once approved, replace the 3 AdSense placeholder comments in `index.html`:
-   - `MONETIZATION SLOT 1` (Top Leaderboard)
-   - `MONETIZATION SLOT 2` (In-Feed Unit)
-   - `MONETIZATION SLOT 3` (Bottom Leaderboard)
+3. **Activate Ad Units**: Replace the 3 placeholder comments in `index.html`:
+   - `MONETIZATION SLOT 1`: Top Leaderboard (728x90 desktop / 320x100 mobile)
+   - `MONETIZATION SLOT 2`: Mid-page In-Feed native unit
+   - `MONETIZATION SLOT 3`: Bottom sticky responsive unit
+4. **AdSense Compliance**:
+   - Legal Privacy Policy with Google DART cookie declaration included in footer modal.
+   - Terms of Service modal included.
+   - Structured JSON-LD schema included.
 
 ---
 
-## License
+## 📄 License
 
-MIT License. Free for personal and commercial use.
+MIT License. Open for personal and commercial deployment.
