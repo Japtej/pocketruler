@@ -55,7 +55,7 @@ In your domain registrar's DNS management panel (Cloudflare, Spaceship, Namechea
 > If using Cloudflare DNS, set the Proxy status to **DNS only** (gray cloud) during initial SSL certificate provisioning by GitHub, or use **Proxied** (orange cloud) with SSL mode set to **Full (Strict)**.
 
 ### 2. GitHub Pages Settings
-1. Go to your repository on GitHub: `https://github.com/Japtej/freelance-rate-calculator`
+1. Go to your repository on GitHub: `https://github.com/Japtej/pocketruler`
 2. Navigate to **Settings** &rarr; **Pages**.
 3. Under **Custom domain**, ensure `pocketruler.app` is listed and saved.
 4. Check **Enforce HTTPS** (GitHub will provision a free Let's Encrypt SSL certificate once DNS records resolve, usually 5–20 minutes).
