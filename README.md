@@ -105,14 +105,14 @@ All pages adhere to the 3-Slot monetization pattern detailed in [PROJECT_TEMPLAT
    - Position: Directly above the 4-column footer on all pages.
    - Recommended dimensions: Responsive auto-ad display.
 
-### Quick Publisher ID Activation
-To activate AdSense across all pages:
-1. Replace `ca-pub-XXXXXXXXXXXXXXXX` in all HTML files with your approved Google AdSense publisher ID.
-2. Update [`ads.txt`](ads.txt) with your publisher record:
-   ```
-   google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
-   ```
-3. Uncomment the `<ins class="adsbygoogle">` tags in each page.
+### Active Publisher ID & Monetization Setup
+AdSense is implemented across all 10 pages with active publisher ID `ca-pub-3008088352823319`:
+- **Head Script**: Pre-loaded in `<head>` of every HTML file for responsive Auto Ads & fast CDN serving.
+- **In-Page Units**: Placed in standardized zero-CLS `.adsense-card` containers (`min-height: 90px;`).
+- **ads.txt**: Verified and committed with authorized record:
+  ```
+  google.com, pub-3008088352823319, DIRECT, f08c47fec0942fa0
+  ```
 
 ---
 

@@ -68,33 +68,39 @@ Every single page on `pocketruler.app` must include standardized AdSense placeme
 | **Slot 3 (Bottom Unit)** | Post-interaction viewability | Responsive Leaderboard / Large Mobile Banner | Directly above footer / legal links |
 
 ### AdSense Section Markup Template
-All ad placeholders must use the following standard HTML markup so that once Google AdSense issues the publisher ID (`ca-pub-XXXXXXXXXXXXXXXX`), a global search-and-replace or script injection immediately activates live ads:
+All ad placements use the following zero-CLS standard markup powered by active publisher ID `ca-pub-3008088352823319`:
 
+**In `<head>` of every HTML page:**
+```html
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+```
+
+**In-page Ad Placement:**
 ```html
 <!-- ====================================================================
      MONETIZATION SLOT [N]: [SLOT_NAME]
      ==================================================================== -->
-<aside role="region" aria-label="Advertisement" class="adsense-placeholder rounded-xl p-3 text-center max-w-4xl mx-auto flex flex-col items-center justify-center min-h-[85px] text-slate-400 my-8">
-  <!--
-    GOOGLE ADSENSE UNIT [N]
+<aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6">
+  <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 select-none">Advertisement</div>
+  <div class="adsense-card w-full">
     <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-         data-ad-slot="XXXXXXXXXX"
+         style="display:block; width:100%; min-height:90px;"
+         data-ad-client="ca-pub-3008088352823319"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  -->
-  <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Advertisement &bull; Google AdSense</span>
-  <span class="text-xs text-slate-400 mt-0.5">[Slot Description &bull; Responsive High-Viewability Placement]</span>
+    <script>
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    </script>
+  </div>
 </aside>
 ```
 
 ### Policy Compliance Requirements
 - **No Deceptive Layouts**: Ad units must never mimic tool controls, buttons, or calculator outputs.
 - **Labeling**: Every placeholder/unit must be enclosed in an `<aside role="region" aria-label="Advertisement">` with visible "Advertisement" label.
-- **ads.txt**: Maintain `ads.txt` in repository root with authorized publisher credentials (`google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0`).
-- **Privacy & Cookie Consent**: All pages must feature the GDPR / Google DART cookie consent banner and link to `/privacy.html`.
+- **Zero-CLS Container**: Every ad slot must use `.adsense-card` with `min-height: 90px;` to reserve space and avoid layout shifts.
+- **ads.txt**: Maintained in repository root with authorized publisher credentials (`google.com, pub-3008088352823319, DIRECT, f08c47fec0942fa0`).
+- **Privacy & Cookie Consent**: All pages must feature GDPR / Google DART cookie disclosures linking to `/privacy.html`.
 
 ---
 

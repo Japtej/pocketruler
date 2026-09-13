@@ -1,4 +1,3 @@
 # PocketRuler.app ads.txt per IAB specifications
-# When approved by Google AdSense, replace pub-XXXXXXXXXXXXXXXX with your publisher ID:
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+# Authorized Google AdSense Publisher Record
+google.com, pub-3008088352823319, DIRECT, f08c47fec0942fa0

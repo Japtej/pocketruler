@@ -23,6 +23,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
+  <!-- Google AdSense Official Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -266,16 +269,18 @@
     <!-- ====================================================================
          MONETIZATION SLOT 1: TOP ADSENSE LEADERBOARD BANNER (728x90)
          ==================================================================== -->
-    <aside role="region" aria-label="Advertisement" class="adsense-placeholder rounded-xl p-3 text-center max-w-3xl mx-auto flex flex-col items-center justify-center min-h-[85px] text-slate-400">
-      <!--
-        GOOGLE ADSENSE CODE SNIPPET (Leaderboard 728x90 / Responsive)
-        To activate your AdSense ads, replace the inner contents with:
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-        <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      -->
-      <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Advertisement &bull; Google AdSense Leaderboard Placement (728&times;90)</span>
-      <span class="text-xs text-slate-400 mt-0.5">Top responsive display banner placeholder</span>
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-5">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
     </aside>
 
     <!-- LIVE API STATUS BAR -->
@@ -565,19 +570,18 @@
     <!-- ====================================================================
          MONETIZATION SLOT 2: MID-CONTENT IN-FEED NATIVE AD UNIT
          ==================================================================== -->
-    <aside role="region" aria-label="Advertisement" class="adsense-placeholder rounded-xl p-3 text-center max-w-3xl mx-auto flex flex-col items-center justify-center min-h-[75px] text-slate-400">
-      <!--
-        GOOGLE ADSENSE IN-FEED AD UNIT
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 select-none">Sponsored &bull; Advertisement</div>
+      <div class="adsense-card w-full">
         <ins class="adsbygoogle"
-             style="display:block"
+             style="display:block; width:100%; min-height:90px;"
              data-ad-format="fluid"
              data-ad-layout-key="-fb+5w+4e-db+86"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-             data-ad-slot="XXXXXXXXXX"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      -->
-      <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Advertisement &bull; Google AdSense In-Feed Unit</span>
-      <span class="text-xs text-slate-400 mt-0.5">High-engagement banner rendered above the pitch generator</span>
+             data-ad-client="ca-pub-3008088352823319"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
     </aside>
 
     <!-- ====================================================================
@@ -1008,19 +1012,18 @@
     <!-- ====================================================================
          MONETIZATION SLOT 3: BOTTOM RESPONSIVE ADSENSE BANNER
          ==================================================================== -->
-    <aside role="region" aria-label="Advertisement" class="adsense-placeholder rounded-xl p-3 text-center max-w-3xl mx-auto flex flex-col items-center justify-center min-h-[85px] text-slate-400">
-      <!--
-        GOOGLE ADSENSE BOTTOM BANNER
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
         <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-             data-ad-slot="XXXXXXXXXX"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      -->
-      <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Advertisement &bull; Google AdSense Bottom Placement</span>
-      <span class="text-xs text-slate-400 mt-0.5">High viewability ad unit rendered after calculator analysis</span>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
     </aside>
 
   </main>
