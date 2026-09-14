@@ -1,6 +1,6 @@
-# PocketRuler.app — Multi-Tool Suite for Solopreneurs & Remote Professionals
+# PocketRuler.app — Everyday Digital Pocket Knife for Web & Life
 
-> A privacy-first suite of client-side web utilities for freelancers, solopreneurs, and digital nomads. Hosted statically on GitHub Pages with zero server maintenance, unified responsive navigation, and standardized Google AdSense monetization across all pages.
+> A fast, clean set of client-side web tools and calculators for everyday life, work, and math. Hosted statically on GitHub Pages with zero server maintenance, unified responsive navigation, and standardized Google AdSense monetization across all pages.
 
 **Live Domain:** [https://pocketruler.app](https://pocketruler.app)  
 **Primary Architecture Guide:** [PROJECT_TEMPLATE.md](PROJECT_TEMPLATE.md) *(Mandatory reading for any developer or AI agent before making changes)*  
@@ -10,12 +10,12 @@
 
 ## 🧭 Platform Mission & Architecture
 
-PocketRuler.app is engineered as the **one-stop shop** for modern independent professionals:
-- **Zero Backend / 100% Client-Side:** Calculations happen entirely in the user's browser. Zero private financial or tax numbers are stored or transmitted.
-- **Unified Navigation & Drawer Architecture:** Every page features a sticky top header, "All Tools" mega-dropdown, and an isolated responsive mobile navigation drawer (`mobileDrawer`) strictly positioned to prevent desktop flow defects.
-- **OS-Aware Dark & Light Theming:** Standardized theme controller (`js/theme.js`) automatically adapting to the user's OS / Windows preference (`prefers-color-scheme`), with live system change listeners, manual toggle button (`data-theme-toggle`), zero-FOUC initialization, and dynamic chart theme adaptation.
-- **Standardized AdSense Monetization:** Every page implements standardized ad placeholder regions (Top Slot 1, Mid Slot 2 where appropriate, Bottom Slot 3) ready for single-step Google AdSense publisher ID activation (`ca-pub-3008088352823319`).
-- **Single-Domain Authority:** All micro-apps share the root custom domain `pocketruler.app` under GitHub Pages, allowing new apps to inherit root Google AdSense approvals and domain authority instantly.
+PocketRuler.app is designed as a **digital pocket knife**:
+- **Zero Backend / 100% Client-Side:** Calculations happen entirely in the user's browser. Zero private financial or personal numbers are stored or transmitted.
+- **Unified Navigation & Drawer Architecture:** Every page features a sticky top header, "All Tools" dropdown, and an isolated responsive mobile navigation drawer (`mobileDrawer`).
+- **OS-Aware Dark & Light Theming:** Standardized theme controller (`js/theme.js`) automatically adapting to user OS preference (`prefers-color-scheme`), with live system change listeners and manual toggle button (`data-theme-toggle`).
+- **Standardized AdSense Monetization:** Every page implements standardized ad placeholder regions (Top Slot 1, Mid Slot 2, Bottom Slot 3) ready for Google AdSense (`ca-pub-3008088352823319`).
+- **Scalable Multi-Tool Umbrella:** Micro-apps share the root domain `pocketruler.app`, allowing new tools (financial, everyday math, design, productivity) to launch quickly under a single high-authority domain.
 
 ---
 
