@@ -62,6 +62,21 @@
       }
     }
   </script>
+  <style>
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border-width: 0 !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+  </style>
 
   <!-- Chart.js 4.4.4 CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
@@ -489,13 +504,15 @@
             Instantly cuts discretionary living spending to <strong class="text-white">$0</strong>. Simulates absolute survival runway during a complete market freeze.
           </p>
 
-          <label class="flex items-center justify-between cursor-pointer p-2.5 rounded-xl bg-slate-900/60 border border-slate-700 hover:border-slate-600 transition-colors">
-            <span class="text-xs font-bold text-white flex items-center gap-1.5">
+          <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-700">
+            <label for="panicModeToggle" class="text-xs font-bold text-white flex items-center gap-1.5 cursor-pointer select-none">
               <span>🚨 Activate Panic Mode</span>
-            </span>
-            <input type="checkbox" id="panicModeToggle" class="sr-only peer" />
-            <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-rose-600"></div>
-          </label>
+            </label>
+            <label for="panicModeToggle" class="relative inline-flex items-center cursor-pointer shrink-0">
+              <input type="checkbox" id="panicModeToggle" class="sr-only peer" />
+              <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-rose-600"></div>
+            </label>
+          </div>
 
           <div id="panicModeAlert" class="hidden text-[11px] text-rose-300 bg-rose-950/40 p-2.5 rounded-lg border border-rose-800/60 leading-snug">
             ⚠️ <strong>Panic Mode Engaged:</strong> Discretionary spending reduced to zero. Reflecting pure survival baseline.
