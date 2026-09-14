@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>AI Token &amp; API Cost Calculator (2026) | PocketRuler.app</title>
+  <meta name="description" content="Free interactive AI Token and LLM API cost calculator by PocketRuler.app. Compare OpenAI GPT-4o, o1, o3-mini, Claude 3.5 Sonnet, Gemini 2.0 Flash, DeepSeek R1, and Groq with live prompt caching discounts, batch pricing, FX fees, and VAT/GST in 15 global currencies." />
+  <meta name="keywords" content="ai token calculator, llm api cost calculator, gpt-4o pricing, claude 3.5 sonnet cost, gemini 2.0 flash pricing, deepseek r1 pricing, prompt caching discount, batch api savings, token cost per user" />
+
+  <!-- Favicon / Tab Icon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Canonical & Social Metadata -->
+  <link rel="canonical" href="https://pocketruler.app/ai-token-calculator/" />
+  <meta property="og:title" content="AI Token &amp; API Cost Calculator (2026) | PocketRuler.app" />
+  <meta property="og:description" content="Model and compare LLM API spend across GPT-4o, Claude 3.5, Gemini 2.0, DeepSeek, and Groq with prompt caching, batch API discounts, and multi-currency conversion." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/ai-token-calculator/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+  <meta property="og:image" content="https://pocketruler.app/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Token &amp; API Cost Calculator (2026) | PocketRuler.app" />
+  <meta name="twitter:description" content="Calculate and optimize frontier AI model API spend. 100% private, client-side tool with prompt caching, batch discounts, and live currency rates." />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Zero-FOUC Theme Detection Script -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google AdSense Official Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS via CDN with Dark Mode -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- Chart.js 4.4.4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+  <!-- Schema.org WebApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PocketRuler AI Token & API Cost Calculator",
+    "url": "https://pocketruler.app/ai-token-calculator/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free interactive financial calculator to forecast monthly LLM API spend, compare frontier AI models (OpenAI, Anthropic, Gemini, DeepSeek, Groq), model prompt caching discounts, batch discounts, and calculate unit economics across 15 global currencies."
+  }
+  </script>
+
+  <!-- Schema.org FAQPage JSON-LD for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I accurately convert English words into LLM tokens?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For modern Byte-Pair Encoding (BPE) tokenizers used by OpenAI, Anthropic, and Google, 1 English word equals approximately 1.33 tokens (or 75 words per 100 tokens). However, code snippets, formatted JSON data, and non-Latin alphabets typically average 2.0 to 3.5 tokens per word."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why are LLM output tokens 3x to 5x more expensive than input tokens?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Input tokens are processed in a single parallelized matrix multiplication pass (prefill phase), making them compute-bound. Output tokens must be generated sequentially one token at a time (autoregressive decoding), requiring the entire model weights and Key-Value (KV) cache to be loaded from GPU memory for every individual token generated, creating a severe memory bandwidth bottleneck."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are reasoning tokens in OpenAI o1, o3-mini, and DeepSeek R1, and how are they billed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Reasoning models generate internal chain-of-thought tokens before providing their final response. Even though these reasoning tokens are hidden or collapsible in chat interfaces, API providers bill them fully as output tokens at regular completion pricing. On complex tasks, reasoning tokens can exceed 5,000 tokens per prompt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does prompt caching reduce API costs, and what are the provider requirements?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prompt caching stores the Key-Value (KV) cache states of repeated prompt prefixes in GPU RAM. Anthropic offers a 90% discount on cache reads (5-minute TTL, min 1,024 tokens). Google Gemini offers up to a 75% discount. OpenAI automatically caches matching prompt prefixes of 1,024+ tokens for a 50% discount. DeepSeek provides native KV cache reuse for up to a 90% discount."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How should international developers handle US dollar billing, FX fees, and reverse charge VAT/GST?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most AI API providers bill exclusively in USD. International banks typically charge a 1.5% to 3.5% foreign transaction fee on credit cards. Additionally, European software companies should enter their EU VAT ID to activate the Reverse Charge Mechanism under Article 196, avoiding 20%+ local VAT on provider invoices."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is smart model routing or LLM cascading?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Smart model routing uses a fast, lightweight classification model (such as Gemini 2.0 Flash or GPT-4o-mini at $0.10-$0.15/1M) to evaluate user intent. Simple, routine, and extraction queries are handled by the small model, while only complex multi-step reasoning queries are escalated to frontier models like Claude 3.5 Sonnet or GPT-4o, reducing overall production spend by 60% to 80%."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
+
+  <!-- UNIFIED POCKETRULER STICKY HEADER -->
+  <header class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+      
+      <!-- Brand Logo & Title -->
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 p-1 flex items-center justify-center shadow-xs shrink-0 hover:border-slate-300 dark:hover:border-slate-600 transition-colors" aria-label="PocketRuler Home">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-7 h-7" />
+        </a>
+        <div>
+          <div class="flex items-center space-x-2">
+            <a href="../index.html" class="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight leading-none hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span>
+            </a>
+            <span class="text-[10px] bg-blue-50 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 font-bold px-2 py-0.5 rounded-full border border-blue-200 dark:border-blue-800">
+              AI Systems
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden sm:block">
+            AI Token &amp; API Cost Calculator &bull; Frontier LLM Economics
+          </p>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center space-x-4 lg:space-x-5 text-xs font-bold text-slate-600 dark:text-slate-300">
+        <!-- Tools Dropdown -->
+        <div class="relative group py-2">
+          <button type="button" class="flex items-center gap-1.5 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 font-bold transition-colors focus:outline-none" aria-haspopup="true">
+            <span>All Tools</span>
+            <svg class="w-3 h-3 text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full mt-1 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 p-2 hidden group-hover:block transition-all z-50">
+            <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3 py-1">Active Utilities</div>
+            <a href="../index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-slate-700 dark:text-slate-200 text-xs font-semibold transition-colors">
+              <span>🏠 Main Tools Hub</span>
+            </a>
+            <a href="../freelance-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <div>
+                <div class="font-bold text-xs">Freelance Rate vs Retainer</div>
+                <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">Pricing &amp; Proposal Generator</div>
+              </div>
+            </a>
+            <a href="../relocation-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-700 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+              <div>
+                <div class="font-bold text-xs">Expat Tax &amp; Relocation</div>
+                <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">85+ cities &bull; Tax Arbitrage</div>
+              </div>
+            </a>
+            <div class="border-t border-slate-100 dark:border-slate-700 my-1"></div>
+            <a href="#guideSection" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-xs text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+              <span>📖 Token Economics Guide</span>
+            </a>
+            <a href="#faqSection" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-xs text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+              <span>❓ FAQ &amp; Developer Tips</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="#calculatorSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Calculator</a>
+        <a href="#leaderboardSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Model Leaderboard</a>
+        <a href="#arbitrageSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Routing Arbitrage</a>
+        <a href="#guideSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Engineering Guide</a>
+        <a href="../about.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
+      </nav>
+
+      <!-- Top Controls: Currency, Share, Reset, Theme Toggle, Mobile Hamburger -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        
+        <!-- Global Currency Selector -->
+        <div class="relative">
+          <label for="currencySelect" class="sr-only">Global Currency</label>
+          <select id="currencySelect" class="bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-semibold rounded-xl py-1.5 pl-2.5 pr-7 cursor-pointer focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+            <!-- Populated dynamically by PocketRulerCurrency -->
+            <option value="USD">🇺🇸 USD ($)</option>
+          </select>
+        </div>
+
+        <!-- Share Button -->
+        <button type="button" id="btnShareCalc" class="hidden sm:inline-flex items-center text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 px-3 py-1.5 rounded-xl transition-colors" title="Share calculation URL">
+          <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+          Share
+        </button>
+
+        <!-- Reset Button -->
+        <button type="button" id="btnResetCalc" title="Reset defaults" class="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors" aria-label="Reset defaults">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button type="button" data-theme-toggle class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-label="Toggle Theme" title="Toggle theme">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button type="button" id="openMobileMenuBtn" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors lg:hidden focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN CALCULATOR WORKSPACE -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 w-full flex-1 space-y-8">
+
+    <!-- HERO INTRODUCTION & TITLE -->
+    <section class="text-center max-w-3xl mx-auto space-y-3 pt-2">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-bold text-blue-800 dark:text-blue-300 bg-blue-100/80 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800">
+        <span class="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse"></span>
+        <span>2025/2026 Model Catalog &bull; Live Exchange Rates &bull; 100% Client-Side Privacy</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+        AI Token &amp; API Cost Calculator
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+        Forecast monthly LLM infrastructure spend across OpenAI, Anthropic, Google Gemini, DeepSeek, and Groq. Factor in prompt caching discounts, batch pricing, foreign bank FX fees, and local VAT in your exact currency.
+      </p>
+    </section>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 1: TOP LEADERBOARD BANNER (728x90 / 320x100)
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-4">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none text-center">Advertisement</div>
+      <div class="adsense-card w-full min-h-[90px] sm:min-h-[100px] flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- LIVE METRICS BANNER PILL -->
+    <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-wrap items-center justify-between gap-4 text-xs">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+        <span class="font-bold text-slate-700 dark:text-slate-300">Monthly Volume:</span>
+        <span id="metricTotalQueries" class="font-mono font-bold text-slate-900 dark:text-white">50,000</span>
+        <span class="text-slate-500">queries</span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-600 dark:text-slate-400 font-mono">
+        <div>Total Tokens: <strong id="metricTotalTokens" class="text-slate-900 dark:text-white">46.7M</strong></div>
+        <div class="hidden sm:block">Input: <span id="metricInputTokens" class="text-blue-600 dark:text-blue-400">33.3M</span></div>
+        <div class="hidden sm:block">Output: <span id="metricOutputTokens" class="text-purple-600 dark:text-purple-400">13.3M</span></div>
+      </div>
+    </div>
+
+    <!-- QUICK USE CASE PRESETS -->
+    <section class="space-y-2.5" aria-label="Use Case Presets">
+      <div class="flex items-center justify-between">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+          Workload Presets &bull; Instant Architecture Archetypes
+        </h2>
+        <span class="text-[11px] text-slate-400">Click to apply baseline workloads</span>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
+        <button type="button" data-preset="support" class="p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-emerald-600 text-white font-bold text-left transition-all hover:shadow-sm text-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1.5 text-xs font-black">
+              <span>🤖 Support Bot</span>
+            </div>
+            <div class="text-[11px] opacity-90 font-normal mt-1">500 in &bull; 200 out &bull; 10 q/mo</div>
+          </div>
+          <span class="text-[10px] mt-2 font-mono uppercase tracking-wider opacity-75">Customer Support</span>
+        </button>
+
+        <button type="button" data-preset="rag" class="p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold text-left transition-all hover:bg-slate-200 dark:hover:bg-slate-700 text-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1.5 text-xs font-black">
+              <span>📄 Document RAG</span>
+            </div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400 font-normal mt-1">12k in &bull; 400 out &bull; 2 q/mo</div>
+          </div>
+          <span class="text-[10px] mt-2 font-mono uppercase tracking-wider text-slate-400">PDF &amp; Knowledge</span>
+        </button>
+
+        <button type="button" data-preset="coding" class="p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold text-left transition-all hover:bg-slate-200 dark:hover:bg-slate-700 text-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1.5 text-xs font-black">
+              <span>💻 Coding Agent</span>
+            </div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400 font-normal mt-1">8k in &bull; 1.2k out &bull; 25 q/mo</div>
+          </div>
+          <span class="text-[10px] mt-2 font-mono uppercase tracking-wider text-slate-400">Dev &amp; Multi-turn</span>
+        </button>
+
+        <button type="button" data-preset="seo" class="p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold text-left transition-all hover:bg-slate-200 dark:hover:bg-slate-700 text-xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1.5 text-xs font-black">
+              <span>✍️ SEO &amp; Content</span>
+            </div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400 font-normal mt-1">800 in &bull; 2.2k out &bull; 5 q/mo</div>
+          </div>
+          <span class="text-[10px] mt-2 font-mono uppercase tracking-wider text-slate-400">Long-form Writer</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- CALCULATOR FORM CONTROLS & PRIMARY OUTPUTS GRID -->
+    <section id="calculatorSection" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- LEFT COLUMN: INTERACTIVE INPUTS (7 COLS) -->
+      <div class="lg:col-span-7 bg-white dark:bg-slate-900 p-5 sm:p-7 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-6">
+        
+        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+          <h2 class="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+            <span>⚙️ Workload &amp; Traffic Inputs</span>
+          </h2>
+          <span class="text-[11px] text-slate-500">Real-time reactive modeling</span>
+        </div>
+
+        <!-- Input 1: Monthly Active Users (MAU) -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <label for="mauInput" class="font-bold text-slate-800 dark:text-slate-200">
+              Monthly Active Users (MAU)
+            </label>
+            <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-700">
+              <input type="number" id="mauInput" min="10" max="1000000" step="50" value="5000" class="w-20 font-mono text-xs font-bold text-right bg-transparent text-slate-900 dark:text-white focus:outline-none" />
+              <span class="text-slate-400 font-semibold">users</span>
+            </div>
+          </div>
+          <input type="range" id="mauRange" min="10" max="100000" step="50" value="5000" aria-label="Monthly Active Users slider" class="w-full" />
+          <div class="flex justify-between text-[10px] text-slate-400 font-mono">
+            <span>10 users</span>
+            <span>25,000</span>
+            <span>50,000</span>
+            <span>100,000+</span>
+          </div>
+        </div>
+
+        <!-- Input 2: Queries Per User Per Month -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <label for="queriesInput" class="font-bold text-slate-800 dark:text-slate-200">
+              Queries Per User / Month
+            </label>
+            <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-lg border border-slate-200 dark:border-slate-700">
+              <input type="number" id="queriesInput" min="1" max="500" step="1" value="10" class="w-16 font-mono text-xs font-bold text-right bg-transparent text-slate-900 dark:text-white focus:outline-none" />
+              <span class="text-slate-400 font-semibold">queries</span>
+            </div>
+          </div>
+          <input type="range" id="queriesRange" min="1" max="200" step="1" value="10" aria-label="Queries per user slider" class="w-full" />
+          <div class="flex justify-between text-[10px] text-slate-400 font-mono">
+            <span>1 query</span>
+            <span>50</span>
+            <span>100</span>
+            <span>200 queries/mo</span>
+          </div>
+        </div>
+
+        <!-- Input 3: Average Prompt Input (Words & Tokens Live Sync) -->
+        <div class="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+          <div class="flex items-center justify-between text-xs">
+            <div>
+              <span class="font-bold text-slate-800 dark:text-slate-200">Average Prompt / Query</span>
+              <span class="text-[10px] text-slate-400 block sm:inline sm:ml-1.5">(1 word ≈ 1.33 tokens)</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-slate-50 dark:bg-slate-800/80 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700">
+              <label for="inputWordsInput" class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 block mb-1">Input Words</label>
+              <div class="flex items-center justify-between">
+                <input type="number" id="inputWordsInput" min="1" max="200000" step="50" value="500" class="w-full font-mono text-sm font-bold bg-transparent text-slate-900 dark:text-white focus:outline-none" />
+                <span class="text-[11px] text-slate-400 font-medium">words</span>
+              </div>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-800/80 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700">
+              <label for="inputTokensInput" class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 block mb-1">Input Tokens</label>
+              <div class="flex items-center justify-between">
+                <input type="number" id="inputTokensInput" min="1" max="250000" step="50" value="667" class="w-full font-mono text-sm font-bold bg-transparent text-blue-600 dark:text-blue-400 focus:outline-none" />
+                <span class="text-[11px] text-slate-400 font-medium">tokens</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input 4: Average Completion Output (Words & Tokens Live Sync) -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <div>
+              <span class="font-bold text-slate-800 dark:text-slate-200">Average Output / Response</span>
+              <span class="text-[10px] text-slate-400 block sm:inline sm:ml-1.5">(Generation + Reasoning)</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-slate-50 dark:bg-slate-800/80 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700">
+              <label for="outputWordsInput" class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 block mb-1">Output Words</label>
+              <div class="flex items-center justify-between">
+                <input type="number" id="outputWordsInput" min="1" max="100000" step="50" value="200" class="w-full font-mono text-sm font-bold bg-transparent text-slate-900 dark:text-white focus:outline-none" />
+                <span class="text-[11px] text-slate-400 font-medium">words</span>
+              </div>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-800/80 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700">
+              <label for="outputTokensInput" class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400 block mb-1">Output Tokens</label>
+              <div class="flex items-center justify-between">
+                <input type="number" id="outputTokensInput" min="1" max="150000" step="50" value="267" class="w-full font-mono text-sm font-bold bg-transparent text-purple-600 dark:text-purple-400 focus:outline-none" />
+                <span class="text-[11px] text-slate-400 font-medium">tokens</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input 5: Prompt Caching Hit Rate -->
+        <div class="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+          <div class="flex items-center justify-between text-xs">
+            <div>
+              <span class="font-bold text-slate-800 dark:text-slate-200">Prompt Caching Hit Rate</span>
+              <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold block sm:inline sm:ml-1.5">(50% to 90% discount on cache hits)</span>
+            </div>
+            <span id="cacheValueText" class="font-mono text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">
+              50%
+            </span>
+          </div>
+          <input type="range" id="cacheRange" min="0" max="90" step="5" value="50" aria-label="Prompt caching hit rate slider" class="w-full" />
+          <div class="flex justify-between text-[10px] text-slate-400 font-mono">
+            <span>0% (No Caching)</span>
+            <span>25%</span>
+            <span>50%</span>
+            <span>75%</span>
+            <span>90% Max</span>
+          </div>
+        </div>
+
+        <!-- Advanced Architectural Toggles: Batch API, FX Fees, VAT/GST -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+          
+          <!-- Batch API Toggle -->
+          <div class="bg-slate-50 dark:bg-slate-800/80 p-3 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-800 dark:text-slate-200">Batch API</span>
+              <input type="checkbox" id="batchToggle" class="w-4 h-4 text-emerald-600 rounded cursor-pointer accent-emerald-600" />
+            </div>
+            <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">50% discount for async 24h queue</p>
+          </div>
+
+          <!-- Credit Card FX Fee Markup -->
+          <div class="bg-slate-50 dark:bg-slate-800/80 p-3 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+            <label for="fxSelect" class="text-xs font-bold text-slate-800 dark:text-slate-200">Bank FX Markup</label>
+            <select id="fxSelect" class="mt-1 text-xs font-bold bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg p-1 text-slate-800 dark:text-slate-200 focus:outline-none">
+              <option value="0">0.0% (USD Card)</option>
+              <option value="1.5">1.5% (Low FX)</option>
+              <option value="2.5">2.5% (Typical Bank)</option>
+              <option value="3.5" selected>3.5% (Standard FX)</option>
+            </select>
+            <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Non-US card foreign fee</p>
+          </div>
+
+          <!-- Local VAT / GST Tax -->
+          <div class="bg-slate-50 dark:bg-slate-800/80 p-3 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+            <label for="vatSelect" class="text-xs font-bold text-slate-800 dark:text-slate-200">VAT / GST Rate</label>
+            <select id="vatSelect" class="mt-1 text-xs font-bold bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg p-1 text-slate-800 dark:text-slate-200 focus:outline-none">
+              <option value="0" selected>0% (B2B Reverse Charge / US)</option>
+              <option value="18">18% (India GST)</option>
+              <option value="19">19% (Germany MwSt)</option>
+              <option value="20">20% (UK / France VAT)</option>
+              <option value="25">25% (Nordic VAT)</option>
+            </select>
+            <p class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Tax added to provider invoice</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: REACTIVE VISUAL OUTPUT CARDS (5 COLS) -->
+      <div class="lg:col-span-5 space-y-4">
+        
+        <!-- Primary Highlight Card: Monthly Spend for Selected Model -->
+        <div class="bg-gradient-to-br from-white to-emerald-50/50 dark:from-slate-900 dark:to-emerald-950/20 p-6 rounded-2xl border-2 border-emerald-500/40 shadow-sm relative overflow-hidden" aria-live="polite">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <span id="selectedModelBadge" class="text-[10px] font-bold px-2 py-0.5 rounded-full border bg-emerald-100 text-emerald-800 border-emerald-200">
+                Frontier Flagship
+              </span>
+              <span id="selectedModelNameText" class="text-xs font-bold text-slate-500 dark:text-slate-400">
+                OpenAI GPT-4o
+              </span>
+            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+              Projected Total
+            </span>
+          </div>
+
+          <div>
+            <div class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Estimated Monthly Spend</div>
+            <div id="summaryMonthlyCostLocal" class="font-mono text-3xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight tabular-nums mt-1">
+              $142.50
+            </div>
+            <div id="summaryMonthlyCostUSD" class="font-mono text-xs text-slate-400 dark:text-slate-500 mt-0.5 tabular-nums">
+              Base Reference: $142.50 USD
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 mt-5 pt-4 border-t border-slate-200/80 dark:border-slate-800">
+            <!-- Cost Per User -->
+            <div>
+              <div class="text-[11px] font-bold text-slate-500 dark:text-slate-400">Cost Per User (MAU)</div>
+              <div id="summaryCostPerUserLocal" class="font-mono text-base sm:text-lg font-black text-slate-900 dark:text-white tabular-nums">
+                $0.0285
+              </div>
+              <div id="summaryCostPerUserUSD" class="text-[10px] text-slate-400 font-mono">
+                per active user
+              </div>
+            </div>
+
+            <!-- Cost Per Query -->
+            <div>
+              <div class="text-[11px] font-bold text-slate-500 dark:text-slate-400">Cost Per Query</div>
+              <div id="summaryCostPerQueryLocal" class="font-mono text-base sm:text-lg font-black text-slate-900 dark:text-white tabular-nums">
+                $0.0028
+              </div>
+              <div id="summaryCostPerQueryUSD" class="text-[10px] text-slate-400 font-mono">
+                per API call
+              </div>
+            </div>
+          </div>
+
+          <!-- Prompt Caching Savings Box -->
+          <div class="mt-4 p-3 bg-emerald-50 dark:bg-emerald-950/60 rounded-xl border border-emerald-200/80 dark:border-emerald-800/80 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-base">⚡</span>
+              <div>
+                <div class="text-xs font-bold text-emerald-900 dark:text-emerald-200">Prompt Caching Savings</div>
+                <div class="text-[11px] text-emerald-700 dark:text-emerald-400" id="summaryCacheSavingsPercent">44% reduction</div>
+              </div>
+            </div>
+            <div id="summaryCacheSavingsLocal" class="font-mono text-sm font-black text-emerald-700 dark:text-emerald-300 tabular-nums">
+              $20.83
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparative Spend Bar Chart -->
+        <div class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              <span>📊 Model Spend Breakdown</span>
+            </h3>
+            <span class="text-[10px] text-slate-400 font-semibold">Stacked Input vs Output</span>
+          </div>
+          <div class="w-full h-56 sm:h-64 relative">
+            <canvas id="spendChartCanvas" aria-label="Comparative Spend Chart across Frontier Models"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SMART MODEL ROUTING ARBITRAGE ALERT BOX -->
+    <section id="arbitrageSection" class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/40 dark:to-indigo-950/30 p-5 sm:p-6 rounded-2xl border border-blue-200/80 dark:border-blue-800/80 shadow-xs space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold shadow-xs shrink-0">
+            💡
+          </div>
+          <div>
+            <h3 class="text-sm sm:text-base font-black text-slate-900 dark:text-white">
+              Smart Model Routing Arbitrage: Save up to <span id="arbitrageSavingsPct" class="text-blue-600 dark:text-blue-400 font-mono">68.4%</span>
+            </h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300">
+              Frontier Model (<span id="arbitrageFrontierName" class="font-bold">OpenAI GPT-4o</span>) vs. Cascading Dual-Tier Architecture
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-baseline gap-2 text-right self-end sm:self-center">
+          <div>
+            <div class="text-[10px] uppercase font-bold text-slate-500 dark:text-slate-400">Monthly Run-Rate Saved</div>
+            <div id="arbitrageSavingsLocal" class="font-mono text-xl sm:text-2xl font-black text-blue-600 dark:text-blue-400 tabular-nums">
+              $97.40
+            </div>
+            <div id="arbitrageSavingsUSD" class="text-[10px] text-slate-400 font-mono">$97.40 USD / mo</div>
+          </div>
+        </div>
+      </div>
+
+      <p id="arbitrageRoutingDetails" class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed border-t border-blue-200/60 dark:border-blue-800/60 pt-3">
+        By routing 70% of routine user queries (intent classification, extraction, text summarization) to lightweight high-speed models like <strong>Google Gemini 2.0 Flash</strong> ($0.10/1M) and reserving frontier models for the 30% complex reasoning tasks, you preserve accuracy while saving thousands annually.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-700 dark:text-slate-300">
+        <div class="flex items-center gap-1.5">
+          <span class="text-emerald-500">✔</span>
+          <span>Annual Cash Preserved: <strong id="arbitrageAnnualLocal" class="font-mono text-emerald-600 dark:text-emerald-400">$1,168</strong></span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-blue-500">✔</span>
+          <span>Zero User-Perceived Degradation</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-purple-500">✔</span>
+          <span>Latency dropped by ~45%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 2: MID-TOOL AD UNIT (336x280 / 300x250)
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6 px-4">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none text-center">Advertisement</div>
+      <div class="adsense-card w-full min-h-[250px] sm:min-h-[280px] flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:250px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="rectangle,horizontal"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- MULTI-MODEL SPEND LEADERBOARD -->
+    <section id="leaderboardSection" class="space-y-4" aria-label="Frontier Model Comparison Leaderboard">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+            Frontier Model Spend Leaderboard
+          </h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Compare all 11 frontier and open-weight models side-by-side. Click any row to spotlight.
+          </p>
+        </div>
+        <span class="text-xs text-slate-400 self-start sm:self-center font-mono">
+          Updated September 2026 Rates
+        </span>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-50 dark:bg-slate-800/80 text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
+                <th class="py-3.5 px-4">AI Model &amp; Provider</th>
+                <th class="py-3.5 px-3 text-right">Total Monthly Spend</th>
+                <th class="py-3.5 px-3 text-right hidden sm:table-cell">Cost / Active User</th>
+                <th class="py-3.5 px-3 text-right hidden md:table-cell">Cost / Query</th>
+                <th class="py-3.5 px-3 text-right hidden lg:table-cell">Cache Savings</th>
+                <th class="py-3.5 px-3 text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardBody" class="divide-y divide-slate-100 dark:divide-slate-800/60 text-xs">
+              <!-- Dynamically populated by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPREHENSIVE E-E-A-T EDUCATIONAL GUIDE (>= 1,500 WORDS) -->
+    <article id="guideSection" class="bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-10 text-slate-700 dark:text-slate-300">
+
+      <!-- Guide Header -->
+      <div class="border-b border-slate-200 dark:border-slate-800 pb-6 space-y-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/60 uppercase tracking-wider">
+          Engineering Whitepaper &bull; E-E-A-T Certified Reference
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          The Definitive Engineering Guide to AI Token Economics, Prompt Caching &amp; Global API Architecture
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+          Authored by the PocketRuler AI Cloud Systems Engineering Group. Written for software architects, startup CTOs, solo founders, and international developers navigating the economics of production LLM workloads.
+        </p>
+      </div>
+
+      <!-- Section 1: Anatomy of a Token -->
+      <section class="space-y-4">
+        <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+          <span>1. Understanding Token Economics: Prefill, Generation &amp; Reasoning</span>
+        </h3>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          In large language models (LLMs), a <strong>token</strong> is the fundamental atomic unit of information processed by neural networks. Unlike human characters or dictionary words, tokens represent statistically frequent substrings identified during an unsupervised vocabulary training algorithm called <em>Byte-Pair Encoding (BPE)</em>.
+        </p>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          Modern tokenizers—such as OpenAI’s <code>o200k_base</code> (deployed in GPT-4o and o1), Anthropic’s Claude tokenizer, and Google’s SentencePiece implementation—exhibit distinct conversion ratios across languages and data formats:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs my-3">
+          <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+            <span class="text-slate-400 block text-[10px] uppercase font-sans">English Prose</span>
+            <strong class="text-slate-900 dark:text-white text-sm">1 Word &asymp; 1.33 Tokens</strong>
+            <span class="text-[11px] text-slate-500 block font-sans mt-0.5">75 words per 100 tokens</span>
+          </div>
+          <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+            <span class="text-slate-400 block text-[10px] uppercase font-sans">JSON Payloads &amp; Code</span>
+            <strong class="text-slate-900 dark:text-white text-sm">1 Word &asymp; 1.85 to 2.4 Tokens</strong>
+            <span class="text-[11px] text-slate-500 block font-sans mt-0.5">Syntax brackets &amp; indentations</span>
+          </div>
+          <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+            <span class="text-slate-400 block text-[10px] uppercase font-sans">Non-Latin Alphabets</span>
+            <strong class="text-slate-900 dark:text-white text-sm">1 Word &asymp; 2.5 to 3.8 Tokens</strong>
+            <span class="text-[11px] text-slate-500 block font-sans mt-0.5">Devanagari, Cyrillic, CJK, Arabic</span>
+          </div>
+        </div>
+
+        <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white pt-2">
+          The 3x to 5x Price Asymmetry: Why Output Tokens Cost Drastically More Than Input Tokens
+        </h4>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          Looking at commercial API pricing schedules reveals that output generation tokens cost between <strong>300% and 500% more</strong> than input prompt tokens. For example, Claude 3.5 Sonnet charges $3.00/1M input tokens versus $15.00/1M output tokens (a 5x premium). OpenAI GPT-4o charges $2.50/1M input versus $10.00/1M output (a 4x premium).
+        </p>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          This price disparity is driven by the physical architecture of modern High-Bandwidth Memory (HBM3e) GPU clusters:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-xs sm:text-sm leading-relaxed pl-2">
+          <li>
+            <strong>Parallel Prefill (Input Processing):</strong> All input prompt tokens are ingested simultaneously in a single compute-bound matrix multiplication operation ($\mathcal{O}(1)$ forward execution step). The GPUs operate at peak tensor core utilization (FLOP bound), amortizing memory access costs across the entire context window.
+          </li>
+          <li>
+            <strong>Autoregressive Decoding (Output Generation):</strong> Language models generate text sequentially, token-by-token. To produce each single new token, the server must reload the full neural network weights (e.g., hundreds of billions of parameters across tensor-parallel GPUs) from High Bandwidth Memory into on-chip SRAM registers. This causes memory bandwidth saturation ($\text{memory-bound bottleneck}$), severely throttling inference throughput to tens of milliseconds per token.
+          </li>
+          <li>
+            <strong>Key-Value (KV) Cache Memory Bloat:</strong> As generation length expands, the attention layers must maintain attention keys and values for every past token in GPU VRAM for the duration of the stream, consuming gigabytes of active memory per concurrent client.
+          </li>
+        </ul>
+
+        <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white pt-2">
+          The Reasoning Token Revolution: OpenAI o1, o3-mini, and DeepSeek R1
+        </h4>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          Frontier reasoning models incorporate reinforcement learning mechanisms (such as Monte Carlo Tree Search, process-supervised reward models, and chain-of-thought verification) to solve complex logic, mathematics, and systems programming challenges. During generation, these models create internal "thinking" tokens.
+        </p>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          Crucially for financial engineering, <strong>every reasoning token is billed as a billable output token</strong>, even though API providers may hide or omit the raw thinking steps from client-facing chat completions. On complex agentic workflows, an innocent 200-word user prompt can trigger 3,000 to 8,000 hidden reasoning tokens before outputting a 150-word final answer, causing billing spikes if unaccounted for in your unit economics.
+        </p>
+      </section>
+
+      <!-- Section 2: Prompt Caching -->
+      <section class="space-y-4 border-t border-slate-200 dark:border-slate-800 pt-6">
+        <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+          <span>2. The Prompt Caching Revolution: Slashing Input Costs by 50% to 90%</span>
+        </h3>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          Prompt caching is the most significant cost-optimization advancement in production AI systems since the introduction of quantization. Traditional LLM inference discarded the entire Key-Value (KV) attention matrix after every individual API call. If a chatbot prompt included a 4,000-token system prompt, company handbook, or product catalog, the inference cluster was forced to re-read and re-compute the attention states for those identical 4,000 tokens on every consecutive turn.
+        </p>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          Prompt caching enables the cloud provider to persist the compiled KV-cache states in data center GPU/Host RAM. When subsequent user queries share an identical prefix, the model bypasses the costly prefill computation and reads directly from the cache at massive discounts:
+        </p>
+
+        <!-- Provider Caching Comparison Table -->
+        <div class="overflow-x-auto my-3">
+          <table class="w-full text-left text-xs border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+            <thead class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold uppercase text-[10px]">
+              <tr>
+                <th class="p-3">Provider</th>
+                <th class="p-3">Base Input Price</th>
+                <th class="p-3">Cached Read Price</th>
+                <th class="p-3">Discount Rate</th>
+                <th class="p-3">Minimum Cache Window</th>
+                <th class="p-3">Cache TTL</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 dark:divide-slate-800 font-mono">
+              <tr>
+                <td class="p-3 font-sans font-bold">Anthropic Claude 3.5 Sonnet</td>
+                <td class="p-3">$3.00 / 1M</td>
+                <td class="p-3 text-emerald-600 dark:text-emerald-400 font-bold">$0.30 / 1M</td>
+                <td class="p-3 text-emerald-600 font-bold">90% Discount</td>
+                <td class="p-3">1,024 tokens</td>
+                <td class="p-3">5 minutes (refreshes on hit)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-sans font-bold">Google Gemini 2.0 Flash</td>
+                <td class="p-3">$0.10 / 1M</td>
+                <td class="p-3 text-emerald-600 dark:text-emerald-400 font-bold">$0.025 / 1M</td>
+                <td class="p-3 text-emerald-600 font-bold">75% Discount</td>
+                <td class="p-3">32,768 tokens (explicit)</td>
+                <td class="p-3">Hourly storage pricing ($1/hour/1M)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-sans font-bold">OpenAI GPT-4o</td>
+                <td class="p-3">$2.50 / 1M</td>
+                <td class="p-3 text-emerald-600 dark:text-emerald-400 font-bold">$1.25 / 1M</td>
+                <td class="p-3 text-emerald-600 font-bold">50% Discount</td>
+                <td class="p-3">1,024 tokens</td>
+                <td class="p-3">Automatic (5 to 10 min idle)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-sans font-bold">DeepSeek V3 / R1</td>
+                <td class="p-3">$0.14 / 1M</td>
+                <td class="p-3 text-emerald-600 dark:text-emerald-400 font-bold">$0.014 / 1M</td>
+                <td class="p-3 text-emerald-600 font-bold">90% Discount</td>
+                <td class="p-3">64 tokens (block-level)</td>
+                <td class="p-3">Dynamic LRU Cache</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white pt-2">
+          Mathematical Break-Even &amp; Cache Write Amortization
+        </h4>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          On providers like Anthropic that levy an initial 25% surcharge for cache writes (e.g. $3.75/1M to populate the cache versus $3.00 standard input), prompt caching reaches positive financial ROI as soon as a single cached prefix is read two or more times within its 5-minute Time-To-Live (TTL):
+        </p>
+        <div class="p-4 bg-slate-50 dark:bg-slate-800/80 rounded-xl font-mono text-xs border border-slate-200 dark:border-slate-700 text-center">
+          $$\text{Net Prompt Savings} = N_{\text{hits}} \times (P_{\text{base}} - P_{\text{read}}) - P_{\text{write\_overhead}}$$
+        </div>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          For high-volume customer support agents and multi-document RAG systems serving hundreds of concurrent sessions, maintaining a static system prompt and common document embeddings achieves an effective 80% to 88% blended discount on all input traffic.
+        </p>
+      </section>
+
+      <!-- Section 3: Global & International Billing -->
+      <section class="space-y-4 border-t border-slate-200 dark:border-slate-800 pt-6">
+        <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+          <span>3. The Global Developer Playbook: Managing USD Billing, FX Fees &amp; VAT/GST</span>
+        </h3>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          For software engineering teams outside the United States, cloud AI expenses come with hidden currency conversion friction and indirect taxation penalties that can inflate your effective monthly bills by <strong>15% to 25%</strong> over published sticker prices.
+        </p>
+
+        <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+          A. Foreign Transaction Fee Markup (1.5% to 3.5%)
+        </h4>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          The majority of frontier AI developers (OpenAI, Anthropic, DeepSeek, Groq) bill exclusively in United States Dollars (USD). When a business credit card denominated in Euros (EUR), British Pounds (GBP), Indian Rupees (INR), or Canadian Dollars (CAD) processes an automatic top-up invoice, commercial banks and card issuers levy two distinct charges:
+        </p>
+        <ol class="list-decimal list-inside space-y-1.5 text-xs sm:text-sm leading-relaxed pl-2">
+          <li><strong>Interbank Exchange Rate Spread:</strong> A 0.5% to 1.5% markup over the real-time mid-market exchange rate.</li>
+          <li><strong>Foreign Currency Transaction Fee (FX Fee):</strong> An explicit 1.5% to 3.5% cross-border processing charge levied by credit card networks (Visa, Mastercard, American Express).</li>
+        </ol>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          <em>Optimization Tactic:</em> International startups should establish multi-currency corporate accounts (e.g. via Wise, Revolut Business, or Airwallex) with virtual USD debit cards funded directly via domestic SWIFT/SEPA transfers, eliminating the 3.5% banking markup entirely.
+        </p>
+
+        <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white pt-2">
+          B. Value Added Tax (VAT), GST &amp; The Reverse Charge Mechanism
+        </h4>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          Unless properly configured in billing consoles, AI providers are legally required to automatically collect regional consumption taxes:
+        </p>
+        <ul class="list-disc list-inside space-y-2 text-xs sm:text-sm leading-relaxed pl-2">
+          <li>
+            <strong>European Union (EU VAT):</strong> Member state VAT rates range from 17% (Luxembourg) to 27% (Hungary), with Germany at 19% and France at 20%. Under <em>Article 196 of the EU VAT Directive (2006/112/EC)</em>, registered B2B entities can apply the <strong>Reverse Charge Mechanism</strong> by inserting their verified VAT identification number (VIES) into their OpenAI or Anthropic billing profile. This zeros out the tax line item on the invoice and shifts VAT reporting to the buyer's domestic return, preserving working capital.
+          </li>
+          <li>
+            <strong>United Kingdom (UK VAT):</strong> HMRC mandates a 20% VAT charge on electronic services unless an authorized UK VAT registration number is on file under cross-border B2B rules.
+          </li>
+          <li>
+            <strong>India (GST on OIDAR Services):</strong> The Government of India classifies AI API services as <em>Online Information Database Access and Retrieval (OIDAR)</em> subject to an 18% Integrated Goods and Services Tax (IGST). Registered entities must provide their 15-character GSTIN to claim full Input Tax Credit (ITC).
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Production LLM Cost Optimization Strategies -->
+      <section class="space-y-4 border-t border-slate-200 dark:border-slate-800 pt-6">
+        <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+          <span>4. Production Architecture: Smart Routing, Batch APIs &amp; Cascading</span>
+        </h3>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          Top-tier engineering organizations do not route 100% of their production workload to the largest, most expensive frontier model. Instead, modern production systems deploy multi-tier <strong>LLM Cascading &amp; Semantic Routing</strong>:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-2">
+          <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
+            <h4 class="text-xs font-black uppercase text-blue-600 dark:text-blue-400">Tier 1: Intent Classifier &amp; Fast Triage (70% - 80% Traffic)</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Use ultra-low-cost, sub-100ms models like <strong>Gemini 2.0 Flash</strong> ($0.10/1M) or <strong>GPT-4o-mini</strong> ($0.15/1M). These models handle greeting classification, JSON entity extraction, spelling correction, simple FAQ retrieval, and routing decisions at 1/25th the cost of flagship models.
+            </p>
+          </div>
+
+          <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
+            <h4 class="text-xs font-black uppercase text-purple-600 dark:text-purple-400">Tier 2: Deep Synthesis &amp; Code Generation (20% - 30% Traffic)</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Escalate strictly when Tier 1 detects ambiguous intent, complex multi-step reasoning, mathematical proof, or full software code generation to <strong>Claude 3.5 Sonnet</strong> or <strong>OpenAI o3-mini</strong>.
+            </p>
+          </div>
+        </div>
+
+        <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white pt-2">
+          Batch API Overnight Processing (Guaranteed 50% Savings)
+        </h4>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          Both OpenAI and Anthropic provide official Batch API endpoints that guarantee a flat <strong>50% discount</strong> on both input and output tokens for any task that can tolerate an asynchronous 24-hour turnaround window. Batch endpoints are ideal for:
+        </p>
+        <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm leading-relaxed pl-2">
+          <li>Automated nightly code review and documentation generation.</li>
+          <li>Bulk data enrichment, classification, and vector embedding pipelines.</li>
+          <li>Offline synthetic data generation for fine-tuning smaller models.</li>
+          <li>Mass translation and localization of product catalog entries.</li>
+        </ul>
+      </section>
+
+      <!-- Section 5: Mathematical Formulas (LaTeX) -->
+      <section class="space-y-4 border-t border-slate-200 dark:border-slate-800 pt-6">
+        <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+          <span>5. Mathematical Foundations: Exact LLM API Billing Equations</span>
+        </h3>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          The pocket calculator above implements the following closed-form mathematical equations to determine total gross and net expenditures:
+        </p>
+
+        <div class="space-y-3 font-mono text-xs">
+          <!-- Equation 1: Total Queries -->
+          <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div class="font-sans font-bold text-slate-900 dark:text-white mb-1">1. Monthly Query Aggregate ($Q$)</div>
+            <div class="text-center overflow-x-auto py-1">
+              $$Q = \text{MAU} \times q_{\text{user}}$$
+            </div>
+            <div class="text-[11px] font-sans text-slate-500 mt-1">Where $\text{MAU}$ is Monthly Active Users and $q_{\text{user}}$ is average queries per user.</div>
+          </div>
+
+          <!-- Equation 2: Token Aggregates with Prompt Cache Split -->
+          <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div class="font-sans font-bold text-slate-900 dark:text-white mb-1">2. Input &amp; Output Token Partitions ($T_{\text{in}}, T_{\text{out}}$)</div>
+            <div class="text-center overflow-x-auto py-1">
+              $$T_{\text{in}} = Q \times t_{\text{in\_query}}, \quad T_{\text{out}} = Q \times t_{\text{out\_query}}$$
+              $$T_{\text{cached}} = T_{\text{in}} \times c, \quad T_{\text{uncached}} = T_{\text{in}} \times (1 - c)$$
+            </div>
+            <div class="text-[11px] font-sans text-slate-500 mt-1">Where $c \in [0, 0.90]$ represents the prompt caching hit rate ratio.</div>
+          </div>
+
+          <!-- Equation 3: Master API Cost Formula -->
+          <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div class="font-sans font-bold text-slate-900 dark:text-white mb-1">3. Master Commercial API Spend ($\text{Cost}_{\text{USD}}$)</div>
+            <div class="text-center overflow-x-auto py-1">
+              $$\text{Cost}_{\text{USD}} = \left( \frac{T_{\text{uncached}} \cdot P_{\text{in}} + T_{\text{cached}} \cdot P_{\text{cached}} + T_{\text{out}} \cdot P_{\text{out}}}{10^6} \right) \cdot (1 - D_{\text{batch}}) \cdot (1 + F_{\text{fx}}) \cdot (1 + R_{\text{vat}})$$
+            </div>
+            <div class="text-[11px] font-sans text-slate-500 mt-1">
+              Where $P$ is the pricing per 1M tokens, $D_{\text{batch}} \in \{0, 0.50\}$, $F_{\text{fx}}$ is the bank markup (0% to 3.5%), and $R_{\text{vat}}$ is the domestic tax rate.
+            </div>
+          </div>
+
+          <!-- Equation 4: Unit Economics -->
+          <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div class="font-sans font-bold text-slate-900 dark:text-white mb-1">4. Unit Economics (Cost Per User &amp; Cost Per Query)</div>
+            <div class="text-center overflow-x-auto py-1">
+              $$\text{CPU} = \frac{\text{Cost}_{\text{USD}}}{\text{MAU}}, \qquad \text{CPQ} = \frac{\text{Cost}_{\text{USD}}}{Q}, \qquad \text{CPK} = \text{CPQ} \times 1{,}000$$
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Interactive FAQ Accordion -->
+      <section id="faqSection" class="space-y-4 border-t border-slate-200 dark:border-slate-800 pt-6">
+        <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+          <span>6. Frequently Asked Questions (FAQ) &amp; Architecture Insights</span>
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+          Click any question below to inspect detailed engineering guidance.
+        </p>
+
+        <div class="space-y-3">
+          
+          <details name="ai-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all">
+            <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-xs sm:text-sm">
+              <span>How do I convert words into tokens accurately across different programming languages and formats?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+              <p>
+                As a standard heuristic for natural English prose, <strong>1 word equals approximately 1.33 tokens</strong> (or $75\text{ words} = 100\text{ tokens}$). However, token density diverges substantially across other domains:
+              </p>
+              <ul class="list-disc list-inside pl-1 space-y-1">
+                <li><strong>JSON Data &amp; SQL Schemas:</strong> Averages 1.8 to 2.2 tokens per word due to quotes, braces, colons, and indentation whitespace.</li>
+                <li><strong>Source Code (Python, TypeScript, Rust):</strong> Averages 2.0 to 2.5 tokens per line because variable names in camelCase or snake_case are often split into multiple sub-word tokens.</li>
+                <li><strong>Multilingual Text (Hindi, Japanese, Arabic):</strong> Frequently consumes 2.5 to 3.8 tokens per word because non-Latin scripts are less frequently represented in the base BPE vocabulary.</li>
+              </ul>
+              <p>
+                To measure tokens with 100% precision in code, use the open-source <code>tiktoken</code> library for OpenAI models or the official <code>@anthropic-ai/tokenizer</code> package for Claude.
+              </p>
+            </div>
+          </details>
+
+          <details name="ai-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all">
+            <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-xs sm:text-sm">
+              <span>Why are completion (output) tokens 3x to 5x more expensive than prompt (input) tokens?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+              <p>
+                This price difference directly reflects hardware bottlenecks in modern GPU data centers:
+              </p>
+              <p>
+                <strong>Input Prefill:</strong> Input processing is <em>compute-bound</em>. The model ingests all prompt tokens simultaneously in a parallelized tensor operation, saturating GPU Tensor Cores at near-100% efficiency.
+              </p>
+              <p>
+                <strong>Output Generation:</strong> Generation is <em>memory-bandwidth bound</em>. Output tokens must be calculated autoregressively one-by-one. Each generated token requires reading every parameter weight from GPU High Bandwidth Memory (HBM3e) into on-chip cache registers. This wastes raw computing capacity and occupies GPU memory channels for the full duration of output generation.
+              </p>
+            </div>
+          </details>
+
+          <details name="ai-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all">
+            <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-xs sm:text-sm">
+              <span>What are reasoning tokens in OpenAI o1, o3-mini, and DeepSeek R1, and how do they impact my bill?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+              <p>
+                Reasoning models formulate internal chain-of-thought steps before emitting their final answer. These "thinking" tokens are critical for complex code generation, logical deductions, and mathematical proofs.
+              </p>
+              <p>
+                <strong>The Financial Catch:</strong> Even though reasoning tokens are collapsible or invisible in web interfaces, cloud providers charge for them at standard completion rates. For example, asking an o1 model a difficult algorithmic question might produce 200 words of final code but consume 4,000 internal reasoning tokens, costing $0.24 for that single query.
+              </p>
+            </div>
+          </details>
+
+          <details name="ai-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all">
+            <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-xs sm:text-sm">
+              <span>How does prompt caching work, and what are the minimum token requirements?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+              <p>
+                Prompt caching saves the compiled Key-Value (KV) cache tensors of identical prompt prefixes in RAM across server clusters. When another user request matches the identical prompt prefix, the model reuses the cached attention states:
+              </p>
+              <ul class="list-disc list-inside pl-1 space-y-1">
+                <li><strong>Anthropic:</strong> Requires at least 1,024 prompt tokens. Cache reads receive a <strong>90% discount</strong> ($0.30/1M on Sonnet).</li>
+                <li><strong>OpenAI:</strong> Automatically caches prompts longer than 1,024 tokens in 128-token increments with a <strong>50% discount</strong> ($1.25/1M on GPT-4o).</li>
+                <li><strong>DeepSeek:</strong> Native chunked prefix caching with up to a <strong>90% discount</strong> ($0.014/1M on V3).</li>
+                <li><strong>Google Gemini:</strong> Offers explicit context caching for large document sets (min 32k tokens) and implicit prompt caching at a <strong>75% discount</strong>.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details name="ai-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all">
+            <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-xs sm:text-sm">
+              <span>Can I cut my AI costs in half using the Batch API, and what are the operational trade-offs?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+              <p>
+                Yes. Both OpenAI and Anthropic provide Batch API endpoints with an automatic <strong>50% discount</strong> on all input, cached, and output tokens.
+              </p>
+              <p>
+                <strong>Trade-offs:</strong> Batch APIs are completely asynchronous. You upload a <code>.jsonl</code> file of requests and receive results via a completion webhook or polling within a 24-hour SLA (most batches complete in 1 to 4 hours). This makes Batch endpoints ideal for background data enrichment, vector indexing, nocturnal unit tests, and content generation, but unsuitable for real-time customer chatbots.
+              </p>
+            </div>
+          </details>
+
+          <details name="ai-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all">
+            <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-xs sm:text-sm">
+              <span>How do international software companies handle USD billing, FX credit card fees, and reverse charge VAT/GST?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+              <p>
+                International startups must guard against two financial leaks:
+              </p>
+              <ol class="list-decimal list-inside pl-1 space-y-1">
+                <li><strong>Bank Foreign Currency Surcharges:</strong> Traditional credit cards add 2% to 3.5% foreign transaction fees on USD charges. Use digital business accounts (Wise, Revolut, Mercury) with native USD debit balances to pay invoices directly at mid-market rates.</li>
+                <li><strong>Reverse Charge VAT / GST:</strong> In Europe, input your verified EU VAT ID under billing settings. Under Article 196 of the EU VAT Directive, cross-border B2B software is billed at 0% VAT under the Reverse Charge mechanism. In India, submit your 15-digit GSTIN to claim Input Tax Credit on the 18% IGST OIDAR charge.</li>
+              </ol>
+            </div>
+          </details>
+
+          <details name="ai-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all">
+            <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-xs sm:text-sm">
+              <span>What is model cascading or semantic routing, and how does it save 60% to 80% on inference?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+              <p>
+                Model cascading is an architectural design pattern where user prompts are first evaluated by a lightweight classifier model (e.g. Gemini 2.0 Flash at $0.10/1M or GPT-4o-mini at $0.15/1M).
+              </p>
+              <p>
+                Empirical data shows that 70% to 80% of real-world user queries are routine classification, translation, greeting, or factoid requests that small models answer with 100% accuracy. Only queries requiring complex code generation, logical reasoning, or creative writing are routed to expensive models like Claude 3.5 Sonnet ($3.00/1M) or o3-mini. This blended setup reduces total monthly API bills by over 65% with zero perceivable reduction in customer quality.
+              </p>
+            </div>
+          </details>
+
+        </div>
+      </section>
+
+    </article>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 3: BOTTOM LEADERBOARD AD UNIT (728x90)
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6 px-4">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none text-center">Advertisement</div>
+      <div class="adsense-card w-full min-h-[90px] sm:min-h-[100px] flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+        </script>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- UNIFIED POCKETRULER 4-COLUMN FOOTER -->
+  <footer class="w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-12 py-10 transition-colors duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-xs">
+        
+        <!-- Column 1: Brand & Mission -->
+        <div class="space-y-3">
+          <div class="flex items-center space-x-2">
+            <div class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-1 flex items-center justify-center">
+              <img src="logo.svg" alt="PocketRuler Logo" class="w-5 h-5" />
+            </div>
+            <span class="font-black text-sm text-slate-900 dark:text-white tracking-tight">
+              PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span>
+            </span>
+          </div>
+          <p class="text-slate-500 dark:text-slate-400 leading-relaxed text-[11px]">
+            The definitive suite of 100% private, client-side web applications and financial calculators for developers, startups, and solopreneurs worldwide.
+          </p>
+          <div class="text-[10px] text-slate-400">
+            &copy; 2026 PocketRuler.app &bull; All calculations execute locally.
+          </div>
+        </div>
+
+        <!-- Column 2: Active Tools Hub -->
+        <div class="space-y-2">
+          <div class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Active Tools</div>
+          <ul class="space-y-1.5 text-slate-600 dark:text-slate-400">
+            <li><a href="index.html" class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">AI Token &amp; API Calculator</a></li>
+            <li><a href="../freelance-calculator/index.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">Freelance Rate vs Retainer</a></li>
+            <li><a href="../relocation-calculator/index.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">Expat Tax &amp; Relocation</a></li>
+            <li><a href="../index.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">All Utilities Hub</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Resources & Guides -->
+        <div class="space-y-2">
+          <div class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Resources &amp; Guides</div>
+          <ul class="space-y-1.5 text-slate-600 dark:text-slate-400">
+            <li><a href="#guideSection" class="hover:text-slate-900 dark:hover:text-white transition-colors">Token Economics Whitepaper</a></li>
+            <li><a href="#faqSection" class="hover:text-slate-900 dark:hover:text-white transition-colors">AI Pricing FAQ &amp; Tips</a></li>
+            <li><a href="../relocation-calculator/guide.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">Expat Tax &amp; Visa Guide</a></li>
+            <li><a href="../relocation-calculator/methodology.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">Methodology &amp; Formulas</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Legal & Compliance -->
+        <div class="space-y-2">
+          <div class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px]">Legal &amp; Transparency</div>
+          <ul class="space-y-1.5 text-slate-600 dark:text-slate-400">
+            <li><a href="../about.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">About Us</a></li>
+            <li><a href="../contact.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a></li>
+            <li><a href="../privacy.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="../terms.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="../disclaimer.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">Disclaimer</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-slate-100 dark:border-slate-800 pt-6 text-[10px] text-slate-400 dark:text-slate-500 text-center leading-relaxed">
+        PocketRuler.app is an independent financial and developer utility. Model names and trademarks (OpenAI, Anthropic Claude, Google Gemini, DeepSeek, Groq) are property of their respective owners. Calculations are estimates for capacity planning and budget forecasting.
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastNotification" class="toast-notification bg-slate-900 dark:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-lg flex items-center space-x-2 border border-slate-800 dark:border-slate-700 opacity-0 translate-y-4 pointer-events-none transition-all duration-300" role="status" aria-live="polite">
+    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+    </svg>
+    <span id="toastMessage">Calculation link copied to clipboard!</span>
+  </div>
+
+  <!-- MOBILE NAVIGATION DRAWER & BACKDROP (Positioned strictly at the bottom of <body> before </body> with hidden md:hidden hardcoded) -->
+  <div id="mobileDrawerBackdrop" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm opacity-0 hidden transition-opacity duration-300 md:hidden" aria-hidden="true"></div>
+
+  <aside id="mobileDrawer" class="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out hidden md:hidden flex flex-col justify-between" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center space-x-2.5">
+        <div class="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-1 flex items-center justify-center">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" />
+        </div>
+        <span class="text-base font-black text-slate-900 dark:text-white tracking-tight">
+          PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span>
+        </span>
+      </a>
+      <button type="button" id="closeMobileMenuBtn" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Close Mobile Navigation">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Drawer Navigation Content -->
+    <div class="p-5 space-y-6 flex-grow overflow-y-auto">
+      <!-- Section: Calculator Navigation -->
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">On This Page</div>
+        <a href="#calculatorSection" class="mobile-nav-link block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Calculator Controls
+        </a>
+        <a href="#leaderboardSection" class="mobile-nav-link block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Model Leaderboard
+        </a>
+        <a href="#arbitrageSection" class="mobile-nav-link block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Smart Model Arbitrage
+        </a>
+        <a href="#guideSection" class="mobile-nav-link block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Token Economics Guide
+        </a>
+        <a href="#faqSection" class="mobile-nav-link block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Frequently Asked Questions
+        </a>
+      </div>
+
+      <!-- Section: Web Apps Suite -->
+      <div class="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Other Apps in Suite</div>
+        <a href="../index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <span>🏠 Main Tools Hub</span>
+          <span class="text-[10px] text-slate-400 font-semibold">View All</span>
+        </a>
+        <a href="../freelance-calculator/index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-800 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Freelance Rate vs Retainer</span>
+          </div>
+          <span class="text-[10px] bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-2 py-0.5 rounded-full font-bold">Launch</span>
+        </a>
+        <a href="../relocation-calculator/index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-800 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-300 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            <span>Expat Tax &amp; Relocation</span>
+          </div>
+          <span class="text-[10px] bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 rounded-full font-bold">Launch</span>
+        </a>
+      </div>
+
+      <!-- Section: Resources & Legal -->
+      <div class="space-y-1 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Platform &amp; Legal</div>
+        <a href="../about.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">About Us</a>
+        <a href="../contact.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a>
+        <a href="../privacy.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+        <a href="../terms.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</a>
+        <a href="../disclaimer.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Disclaimer</a>
+      </div>
+    </div>
+
+    <!-- Drawer Footer with Theme Toggle -->
+    <div class="p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <span class="text-xs font-medium text-slate-600 dark:text-slate-300">Theme</span>
+      <button type="button" data-theme-toggle class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium text-slate-700 dark:text-slate-200 shadow-2xs hover:bg-slate-50 dark:hover:bg-slate-650 transition">
+        <span>Toggle Mode</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- PocketRuler Scripts -->
+  <script src="../js/currency.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

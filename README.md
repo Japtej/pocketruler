@@ -36,14 +36,33 @@ PocketRuler.app is designed as a **digital pocket knife**:
    - Revenue breakdown doughnut chart (Chart.js) dynamically adapting to dark/light theme.
    - Integrated with unified header, mobile drawer, and 3 AdSense slots.
 
-3. **Remote Work Relocation & Expat Tax Arbitrage Calculator** (`/relocation-calculator/`):
+3. **W-2 to 1099 Calculator & Rate Converter** (`/w2-1099-calculator/`):
+   - High-precision numerical bisection solver to find the exact break-even 1099 hourly rate matching any W-2 salary.
+   - Complete 2024/2025 IRS tax modeling: 15.3% SECA tax, 50% SE deduction, and Section 199A QBI 20% pass-through.
+   - Benefits monetization (employer health subsidy, 401(k) match, paid vacation and federal holidays).
+   - Dynamic state tax selector (CA, NY, TX, FL, WA, IL, NC, US avg) and unbillable admin drag slider.
+   - Responsive waterfall cash flow chart, Form 1040-ES quarterly estimated tax reserve card, and recruiter pitch memo generator.
+
+4. **Remote Work Relocation & Expat Tax Arbitrage Calculator** (`/relocation-calculator/`):
    - Real-time statutory expat tax calculations across 85+ global remote hubs.
    - Models special expat regimes (Spain Beckham Law, Portugal IFICI, Dubai 0% Tax, Bansko 10%, etc.).
    - Purchasing power parity (PPP) arbitrage score and Digital Nomad Visa qualification checker.
    - Custom Destination Simulator for comparing non-listed destinations.
    - Integrated with unified header, mobile drawer, and 3 AdSense slots.
 
-4. **Deep-Dive Knowledge Base & Transparency Pages**:
+5. **AI LLM Token & API Cost Comparison Calculator** (`/ai-token-calculator/`):
+   - Full-scale multi-model comparison across 11 frontier models (GPT-4o, Claude 3.5, Gemini 2.0 Flash, DeepSeek V3/R1, Groq).
+   - Dynamic local currency switching across 15 global currencies powered by shared `js/currency.js`.
+   - Live prompt caching discounts (50%-90%), batch pricing (50% off), international credit card FX fees (1.5%-3.5%), and regional VAT/GST.
+   - Unit economics analysis (cost per MAU, cost per query) and smart model routing arbitrage recommendations.
+
+6. **Solopreneur Runway & Burn Rate Calculator** (`/runway-calculator/`):
+   - Solopreneur-focused cash flow operating system modeling blended personal living expenses, business overhead, and tax reserves.
+   - Multi-currency client retainer arbitrage: automatically converts foreign client earnings (USD, EUR, etc.) into local spending currency.
+   - "Panic Mode" bare-bones survival switch, 24-month multi-scenario decay curves (Chart.js), and Burnout Capacity Barometer.
+   - Emergency safety milestone buffer progress tracking (3-month, 6-month, 12-month goals).
+
+7. **Deep-Dive Knowledge Base & Transparency Pages**:
    - **Expat Tax & Visa Guide** (`/relocation-calculator/guide.html`): 2,000+ word structured guide on tax treaties, nomad visas, and 183-day residency rules.
    - **Methodology & Formulas** (`/relocation-calculator/methodology.html`): Mathematical formulas, cost-of-living basket weights, and Numbeo/OECD source citations.
    - **About Us & Mission** (`/about.html`): E-E-A-T publisher credibility statement, editorial standards, and suite roadmap.
@@ -65,14 +84,18 @@ PocketRuler.app is designed as a **digital pocket knife**:
 ├── favicon.svg                           # High-res SVG favicon (ruler motif)
 ├── logo.svg                              # Brand identity logo
 ├── js/
-│   └── theme.js                          # Universal OS & manual dark/light theme controller & mobile drawer handler
+│   ├── theme.js                          # Universal OS & manual dark/light theme controller & mobile drawer handler
+│   └── currency.js                       # Centralized 15-currency live FX engine & formatting controller
 ├── css/
 │   └── style.css                         # Shared CSS, mobile drawer, filters & AdSense styling
 ├── freelance-calculator/                 # [Web App 1] Freelance Rate vs. Retainer
 │   ├── index.html                        # Calculator interface & 3 AdSense slots
 │   ├── calculator.js                     # FX sync, capacity math & Chart.js integration
 │   └── css/style.css                     # Calculator slider & status styling
-├── relocation-calculator/                # [Web App 2] Expat Tax & Relocation
+├── w2-1099-calculator/                   # [Web App 2] W-2 to 1099 Break-Even Contractor Rate
+│   ├── index.html                        # SECA, QBI, benefits replacement & 3 AdSense slots
+│   └── app.js                            # High-precision numerical bisection solver & waterfall chart
+├── relocation-calculator/                # [Web App 3] Expat Tax & Relocation
 │   ├── index.html                        # Relocation arbitrage engine & 3 AdSense slots
 │   ├── guide.html                        # Comprehensive Expat Tax & Visa Guide
 │   ├── methodology.html                  # Math formulas & data source citations
@@ -84,6 +107,12 @@ PocketRuler.app is designed as a **digital pocket knife**:
 │       ├── data.js                       # 85+ Global cities cost & tax datasets
 │       ├── calculator.js                 # Geoarbitrage & tax algorithm
 │       └── app.js                        # Dynamic rendering & search autocomplete
+├── ai-token-calculator/                  # [Web App 4] AI LLM Token & API Cost Comparison
+│   ├── index.html                        # Multi-model cost estimator & 3 AdSense slots
+│   └── app.js                            # 11-model pricing matrix, prompt caching & Chart.js
+├── runway-calculator/                    # [Web App 5] Solopreneur Runway & Burnout Capacity
+│   ├── index.html                        # Cash depletion, Panic Mode & 3 AdSense slots
+│   └── app.js                            # 24-month decay curve, burnout barometer & foreign FX
 ├── about.html                            # Centralized About & Editorial Standards
 ├── contact.html                          # Centralized Feedback & Tool Suggestion Portal
 ├── privacy.html                          # Centralized GDPR & Google AdSense Privacy Policy

@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>W-2 to 1099 Calculator & Equivalent Rate Converter | PocketRuler.app</title>
+  <meta name="description" content="Free W-2 to 1099 calculator to calculate your true break-even contractor hourly rate. Models SECA vs FICA taxes, health insurance, 401(k) match, PTO capacity, and Section 199A QBI deductions." />
+  <meta name="keywords" content="w2 to 1099 calculator, 1099 equivalent hourly rate, w2 vs 1099 take home pay, contractor rate calculator, seca tax calculator, 1099 break even rate, qbi deduction calculator" />
+
+  <!-- Favicon / Tab Icon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Canonical & Open Graph -->
+  <link rel="canonical" href="https://pocketruler.app/w2-1099-calculator/" />
+  <meta property="og:title" content="W-2 to 1099 Calculator & Equivalent Rate Converter | PocketRuler.app" />
+  <meta property="og:description" content="Calculate your exact 1099 equivalent hourly rate from any W-2 salary. Account for SECA tax, lost benefits, healthcare subsidies, and Section 199A QBI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/w2-1099-calculator/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="W-2 to 1099 Calculator & Equivalent Rate Converter | PocketRuler.app" />
+  <meta name="twitter:description" content="Free client-side calculator comparing W-2 employment against 1099 independent contracting. Instant break-even rate, tax waterfall, and recruiter negotiation pitch." />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Zero-FOUC Theme Detection Script -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google AdSense Official Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS via CDN with Dark Mode -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @keyframes valuePulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); color: #059669; }
+      100% { transform: scale(1); }
+    }
+    .value-updated {
+      animation: valuePulse 0.25s ease-out;
+    }
+    input[type="range"] {
+      accent-color: #059669;
+    }
+    .dark input[type="range"] {
+      accent-color: #34d399;
+    }
+    .toast-notification {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 60;
+      pointer-events: none;
+    }
+    .toast-notification.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+
+  <!-- KaTeX for Mathematical LaTeX Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\(', right: '\\)', display: false}] });"></script>
+
+  <!-- Chart.js 4.4.4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+  <!-- Schema.org WebApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "W-2 to 1099 Calculator & Equivalent Rate Converter",
+    "url": "https://pocketruler.app/w2-1099-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "PocketRuler.app",
+      "url": "https://pocketruler.app/"
+    },
+    "description": "Calculate your true 1099 independent contractor break-even hourly rate from any W-2 salary with dual tax waterfall modeling, SECA vs FICA taxes, benefits replacement, and Section 199A QBI deduction."
+  }
+  </script>
+
+  <!-- Schema.org FAQPage JSON-LD for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why is a 1099 hourly rate significantly higher than a W-2 hourly rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A 1099 contractor must pay the full 15.3% Self-Employment Contributions Act (SECA) tax (absorbing the 7.65% employer payroll tax share), purchase their own health insurance out of pocket, self-fund retirement savings without an employer match, cover all deductible business overhead, and account for unpaid vacation days, holidays, and unbillable administrative hours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the rule of thumb multiplier for converting W-2 salary to 1099 rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The common industry rule of thumb is between 1.35x and 1.65x of your W-2 base salary divided by actual billable hours (typically 1,300 to 1,500 hours per year). For example, a $120,000 W-2 salary typically requires an equivalent 1099 gross between $160,000 and $198,000, translating to roughly $110 to $135 per billable hour."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the Section 199A Qualified Business Income (QBI) deduction benefit 1099 contractors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Section 199A allows eligible sole proprietors and single-member LLC pass-through owners to deduct up to 20% of their net qualified business income from federal taxable income, subject to taxable income phase-out thresholds for Specified Service Trades or Businesses (SSTBs)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many billable hours does a full-time 1099 contractor actually work per year?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While a standard W-2 employee is paid for 2,080 hours (40 hours × 52 weeks), a healthy independent contractor typically bills between 1,200 and 1,500 hours annually after accounting for 4 to 6 weeks of unpaid vacation/holidays and 10 to 15 hours per week of non-billable business administration, marketing, and client pitching."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do quarterly estimated taxes work for 1099 independent contractors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Independent contractors must remit estimated taxes to the IRS using Form 1040-ES across four statutory quarterly deadlines: April 15, June 15, September 15, and January 15. To avoid underpayment penalties under the safe harbor rule, you must pay either 90% of your current-year tax liability or 100% (110% if AGI > $150k) of your prior-year tax liability."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do non-US international remote contractors need to worry about W-2 or 1099 taxes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Foreign contractors performing services outside the United States for American clients submit IRS Form W-8BEN (for individuals) or W-8BEN-E (for entities). Because the services are performed entirely abroad, the income is treated as foreign-source under IRC § 861 and is exempt from US federal withholding and SECA payroll taxes. The contractor pays local taxes in their tax residency country."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
+
+  <!-- TOP HEADER -->
+  <header class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+      
+      <!-- Brand Logo & Context Title -->
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 p-1 flex items-center justify-center shadow-xs shrink-0 hover:border-slate-300 dark:hover:border-slate-600 transition-colors" aria-label="PocketRuler Home">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-7 h-7" />
+        </a>
+        <div>
+          <div class="flex items-center space-x-2">
+            <a href="../index.html" class="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight leading-none hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span>
+            </a>
+            <span class="text-[10px] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-bold px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">Tax &amp; Career</span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden sm:block">
+            W-2 vs. 1099 Calculator &bull; Precision compensation &amp; tax converter
+          </p>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center space-x-5 text-xs font-bold text-slate-600 dark:text-slate-300">
+        <!-- Tools Dropdown -->
+        <div class="relative group py-2">
+          <button type="button" class="flex items-center gap-1.5 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 font-bold transition-colors focus:outline-none" aria-haspopup="true">
+            <span>All Tools</span>
+            <svg class="w-3 h-3 text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full mt-1 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 p-2 hidden group-hover:block transition-all z-50">
+            <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3 py-1">Suite Directory</div>
+            <a href="../index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-slate-700 dark:text-slate-200 text-xs font-semibold transition-colors">
+              <span>🏠 Main Tools Hub</span>
+            </a>
+            <a href="../freelance-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <div>
+                <div class="font-bold text-xs">Freelance Rate &amp; Retainer</div>
+                <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">Pricing &amp; proposal generator</div>
+              </div>
+            </a>
+            <a href="../relocation-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-700 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+              <div>
+                <div class="font-bold text-xs">Expat Tax &amp; Relocation</div>
+                <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">85+ global cities simulator</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <a href="#calculatorCard" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Calculator</a>
+        <a href="#taxWaterfallSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Tax Breakdown</a>
+        <a href="#guideSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Tax Methodology</a>
+        <a href="#faqSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">FAQs</a>
+      </nav>
+
+      <!-- Action Buttons: Share, Reset, Embed, Theme Toggle, Mobile Hamburger -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <!-- Share Link -->
+        <button type="button" id="btnShareCalc" title="Share calculation link" class="p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" aria-label="Share Calculation">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+        </button>
+
+        <!-- Reset Defaults -->
+        <button type="button" id="btnResetCalc" title="Reset defaults" class="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" aria-label="Reset Defaults">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </button>
+
+        <!-- Embed Button -->
+        <button type="button" id="btnOpenEmbed" class="hidden sm:inline-flex items-center text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 px-3 py-1.5 rounded-lg transition-colors" title="Embed widget on your website">
+          <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          Embed
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button type="button" data-theme-toggle class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-label="Toggle Theme" title="Toggle theme">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </button>
+
+        <!-- Mobile Hamburger -->
+        <button type="button" id="openMobileMenuBtn" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors lg:hidden focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 w-full flex-1 space-y-8">
+
+    <!-- HERO TITLE & INTRO -->
+    <div class="text-center max-w-3xl mx-auto space-y-3 pt-2">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>2024–2025 IRS Tax Reform Standard Engine</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.15]">
+        W-2 to 1099 Calculator &amp; <span class="text-emerald-600 dark:text-emerald-400">Equivalent Rate</span> Converter
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+        Transitioning from a salaried role to independent consulting? Calculate your true break-even contractor hourly rate. Account for the 15.3% SECA tax, self-funded health coverage, lost 401(k) matches, unbillable admin hours, and Section 199A QBI deductions.
+      </p>
+    </div>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 1: TOP ADSENSE LEADERBOARD BANNER (728x90)
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-4">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none text-center">Advertisement</div>
+      <div class="adsense-card w-full min-h-[90px] sm:min-h-[100px] flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- INTERACTIVE CALCULATOR PANEL -->
+    <div id="calculatorCard" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-8">
+      
+      <!-- MODE SWITCHER -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-800">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Calculator Mode</span>
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white">Choose Your Financial Objective</h2>
+        </div>
+        <div class="inline-flex p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-xs font-bold">
+          <button type="button" id="btnModeEquivalent" class="px-4 py-2 rounded-lg bg-emerald-600 text-white shadow-xs transition-all">
+            W-2 to 1099 Equivalent
+          </button>
+          <button type="button" id="btnModeComparison" class="px-4 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
+            Direct Offer Comparison
+          </button>
+        </div>
+      </div>
+
+      <!-- INPUT GRID: 2 COLUMNS (W-2 vs 1099) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- COLUMN 1: W-2 SALARIED BASELINE -->
+        <div class="space-y-6">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">W-2 Salaried Compensation Package</h3>
+            </div>
+            <span class="text-[11px] font-semibold text-slate-400 dark:text-slate-500">FICA &bull; 7.65% Employee Share</span>
+          </div>
+
+          <!-- W-2 Base Salary -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <label for="inputW2Salary" class="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200">
+                Annual Base Salary ($)
+              </label>
+              <div class="relative w-36">
+                <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-xs font-bold text-slate-400">$</span>
+                <input type="number" id="inputW2Salary" min="10000" max="1000000" step="1000" value="120000"
+                  class="w-full pl-6 pr-2 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-xs sm:text-sm font-mono font-bold text-slate-900 dark:text-white text-right focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="rangeW2Salary" min="30000" max="400000" step="2500" value="120000"
+              class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer" />
+            <div class="flex justify-between text-[10px] text-slate-400 dark:text-slate-500 font-mono">
+              <span>$30k</span>
+              <span>$200k</span>
+              <span>$400k+</span>
+            </div>
+          </div>
+
+          <!-- Employer Healthcare Subsidy -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <label for="inputW2HealthSubsidy" class="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200">
+                Employer Healthcare Subsidy ($/mo)
+              </label>
+              <div class="relative w-32">
+                <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-xs font-bold text-slate-400">$</span>
+                <input type="number" id="inputW2HealthSubsidy" min="0" max="3000" step="25" value="550"
+                  class="w-full pl-6 pr-2 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-xs sm:text-sm font-mono font-bold text-slate-900 dark:text-white text-right focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="rangeW2HealthSubsidy" min="0" max="1500" step="25" value="550"
+              class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer" />
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">
+              Tax-free employer-sponsored medical/dental/vision premium contribution.
+            </p>
+          </div>
+
+          <!-- 401(k) Employer Match % -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <label for="inputW2MatchPercent" class="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200">
+                401(k) Employer Match (%)
+              </label>
+              <div class="relative w-28">
+                <input type="number" id="inputW2MatchPercent" min="0" max="15" step="0.5" value="4.0"
+                  class="w-full pr-6 pl-2 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-xs sm:text-sm font-mono font-bold text-slate-900 dark:text-white text-right focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+                <span class="absolute inset-y-0 right-0 pr-2.5 flex items-center text-xs font-bold text-slate-400">%</span>
+              </div>
+            </div>
+            <input type="range" id="rangeW2MatchPercent" min="0" max="10" step="0.5" value="4.0"
+              class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer" />
+          </div>
+
+          <!-- Paid Time Off: Vacation + Holidays -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-1.5">
+              <label for="inputW2VacationDays" class="text-xs font-bold text-slate-700 dark:text-slate-200">
+                Paid Vacation Days
+              </label>
+              <input type="number" id="inputW2VacationDays" min="0" max="45" step="1" value="15"
+                class="w-full p-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-xs sm:text-sm font-mono font-bold text-slate-900 dark:text-white text-center focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              <input type="range" id="rangeW2VacationDays" min="0" max="35" step="1" value="15"
+                class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer mt-1" />
+            </div>
+            <div class="space-y-1.5">
+              <label for="inputW2Holidays" class="text-xs font-bold text-slate-700 dark:text-slate-200">
+                Paid Federal Holidays
+              </label>
+              <input type="number" id="inputW2Holidays" min="0" max="20" step="1" value="10"
+                class="w-full p-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-xs sm:text-sm font-mono font-bold text-slate-900 dark:text-white text-center focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              <input type="range" id="rangeW2Holidays" min="0" max="15" step="1" value="10"
+                class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer mt-1" />
+            </div>
+          </div>
+
+        </div>
+
+        <!-- COLUMN 2: 1099 CONTRACTOR PARAMETERS -->
+        <div class="space-y-6">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">1099 Contractor Operations &amp; Overhead</h3>
+            </div>
+            <span class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">SECA &bull; 15.3% Self-Employment</span>
+          </div>
+
+          <!-- Comparison Mode Rate Input (Hidden in Equivalent Mode) -->
+          <div id="comparisonRatePanel" class="hidden p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 space-y-2">
+            <div class="flex justify-between items-center">
+              <label for="inputDirectHourlyRate" class="text-xs sm:text-sm font-bold text-emerald-900 dark:text-emerald-200">
+                Proposed 1099 Offer Hourly Rate ($/hr)
+              </label>
+              <div class="relative w-28">
+                <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-xs font-bold text-slate-400">$</span>
+                <input type="number" id="inputDirectHourlyRate" min="15" max="500" step="1" value="95"
+                  class="w-full pl-6 pr-2 py-1.5 bg-white dark:bg-slate-800 border border-emerald-300 dark:border-emerald-700 rounded-lg text-xs sm:text-sm font-mono font-bold text-emerald-700 dark:text-emerald-300 text-right focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="rangeDirectHourlyRate" min="25" max="250" step="1" value="95"
+              class="w-full h-1.5 bg-emerald-200 dark:bg-emerald-900 rounded-lg cursor-pointer" />
+            <p class="text-[11px] text-emerald-700 dark:text-emerald-300">
+              Directly compares this specific 1099 offer against the W-2 salary.
+            </p>
+          </div>
+
+          <!-- Billable vs Non-Billable Weekly Hours -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-1.5">
+              <div class="flex justify-between items-center">
+                <label for="inputWeeklyBillable" class="text-xs font-bold text-slate-700 dark:text-slate-200">
+                  Billable Hrs/Wk
+                </label>
+                <input type="number" id="inputWeeklyBillable" min="5" max="55" step="1" value="28"
+                  class="w-16 p-1 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md text-xs font-mono font-bold text-right text-slate-900 dark:text-white" />
+              </div>
+              <input type="range" id="rangeWeeklyBillable" min="10" max="45" step="1" value="28"
+                class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer" />
+              <p class="text-[10px] text-slate-400">Direct client paid work.</p>
+            </div>
+            <div class="space-y-1.5">
+              <div class="flex justify-between items-center">
+                <label for="inputWeeklyUnbillable" class="text-xs font-bold text-slate-700 dark:text-slate-200">
+                  Admin Hrs/Wk
+                </label>
+                <input type="number" id="inputWeeklyUnbillable" min="0" max="30" step="1" value="12"
+                  class="w-16 p-1 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md text-xs font-mono font-bold text-right text-slate-900 dark:text-white" />
+              </div>
+              <input type="range" id="rangeWeeklyUnbillable" min="0" max="25" step="1" value="12"
+                class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer" />
+              <p class="text-[10px] text-slate-400">Marketing, billing, pitching.</p>
+            </div>
+          </div>
+
+          <!-- Annual Deductible Overhead -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <label for="inputOverheadAnnual" class="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200">
+                Annual Deductible Business Expenses ($)
+              </label>
+              <div class="relative w-32">
+                <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-xs font-bold text-slate-400">$</span>
+                <input type="number" id="inputOverheadAnnual" min="0" max="60000" step="500" value="6000"
+                  class="w-full pl-6 pr-2 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-xs sm:text-sm font-mono font-bold text-slate-900 dark:text-white text-right focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="rangeOverheadAnnual" min="0" max="30000" step="500" value="6000"
+              class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer" />
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">
+              Hardware, SaaS subscriptions, home office, accounting, legal &amp; professional insurance.
+            </p>
+          </div>
+
+          <!-- Out-of-Pocket Health Insurance -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <label for="inputHealthCostMonthly" class="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200">
+                Out-of-Pocket Health Premium ($/mo)
+              </label>
+              <div class="relative w-32">
+                <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-xs font-bold text-slate-400">$</span>
+                <input type="number" id="inputHealthCostMonthly" min="0" max="3000" step="25" value="650"
+                  class="w-full pl-6 pr-2 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-xs sm:text-sm font-mono font-bold text-slate-900 dark:text-white text-right focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="rangeHealthCostMonthly" min="0" max="2000" step="25" value="650"
+              class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer" />
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">
+              Private ACA or exchange health plan (deductible on Form 1040 Schedule 1 Line 17).
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- TAX BRACKET & DEDUCTION JURISDICTION CONTROLS -->
+      <div class="pt-6 border-t border-slate-100 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-2 gap-6 bg-slate-50/70 dark:bg-slate-800/40 p-4 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+        
+        <!-- State Tax Jurisdiction -->
+        <div class="space-y-1.5">
+          <label for="selectStateTax" class="text-xs font-bold text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
+            <span>🏛️ State Tax Jurisdiction</span>
+          </label>
+          <select id="selectStateTax" class="w-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg text-xs font-semibold py-2 px-3 text-slate-700 dark:text-slate-200 focus:ring-2 focus:ring-emerald-500">
+            <option value="generic">US National Average (5.0% flat)</option>
+            <option value="CA">California (1.0% to 13.3% progressive)</option>
+            <option value="NY">New York (4.0% to 10.9% progressive)</option>
+            <option value="TX">Texas (0.0% No State Income Tax)</option>
+            <option value="FL">Florida (0.0% No State Income Tax)</option>
+            <option value="WA">Washington (0.0% No Personal Income Tax)</option>
+            <option value="IL">Illinois (4.95% flat)</option>
+            <option value="NC">North Carolina (4.5% flat)</option>
+          </select>
+        </div>
+
+        <!-- Section 199A QBI Toggle -->
+        <div class="flex items-center justify-between pt-2 sm:pt-4">
+          <div class="space-y-0.5 pr-3">
+            <label for="toggleQBI" class="text-xs font-bold text-slate-900 dark:text-white cursor-pointer">
+              Section 199A QBI Deduction (20%)
+            </label>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400">
+              Deducts 20% of net qualified business income (subject to IRS SSTB phase-out limits).
+            </p>
+          </div>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="toggleQBI" checked class="sr-only peer" />
+            <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-emerald-600"></div>
+          </label>
+        </div>
+
+      </div>
+
+      <!-- ACTION BUTTONS: PITCH GENERATOR & SHARE -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+        <button type="button" id="btnOpenPitch" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 text-xs font-bold shadow-xs transition-all">
+          <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Generate Rate Justification Pitch
+        </button>
+
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-slate-400">Live Client-Side Calculation Engine</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 2: MID-TOOL IN-FEED AD UNIT (min-h-[250px])
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6 px-2">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none text-center">Advertisement</div>
+      <div class="adsense-card w-full min-h-[250px] sm:min-h-[280px] flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:250px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- REACTIVE RESULTS WORKSPACE -->
+    <div id="resultsWorkspace" class="space-y-8">
+
+      <!-- HEADLINE BREAK-EVEN TARGET BANNER -->
+      <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 text-white border border-slate-800 shadow-xl space-y-4">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <span id="outputModeSubtitle" class="text-xs font-semibold uppercase tracking-wider text-emerald-400">
+              Required 1099 compensation to match your W-2 standard of living:
+            </span>
+            <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mt-1">
+              <div class="text-3xl sm:text-4xl lg:text-5xl font-black font-mono tracking-tight text-emerald-400 tabular-nums" id="outputEquivalentHourlyRate" aria-live="polite" aria-atomic="true">
+                $97.45/hr
+              </div>
+              <div class="text-lg sm:text-xl font-bold font-mono text-slate-300" id="outputEquivalentAnnualGross">
+                $128,244 / yr
+              </div>
+            </div>
+            <p id="outputBillableHoursContext" class="text-xs text-slate-400 mt-1">
+              Based on 1,316 billable hrs/yr (47 active working weeks &times; 28 hrs/wk).
+            </p>
+          </div>
+
+          <div id="outputDiffBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-950/80 text-emerald-300 border border-emerald-800">
+            <span>⚖️ Break-Even Multiplier: <strong>1.48x</strong> of W-2 Base Salary</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDE-BY-SIDE CASH FLOW BREAKDOWN & WATERFALL CHART -->
+      <div id="taxWaterfallSection" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Table Column (7 cols) -->
+        <div class="lg:col-span-7 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 sm:p-6 shadow-xs space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+            <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span>📊 Side-by-Side Take-Home Cash Flow</span>
+            </h3>
+            <span id="tbQbiNote" class="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold hidden"></span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="border-b border-slate-100 dark:border-slate-800 text-slate-400 uppercase tracking-wider font-bold">
+                  <th class="py-2.5 pr-2">Cash Flow Component</th>
+                  <th class="py-2.5 px-2 text-right">W-2 Employee</th>
+                  <th class="py-2.5 px-2 text-right">1099 Contractor</th>
+                  <th class="py-2.5 pl-2 text-right">Variance (&Delta;)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 dark:divide-slate-800/60 font-medium text-slate-700 dark:text-slate-300">
+                <tr>
+                  <td class="py-2.5 pr-2 font-bold text-slate-900 dark:text-white">Gross Revenue / Salary</td>
+                  <td id="tbGrossW2" class="py-2.5 px-2 text-right font-mono">$120,000</td>
+                  <td id="tbGross1099" class="py-2.5 px-2 text-right font-mono">$177,660</td>
+                  <td id="tbGrossDelta" class="py-2.5 pl-2 text-right font-mono text-emerald-600 dark:text-emerald-400 font-bold">+$57,660</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-2">
+                    <span>FICA / SECA Payroll Tax</span>
+                    <span class="block text-[10px] text-slate-400">W-2 (7.65%) vs 1099 (15.3%)</span>
+                  </td>
+                  <td id="tbFicaSecaW2" class="py-2.5 px-2 text-right font-mono text-amber-600 dark:text-amber-400">-$9,180</td>
+                  <td id="tbFicaSeca1099" class="py-2.5 px-2 text-right font-mono text-amber-600 dark:text-amber-400">-$23,042</td>
+                  <td id="tbFicaSecaDelta" class="py-2.5 pl-2 text-right font-mono text-amber-600 dark:text-amber-400 font-bold">-$13,862</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-2">Federal Income Tax</td>
+                  <td id="tbFedTaxW2" class="py-2.5 px-2 text-right font-mono text-blue-600 dark:text-blue-400">-$18,345</td>
+                  <td id="tbFedTax1099" class="py-2.5 px-2 text-right font-mono text-blue-600 dark:text-blue-400">-$22,120</td>
+                  <td id="tbFedTaxDelta" class="py-2.5 pl-2 text-right font-mono">-$3,775</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-2">State Income Tax</td>
+                  <td id="tbStateTaxW2" class="py-2.5 px-2 text-right font-mono text-blue-600 dark:text-blue-400">-$5,500</td>
+                  <td id="tbStateTax1099" class="py-2.5 px-2 text-right font-mono text-blue-600 dark:text-blue-400">-$6,980</td>
+                  <td id="tbStateTaxDelta" class="py-2.5 pl-2 text-right font-mono">-$1,480</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-2">Deductible Overhead &amp; Software</td>
+                  <td id="tbOverheadW2" class="py-2.5 px-2 text-right font-mono">$0</td>
+                  <td id="tbOverhead1099" class="py-2.5 px-2 text-right font-mono text-slate-500">-$6,000</td>
+                  <td id="tbOverheadDelta" class="py-2.5 pl-2 text-right font-mono text-slate-500">-$6,000</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-2">Healthcare Premium (Out-of-Pocket)</td>
+                  <td id="tbHealthW2" class="py-2.5 px-2 text-right font-mono text-emerald-600 dark:text-emerald-400">+$6,600</td>
+                  <td id="tbHealth1099" class="py-2.5 px-2 text-right font-mono text-amber-600 dark:text-amber-400">-$7,800</td>
+                  <td id="tbHealthDelta" class="py-2.5 pl-2 text-right font-mono text-amber-600 dark:text-amber-400 font-bold">-$14,400</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-2">401(k) Employer Match Value</td>
+                  <td id="tbMatchW2" class="py-2.5 px-2 text-right font-mono text-emerald-600 dark:text-emerald-400">+$4,800</td>
+                  <td id="tbMatch1099" class="py-2.5 px-2 text-right font-mono text-slate-400">$0</td>
+                  <td id="tbMatchDelta" class="py-2.5 pl-2 text-right font-mono text-slate-400">-$4,800</td>
+                </tr>
+                <tr class="bg-slate-50 dark:bg-slate-800/80 font-bold text-slate-900 dark:text-white">
+                  <td class="py-3 pr-2 text-sm">
+                    <span>Net Spendable Cash</span>
+                    <span class="block text-[10px] text-slate-400 font-normal">Spendable take-home in bank</span>
+                  </td>
+                  <td id="tbNetCashW2" class="py-3 px-2 text-right font-mono text-sm text-emerald-600 dark:text-emerald-400 font-black">$86,975</td>
+                  <td id="tbNetCash1099" class="py-3 px-2 text-right font-mono text-sm text-emerald-600 dark:text-emerald-400 font-black">$91,775</td>
+                  <td id="tbNetCashDelta" class="py-3 pl-2 text-right font-mono text-sm font-black text-emerald-600 dark:text-emerald-400">+$4,800</td>
+                </tr>
+                <tr class="text-[11px] text-slate-500">
+                  <td class="py-2 pr-2">Effective Total Tax Rate</td>
+                  <td id="tbEffectiveTaxW2" class="py-2 px-2 text-right font-mono">27.5%</td>
+                  <td id="tbEffectiveTax1099" class="py-2 px-2 text-right font-mono">29.3%</td>
+                  <td id="tbEffectiveTaxDelta" class="py-2 pl-2 text-right font-mono text-slate-400">+1.8%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Waterfall Chart & Quarterly Reserve Card (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Chart Card -->
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-xs space-y-3">
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white">Cash Flow Allocation Comparison</h3>
+            <div class="relative h-64 w-full">
+              <canvas id="taxWaterfallChart" aria-label="W-2 vs 1099 Cash Flow Waterfall Chart" role="img"></canvas>
+            </div>
+          </div>
+
+          <!-- Form 1040-ES Quarterly Tax Reserve Card -->
+          <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-xs space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                <span>🗓️ IRS Quarterly Tax Reserve (1040-ES)</span>
+              </h3>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800">Mandatory</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+              <div>
+                <span class="text-[10px] text-slate-400 font-semibold uppercase">Quarterly Voucher</span>
+                <div id="outputQuarterlyPayment" class="text-base font-black font-mono text-slate-900 dark:text-white">$13,035</div>
+              </div>
+              <div>
+                <span class="text-[10px] text-slate-400 font-semibold uppercase">Invoice Holdback</span>
+                <div id="outputReservePct" class="text-base font-black font-mono text-emerald-600 dark:text-emerald-400">29.3%</div>
+              </div>
+            </div>
+
+            <!-- Deadlines -->
+            <div class="space-y-1.5 text-xs">
+              <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Statutory IRS Deadlines</div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-100 dark:border-slate-800">
+                <span class="text-slate-600 dark:text-slate-300">Q1 Payment (Jan 1 – Mar 31)</span>
+                <span class="font-bold text-slate-900 dark:text-white">April 15</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-100 dark:border-slate-800">
+                <span class="text-slate-600 dark:text-slate-300">Q2 Payment (Apr 1 – May 31)</span>
+                <span class="font-bold text-slate-900 dark:text-white">June 15</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-100 dark:border-slate-800">
+                <span class="text-slate-600 dark:text-slate-300">Q3 Payment (Jun 1 – Aug 31)</span>
+                <span class="font-bold text-slate-900 dark:text-white">September 15</span>
+              </div>
+              <div class="flex justify-between items-center py-1">
+                <span class="text-slate-600 dark:text-slate-300">Q4 Payment (Sep 1 – Dec 31)</span>
+                <span class="font-bold text-slate-900 dark:text-white">January 15</span>
+              </div>
+            </div>
+
+            <p class="text-[11px] text-slate-400 leading-normal">
+              Annual Tax Liability: <span id="outputAnnualTaxReserve" class="font-bold font-mono text-slate-700 dark:text-slate-300">$52,142</span>. Transfer this percentage into a dedicated high-yield tax escrow account immediately upon invoice settlement.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- COMPREHENSIVE E-E-A-T EDUCATIONAL GUIDE (>= 1,500 WORDS) -->
+    <article id="guideSection" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 sm:p-10 shadow-xs space-y-10 text-slate-700 dark:text-slate-300 leading-relaxed">
+      
+      <!-- Guide Header -->
+      <div class="space-y-3 border-b border-slate-100 dark:border-slate-800 pb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+          <span>Fintech Tax Engineering Reference</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          The W-2 to 1099 Transition: Complete Engineering &amp; Tax Strategy Guide
+        </h2>
+        <p class="text-sm sm:text-base text-slate-500 dark:text-slate-400">
+          A quantitative breakdown of self-employment tax liabilities, fringe benefit replacement math, non-billable capacity discounts, and IRS Section 199A pass-through deductions.
+        </p>
+      </div>
+
+      <!-- Section 1: The Hidden Paradigm Shift -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+          1. The W-2 to 1099 Paradigm Shift: Why Salaried Rates Fail Independent Contractors
+        </h3>
+        <p>
+          The most prevalent and financially disastrous mistake made by software engineers, corporate management consultants, and specialized creatives transitioning from corporate W-2 employment to 1099 independent contracting is dividing their salaried base pay by 2,080 hours.
+        </p>
+        <p>
+          Under traditional W-2 employment in the United States, an employer pays an employee for 40 hours per week across 52 weeks per year ($40 \times 52 = 2,080\text{ hours}$). Crucially, a substantial portion of those 2,080 hours are <em>unworked but fully compensated</em>: paid vacation days, federal statutory holidays, paid sick leave, bereavement leave, and internal company meetings. Furthermore, the employer quietly absorbs an additional 25% to 40% in mandatory payroll taxes, group health insurance subsidies, matching retirement contributions (401k/403b), and statutory worker’s compensation insurance.
+        </p>
+        <p>
+          When an individual transitions to an IRS Form 1099-NEC independent contractor arrangement, the entire employer cost structure transfers instantaneously to the independent operator. If you accept a 1099 contract at your exact W-2 hourly rate (e.g., leaving a $120,000 salary to bill $57.69/hr), you experience an effective <strong>30% to 45% reduction in real disposable income</strong>. To maintain purchasing parity, an independent contractor must command an hourly rate calibrated to total enterprise operating costs.
+        </p>
+      </section>
+
+      <!-- Section 2: FICA vs SECA Gap -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+          2. The FICA vs. SECA Tax Chasm: Analyzing the 15.3% Self-Employment Tax
+        </h3>
+        <p>
+          Federal payroll taxation in the United States is governed by two complementary statutes: the Federal Insurance Contributions Act (<strong>FICA</strong>) for statutory employees, and the Self-Employment Contributions Act (<strong>SECA</strong>) for sole proprietors, partners, and single-member LLC owners.
+        </p>
+        <p>
+          FICA imposes a combined 15.3% statutory tax on gross employment wages, divided equally between the employee and the employer:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm">
+          <li><strong>Social Security (OASDI)</strong>: 12.4% total. The W-2 employee pays 6.2% via payroll withholding, and the corporate employer contributes the remaining 6.2% out of corporate capital. This tax applies up to the annual IRS wage base cap ($168,600 for the 2024 tax year).</li>
+          <li><strong>Medicare (Hospital Insurance)</strong>: 2.9% total without wage cap. The employee pays 1.45% and the employer pays 1.45%.</li>
+          <li><strong>Additional Medicare Surtax</strong>: An extra 0.9% levied exclusively on employees with individual earnings exceeding $200,000 (single) or $250,000 (married filing jointly).</li>
+        </ul>
+        <p>
+          On a 1099 contract, there is no employer to subsidize the 7.65% corporate match. You are categorized as both the employer and the employee. Consequently, you are legally responsible for remitting the entire 15.3% SECA tax on your Schedule C net earnings.
+        </p>
+        <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-mono text-xs sm:text-sm space-y-2">
+          <div class="font-bold text-slate-900 dark:text-white">Mathematical SECA Formulation:</div>
+          <div>\(\text{Net SE Earnings} = \text{Schedule C Net Profit} \times 0.9235\)</div>
+          <div>\(T_{\text{SECA}} = \left( 0.124 \times \min(\text{Net SE Earnings}, \$168,600) \right) + \left( 0.029 \times \text{Net SE Earnings} \right) + \left( 0.009 \times \max(0, \text{Net SE Earnings} - \$200,000) \right)\)</div>
+        </div>
+        <p>
+          To partially offset this double burden, Internal Revenue Code (IRC) &sect; 164(f) allows self-employed individuals an above-the-line deduction on Form 1040 Schedule 1 equal to <strong>50% of the total SECA tax</strong>. This deduction lowers your Adjusted Gross Income (AGI), reducing your income tax liability, although it does not reduce the SECA liability itself.
+        </p>
+      </section>
+
+      <!-- Section 3: Billable Hours Fallacy -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+          3. The Billable Hours Fallacy: Why 40 Hours a Week Kills Solopreneurs
+        </h3>
+        <p>
+          Corporate managers frequently assume an independent contractor can bill 40 hours per week for 52 weeks. In the real world of independent consulting, attempting to bill 2,080 hours annually leads directly to cognitive exhaustion, delivery degradation, and business failure.
+        </p>
+        <p>
+          An independent consultant functions as an enterprise comprising five departments: Sales &amp; Business Development, Project Execution, Finance &amp; Accounting, Legal &amp; Compliance, and Information Technology. Only one of those functions—Project Execution—generates billable invoice revenue. The remaining four functions represent <em>mandatory non-billable operational drag</em>.
+        </p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+            <thead class="bg-slate-150 dark:bg-slate-800 font-bold text-slate-900 dark:text-white">
+              <tr>
+                <th class="p-3 text-left">Activity Category</th>
+                <th class="p-3 text-left">Hours / Week</th>
+                <th class="p-3 text-left">Annual Hours</th>
+                <th class="p-3 text-left">Billable Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+              <tr>
+                <td class="p-3 font-semibold">Direct Client Deliverable Production</td>
+                <td class="p-3 font-mono">25 – 30 hrs</td>
+                <td class="p-3 font-mono">1,175 – 1,410 hrs</td>
+                <td class="p-3 text-emerald-600 dark:text-emerald-400 font-bold">100% Billable</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold">Client Pipeline, Pitching &amp; Proposals</td>
+                <td class="p-3 font-mono">5 – 8 hrs</td>
+                <td class="p-3 font-mono">235 – 376 hrs</td>
+                <td class="p-3 text-amber-600 dark:text-amber-400 font-bold">Unbillable Admin</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold">Bookkeeping, Invoicing, Tax Filing</td>
+                <td class="p-3 font-mono">2 – 4 hrs</td>
+                <td class="p-3 font-mono">94 – 188 hrs</td>
+                <td class="p-3 text-amber-600 dark:text-amber-400 font-bold">Unbillable Admin</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold">Tooling, Infrastructure, Security Upgrades</td>
+                <td class="p-3 font-mono">2 – 3 hrs</td>
+                <td class="p-3 font-mono">94 – 141 hrs</td>
+                <td class="p-3 text-amber-600 dark:text-amber-400 font-bold">Unbillable Admin</td>
+              </tr>
+              <tr class="bg-slate-50 dark:bg-slate-800/60 font-bold text-slate-900 dark:text-white">
+                <td class="p-3">Total Working Commitment</td>
+                <td class="p-3 font-mono">35 – 45 hrs/wk</td>
+                <td class="p-3 font-mono">1,600 – 2,100 hrs</td>
+                <td class="p-3 text-blue-600 dark:text-blue-400">Effective Capacity Limit</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Furthermore, independent contractors do not receive paid vacation or sick days. Taking 3 weeks of vacation and observing 10 standard federal holidays removes 5 full weeks from your calendar ($52 - 5 = 47\text{ billable weeks}$). If your sustainable delivery velocity is 28 billable hours per week, your true annual billable ceiling is:
+        </p>
+        <p class="font-mono text-center text-sm font-bold text-emerald-600 dark:text-emerald-400">
+          \(\text{Annual Billable Capacity} = 47\text{ weeks} \times 28\text{ hrs/week} = 1,316\text{ billable hours}\)
+        </p>
+      </section>
+
+      <!-- Section 4: Mathematical Formulas & Break-Even Modeling -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+          4. Mathematical Methodology: Deriving the Exact Break-Even Hourly Rate
+        </h3>
+        <p>
+          PocketRuler’s calculation engine executes a non-linear numerical bisection solver to balance the full dual-tax waterfall. To achieve true purchasing power parity, the contractor’s 1099 Net Spendable Cash must equal the employee’s net take-home salary plus replacement of employer-subsidized benefits:
+        </p>
+        <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-mono text-xs sm:text-sm space-y-3">
+          <div class="font-bold text-slate-900 dark:text-white">Core Economic Equivalence Equation:</div>
+          <div>\(\text{NetCash}_{1099} \ge \text{NetCash}_{W2} + \text{Match}_{401k}\)</div>
+          <div class="text-slate-500 dark:text-slate-400">Where:</div>
+          <div>\(\text{NetCash}_{W2} = \text{Salary} - T_{\text{FICA}} - T_{\text{FedTax}}(S) - T_{\text{StateTax}}(S)\)</div>
+          <div>\(\text{NetCash}_{1099} = G - \text{Overhead} - \text{HealthInsurance} - T_{\text{SECA}}(G) - T_{\text{FedTax}}(G) - T_{\text{StateTax}}(G)\)</div>
+          <div>\(\text{Break-Even Hourly Rate } R^* = \frac{G^*}{\text{Annual Billable Hours}}\)</div>
+        </div>
+        <p>
+          Because federal and state income tax brackets are progressive, and the Social Security payroll cap ceases at $168,600 while Additional Medicare triggers above $200,000, closed-form linear approximations (such as simply adding 30%) introduce systematic errors of up to $18,000. Our engine iterates until residual variance converges below $0.01.
+        </p>
+      </section>
+
+      <!-- Section 5: Section 199A QBI Pass-Through -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+          5. Section 199A Qualified Business Income (QBI) Deduction &amp; Entity Structure
+        </h3>
+        <p>
+          Created under the Tax Cuts and Jobs Act (TCJA), <strong>Section 199A</strong> allows eligible non-corporate business owners—including sole proprietors, single-member LLCs, and S-Corporation shareholders—to deduct up to <strong>20% of their Qualified Business Income (QBI)</strong> from their federal taxable income.
+        </p>
+        <p>
+          For a 1099 contractor, Qualified Business Income is defined as your net Schedule C profit reduced by the deductible portion of self-employment tax (\(\frac{1}{2} T_{\text{SECA}}\)) and the self-employed health insurance deduction. For example, on $150,000 of net Schedule C profit, an eligible contractor might deduct up to $25,000 straight off their taxable income, providing significant federal tax relief that W-2 employees cannot access.
+        </p>
+        <div class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 text-xs sm:text-sm space-y-2 text-amber-900 dark:text-amber-200">
+          <div class="font-bold flex items-center gap-1.5">
+            <span>⚠️ The Specified Service Trade or Business (SSTB) Phase-Out Limit</span>
+          </div>
+          <p>
+            Under IRC &sect; 199A(d)(2), individuals operating in fields where the principal asset is the reputation or skill of employees—including healthcare, law, accounting, actuarial science, performing arts, consulting, athletics, financial services, and brokerage—are designated as <strong>SSTBs</strong>.
+          </p>
+          <p>
+            For single filers, the 20% QBI deduction is fully allowable if taxable income is below <strong>$191,950</strong>. Between $191,950 and $241,950, the deduction phases out linearly. Above $241,950, SSTB sole proprietors receive $0 in QBI deductions. (Engineers and architects are explicitly exempt from SSTB restrictions under statutory safe harbors).
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 6: IRS Quarterly Estimated Taxes -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+          6. Form 1040-ES Quarterly Estimated Taxes &amp; The Safe Harbor Rule
+        </h3>
+        <p>
+          In the corporate W-2 realm, employers withhold taxes automatically from each biweekly paystub under PAYE (Pay-As-You-Earn) principles. On 1099 contracts, clients remit gross invoiced totals with zero tax withholding. The contractor is legally obligated to remit estimated tax payments quarterly using IRS Form 1040-ES.
+        </p>
+        <p>
+          Failure to remit sufficient taxes quarterly triggers IRS underpayment penalties under IRC &sect; 6654. To legally protect yourself against penalties, you must satisfy the <strong>IRS Safe Harbor Rule</strong>:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm">
+          <li><strong>Current-Year Safe Harbor</strong>: Pay at least 90% of your total tax liability for the current tax year through timely quarterly installments.</li>
+          <li><strong>Prior-Year Safe Harbor</strong>: Pay 100% of the total tax shown on your prior year’s tax return (increased to <strong>110%</strong> if your prior year Adjusted Gross Income exceeded $150,000 for single filers).</li>
+        </ul>
+        <p>
+          We strongly advise establishing a separate business tax escrow account. Each time a client invoice is paid, immediately transfer <strong>28% to 35%</strong> of the gross deposit into your escrow account so you are never caught short on the April 15, June 15, September 15, or January 15 deadlines.
+        </p>
+      </section>
+
+      <!-- Section 7: International Remote Contractors & W-8BEN -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+          7. International Remote Contractors: Navigating IRS Form W-8BEN &amp; Cross-Border Taxation
+        </h3>
+        <p>
+          With the globalization of distributed knowledge work, millions of software developers, product designers, and technical writers residing in Europe, Canada, Latin America, and Asia provide independent contracting services to US-based corporations.
+        </p>
+        <p>
+          A common source of intense confusion for foreign contractors is whether they are subject to US 1099 taxation or mandatory 30% US nonresident alien withholding:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm">
+          <li><strong>Form W-8BEN vs. Form W-9</strong>: US citizens and resident aliens submit Form W-9 to receive a Form 1099-NEC. Non-US citizens residing abroad submit <strong>IRS Form W-8BEN</strong> (Certificate of Foreign Status of Beneficial Owner for United States Tax Withholding and Reporting) to the US client.</li>
+          <li><strong>Sourcing of Services (IRC &sect; 861)</strong>: Under US federal tax law, personal services income is sourced to the physical geographic location where the work is performed, <em>not where the paying client is headquartered</em>. If you perform 100% of your consulting work outside the United States, your compensation constitutes <strong>foreign-source income</strong>.</li>
+          <li><strong>Zero US Tax Liability</strong>: Foreign-source income earned by a nonresident alien with no US permanent establishment or physical presence is completely exempt from US federal income tax and SECA payroll taxes. The US client is not required to issue a 1099, and zero US withholding applies.</li>
+          <li><strong>Domestic Tax Compliance</strong>: The international contractor remains 100% responsible for reporting gross receipts and remitting income taxes and local social insurance contributions in their home country of tax residency.</li>
+        </ul>
+      </section>
+
+      <!-- Section 8: Entity Structuring & Tax Arbitrage -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+          8. Entity Structuring &amp; Tax Arbitrage: Sole Proprietorship vs. LLC vs. S-Corp Election
+        </h3>
+        <p>
+          As your independent gross revenue scales beyond the $100,000 threshold, your legal and corporate entity structure becomes the single most influential variable governing your net spendable income.
+        </p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+            <thead class="bg-slate-150 dark:bg-slate-800 font-bold text-slate-900 dark:text-white">
+              <tr>
+                <th class="p-3 text-left">Legal Structure</th>
+                <th class="p-3 text-left">Tax Classification</th>
+                <th class="p-3 text-left">SECA Liability (15.3%)</th>
+                <th class="p-3 text-left">Best Suited For</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+              <tr>
+                <td class="p-3 font-semibold">Sole Proprietorship</td>
+                <td class="p-3 font-mono">Disregarded Entity (Schedule C)</td>
+                <td class="p-3 text-amber-600 dark:text-amber-400 font-bold">100% of Net Profit</td>
+                <td class="p-3 text-slate-600 dark:text-slate-300">Early-stage freelancers earning &lt; $60,000/yr</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold">Single-Member LLC</td>
+                <td class="p-3 font-mono">Disregarded Entity (Default)</td>
+                <td class="p-3 text-amber-600 dark:text-amber-400 font-bold">100% of Net Profit</td>
+                <td class="p-3 text-slate-600 dark:text-slate-300">Contractors seeking personal liability protection without corporate tax complexity</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-semibold">LLC with S-Corp Election</td>
+                <td class="p-3 font-mono">Form 1120-S (Pass-Through)</td>
+                <td class="p-3 text-emerald-600 dark:text-emerald-400 font-bold">W-2 Salary Only (Distributions Exempt)</td>
+                <td class="p-3 text-slate-600 dark:text-slate-300">Established operators netting &gt; $85,000/yr seeking SECA tax arbitrage</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          In an S-Corporation structure, you bifurcate net earnings into two buckets: an IRS-mandated <em>Reasonable Compensation</em> paid as a W-2 salary (subject to 15.3% FICA), and remaining corporate profits taken as <em>Shareholder Distributions</em> (exempt from 15.3% SECA). For an operator generating $180,000 in net consulting profit, assigning a defensible reasonable salary of $100,000 leaves $80,000 in distributions—yielding an estimated <strong>$12,240 in direct annual payroll tax savings</strong>, easily outweighing the $1,500 to $2,500 annual CPA preparation cost for Form 1120-S.
+        </p>
+      </section>
+
+      <!-- Section 9: Business Deduction Architecture -->
+      <section class="space-y-4">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+          9. Strategic Deduction Architecture: Section 179, Home Office &amp; Accountable Plans
+        </h3>
+        <p>
+          Under IRC &sect; 162, independent contractors are legally entitled to deduct all "ordinary and necessary" expenses incurred in carrying on their trade or business. Strategic deduction management lowers both your Schedule C profit (saving 15.3% SECA) and your federal/state income tax brackets:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm">
+          <li><strong>IRC &sect; 179 Direct Equipment Expensing</strong>: Rather than depreciating high-performance workstations, servers, multi-monitor displays, and mobile testing hardware over 5 years via MACRS, Section 179 permits 100% immediate expensing in the tax year of purchase.</li>
+          <li><strong>IRC &sect; 280A Home Office Deduction</strong>: If you maintain a dedicated room or space used exclusively and regularly as your principal place of business, you can deduct a proportionate share of your rent, mortgage interest, homeowners/renters insurance, electricity, HVAC, and commercial internet under the actual expense method or the simplified $5/sq.ft. method (up to 300 sq.ft.).</li>
+          <li><strong>Software Subscriptions &amp; Cloud Infrastructure</strong>: Development tools (GitHub, AWS/GCP, Figma, JetBrains), AI model APIs (OpenAI, Anthropic, Google Cloud), accounting software, and professional domain registrations are 100% deductible operating expenses.</li>
+          <li><strong>Professional Insurances &amp; Legal Retainers</strong>: Commercial General Liability (CGL) and Errors &amp; Omissions (E&amp;O) insurance policies, legal contract review fees, and CPA advisory retainers are fully deductible business overhead.</li>
+        </ul>
+      </section>
+
+    </article>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 3: POST-INTERACTION BOTTOM UNIT (728x90)
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6 px-2">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none text-center">Advertisement</div>
+      <div class="adsense-card w-full min-h-[90px] sm:min-h-[100px] flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- FAQ ACCORDION SECTION -->
+    <section id="faqSection" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-6 sm:p-10 shadow-xs space-y-6">
+      <div class="space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Frequently Asked Questions (FAQ)
+        </h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400">
+          Clear answers to common questions about W-2 vs. 1099 tax optimization, contract negotiation, and rate mathematics.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        
+        <!-- FAQ 1 -->
+        <details name="w2-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all" open>
+          <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-sm sm:text-base">
+            <span>Why is an equivalent 1099 hourly rate usually 40% to 60% higher than W-2?</span>
+            <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+            <p>
+              Under W-2 employment, an employer pays an additional 7.65% in FICA payroll taxes, provides health insurance subsidies ($6,000–$10,000/yr), matches 401(k) contributions (3%–6%), pays for 3 to 5 weeks of vacation and holidays, and provides commercial equipment and liability insurance.
+            </p>
+            <p>
+              On 1099, you must absorb the full 15.3% SECA tax, buy private health insurance, fund your own retirement, cover software and overhead, and account for the fact that unworked days pay $0. Dividing an equivalent annual gross by your actual billable hours (1,200 to 1,500 hrs/yr) results in an hourly rate roughly 1.4x to 1.65x higher than a W-2 salary converted at 2,080 hours.
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details name="w2-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all">
+          <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-sm sm:text-base">
+            <span>What is the difference between FICA and SECA tax?</span>
+            <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+            <p>
+              FICA (Federal Insurance Contributions Act) is the 15.3% Social Security and Medicare tax split evenly between a W-2 employee (7.65%) and their employer (7.65%).
+            </p>
+            <p>
+              SECA (Self-Employment Contributions Act) applies to self-employed individuals and 1099 contractors. Because there is no employer, the contractor remits the full 15.3% tax on 92.35% of their net business earnings. However, the IRS permits an above-the-line deduction for 50% of the SECA tax on Form 1040 Schedule 1.
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details name="w2-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all">
+          <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-sm sm:text-base">
+            <span>Can 1099 contractors deduct health insurance premiums?</span>
+            <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+            <p>
+              Yes. Under IRC &sect; 162(l), eligible self-employed individuals can take the <strong>Self-Employed Health Insurance Deduction</strong> as an above-the-line deduction on Schedule 1 Line 17 of Form 1040.
+            </p>
+            <p>
+              This deduction lowers your Adjusted Gross Income (AGI) and federal/state income tax liability dollar-for-dollar. You cannot take this deduction if you were eligible to participate in a subsidized health plan maintained by your spouse’s employer, nor can the deduction exceed your net business profit.
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details name="w2-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all">
+          <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-sm sm:text-base">
+            <span>When should an independent contractor form an S-Corporation?</span>
+            <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+            <p>
+              An S-Corporation election (Form 2553) typically becomes tax-advantageous when your annual net consulting profit sustainably exceeds <strong>$80,000 to $100,000</strong>.
+            </p>
+            <p>
+              In an S-Corp, you pay yourself an IRS-mandated "Reasonable Compensation" salary via W-2 (subject to 15.3% FICA), and take the remaining profit as shareholder distributions (exempt from 15.3% SECA). The payroll tax savings on the distribution often exceed the added administrative overhead of corporate tax returns (Form 1120-S) and running monthly payroll.
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ 5 -->
+        <details name="w2-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all">
+          <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-sm sm:text-base">
+            <span>What happens if I miss an IRS quarterly estimated tax payment?</span>
+            <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+            <p>
+              If you fail to remit sufficient quarterly taxes or miss a deadline, the IRS assesses an underpayment penalty calculated via Form 2210. The penalty is pegged to the federal short-term interest rate plus 3 percentage points.
+            </p>
+            <p>
+              To avoid penalties, ensure your total timely withholding and quarterly payments equal at least 90% of your current-year tax liability or 100% (110% for high earners with prior AGI &gt; $150,000) of your prior-year tax liability under the safe harbor rule.
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ 6 -->
+        <details name="w2-faq" class="group border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-all">
+          <summary class="flex justify-between items-center font-bold text-slate-900 dark:text-white cursor-pointer select-none text-sm sm:text-base">
+            <span>I am an international contractor outside the US. Does this 1099 tax apply to me?</span>
+            <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+            <p>
+              No. If you are not a US citizen or US permanent resident and you physically perform all work outside of the United States, your earnings are classified as foreign-source income under IRC &sect; 861.
+            </p>
+            <p>
+              You submit <strong>IRS Form W-8BEN</strong> to your US client. No US taxes or SECA taxes are withheld. You report and pay income taxes and social security in your home country according to local tax law.
+            </p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER: PocketRuler.app & COMPLIANCE LINKS (Unified 4-Column Layout) -->
+  <footer class="w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-10 text-xs text-slate-500 dark:text-slate-400 transition-colors duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+      
+      <!-- Col 1: Brand & Mission -->
+      <div class="space-y-3">
+        <div class="flex items-center space-x-2">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" />
+          <span class="text-sm font-black text-slate-900 dark:text-white">PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span></span>
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+          The definitive suite of free client-side financial engineering tools for solopreneurs, independent contractors, and remote consultants worldwide.
+        </p>
+        <p class="text-[10px] text-slate-400 dark:text-slate-500">
+          100% Client-Side Privacy &bull; Zero Server Tracking &bull; &copy; 2026 PocketRuler.app
+        </p>
+      </div>
+
+      <!-- Col 2: Active Web Apps -->
+      <div class="space-y-2.5">
+        <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Web Apps</h4>
+        <ul class="space-y-1.5 text-slate-600 dark:text-slate-300">
+          <li><a href="../index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Tools Hub Dashboard</a></li>
+          <li><a href="index.html" class="text-emerald-600 dark:text-emerald-400 font-bold">W-2 to 1099 Calculator</a></li>
+          <li><a href="../freelance-calculator/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Freelance Rate &amp; Retainer</a></li>
+          <li><a href="../relocation-calculator/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Expat Tax &amp; Relocation</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Resources & Methodology -->
+      <div class="space-y-2.5">
+        <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Resources</h4>
+        <ul class="space-y-1.5 text-slate-600 dark:text-slate-300">
+          <li><a href="../relocation-calculator/guide.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Expat Tax &amp; Visa Guide</a></li>
+          <li><a href="../relocation-calculator/methodology.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Methodology &amp; Formulas</a></li>
+          <li><a href="../about.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About Us &amp; Team</a></li>
+          <li><a href="../contact.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Contact &amp; Feedback</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Legal & Compliance -->
+      <div class="space-y-2.5">
+        <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Legal &amp; Privacy</h4>
+        <ul class="space-y-1.5 text-slate-600 dark:text-slate-300">
+          <li><a href="../privacy.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Privacy Policy &amp; Cookies</a></li>
+          <li><a href="../terms.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Terms of Service</a></li>
+          <li><a href="../disclaimer.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Financial Disclaimer</a></li>
+          <li><a href="../ads.txt" class="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">ads.txt (IAB Standard)</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400 dark:text-slate-500">
+      <p>Educational and analytical financial utility. Not legal, certified tax, or accounting advice. Consult a licensed CPA.</p>
+      <div class="flex items-center space-x-4">
+        <a href="../privacy.html" class="hover:text-slate-600 dark:hover:text-slate-300">Privacy</a>
+        <span>&bull;</span>
+        <a href="../terms.html" class="hover:text-slate-600 dark:hover:text-slate-300">Terms</a>
+        <span>&bull;</span>
+        <a href="../disclaimer.html" class="hover:text-slate-600 dark:hover:text-slate-300">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- RATE JUSTIFICATION PITCH MODAL -->
+  <div id="pitchModal" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-all duration-300" role="dialog" aria-labelledby="pitchModalTitle" aria-modal="true">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-xl w-full p-6 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </span>
+          <h3 id="pitchModalTitle" class="text-base font-bold text-slate-900 dark:text-white">Rate Justification Negotiation Pitch</h3>
+        </div>
+        <button type="button" class="pitch-modal-close text-slate-400 hover:text-slate-700 dark:hover:text-white p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+        Send this professional explanation to recruiters, hiring managers, or enterprise clients who question your 1099 contractor rate compared to in-house salary bands:
+      </p>
+
+      <div class="relative">
+        <textarea id="pitchSnippetText" rows="12" readonly class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-200 select-all leading-relaxed focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+      </div>
+
+      <div class="flex items-center justify-between pt-2">
+        <span class="text-[11px] text-slate-400">Tailored with your exact calculated figures</span>
+        <div class="flex space-x-2">
+          <button type="button" class="pitch-modal-close px-3.5 py-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors">
+            Close
+          </button>
+          <button type="button" id="btnCopyPitch" class="px-4 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded-xl shadow-xs transition-colors flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            <span>Copy Pitch to Clipboard</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMBED WIDGET MODAL -->
+  <div id="embedModal" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-all duration-300" role="dialog" aria-labelledby="embedModalTitle" aria-modal="true">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-6 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 id="embedModalTitle" class="text-base font-bold text-slate-900 dark:text-white">Embed W-2 vs. 1099 Calculator</h3>
+        <button type="button" class="embed-modal-close text-slate-400 hover:text-slate-700 dark:hover:text-white p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+        Embed this free, responsive calculator on your blog or career platform. Copy and paste the HTML snippet below:
+      </p>
+      <div class="relative">
+        <textarea id="embedSnippet" rows="3" readonly class="w-full p-3 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-mono text-slate-800 dark:text-slate-200 select-all"></textarea>
+      </div>
+      <div class="flex justify-end space-x-2">
+        <button type="button" class="embed-modal-close px-3 py-1.5 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">Cancel</button>
+        <button type="button" id="btnCopyEmbed" class="px-3.5 py-1.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg shadow-xs">Copy Embed Code</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastNotification" class="toast-notification bg-slate-900 dark:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-xl flex items-center space-x-2 border border-slate-800 dark:border-slate-700" role="status" aria-live="polite">
+    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+    </svg>
+    <span id="toastMessage">Copied to clipboard!</span>
+  </div>
+
+  <!-- MOBILE NAVIGATION DRAWER & BACKDROP (Strictly at bottom of body before </body>; hidden md:hidden) -->
+  <div id="mobileDrawerBackdrop" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm opacity-0 hidden transition-opacity duration-300 md:hidden" aria-hidden="true"></div>
+
+  <aside id="mobileDrawer" class="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out hidden md:hidden flex flex-col justify-between" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center space-x-2.5">
+        <div class="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-1 flex items-center justify-center">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" />
+        </div>
+        <span class="text-base font-black text-slate-900 dark:text-white tracking-tight">
+          PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span>
+        </span>
+      </a>
+      <button type="button" id="closeMobileMenuBtn" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Close Mobile Navigation">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Drawer Navigation Content -->
+    <div class="p-5 space-y-6 flex-grow overflow-y-auto">
+      <!-- On This Page -->
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">On This Page</div>
+        <a href="#calculatorCard" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Calculator Controls
+        </a>
+        <a href="#taxWaterfallSection" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Tax Waterfall Breakdown
+        </a>
+        <a href="#guideSection" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Fintech Tax Methodology
+        </a>
+        <a href="#faqSection" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Frequently Asked Questions
+        </a>
+      </div>
+
+      <!-- Other Web Apps in Suite -->
+      <div class="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Web Apps Suite</div>
+        <a href="../index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <span>🏠 Main Tools Hub</span>
+          <span class="text-[10px] text-slate-400 font-semibold">View All</span>
+        </a>
+        <a href="../freelance-calculator/index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-800 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Freelance Rate &amp; Retainer</span>
+          </div>
+          <span class="text-[10px] bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-2 py-0.5 rounded-full font-bold">Launch</span>
+        </a>
+        <a href="../relocation-calculator/index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-800 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-300 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            <span>Expat Tax &amp; Relocation</span>
+          </div>
+          <span class="text-[10px] bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 rounded-full font-bold">Launch</span>
+        </a>
+      </div>
+
+      <!-- Legal & Company -->
+      <div class="space-y-1 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Platform &amp; Legal</div>
+        <a href="../about.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">About Us</a>
+        <a href="../contact.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a>
+        <a href="../privacy.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+        <a href="../terms.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</a>
+        <a href="../disclaimer.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Disclaimer</a>
+      </div>
+    </div>
+
+    <!-- Drawer Footer with Theme Toggle -->
+    <div class="p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <span class="text-xs font-medium text-slate-600 dark:text-slate-300">Theme</span>
+      <button type="button" data-theme-toggle class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium text-slate-700 dark:text-slate-200 shadow-2xs hover:bg-slate-50 dark:hover:bg-slate-650 transition">
+        <span>Toggle Mode</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Central Theme Controller -->
+  <script src="../js/theme.js"></script>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

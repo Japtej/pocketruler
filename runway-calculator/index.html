@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Solopreneur Runway &amp; Burn Rate Calculator | Cash Flow Planning | PocketRuler.app</title>
+  <meta name="description" content="Free interactive runway calculator for solopreneurs, freelancers, and digital nomads. Calculate cash runway horizon, zero cash date, panic survival mode, and burnout capacity with multi-currency arbitrage." />
+  <meta name="keywords" content="solopreneur runway calculator, burn rate calculator, freelance cash runway, startup runway calculator, digital nomad finance, zero cash date, burnout capacity calculator, pocketruler" />
+
+  <!-- Favicon / Tab Icon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Canonical & Open Graph -->
+  <link rel="canonical" href="https://pocketruler.app/runway-calculator/" />
+  <meta property="og:title" content="Solopreneur Runway &amp; Burn Rate Calculator | PocketRuler.app" />
+  <meta property="og:description" content="Model your true solopreneur financial runway, zero cash date, panic survival mode, and burnout capacity with live multi-currency arbitrage." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/runway-calculator/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Solopreneur Runway &amp; Burn Rate Calculator | PocketRuler.app" />
+  <meta name="twitter:description" content="Calculate your true cash runway horizon, zero cash date, panic survival mode, and weekly burnout capacity. 100% free client-side tool." />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Zero-FOUC Theme Detection Script -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google AdSense Official Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS via CDN with Dark Mode -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Chart.js 4.4.4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+  <!-- Schema.org WebApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Solopreneur Runway & Burn Rate Calculator",
+    "url": "https://pocketruler.app/runway-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Comprehensive client-side financial engineering calculator for independent solopreneurs, consultants, and digital nomads to project runway horizons, blended personal/business burn rate, burnout capacity, and panic survival buffers.",
+    "creator": {
+      "@type": "Organization",
+      "name": "PocketRuler.app",
+      "url": "https://pocketruler.app/"
+    }
+  }
+  </script>
+
+  <!-- Schema.org FAQPage JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the formula for solopreneur net cash runway?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Solopreneur Runway is calculated as Total Available Liquid Cash Reserves (Personal Savings + Business Reserves + Confirmed Accounts Receivable) divided by Net Monthly Burn Rate (Essential Personal Expenses + Discretionary Living Expenses + Fixed Business Overhead + Local Tax Reserves minus Gross Monthly Inflows). If inflows exceed total outflows, your runway is infinite and you are cash flow positive."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do solopreneurs need a blended personal and business burn rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unlike funded venture-backed startups with separate corporate entities, solopreneurs are their business. If personal rent or groceries cannot be paid, the solopreneur cannot work. A true solopreneur burn rate must unify personal baseline living costs, business SaaS and hosting overhead, and set-aside tax reserves into one holistic monthly cash drain figure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is 'Panic Mode' survival runway?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Panic Mode survival runway models your worst-case timeline if you strip away 100% of discretionary spending (dining out, travel, entertainment, non-critical subscriptions) and face a total dry spell. It reveals the bare-bones baseline months you can survive before running out of cash without taking on high-interest emergency debt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does accounts receivable confidence weighting work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unpaid invoices and accounts receivable represent promised money, but clients delay payments, request revisions, or default. The confidence weighting slider discounts unpaid invoices (e.g. at 70% or 80%) to avoid reckless over-optimism in runway forecasting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is burnout capacity calculated for independent freelancers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Burnout capacity compares your required gross revenue divided by your hourly billing rate against sustainable human working limits. Research demonstrates that billable deep work exceeding 32 hours per week (when combined with 8-15 hours of unbillable administrative, tax, and sales tasks) triggers severe cognitive fatigue, error rates, and burnout within 90 days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How should digital nomads manage foreign client retainer arbitrage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Digital nomads and international consultants often earn retainers in high-value foreign currencies (such as USD, EUR, or GBP) while spending in local emerging-market currencies. While this yields positive geographic arbitrage, foreign exchange fluctuations can erase 5% to 15% of purchasing power. The arbitrage converter translates multi-currency earnings into your primary spending currency using live exchange rates to reflect real purchasing runway."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Custom Range Slider Track & Thumb */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 7px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      outline: none;
+      cursor: pointer;
+    }
+    .dark input[type="range"] {
+      background: #334155;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid #059669;
+      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+      cursor: grab;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .dark input[type="range"]::-webkit-slider-thumb {
+      background: #0f172a;
+      border-color: #34d399;
+      box-shadow: 0 2px 6px rgba(52, 211, 153, 0.4);
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 3px 8px rgba(5, 150, 105, 0.45);
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid #059669;
+      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+      cursor: grab;
+    }
+    .dark input[type="range"]::-moz-range-thumb {
+      background: #0f172a;
+      border-color: #34d399;
+    }
+    input[type="range"]:focus-visible {
+      outline: 2px solid #059669;
+      outline-offset: 3px;
+    }
+    /* Clean numeric inputs */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+    /* Value update pulse animation */
+    @keyframes valuePulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); color: #059669; }
+      100% { transform: scale(1); }
+    }
+    .value-updated {
+      animation: valuePulse 0.25s ease-out;
+    }
+    /* Toast notification */
+    .toast-notification {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .toast-notification.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
+
+  <!-- ====================================================================
+       TOP HEADER (UNIFIED POCKETRULER STICKY HEADER)
+       ==================================================================== -->
+  <header class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+      
+      <!-- Brand Logo & App Identity -->
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 p-1 flex items-center justify-center shadow-xs shrink-0 hover:border-slate-300 dark:hover:border-slate-600 transition-colors" aria-label="PocketRuler Home">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-7 h-7" width="28" height="28" />
+        </a>
+        <div>
+          <div class="flex items-center space-x-2">
+            <a href="../index.html" class="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight leading-none hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span>
+            </a>
+            <span class="text-[10px] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-bold px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">
+              Finance App
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden sm:block">
+            Solopreneur Runway &amp; Burn Rate &bull; Cash Horizon &amp; Burnout Engine
+          </p>
+        </div>
+      </div>
+
+      <!-- Navigation Links (Desktop) -->
+      <nav class="hidden lg:flex items-center space-x-5 text-xs font-bold text-slate-600 dark:text-slate-300">
+        <!-- All Tools Dropdown -->
+        <div class="relative group py-2">
+          <button type="button" class="flex items-center gap-1.5 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 font-bold transition-colors focus:outline-none" aria-haspopup="true" aria-expanded="false">
+            <span>All Tools</span>
+            <svg class="w-3 h-3 text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="absolute left-0 top-full mt-1 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 p-2 hidden group-hover:block transition-all z-50">
+            <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3 py-1">Suite Directory</div>
+            <a href="../index.html" class="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-slate-700 dark:text-slate-200 text-xs font-semibold transition-colors">
+              <span>🏠 Main Tools Hub</span>
+            </a>
+            <a href="../freelance-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <div>
+                <div class="font-bold text-xs">Freelance Rate vs. Retainer</div>
+                <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">Pricing &bull; Hourly vs retainer models</div>
+              </div>
+            </a>
+            <a href="../relocation-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-700 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+              <div>
+                <div class="font-bold text-xs">Expat Tax &amp; Relocation</div>
+                <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">85+ cities &bull; Geoarbitrage simulator</div>
+              </div>
+            </a>
+            <div class="border-t border-slate-100 dark:border-slate-700 my-1"></div>
+            <a href="#guideSection" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-xs text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+              <span>📖 Runway Guide</span>
+            </a>
+            <a href="#methodologySection" class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 text-xs text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+              <span>📐 Mathematical Formulas</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="#calculatorSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Calculator</a>
+        <a href="#decayChartSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Decay Curve</a>
+        <a href="#burnoutSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Burnout Gauge</a>
+        <a href="#guideSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Handbook</a>
+        <a href="#faqSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">FAQ</a>
+        <a href="../about.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
+      </nav>
+
+      <!-- Controls: Currency Selector, Share, Reset, Theme Toggle, Mobile Hamburger -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <!-- Global Currency Selector -->
+        <div class="relative">
+          <label for="currencySelect" class="sr-only">Primary Spending Currency</label>
+          <select id="currencySelect" class="bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-semibold rounded-xl py-1.5 pl-2.5 pr-7 cursor-pointer focus:ring-2 focus:ring-emerald-500 focus:outline-none shadow-2xs">
+            <option value="USD">🇺🇸 USD ($)</option>
+            <option value="EUR">🇪🇺 EUR (€)</option>
+            <option value="GBP">🇬🇧 GBP (£)</option>
+            <option value="CAD">🇨🇦 CAD (CA$)</option>
+            <option value="AUD">🇦🇺 AUD (A$)</option>
+            <option value="INR">🇮🇳 INR (₹)</option>
+            <option value="JPY">🇯🇵 JPY (¥)</option>
+            <option value="CHF">🇨🇭 CHF (Fr)</option>
+            <option value="SGD">🇸🇬 SGD (S$)</option>
+            <option value="AED">🇦🇪 AED (د.إ)</option>
+            <option value="NZD">🇳🇿 NZD (NZ$)</option>
+            <option value="BRL">🇧🇷 BRL (R$)</option>
+            <option value="SEK">🇸🇪 SEK (kr)</option>
+            <option value="ZAR">🇿🇦 ZAR (R)</option>
+            <option value="PHP">🇵🇭 PHP (₱)</option>
+          </select>
+        </div>
+
+        <!-- Share Calculation Button -->
+        <button type="button" id="btnShare" class="hidden sm:inline-flex items-center text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 px-3 py-1.5 rounded-xl transition-colors min-h-[36px]" title="Copy shareable link with current numbers">
+          <svg class="w-3.5 h-3.5 mr-1 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+          Share
+        </button>
+
+        <!-- Reset Button -->
+        <button type="button" id="btnReset" title="Reset defaults" class="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Reset defaults">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button type="button" data-theme-toggle class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Toggle Theme" title="Toggle theme">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button type="button" id="openMobileMenuBtn" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors lg:hidden focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Open Mobile Navigation Menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       MAIN APPLICATION WORKSPACE
+       ==================================================================== -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 w-full flex-1 space-y-6">
+
+    <!-- HERO SECTION & TITLE -->
+    <div class="text-center sm:text-left max-w-4xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/80 text-emerald-800 dark:text-emerald-300 text-xs font-bold mb-2.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        Interactive Financial Survival &amp; Growth Engine
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.15]">
+        Solopreneur Cash Runway &amp; Burn Rate Calculator
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+        Model your exact zero-cash horizon, blended personal &amp; business burn rate, emergency panic threshold, and burnout capacity. Precision mathematics built for freelancers, consultants, and independent founders.
+      </p>
+    </div>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 1: TOP ADSENSE BANNER (min-h-[90px])
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-4 px-2">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none text-center">
+        Advertisement
+      </div>
+      <div class="adsense-card w-full min-h-[90px] sm:min-h-[100px] flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- QUICK PERSONA PRESETS BAR -->
+    <div class="flex flex-wrap items-center gap-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 sm:p-4 shadow-xs">
+      <span class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 pr-1 flex items-center">
+        <svg class="w-3.5 h-3.5 mr-1 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Instant Personas:
+      </span>
+      <button type="button" data-preset="bootstrapping" class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors">
+        💻 Solo Developer ($20k / $2.5k MRR)
+      </button>
+      <button type="button" data-preset="consultant" class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors">
+        👔 Freelance Consultant ($40k / $7k Retainers)
+      </button>
+      <button type="button" data-preset="nomad" class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors">
+        🌴 Expat Nomad ($28k / $4k Arbitrage)
+      </button>
+      <button type="button" data-preset="survival" class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors">
+        ⚠️ Tight Runway ($8k / Dry Spell)
+      </button>
+    </div>
+
+    <!-- ====================================================================
+         HERO RUNWAY HORIZON & PANIC MODE DASHBOARD
+         ==================================================================== -->
+    <section id="calculatorSection" class="bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-800 relative overflow-hidden" aria-label="Runway Horizon Dashboard">
+      <!-- Ambient Glow decoration -->
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+        
+        <!-- Left: Headline Runway Horizon Metric -->
+        <div class="space-y-3 max-w-xl">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              Live Cash Horizon
+            </span>
+            <span id="runwayStatusPill" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-800 text-slate-300 border border-slate-700">
+              Calculating...
+            </span>
+          </div>
+
+          <div class="space-y-1" aria-live="polite" aria-atomic="true">
+            <div class="text-xs sm:text-sm font-semibold text-slate-400 uppercase tracking-wider">
+              Projected Solopreneur Runway
+            </div>
+            <div class="flex items-baseline gap-3 flex-wrap">
+              <span id="outputRunwayMonths" class="text-4xl sm:text-5xl lg:text-6xl font-black font-mono tracking-tight text-emerald-400">
+                14.2
+              </span>
+              <span id="outputRunwayUnit" class="text-xl sm:text-2xl font-bold text-slate-300">Months</span>
+            </div>
+            <p id="outputZeroCashDate" class="text-sm sm:text-base text-slate-300 font-medium">
+              Zero Cash Date: <span class="font-bold text-white underline decoration-emerald-500 underline-offset-4" id="zeroCashDateText">November 2027</span>
+            </p>
+          </div>
+
+          <!-- Quick Metrics Bar -->
+          <div class="pt-2 grid grid-cols-2 sm:grid-cols-3 gap-3 border-t border-slate-800/80">
+            <div>
+              <div class="text-[11px] text-slate-400">Net Monthly Burn</div>
+              <div id="outputNetBurn" class="text-sm sm:text-base font-bold font-mono text-white">$1,850/mo</div>
+            </div>
+            <div>
+              <div class="text-[11px] text-slate-400">Total Liquid Buffer</div>
+              <div id="outputTotalReserves" class="text-sm sm:text-base font-bold font-mono text-emerald-400">$35,000</div>
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <div class="text-[11px] text-slate-400">Gross Outflows / Mo</div>
+              <div id="outputTotalOutflow" class="text-sm sm:text-base font-bold font-mono text-rose-400">$4,850/mo</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Panic Mode Switch Card -->
+        <div class="lg:w-80 bg-slate-800/80 backdrop-blur-sm p-5 rounded-2xl border border-slate-700/80 shadow-lg space-y-4 shrink-0">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+              <span class="text-xs font-black uppercase tracking-wider text-white">Panic Mode</span>
+            </div>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">Survival Simulation</span>
+          </div>
+
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Instantly cuts discretionary living spending to <strong class="text-white">$0</strong>. Simulates absolute survival runway during a complete market freeze.
+          </p>
+
+          <label class="flex items-center justify-between cursor-pointer p-2.5 rounded-xl bg-slate-900/60 border border-slate-700 hover:border-slate-600 transition-colors">
+            <span class="text-xs font-bold text-white flex items-center gap-1.5">
+              <span>🚨 Activate Panic Mode</span>
+            </span>
+            <input type="checkbox" id="panicModeToggle" class="sr-only peer" />
+            <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-rose-600"></div>
+          </label>
+
+          <div id="panicModeAlert" class="hidden text-[11px] text-rose-300 bg-rose-950/40 p-2.5 rounded-lg border border-rose-800/60 leading-snug">
+            ⚠️ <strong>Panic Mode Engaged:</strong> Discretionary spending reduced to zero. Reflecting pure survival baseline.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TWO-COLUMN INTERACTIVE INPUTS WORKSPACE
+         ==================================================================== -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- ==================================================================
+           COLUMN 1: FINANCIAL INPUTS (7 Cols on Desktop)
+           ================================================================== -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- 1. LIQUID CASH RESERVES CARD -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-xs space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black text-sm">
+                1
+              </div>
+              <div>
+                <h2 class="text-base font-bold text-slate-900 dark:text-white">Liquid Cash Reserves</h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Total available capital across accounts today.</p>
+              </div>
+            </div>
+            <span class="text-xs font-bold font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-lg" id="summaryLiquidCash">
+              $35,000
+            </span>
+          </div>
+
+          <!-- Personal Savings -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <label for="inputPersonalSavings" class="font-bold text-slate-700 dark:text-slate-200">
+                Personal Cash Savings (War Chest)
+              </label>
+              <div class="relative w-36">
+                <span class="currency-symbol absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 text-xs font-bold pointer-events-none">$</span>
+                <input type="number" id="inputPersonalSavings" value="25000" min="0" max="250000" step="500" class="w-full pl-7 pr-2.5 py-1 text-right text-xs font-mono font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="sliderPersonalSavings" min="0" max="150000" step="1000" value="25000" aria-label="Personal Savings Slider" />
+          </div>
+
+          <!-- Business Operating Bank Balance -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <label for="inputBusinessReserves" class="font-bold text-slate-700 dark:text-slate-200">
+                Business Operating Account Balance
+              </label>
+              <div class="relative w-36">
+                <span class="currency-symbol absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 text-xs font-bold pointer-events-none">$</span>
+                <input type="number" id="inputBusinessReserves" value="10000" min="0" max="250000" step="500" class="w-full pl-7 pr-2.5 py-1 text-right text-xs font-mono font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="sliderBusinessReserves" min="0" max="100000" step="500" value="10000" aria-label="Business Reserves Slider" />
+          </div>
+
+          <!-- Accounts Receivable & Realization Slider -->
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-3">
+            <div class="flex justify-between items-center text-xs">
+              <div>
+                <label for="inputAccountsReceivable" class="font-bold text-slate-700 dark:text-slate-200">
+                  Unpaid Invoices / Accounts Receivable
+                </label>
+                <div class="text-[11px] text-slate-500 dark:text-slate-400">Invoices billed to clients currently awaiting payment</div>
+              </div>
+              <div class="relative w-36">
+                <span class="currency-symbol absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 text-xs font-bold pointer-events-none">$</span>
+                <input type="number" id="inputAccountsReceivable" value="5000" min="0" max="100000" step="250" class="w-full pl-7 pr-2.5 py-1 text-right text-xs font-mono font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="sliderAccountsReceivable" min="0" max="50000" step="500" value="5000" aria-label="Accounts Receivable Slider" />
+
+            <!-- AR Confidence Slider -->
+            <div class="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-200/80 dark:border-slate-700/80 space-y-1.5">
+              <div class="flex justify-between items-center text-xs">
+                <label for="sliderArConfidence" class="font-semibold text-slate-600 dark:text-slate-300 flex items-center gap-1">
+                  <span>Confidence Realization Factor:</span>
+                  <span id="labelArConfidence" class="font-bold font-mono text-emerald-600 dark:text-emerald-400">80%</span>
+                </label>
+                <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400" id="outputArRealized">+$4,000 counted</span>
+              </div>
+              <input type="range" id="sliderArConfidence" min="0" max="100" step="5" value="80" aria-label="AR Confidence Percentage" />
+              <div class="text-[10px] text-slate-400 dark:text-slate-500 flex justify-between">
+                <span>0% (Conservative / Write-off)</span>
+                <span>50% (Delinquent)</span>
+                <span>100% (Ironclad Contract)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. MONTHLY INFLOWS CARD -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-xs space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center font-black text-sm">
+                2
+              </div>
+              <div>
+                <h2 class="text-base font-bold text-slate-900 dark:text-white">Monthly Cash Inflows</h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Predictable retainers, project income, &amp; foreign contracts.</p>
+              </div>
+            </div>
+            <span class="text-xs font-bold font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2.5 py-1 rounded-lg" id="summaryMonthlyInflow">
+              $3,000/mo
+            </span>
+          </div>
+
+          <!-- Recurring Retainers -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <label for="inputRetainers" class="font-bold text-slate-700 dark:text-slate-200">
+                Recurring Monthly Retainers (Base Currency)
+              </label>
+              <div class="relative w-36">
+                <span class="currency-symbol absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 text-xs font-bold pointer-events-none">$</span>
+                <input type="number" id="inputRetainers" value="2000" min="0" max="100000" step="250" class="w-full pl-7 pr-2.5 py-1 text-right text-xs font-mono font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="sliderRetainers" min="0" max="30000" step="250" value="2000" aria-label="Retainers Slider" />
+          </div>
+
+          <!-- Average Project Inflows -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <label for="inputProjects" class="font-bold text-slate-700 dark:text-slate-200">
+                Average Ad-Hoc Project Inflow / Month
+              </label>
+              <div class="relative w-36">
+                <span class="currency-symbol absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 text-xs font-bold pointer-events-none">$</span>
+                <input type="number" id="inputProjects" value="1000" min="0" max="100000" step="250" class="w-full pl-7 pr-2.5 py-1 text-right text-xs font-mono font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="sliderProjects" min="0" max="25000" step="250" value="1000" aria-label="Projects Slider" />
+          </div>
+
+          <!-- International Client Retainer Arbitrage Box -->
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <label for="toggleArbitrage" class="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2 cursor-pointer select-none">
+                <input type="checkbox" id="toggleArbitrage" class="rounded text-emerald-600 focus:ring-emerald-500 w-4 h-4" />
+                <span>🌍 International Client Retainer Arbitrage</span>
+              </label>
+              <span class="text-[10px] text-slate-400 dark:text-slate-500">Foreign currency earnings</span>
+            </div>
+
+            <div id="arbitrageFields" class="hidden bg-slate-50 dark:bg-slate-800/70 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label for="inputForeignRetainer" class="text-xs font-semibold text-slate-600 dark:text-slate-300 block mb-1">
+                    Foreign Retainer Amount
+                  </label>
+                  <input type="number" id="inputForeignRetainer" value="1500" min="0" step="100" class="w-full px-3 py-1.5 text-xs font-mono font-bold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+                </div>
+                <div>
+                  <label for="foreignCurrencySelect" class="text-xs font-semibold text-slate-600 dark:text-slate-300 block mb-1">
+                    Client's Invoicing Currency
+                  </label>
+                  <select id="foreignCurrencySelect" class="w-full px-3 py-1.5 text-xs font-semibold bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none cursor-pointer">
+                    <option value="USD" selected>USD ($) - US Dollar</option>
+                    <option value="EUR">EUR (€) - Euro</option>
+                    <option value="GBP">GBP (£) - British Pound</option>
+                    <option value="CAD">CAD (CA$) - Canadian Dollar</option>
+                    <option value="AUD">AUD (A$) - Australian Dollar</option>
+                    <option value="SGD">SGD (S$) - Singapore Dollar</option>
+                    <option value="CHF">CHF (Fr) - Swiss Franc</option>
+                    <option value="AED">AED (AED) - UAE Dirham</option>
+                  </select>
+                </div>
+              </div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900/80 p-2.5 rounded-lg border border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+                <span>Converted at live FX rates:</span>
+                <span id="outputForeignConverted" class="font-bold font-mono text-emerald-600 dark:text-emerald-400">+$1,500/mo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. MONTHLY OUTFLOWS & TAXES CARD -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-xs space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-8 h-8 rounded-xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center font-black text-sm">
+                3
+              </div>
+              <div>
+                <h2 class="text-base font-bold text-slate-900 dark:text-white">Monthly Outflows &amp; Tax Reserves</h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Blended personal survival, discretionary, SaaS, &amp; tax.</p>
+              </div>
+            </div>
+            <span class="text-xs font-bold font-mono text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/60 px-2.5 py-1 rounded-lg" id="summaryMonthlyOutflow">
+              $4,850/mo
+            </span>
+          </div>
+
+          <!-- Essential Living Expenses -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <div>
+                <label for="inputEssentialExpenses" class="font-bold text-slate-700 dark:text-slate-200">
+                  Essential Living Expenses (Survival)
+                </label>
+                <div class="text-[11px] text-slate-500 dark:text-slate-400">Rent/Mortgage, groceries, healthcare, utilities, debt</div>
+              </div>
+              <div class="relative w-36">
+                <span class="currency-symbol absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 text-xs font-bold pointer-events-none">$</span>
+                <input type="number" id="inputEssentialExpenses" value="2800" min="0" max="50000" step="100" class="w-full pl-7 pr-2.5 py-1 text-right text-xs font-mono font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="sliderEssentialExpenses" min="500" max="15000" step="100" value="2800" aria-label="Essential Expenses Slider" />
+          </div>
+
+          <!-- Discretionary Living Expenses -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <div>
+                <label for="inputDiscretionaryExpenses" class="font-bold text-slate-700 dark:text-slate-200">
+                  Discretionary Living Expenses
+                </label>
+                <div class="text-[11px] text-slate-500 dark:text-slate-400">Dining out, hobbies, travel, entertainment (cut in Panic Mode)</div>
+              </div>
+              <div class="relative w-36">
+                <span class="currency-symbol absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 text-xs font-bold pointer-events-none">$</span>
+                <input type="number" id="inputDiscretionaryExpenses" value="900" min="0" max="30000" step="50" class="w-full pl-7 pr-2.5 py-1 text-right text-xs font-mono font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="sliderDiscretionaryExpenses" min="0" max="8000" step="50" value="900" aria-label="Discretionary Expenses Slider" />
+          </div>
+
+          <!-- Fixed Business Overhead -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <div>
+                <label for="inputBusinessOverhead" class="font-bold text-slate-700 dark:text-slate-200">
+                  Fixed Business Overhead (OpEx)
+                </label>
+                <div class="text-[11px] text-slate-500 dark:text-slate-400">SaaS, hosting, accountant, domain renewals, licenses</div>
+              </div>
+              <div class="relative w-36">
+                <span class="currency-symbol absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 text-xs font-bold pointer-events-none">$</span>
+                <input type="number" id="inputBusinessOverhead" value="400" min="0" max="25000" step="50" class="w-full pl-7 pr-2.5 py-1 text-right text-xs font-mono font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="sliderBusinessOverhead" min="0" max="5000" step="50" value="400" aria-label="Business Overhead Slider" />
+          </div>
+
+          <!-- Local Tax Reserve % Slider -->
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <div>
+                <label for="sliderTaxReserve" class="font-bold text-slate-700 dark:text-slate-200">
+                  Estimated Tax Reserve Rate: <span id="labelTaxRate" class="font-mono text-emerald-600 dark:text-emerald-400">25%</span>
+                </label>
+                <div class="text-[11px] text-slate-500 dark:text-slate-400">Set aside immediately from monthly revenue for income/self-employment tax</div>
+              </div>
+              <div id="outputTaxReserveAmount" class="font-mono text-xs font-bold text-rose-500 dark:text-rose-400">
+                $750/mo
+              </div>
+            </div>
+            <input type="range" id="sliderTaxReserve" min="10" max="45" step="1" value="25" aria-label="Tax Reserve Percentage Slider" />
+            <div class="flex justify-between text-[10px] text-slate-400 dark:text-slate-500">
+              <span>10% (Low Tax / Expat Visa)</span>
+              <span>25% (US/UK Freelancer Avg)</span>
+              <span>45% (High European Bracket)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. WORKING CAPACITY & BURNOUT BENCHMARK CARD -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-xs space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center font-black text-sm">
+                4
+              </div>
+              <div>
+                <h2 class="text-base font-bold text-slate-900 dark:text-white">Working Capacity &amp; Billing Rate</h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Determine sustainable hourly capacity to cover outflows.</p>
+              </div>
+            </div>
+            <span class="text-xs font-bold font-mono text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded-lg" id="summaryHourlyRate">
+              $85/hr
+            </span>
+          </div>
+
+          <!-- Hourly Billing Rate -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <label for="inputHourlyRate" class="font-bold text-slate-700 dark:text-slate-200">
+                Effective Hourly Rate
+              </label>
+              <div class="relative w-36">
+                <span class="currency-symbol absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 text-xs font-bold pointer-events-none">$</span>
+                <input type="number" id="inputHourlyRate" value="85" min="15" max="1000" step="5" class="w-full pl-7 pr-2.5 py-1 text-right text-xs font-mono font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+              </div>
+            </div>
+            <input type="range" id="sliderHourlyRate" min="20" max="300" step="5" value="85" aria-label="Hourly Rate Slider" />
+          </div>
+
+          <!-- Max Weekly Billable Hours -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <label for="inputBillableHours" class="font-bold text-slate-700 dark:text-slate-200">
+                Weekly Billable Deep-Work Target: <span id="labelBillableHours" class="font-mono text-emerald-600 dark:text-emerald-400">25 hrs/wk</span>
+              </label>
+              <input type="number" id="inputBillableHours" value="25" min="5" max="60" class="w-20 text-right text-xs font-mono font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg py-1 px-2.5 focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+            </div>
+            <input type="range" id="sliderBillableHours" min="5" max="50" step="1" value="25" aria-label="Billable Hours Slider" />
+          </div>
+
+          <!-- Admin / Unbillable Hours -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <label for="inputAdminHours" class="font-bold text-slate-700 dark:text-slate-200">
+                Weekly Admin &amp; Sales Overhead: <span id="labelAdminHours" class="font-mono text-slate-600 dark:text-slate-400">10 hrs/wk</span>
+              </label>
+              <input type="number" id="inputAdminHours" value="10" min="0" max="40" class="w-20 text-right text-xs font-mono font-bold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg py-1 px-2.5 focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+            </div>
+            <input type="range" id="sliderAdminHours" min="2" max="30" step="1" value="10" aria-label="Admin Hours Slider" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================================================================
+           COLUMN 2: VISUAL OUTPUTS, CHARTS & METRICS (5 Cols on Desktop)
+           ================================================================== -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- BURNOUT CAPACITY SPEEDOMETER & WORKLOAD -->
+        <section id="burnoutSection" class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>⚡ Burnout Capacity Barometer</span>
+            </h3>
+            <span id="burnoutBadge" class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+              Sustainable
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            Billable hours needed per week to break even against your total monthly burn rate (<span id="burnoutBreakEvenOutflow">$4,850</span>):
+          </p>
+
+          <!-- Gauge Meter / Barometer Bar -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-baseline text-xs font-mono">
+              <span class="text-slate-500 dark:text-slate-400">Required Billable Load:</span>
+              <span id="burnoutRequiredHours" class="text-lg font-black text-slate-900 dark:text-white">13.1 hrs/wk</span>
+            </div>
+
+            <!-- Multi-segment visual bar -->
+            <div class="relative w-full h-4 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden flex border border-slate-200 dark:border-slate-700">
+              <div class="w-[55%] h-full bg-emerald-400/80 dark:bg-emerald-500/70" title="Green Zone: 0-22 hrs"></div>
+              <div class="w-[25%] h-full bg-amber-400/80 dark:bg-amber-500/70" title="Amber Zone: 23-32 hrs"></div>
+              <div class="w-[20%] h-full bg-rose-400/80 dark:bg-rose-500/70" title="Red Zone: >32 hrs"></div>
+              <!-- Marker Needle Indicator -->
+              <div id="burnoutNeedle" class="absolute top-0 bottom-0 w-1.5 bg-slate-900 dark:bg-white rounded-full shadow-md transition-all duration-300" style="left: 32%;"></div>
+            </div>
+
+            <div class="flex justify-between text-[10px] font-bold text-slate-400 dark:text-slate-500 pt-0.5">
+              <span>0h (Relaxed)</span>
+              <span>22h (Sustainable)</span>
+              <span>32h (Strained)</span>
+              <span>45h+ (Burnout)</span>
+            </div>
+          </div>
+
+          <!-- Total Workload Breakdown -->
+          <div class="bg-slate-50 dark:bg-slate-800/60 p-3.5 rounded-xl border border-slate-200/70 dark:border-slate-800 text-xs space-y-2">
+            <div class="flex justify-between text-slate-600 dark:text-slate-300">
+              <span>Billable Deep Work Needed:</span>
+              <span id="burnoutBillableDisplay" class="font-mono font-bold text-slate-900 dark:text-white">13.1 hrs/wk</span>
+            </div>
+            <div class="flex justify-between text-slate-600 dark:text-slate-300">
+              <span>Unbillable Admin / BizDev:</span>
+              <span id="burnoutAdminDisplay" class="font-mono font-bold text-slate-900 dark:text-white">+ 10.0 hrs/wk</span>
+            </div>
+            <div class="pt-1.5 border-t border-slate-200 dark:border-slate-700 flex justify-between font-bold text-slate-900 dark:text-white">
+              <span>Total Weekly Commitment:</span>
+              <span id="burnoutTotalHours" class="font-mono text-emerald-600 dark:text-emerald-400">23.1 hrs/wk</span>
+            </div>
+          </div>
+
+          <p id="burnoutAdvice" class="text-xs text-slate-500 dark:text-slate-400 leading-snug">
+            ✅ <strong>Safe Workload:</strong> Your rate and burn require moderate weekly deep work. You have healthy capacity to scale or take time off.
+          </p>
+        </section>
+
+        <!-- MILESTONE SAFETY BUFFERS -->
+        <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-xs space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+            <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <span>🛡️ Financial Milestone Buffers</span>
+            </h3>
+            <span class="text-[11px] text-slate-400 font-semibold">Survival Targets</span>
+          </div>
+
+          <!-- 3-Month Survival -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between items-center text-xs">
+              <span class="font-bold text-slate-700 dark:text-slate-200 flex items-center gap-1">
+                <span>3-Month (Survival Baseline)</span>
+              </span>
+              <span id="milestone3Target" class="font-mono font-bold text-slate-500 dark:text-slate-400">$8,400</span>
+            </div>
+            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
+              <div id="milestone3Bar" class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: 100%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px]">
+              <span id="milestone3Status" class="font-semibold text-emerald-600 dark:text-emerald-400">Achieved (+317%)</span>
+              <span class="text-slate-400">Essential core needs</span>
+            </div>
+          </div>
+
+          <!-- 6-Month Resilient -->
+          <div class="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800">
+            <div class="flex justify-between items-center text-xs">
+              <span class="font-bold text-slate-700 dark:text-slate-200 flex items-center gap-1">
+                <span>6-Month (Resilient Solopreneur)</span>
+              </span>
+              <span id="milestone6Target" class="font-mono font-bold text-slate-500 dark:text-slate-400">$16,800</span>
+            </div>
+            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
+              <div id="milestone6Bar" class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: 100%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px]">
+              <span id="milestone6Status" class="font-semibold text-emerald-600 dark:text-emerald-400">Achieved (+108%)</span>
+              <span class="text-slate-400">Client loss resilience</span>
+            </div>
+          </div>
+
+          <!-- 12-Month Anti-Fragile -->
+          <div class="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800">
+            <div class="flex justify-between items-center text-xs">
+              <span class="font-bold text-slate-700 dark:text-slate-200 flex items-center gap-1">
+                <span>12-Month (Anti-Fragile Fortress)</span>
+              </span>
+              <span id="milestone12Target" class="font-mono font-bold text-slate-500 dark:text-slate-400">$33,600</span>
+            </div>
+            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
+              <div id="milestone12Bar" class="bg-blue-500 h-full rounded-full transition-all duration-300" style="width: 100%;"></div>
+            </div>
+            <div class="flex justify-between text-[11px]">
+              <span id="milestone12Status" class="font-semibold text-blue-600 dark:text-blue-400">Achieved (+4%)</span>
+              <span class="text-slate-400">Total economic independence</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 2: MID-TOOL IN-FEED UNIT (min-h-[250px])
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6 px-2">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none text-center">
+        Advertisement
+      </div>
+      <div class="adsense-card w-full min-h-[250px] sm:min-h-[280px] flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 rounded-2xl border border-slate-200/60 dark:border-slate-800">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:250px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- ====================================================================
+         CASH DEPLETION DECAY CURVE (CHART.JS CANVAS)
+         ==================================================================== -->
+    <section id="decayChartSection" class="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-7 border border-slate-200 dark:border-slate-800 shadow-xs space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 text-xs font-bold border border-emerald-200 dark:border-emerald-800">
+              Simulation Engine
+            </span>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+              24-Month Cash Depletion Decay Curves
+            </h2>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            Simulating bank balance progression under three distinct economic stress tests.
+          </p>
+        </div>
+
+        <!-- Scenario Badges -->
+        <div class="flex flex-wrap gap-2 text-[11px] font-bold">
+          <span class="px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            Current: <span id="chartLabelTrajectory">14.2 Mos</span>
+          </span>
+          <span class="px-2.5 py-1 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            50% Shock: <span id="chartLabelShock">9.8 Mos</span>
+          </span>
+          <span class="px-2.5 py-1 rounded-lg bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+            0% Inflow: <span id="chartLabelZero">7.2 Mos</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Canvas Container -->
+      <div class="relative w-full h-[320px] sm:h-[400px]">
+        <canvas id="decayCurveCanvas" aria-label="Cash Depletion Decay Curve Graph" role="img"></canvas>
+      </div>
+
+      <!-- Scenarios Explanation Footer -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-300">
+        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 space-y-1">
+          <div class="font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1">
+            <span>● 0% Revenue (Freeze Scenario)</span>
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+            Zero client contracts. Inflows collapse completely. Cash drains purely by your essential + SaaS + discretionary obligations.
+          </p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 space-y-1">
+          <div class="font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+            <span>● 50% Revenue Shock</span>
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+            Your largest client churns or project volume drops by half. Reflects practical down-market freelance stress.
+          </p>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-800 space-y-1">
+          <div class="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+            <span>● Current Trajectory</span>
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+            Baseline runway maintaining current retainers, project averages, and international client arbitrage.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         COMPREHENSIVE E-E-A-T EDUCATIONAL GUIDE (>= 1,500 WORDS)
+         ==================================================================== -->
+    <article id="guideSection" class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-xs space-y-10">
+
+      <!-- Header & Intro -->
+      <div class="border-b border-slate-100 dark:border-slate-800 pb-8 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-xs font-bold border border-emerald-200 dark:border-emerald-800">
+          Financial Engineering &bull; E-E-A-T Authoritative Handbook
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+          The Solopreneur Cash Runway Blueprint: Escaping Feast-and-Famine &amp; Engineering Anti-Fragility
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl">
+          Unlike venture-backed tech startups with millions in venture debt and dedicated finance departments, independent solopreneurs, digital nomads, and elite consultants operate in a high-stakes, unified financial reality. When you are a company of one, there is no structural wall separating corporate balance sheets from your ability to pay your rent or buy groceries next month. This comprehensive guide outlines the mathematical methodology, cash management architecture, and psychological principles necessary to achieve true financial anti-fragility.
+        </p>
+      </div>
+
+      <!-- Chapter 1: The Anatomy of Solopreneur Burn Rate -->
+      <section class="space-y-4">
+        <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          1. The Anatomy of Solopreneur Burn Rate: Why Corporate SaaS Models Fail You
+        </h3>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          Traditional corporate accounting defines burn rate as the pace at which a company depletes its shareholder capital before generating positive cash flow from operations. In standard VC vernacular:
+        </p>
+        <div class="bg-slate-50 dark:bg-slate-800/70 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 overflow-x-auto">
+          \[ \text{Corporate Gross Burn} = \text{Payroll} + \text{Office Leases} + \text{Marketing CAC} + \text{Hosting SaaS} \]
+        </div>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          Applying this model directly to a solo consulting practice or indie business causes catastrophic forecasting errors. When an individual operates as a solopreneur, payroll is not an arbitrary variable cost that can be lowered by laying off staff. Your personal cost of living <em>is</em> the primary operating cost of the enterprise. If you default on your health insurance, fall behind on residential rent, or cannot purchase nutritious food, the operating engine of your company completely ceases functioning.
+        </p>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          Therefore, precision solopreneur financial engineering demands a <strong>Blended Burn Rate Architecture</strong>. Every dollar that leaves your bank accounts—whether paying for Amazon Web Services, Figma subscriptions, home heating, or personal groceries—must be grouped into distinct volatility tiers:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-slate-600 dark:text-slate-300">
+          <li><strong>Tier 1: Non-Negotiable Survival Outflows (\(E_{\text{essential}}\))</strong>: Residential shelter (rent or mortgage), basic groceries, utilities, healthcare premiums, and minimum debt servicing obligations. These expenses cannot be cut without compromising basic survival and cognitive performance.</li>
+          <li><strong>Tier 2: Discretionary Quality-of-Life Outflows (\(E_{\text{discretionary}}\))</strong>: Restaurant dining, gym memberships, streaming services, recreational travel, and entertainment. In a financial emergency, these costs can immediately be slashed to zero via our Panic Mode toggle.</li>
+          <li><strong>Tier 3: Fixed Business Overhead (\(E_{\text{business}}\))</strong>: Software licenses (GitHub, Google Workspace, Canva), domain hosting, accounting retainers, professional liability insurance, and hardware depreciation.</li>
+          <li><strong>Tier 4: Statutory Tax Reserves (\(T_{\text{reserve}}\))</strong>: Unlike corporate entities with deferred net operating losses, solopreneurs are personally liable for self-employment tax, national income tax, and municipal surcharges. Setting aside 20% to 35% of every gross dollar received is mathematically mandatory to avoid insolvency when quarterly estimated payments come due.</li>
+        </ul>
+      </section>
+
+      <!-- Chapter 2: Mathematical Methodology & Formulas -->
+      <section id="methodologySection" class="space-y-4">
+        <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          2. Mathematical Methodology &amp; Algorithmic Formulations
+        </h3>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          PocketRuler's Solopreneur Runway Engine computes your timeline using rigorous discrete mathematical models. Here is the formal algorithmic breakdown:
+        </p>
+
+        <!-- Formula 1: Liquid Reserves -->
+        <div class="bg-slate-50 dark:bg-slate-800/70 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
+          <h4 class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Formula 1: Effective Liquid Cash Reserves (\(R_0\))</h4>
+          <div class="font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 overflow-x-auto py-1">
+            \[ R_0 = R_{\text{personal}} + R_{\text{business}} + (AR \times C_{\text{confidence}}) \]
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            Where \(R_{\text{personal}}\) is liquid personal cash, \(R_{\text{business}}\) is operating cash, \(AR\) is total unpaid accounts receivable, and \(C_{\text{confidence}} \in [0.0, 1.0]\) is the realization probability slider. Delinquent invoices are discounted accordingly.
+          </p>
+        </div>
+
+        <!-- Formula 2: Total Gross Inflow -->
+        <div class="bg-slate-50 dark:bg-slate-800/70 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
+          <h4 class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Formula 2: Total Gross Monthly Inflows (\(I_{\text{gross}}\))</h4>
+          <div class="font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 overflow-x-auto py-1">
+            \[ I_{\text{gross}} = I_{\text{retainer}} + I_{\text{project}} + \text{Convert}\left(I_{\text{foreign}}, \text{curr}_{\text{foreign}} \to \text{curr}_{\text{base}}\right) \]
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            Where foreign client retainers are dynamically exchanged into your primary spending currency using live API exchange rates.
+          </p>
+        </div>
+
+        <!-- Formula 3: Net Burn Rate -->
+        <div class="bg-slate-50 dark:bg-slate-800/70 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
+          <h4 class="text-xs font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider">Formula 3: Blended Net Monthly Burn Rate (\(B_{\text{net}}\))</h4>
+          <div class="font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 overflow-x-auto py-1">
+            \[ E_{\text{total}} = E_{\text{essential}} + \left(\text{PanicMode} ? 0 : E_{\text{discretionary}}\right) + E_{\text{business}} + \left(I_{\text{gross}} \times \frac{T_{\text{rate}}}{100}\right) \]
+            \[ B_{\text{net}} = E_{\text{total}} - I_{\text{gross}} \]
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            If \(B_{\text{net}} \le 0\), the business is cash flow positive (\(\text{Runway} = \infty\)). If \(B_{\text{net}} > 0\), capital is being drained at rate \(B_{\text{net}}\) per month. Note that statutory tax reserve requirements scale proportionally with revenue: if income drops to zero during a contract dry spell, tax reserve liability simultaneously drops to zero.
+          </p>
+        </div>
+
+        <!-- Formula 4: Runway Horizon -->
+        <div class="bg-slate-50 dark:bg-slate-800/70 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
+          <h4 class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Formula 4: Runway Horizon &amp; Month-by-Month Decay (\(R(t)\))</h4>
+          <div class="font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 overflow-x-auto py-1">
+            \[ \text{Runway Months} = \frac{R_0}{B_{\text{net}}} \]
+            \[ R(t) = \max\left(0, R_0 - t \times B_{\text{scenario}}\right) \]
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            The Zero Cash Date is rendered as \( \text{Date}_{\text{current}} + \text{Runway Months} \). On the 24-month decay graph, each scenario models cumulative bank depletion under zero revenue, 50% revenue shock, and current contractual trajectories.
+          </p>
+        </div>
+      </section>
+
+      <!-- Chapter 3: Breaking the Feast-and-Famine Cycle -->
+      <section class="space-y-4">
+        <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          3. Breaking the Feast-and-Famine Cycle: The 3-Bank Account Fortress
+        </h3>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          The number one psychological killer of solopreneur careers is the dreaded <strong>Feast-and-Famine Cycle</strong>. In a "feast" month, a freelancer closes two large contracts, collects $15,000 in upfront payments, feels euphoric, and elevates discretionary spending. However, delivering those projects consumes 100% of their weekly capacity. Sales prospecting drops to zero. Two months later, the work is delivered, invoices dry up, and the solopreneur enters a panic-driven "famine" where they accept low-ball offers or toxic clients just to pay next week's rent.
+        </p>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          To eradicate this cycle forever, seasoned financial engineers implement a strictly segregated <strong>3-Bank Account Architecture</strong>:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-bold text-sm">
+              A1
+            </div>
+            <h4 class="text-sm font-bold text-slate-900 dark:text-white">Business Operating Hub (OpEx)</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              All client payments land here. Software subscriptions, subcontractor fees, and domain costs are debited exclusively from this account. Never spend personal money here.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-rose-100 dark:bg-rose-900/60 text-rose-700 dark:text-rose-300 flex items-center justify-center font-bold text-sm">
+              A2
+            </div>
+            <h4 class="text-sm font-bold text-slate-900 dark:text-white">The Tax Vault (Untouchable)</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              Every Friday, exactly 25% to 35% of all client revenue deposited that week is transferred here. This money does not belong to you—it belongs to the government. You never face tax season panic.
+            </p>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-2">
+            <div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 flex items-center justify-center font-bold text-sm">
+              A3
+            </div>
+            <h4 class="text-sm font-bold text-slate-900 dark:text-white">The Personal War Chest</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              You pay yourself a <em>fixed, predictable monthly salary</em> on the 1st of every month from the OpEx account into your personal account, regardless of whether you invoiced $3,000 or $25,000. Surplus accumulates as cash runway.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chapter 4: Burnout Capacity & Cognitive Limits -->
+      <section class="space-y-4">
+        <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          4. Burnout Capacity: Why 40 Billable Hours per Week is a Mathematical Fiction
+        </h3>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          Many novice solopreneurs set their financial targets assuming a traditional 40-hour work week: <em>"If I bill $50/hour for 40 hours, I will earn $8,000 a month!"</em> In practice, this assumption leads straight to clinical burnout within three to six months.
+        </p>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          In any solopreneur enterprise, <strong>unbillable administrative friction</strong> accounts for 25% to 40% of total working hours. This unbillable overhead includes:
+        </p>
+        <ul class="list-disc pl-6 space-y-1.5 text-sm sm:text-base text-slate-600 dark:text-slate-300">
+          <li>Client discovery calls, scope definition, and proposal drafting.</li>
+          <li>Invoicing, tracking delinquent payments, and bookkeeping.</li>
+          <li>Email correspondence, Slack check-ins, and project status updates.</li>
+          <li>Marketing, content creation, social proof building, and portfolio maintenance.</li>
+          <li>Professional skill upkeep, software updates, and technical troubleshooting.</li>
+        </ul>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          Human cognitive capacity for intense, creative, or analytical problem-solving (what computer scientist Cal Newport terms <em>Deep Work</em>) maxes out at approximately <strong>4 to 5 hours per day</strong> (20 to 25 hours per week). When you force 35 or 40 billable hours on top of 15 hours of business administration, you are working a 55-hour week. Cognitive degradation sets in, client communication deteriorates, code or design quality plummets, and your willingness to prospect vanishes.
+        </p>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          Our <strong>Burnout Capacity Barometer</strong> evaluates your required billable load. If covering your monthly expenses requires more than 32 billable hours per week, your pricing is mathematically broken. The solution is not to work longer hours—it is to raise your effective hourly rate or pivot into monthly advisory retainers.
+        </p>
+      </section>
+
+      <!-- Chapter 5: Multi-Currency Arbitrage for Digital Nomads -->
+      <section class="space-y-4">
+        <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          5. Multi-Currency Arbitrage for Digital Nomads &amp; Global Consultants
+        </h3>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          One of the greatest financial superpowers of the 21st-century remote knowledge worker is <strong>Geographic Arbitrage</strong>: earning income in strong, stable currencies (like USD, EUR, or GBP) while residing in countries with significantly lower living costs (such as Portugal, Spain, Thailand, Mexico, or Costa Rica).
+        </p>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          However, international freelancers frequently overlook <strong>Foreign Exchange (FX) Volatility Risk</strong>. If you bill a recurring retainer of €4,000 to an EU client while your primary expenses are denominated in USD or CAD, a 10% currency swing directly slashes your local purchasing power without warning. Furthermore, intermediary bank wiring fees and non-transparent currency markup fees can shave 2% to 4% off every transaction.
+        </p>
+        <div class="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
+          <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Tactical FX Management Checklist:</h4>
+          <ol class="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <li><strong>Multi-Currency Virtual Accounts (Wise / Revolut Business)</strong>: Never allow a foreign client's bank to perform automatic currency conversions. Provide them with local domestic routing numbers (e.g. ACH in the US, IBAN in the SEPA zone) to receive 100% of the contract value.</li>
+            <li><strong>Hold &amp; Convert Strategically</strong>: Retain foreign earnings in their native currency until exchange rates are advantageous or until you need to disburse local living funds.</li>
+            <li><strong>Factor Currency Buffers into International Proposals</strong>: When contracting in a currency other than your domestic spending denomination, build a 5% to 8% FX buffer into the fixed retainer price.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Chapter 6: The 3 Milestone Buffers Table -->
+      <section class="space-y-4">
+        <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          6. The Three Tiers of Solopreneur Financial Fortitude
+        </h3>
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+          How much cash should you hold before taking aggressive business risks? Use this structural framework:
+        </p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 text-slate-900 dark:text-white font-bold">
+                <th class="py-3 px-4">Milestone</th>
+                <th class="py-3 px-4">Duration</th>
+                <th class="py-3 px-4">Buffer Target</th>
+                <th class="py-3 px-4">Psychological Benefit</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-slate-600 dark:text-slate-300">
+              <tr>
+                <td class="py-3 px-4 font-bold text-slate-900 dark:text-white">Tier 1: Survival</td>
+                <td class="py-3 px-4 font-mono">3 Months</td>
+                <td class="py-3 px-4 font-mono">\(3 \times E_{\text{essential}}\)</td>
+                <td class="py-3 px-4">Prevents immediate destitution if a key client defaults. Lets you sleep without panic attacks.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-bold text-emerald-600 dark:text-emerald-400">Tier 2: Resilient</td>
+                <td class="py-3 px-4 font-mono">6 Months</td>
+                <td class="py-3 px-4 font-mono">\(6 \times (E_{\text{essential}} + E_{\text{biz}})\)</td>
+                <td class="py-3 px-4">Gives you leverage to fire abusive or low-paying clients. Time to pivot positioning or launch new services.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-bold text-blue-600 dark:text-blue-400">Tier 3: Anti-Fragile</td>
+                <td class="py-3 px-4 font-mono">12+ Months</td>
+                <td class="py-3 px-4 font-mono">\(12 \times E_{\text{total}}\)</td>
+                <td class="py-3 px-4">Total economic sovereignty. You can take an entire quarter off to build SaaS products or weather recessions with complete serenity.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           INTERACTIVE FAQ ACCORDION (6 IN-DEPTH Q&As)
+           ==================================================================== -->
+      <section id="faqSection" class="space-y-4 pt-6 border-t border-slate-100 dark:border-slate-800">
+        <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Frequently Asked Questions (FAQ)
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+          Everything you need to know about solopreneur runway modeling, debt, taxes, and cash management.
+        </p>
+
+        <div class="space-y-3 pt-2">
+          <!-- FAQ 1 -->
+          <details name="runway-faq" class="group border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 transition-all open:bg-slate-50/50 dark:open:bg-slate-800/40">
+            <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-slate-900 dark:text-white cursor-pointer select-none">
+              <span>How often should I recalculate my solopreneur cash runway?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+              <p>
+                You should update your runway figures on the <strong>1st of every month</strong> during your routine bookkeeping review. In addition, recalculate immediately whenever any of the following triggers occur:
+              </p>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>You sign a new recurring monthly retainer or complete a major project contract.</li>
+                <li>An existing client cancels, scales back hours, or falls behind on invoicing deadlines.</li>
+                <li>Your fixed personal or business expenses change significantly (e.g. signing a new apartment lease or switching major software platforms).</li>
+                <li>Significant exchange rate fluctuations occur if you invoice in foreign currencies.</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details name="runway-faq" class="group border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 transition-all open:bg-slate-50/50 dark:open:bg-slate-800/40">
+            <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-slate-900 dark:text-white cursor-pointer select-none">
+              <span>What should I do if my runway falls below 3 months?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+              <p>
+                When cash runway drops below 90 days, you enter the <strong>Orange Alert Zone</strong>. Immediate tactical action is required:
+              </p>
+              <ol class="list-decimal pl-5 space-y-1">
+                <li><strong>Activate Panic Mode</strong>: Immediately cancel non-essential subscriptions, halt dining out, and eliminate discretionary travel. This instantly stretches your runway by 25% to 40%.</li>
+                <li><strong>Aggressively Collect Accounts Receivable</strong>: Contact all clients with outstanding balances. Offer a 3% to 5% prompt-pay discount if they settle invoices via bank transfer within 24 hours.</li>
+                <li><strong>Launch Fast Cash-Flow Offers</strong>: Reach out to past happy clients with a dedicated "Q2 Growth Audit" or prepaid 20-hour retainer block at a modest loyalty discount.</li>
+                <li><strong>Pause Long-Term Speculative Building</strong>: Temporarily pause unmonetized side projects or internal refactors to dedicate 80% of your waking hours to direct revenue generation.</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details name="runway-faq" class="group border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 transition-all open:bg-slate-50/50 dark:open:bg-slate-800/40">
+            <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-slate-900 dark:text-white cursor-pointer select-none">
+              <span>Should I count credit card lines or personal loans as cash runway?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p>
+                <strong>No.</strong> Mathematically and psychologically, counting debt lines as runway is a hazardous trap. High-interest credit cards (often 18% to 28% APR) do not provide runway; they compound future burn rate through compulsory minimum interest payments. Only unencumbered liquid cash in checking, savings, or high-yield money market accounts counts as true runway. Credit lines should be treated strictly as an emergency liquidity bridge of last resort.
+              </p>
+            </div>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details name="runway-faq" class="group border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 transition-all open:bg-slate-50/50 dark:open:bg-slate-800/40">
+            <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-slate-900 dark:text-white cursor-pointer select-none">
+              <span>Why does the calculator calculate taxes based on income rather than fixed costs?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p>
+                Income taxes and self-employment taxes are assessed exclusively on taxable gross receipts and net earnings. If you suffer a complete 0% revenue freeze for six months, you will owe zero income tax on that zero income. Treating taxes as a fixed monthly overhead expense would unrealistically exaggerate your cash burn during a dry spell. Our model accurately scales tax reserves dynamically with monthly income inflows.
+              </p>
+            </div>
+          </details>
+
+          <!-- FAQ 5 -->
+          <details name="runway-faq" class="group border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 transition-all open:bg-slate-50/50 dark:open:bg-slate-800/40">
+            <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-slate-900 dark:text-white cursor-pointer select-none">
+              <span>How does Accounts Receivable confidence factor protect against bad debt?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p>
+                Industry studies demonstrate that up to 18% of freelance invoices are paid later than 30 days past the agreed due date, and approximately 2% to 4% end up as uncollectible bad debt. If you have $10,000 in outstanding invoices, counting 100% of that cash immediately can lead to dangerous overspending. By setting the confidence slider to 70% or 80%, you introduce a safety margin that prevents cash crunches caused by sluggish client accounting departments.
+              </p>
+            </div>
+          </details>
+
+          <!-- FAQ 6 -->
+          <details name="runway-faq" class="group border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 transition-all open:bg-slate-50/50 dark:open:bg-slate-800/40">
+            <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-slate-900 dark:text-white cursor-pointer select-none">
+              <span>Is it possible to have 'Infinite Runway' while still feeling broke?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
+              <p>
+                Yes! When your monthly gross income exceeds your total monthly burn rate, your net burn is negative (cash-flow positive), meaning your cash reserves are mathematically expanding rather than decaying. However, if your cash reserves are very thin (e.g. only $1,000 in the bank) and your surplus is just $100/month, a single lost client immediately drops your runway from "infinite" to two weeks. Genuine financial safety requires both positive cash flow <em>and</em> a baseline 6-month liquid cash buffer.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Cross-Links & Editorial Attribution -->
+      <div class="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+        <div class="flex items-center space-x-2">
+          <span class="font-bold text-slate-900 dark:text-white">Author &amp; Methodology:</span>
+          <span>Engineered by PocketRuler Financial Architecture Team</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <a href="../freelance-calculator/index.html" class="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">
+            Freelance Pricing Calculator &rarr;
+          </a>
+          <span>&bull;</span>
+          <a href="../relocation-calculator/index.html" class="text-blue-600 dark:text-blue-400 font-bold hover:underline">
+            Expat Tax &amp; Relocation &rarr;
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 3: POST-INTERACTION BOTTOM UNIT (min-h-[90px])
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6 px-2">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none text-center">
+        Advertisement
+      </div>
+      <div class="adsense-card w-full min-h-[90px] sm:min-h-[100px] flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- ====================================================================
+       GLOBAL 4-COLUMN FOOTER (UNIFIED POCKETRULER FOOTER)
+       ==================================================================== -->
+  <footer class="w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-10 text-xs text-slate-500 dark:text-slate-400 transition-colors duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+      
+      <!-- Col 1: Brand & Mission -->
+      <div class="space-y-3">
+        <div class="flex items-center space-x-2">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" width="20" height="20" />
+          <span class="text-sm font-black text-slate-900 dark:text-white">PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span></span>
+        </div>
+        <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+          The definitive suite of free, 100% client-side financial engineering tools for solopreneurs, digital nomads, and independent consultants worldwide.
+        </p>
+        <p class="text-[10px] text-slate-400 dark:text-slate-500">
+          FX rates synced live via Open Exchange Rates API. &copy; 2026 PocketRuler.app. All rights reserved.
+        </p>
+      </div>
+
+      <!-- Col 2: Web Apps Directory -->
+      <div class="space-y-2.5">
+        <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Web Apps Hub</h4>
+        <ul class="space-y-1.5 text-slate-600 dark:text-slate-300">
+          <li><a href="../index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Tools Hub Dashboard</a></li>
+          <li><a href="index.html" class="text-emerald-600 dark:text-emerald-400 font-bold">Solopreneur Runway Calculator</a></li>
+          <li><a href="../freelance-calculator/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Freelance Rate vs. Retainer</a></li>
+          <li><a href="../relocation-calculator/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Expat Tax &amp; Relocation</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Resources & Guides -->
+      <div class="space-y-2.5">
+        <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Resources &amp; Guides</h4>
+        <ul class="space-y-1.5 text-slate-600 dark:text-slate-300">
+          <li><a href="#guideSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Runway Planning Guide</a></li>
+          <li><a href="#methodologySection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Mathematical Formulas</a></li>
+          <li><a href="../relocation-calculator/guide.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Expat Tax &amp; Visa Guide</a></li>
+          <li><a href="../about.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About Us &amp; Mission</a></li>
+          <li><a href="../contact.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Contact &amp; Support</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Legal & Privacy Compliance -->
+      <div class="space-y-2.5">
+        <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Legal &amp; Privacy</h4>
+        <ul class="space-y-1.5 text-slate-600 dark:text-slate-300">
+          <li><a href="../privacy.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Privacy Policy &amp; Cookies</a></li>
+          <li><a href="../terms.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Terms of Service</a></li>
+          <li><a href="../disclaimer.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Financial Disclaimer</a></li>
+          <li><a href="../ads.txt" class="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">ads.txt (Authorized Seller)</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400 dark:text-slate-500">
+      <p>Precision tools engineered with privacy-first client-side architecture. No tracking or transmission of personal financial figures.</p>
+      <div class="flex items-center space-x-4">
+        <a href="../privacy.html" class="hover:text-slate-600 dark:hover:text-slate-300">Privacy</a>
+        <span>&bull;</span>
+        <a href="../terms.html" class="hover:text-slate-600 dark:hover:text-slate-300">Terms</a>
+        <span>&bull;</span>
+        <a href="../disclaimer.html" class="hover:text-slate-600 dark:hover:text-slate-300">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       TOAST NOTIFICATION (COPIED TO CLIPBOARD)
+       ==================================================================== -->
+  <div id="toastNotification" class="toast-notification bg-slate-900 dark:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded-xl shadow-xl flex items-center space-x-2 border border-slate-800 dark:border-slate-700" role="status" aria-live="polite">
+    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+    </svg>
+    <span id="toastMessage">Shareable calculation link copied!</span>
+  </div>
+
+  <!-- ====================================================================
+       MOBILE NAVIGATION DRAWER & BACKDROP
+       Strictly at the bottom of <body> right before </body> with hidden md:hidden
+       ==================================================================== -->
+  <div id="mobileDrawerBackdrop" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm opacity-0 hidden transition-opacity duration-300 md:hidden" aria-hidden="true"></div>
+
+  <aside id="mobileDrawer" class="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out hidden md:hidden flex flex-col justify-between" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center space-x-2.5">
+        <div class="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-1 flex items-center justify-center">
+          <img src="logo.svg" alt="PocketRuler.app Logo" class="w-5 h-5" width="20" height="20" />
+        </div>
+        <span class="text-base font-black text-slate-900 dark:text-white tracking-tight">
+          PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span>
+        </span>
+      </a>
+      <button type="button" id="closeMobileMenuBtn" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Close Mobile Navigation">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Drawer Navigation Content -->
+    <div class="p-5 space-y-6 flex-grow overflow-y-auto">
+      <!-- Section: Calculator Navigation -->
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">On This Page</div>
+        <a href="#calculatorSection" class="mobile-nav-link block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Runway Inputs &amp; Controls
+        </a>
+        <a href="#decayChartSection" class="mobile-nav-link block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Decay Curve Scenarios
+        </a>
+        <a href="#burnoutSection" class="mobile-nav-link block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Burnout Capacity Meter
+        </a>
+        <a href="#guideSection" class="mobile-nav-link block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Comprehensive Guide
+        </a>
+        <a href="#faqSection" class="mobile-nav-link block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+          Frequently Asked Questions
+        </a>
+      </div>
+
+      <!-- Section: Web Apps Suite -->
+      <div class="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Other Apps in Suite</div>
+        <a href="../index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <span>🏠 Main Tools Hub</span>
+          <span class="text-[10px] text-slate-400 font-semibold">View All</span>
+        </a>
+        <a href="../freelance-calculator/index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-800 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Freelance Rate &amp; Retainers</span>
+          </div>
+          <span class="text-[10px] bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-2 py-0.5 rounded-full font-bold">Launch</span>
+        </a>
+        <a href="../relocation-calculator/index.html" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-800 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-300 font-bold text-xs transition-colors border border-slate-200/60 dark:border-slate-700">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            <span>Expat Tax &amp; Relocation</span>
+          </div>
+          <span class="text-[10px] bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-0.5 rounded-full font-bold">Launch</span>
+        </a>
+      </div>
+
+      <!-- Section: Legal & Platform -->
+      <div class="space-y-1 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Platform &amp; Legal</div>
+        <a href="../about.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">About Us</a>
+        <a href="../contact.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Contact &amp; Support</a>
+        <a href="../privacy.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+        <a href="../terms.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</a>
+        <a href="../disclaimer.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Disclaimer</a>
+      </div>
+    </div>
+
+    <!-- Drawer Footer with Theme Toggle -->
+    <div class="p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <span class="text-xs font-medium text-slate-600 dark:text-slate-300">Theme</span>
+      <button type="button" data-theme-toggle class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium text-slate-700 dark:text-slate-200 shadow-2xs hover:bg-slate-50 dark:hover:bg-slate-600 transition">
+        <span>Toggle Mode</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ====================================================================
+       SCRIPTS: Theme Controller, Currency Controller, App Logic
+       ==================================================================== -->
+  <script src="../js/theme.js"></script>
+  <script src="../js/currency.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
