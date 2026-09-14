@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;" />
+  <title>Blog &amp; Industry Trends | PocketRuler.app</title>
+  <meta name="description" content="Discover timely analysis on emerging AI trends, digital economy shifts, contractor mathematics, and web technologies on the PocketRuler.app blog." />
+  <link rel="canonical" href="https://pocketruler.app/blog/" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog &amp; Industry Trends | PocketRuler.app" />
+  <meta property="og:description" content="Discover timely analysis on emerging AI trends, digital economy shifts, contractor mathematics, and web technologies on the PocketRuler.app blog." />
+  <meta property="og:url" content="https://pocketruler.app/blog/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Anti-FOUC Theme Script -->
+  <script>
+    (function() {
+      try {
+        const stored = localStorage.getItem('pocketruler_theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Core Styles -->
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <!-- Structured Data: CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "PocketRuler.app Blog & Industry Trends",
+    "description": "Discover timely analysis on emerging AI trends, digital economy shifts, contractor mathematics, and web technologies on the PocketRuler.app blog.",
+    "url": "https://pocketruler.app/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "PocketRuler.app",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://pocketruler.app/logo.svg"
+      }
+    }
+  }
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
+
+  <!-- TOP HEADER -->
+  <header class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center space-x-3">
+        <a href="../index.html" class="flex items-center space-x-3 group" aria-label="PocketRuler.app Home">
+          <div class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 p-1 flex items-center justify-center shadow-xs group-hover:bg-slate-100 dark:group-hover:bg-slate-700 group-hover:border-slate-300 dark:group-hover:border-slate-600 transition-all shrink-0">
+            <img src="../logo.svg" alt="PocketRuler.app Logo" class="w-7 h-7" />
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight leading-none">
+                PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span>
+              </span>
+              <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-700">Blog</span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 hidden sm:block">
+              Everyday digital pocket knife for web &amp; life
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation Links & Controls -->
+      <div class="flex items-center space-x-3 lg:space-x-5">
+        <nav class="hidden md:flex items-center space-x-4 lg:space-x-5 text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300">
+          <div class="relative group py-2">
+            <button type="button" class="flex items-center gap-1.5 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 font-bold transition-colors focus:outline-none" id="toolsMenuBtn" aria-expanded="false" aria-haspopup="true">
+              <span>All Tools</span>
+              <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div class="absolute left-0 top-full mt-1 w-64 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 p-2 hidden group-hover:block transition-all z-50">
+              <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3 py-1">Active Web Apps</div>
+              <a href="../freelance-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <div>
+                  <div class="font-bold text-xs">Freelance Rate vs Retainer</div>
+                  <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">Capacity &amp; pitch generator</div>
+                </div>
+              </a>
+              <a href="../w2-1099-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors mt-0.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <div>
+                  <div class="font-bold text-xs">W-2 to 1099 Calculator</div>
+                  <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">Break-even rate &amp; SECA tax</div>
+                </div>
+              </a>
+              <a href="../relocation-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-700 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-300 transition-colors mt-0.5">
+                <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                <div>
+                  <div class="font-bold text-xs">Expat Tax &amp; Relocation</div>
+                  <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">85+ cities arbitrage simulator</div>
+                </div>
+              </a>
+              <a href="../ai-token-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-purple-50 dark:hover:bg-purple-950/40 text-slate-700 dark:text-slate-200 hover:text-purple-700 dark:hover:text-purple-300 transition-colors mt-0.5">
+                <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                <div>
+                  <div class="font-bold text-xs">AI Token &amp; API Cost Calculator</div>
+                  <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">Compare 11+ frontier models</div>
+                </div>
+              </a>
+              <a href="../runway-calculator/index.html" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors mt-0.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <div>
+                  <div class="font-bold text-xs">Solopreneur Runway Calculator</div>
+                  <div class="text-[11px] text-slate-400 dark:text-slate-500 font-normal">Cash horizon &amp; panic mode</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <a href="index.html" class="text-emerald-600 dark:text-emerald-400 transition-colors">Blog</a>
+          <a href="../about.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">About</a>
+          <a href="../contact.html" class="hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a>
+        </nav>
+
+        <!-- Theme Toggle Button -->
+        <button type="button" data-theme-toggle class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-label="Toggle Theme" title="Toggle theme">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex items-center md:hidden">
+          <button type="button" id="openMobileMenuBtn" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-label="Open Mobile Menu" aria-expanded="false" aria-controls="mobileDrawer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN BLOG FEED CONTENT -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow space-y-10">
+
+    <!-- HERO HEADER -->
+    <section class="text-center max-w-3xl mx-auto pt-4 pb-2">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 mb-4">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Insights &bull; Trends &bull; Industry Shifts</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-4">
+        PocketRuler <span class="text-emerald-600 dark:text-emerald-400">Insights</span>
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+        Deep analysis on emerging AI shifts, digital economy trends, contractor mathematics, and web technologies shaping modern work.
+      </p>
+    </section>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 1: Top Context Banner (Leaderboard)
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none text-center">
+        Advertisement
+      </div>
+      <div class="adsense-card w-full min-h-[90px] sm:min-h-[100px] flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-slot="auto"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- SEARCH & CATEGORY FILTERS -->
+    <section class="space-y-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <!-- Category Filter Pills -->
+        <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto" id="categoryFilterContainer">
+          <button type="button" class="category-pill active px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-emerald-600 text-white border border-emerald-600 shadow-xs" data-category="all">
+            All Articles
+          </button>
+          <button type="button" class="category-pill px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700" data-category="ai-tech">
+            AI &amp; Tech Trends
+          </button>
+          <button type="button" class="category-pill px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700" data-category="future-of-work">
+            Future of Work
+          </button>
+          <button type="button" class="category-pill px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700" data-category="digital-tools">
+            Digital Tools &amp; Web
+          </button>
+          <button type="button" class="category-pill px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700" data-category="finances">
+            Taxes &amp; Rates
+          </button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="relative w-full sm:w-72">
+          <input type="search" id="blogSearchInput" placeholder="Search topics, keywords..." class="w-full px-4 py-2 pl-9 rounded-xl text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all shadow-xs" />
+          <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED ARTICLE HERO CARD -->
+    <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-md p-6 sm:p-8 lg:p-10 transition-all">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
+          ⭐ Featured Story
+        </span>
+        <span class="text-xs text-slate-400 dark:text-slate-500">&bull;</span>
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800">
+          AI &amp; Tech Trends
+        </span>
+        <span class="text-xs text-slate-400 dark:text-slate-500">&bull;</span>
+        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">8 min read</span>
+      </div>
+
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-4 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+        <a href="ai-api-price-collapse-deepseek-effect/index.html">The Great AI Price Collapse: How DeepSeek &amp; Open Weights Broke the Proprietary LLM Monopoly</a>
+      </h2>
+
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-6 max-w-4xl">
+        Model inference costs have plummeted over 90% in under a year. Here is a granular breakdown of how DeepSeek, open-weight architectures, and prompt caching shattered proprietary pricing power—and what it means for SaaS margins and solo developers.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-100 dark:border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 font-bold flex items-center justify-center text-xs border border-emerald-300 dark:border-emerald-700">
+            PR
+          </div>
+          <div>
+            <div class="text-xs font-bold text-slate-800 dark:text-slate-200">PocketRuler Tech &amp; Economics Desk</div>
+            <time class="text-[11px] text-slate-400" datetime="2026-09-14">September 14, 2026</time>
+          </div>
+        </div>
+
+        <a href="ai-api-price-collapse-deepseek-effect/index.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-sm transition-all">
+          <span>Read Full Analysis</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 2: Mid-Feed Unit (Rectangle / Fluid)
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-8">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none text-center">
+        Advertisement
+      </div>
+      <div class="adsense-card w-full min-h-[250px] sm:min-h-[280px] flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:250px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-slot="auto"
+             data-ad-format="rectangle"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- ARTICLES GRID -->
+    <section>
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white">Recent Publications</h2>
+        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium" id="postCountBadge">Showing 1 article</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="blogGrid">
+        
+        <!-- Post Card 1 -->
+        <article class="blog-card flex flex-col justify-between bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all p-6" data-category="ai-tech" data-title="the great ai price collapse: how deepseek & open weights broke the proprietary llm monopoly" data-excerpt="model inference costs have plummeted over 90% in under a year. here is a granular breakdown of how deepseek, open-weight architectures, and prompt caching shattered proprietary pricing power—and what it means for your software stack.">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider border bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800">
+                AI &amp; Tech Trends
+              </span>
+              <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">8 min read</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white leading-snug mb-2 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <a href="ai-api-price-collapse-deepseek-effect/index.html">The Great AI Price Collapse: How DeepSeek &amp; Open Weights Broke the Proprietary LLM Monopoly</a>
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3 mb-4">
+              Model inference costs have plummeted over 90% in under a year. Here is a granular breakdown of how DeepSeek, open-weight architectures, and prompt caching shattered proprietary pricing power.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+            <time class="text-slate-400 dark:text-slate-500">September 14, 2026</time>
+            <a href="ai-api-price-collapse-deepseek-effect/index.html" class="inline-flex items-center gap-1 font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors">
+              <span>Read article</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <div id="noResultsNotice" class="hidden text-center py-16 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
+        <p class="text-base font-bold text-slate-700 dark:text-slate-300">No articles matched your search.</p>
+        <p class="text-xs text-slate-500 mt-1">Try searching for a different keyword or reset category filters.</p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         MONETIZATION SLOT 3: Bottom Unit
+         ==================================================================== -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-10">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none text-center">
+        Advertisement
+      </div>
+      <div class="adsense-card w-full min-h-[90px] sm:min-h-[100px] flex items-center justify-center bg-slate-100/50 dark:bg-slate-900/50 rounded-xl border border-slate-200/60 dark:border-slate-800">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-slot="auto"
+             data-ad-format="horizontal"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+        </script>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="w-full bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors duration-200 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-2 mb-3">
+            <img src="../logo.svg" alt="PocketRuler.app Logo" class="w-6 h-6" />
+            <span class="text-base font-black text-slate-900 dark:text-white">PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span></span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            Everyday digital pocket knife for web &amp; life. Fast, privacy-first client-side web tools and calculators with zero server tracking.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-3">Active Web Tools</h4>
+          <ul class="space-y-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
+            <li><a href="../freelance-calculator/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Freelance Rate vs Retainer</a></li>
+            <li><a href="../w2-1099-calculator/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">W-2 to 1099 Rate Converter</a></li>
+            <li><a href="../relocation-calculator/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Expat Tax &amp; Relocation Arbitrage</a></li>
+            <li><a href="../ai-token-calculator/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">AI Token &amp; API Cost Comparison</a></li>
+            <li><a href="../runway-calculator/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Solopreneur Runway &amp; Burn Rate</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-3">Resources &amp; Guides</h4>
+          <ul class="space-y-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
+            <li><a href="index.html" class="text-emerald-600 dark:text-emerald-400 font-bold transition-colors">Blog &amp; Industry Trends</a></li>
+            <li><a href="../relocation-calculator/guide.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Expat Tax &amp; Visa Deep Dive</a></li>
+            <li><a href="../relocation-calculator/methodology.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Calculation Methodology</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-3">Legal &amp; Transparency</h4>
+          <ul class="space-y-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
+            <li><a href="../about.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About Us &amp; Standards</a></li>
+            <li><a href="../contact.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Contact &amp; Feedback</a></li>
+            <li><a href="../privacy.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
+            <li><a href="../terms.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Terms of Service</a></li>
+            <li><a href="../disclaimer.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Financial Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-slate-100 dark:border-slate-800 text-center text-xs text-slate-400 dark:text-slate-500">
+        &copy; 2026 PocketRuler.app. All rights reserved. Content is for informational purposes only.
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE RESPONSIVE DRAWER BACKDROP -->
+  <div id="mobileDrawerBackdrop" class="fixed inset-0 z-40 bg-slate-950/60 backdrop-blur-xs opacity-0 pointer-events-none transition-opacity duration-300 hidden md:hidden" aria-hidden="true"></div>
+
+  <!-- MOBILE RESPONSIVE DRAWER -->
+  <aside id="mobileDrawer" class="mobile-nav-drawer fixed top-0 right-0 z-50 h-full w-4/5 max-w-sm bg-white dark:bg-slate-900 shadow-2xl border-l border-slate-200 dark:border-slate-800 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between hidden md:hidden" aria-label="Mobile Menu Navigation" role="dialog" aria-modal="true">
+    <div class="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <img src="../logo.svg" alt="PocketRuler.app Logo" class="w-6 h-6" />
+        <span class="font-black text-slate-900 dark:text-white">PocketRuler<span class="text-emerald-600 dark:text-emerald-400">.app</span></span>
+      </div>
+      <button type="button" id="closeMobileMenuBtn" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white focus:outline-none" aria-label="Close menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
+
+    <div class="p-5 overflow-y-auto space-y-6 flex-1">
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Navigation</div>
+        <a href="../index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">
+          🏠 All Tools Dashboard
+        </a>
+        <a href="index.html" class="block px-3 py-2 rounded-lg text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 transition-colors">
+          📰 Blog &amp; Trends
+        </a>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Calculators</div>
+        <a href="../freelance-calculator/index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          Freelance Rate vs Retainer
+        </a>
+        <a href="../w2-1099-calculator/index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          W-2 to 1099 Calculator
+        </a>
+        <a href="../relocation-calculator/index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          Expat Tax &amp; Relocation
+        </a>
+        <a href="../ai-token-calculator/index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          AI Token &amp; API Cost Calculator
+        </a>
+        <a href="../runway-calculator/index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          Solopreneur Runway Calculator
+        </a>
+      </div>
+    </div>
+
+    <div class="p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+      <span class="text-xs font-medium text-slate-600 dark:text-slate-300">Theme</span>
+      <button type="button" data-theme-toggle class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-xs font-medium text-slate-700 dark:text-slate-200 shadow-2xs hover:bg-slate-50 dark:hover:bg-slate-650 transition">
+        <span>Toggle Mode</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Blog Filter & Search Script -->
+  <script>
+    (function() {
+      const filterPills = document.querySelectorAll('.category-pill');
+      const searchInput = document.getElementById('blogSearchInput');
+      const postCards = document.querySelectorAll('.blog-card');
+      const noResults = document.getElementById('noResultsNotice');
+      const countBadge = document.getElementById('postCountBadge');
+
+      let currentCategory = 'all';
+      let searchQuery = '';
+
+      function filterPosts() {
+        let visibleCount = 0;
+        postCards.forEach(card => {
+          const category = card.getAttribute('data-category') || '';
+          const title = (card.getAttribute('data-title') || '').toLowerCase();
+          const excerpt = (card.getAttribute('data-excerpt') || '').toLowerCase();
+
+          const matchesCategory = (currentCategory === 'all') || (category === currentCategory);
+          const matchesSearch = !searchQuery || title.includes(searchQuery) || excerpt.includes(searchQuery);
+
+          if (matchesCategory && matchesSearch) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (countBadge) {
+          countBadge.textContent = `Showing ${visibleCount} article${visibleCount === 1 ? '' : 's'}`;
+        }
+        if (noResults) {
+          if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+          } else {
+            noResults.classList.add('hidden');
+          }
+        }
+      }
+
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => {
+            p.classList.remove('active', 'bg-emerald-600', 'text-white', 'border-emerald-600');
+            p.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-800');
+          });
+          pill.classList.add('active', 'bg-emerald-600', 'text-white', 'border-emerald-600');
+          pill.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-800');
+
+          currentCategory = pill.getAttribute('data-category') || 'all';
+          filterPosts();
+        });
+      });
+
+      searchInput?.addEventListener('input', (e) => {
+        searchQuery = e.target.value.toLowerCase().trim();
+        filterPosts();
+      });
+    })();
+  </script>
+
+  <!-- Theme Controller Script -->
+  <script src="../js/theme.js"></script>
+</body>
+</html>

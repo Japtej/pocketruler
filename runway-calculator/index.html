@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;" />
   <title>Solopreneur Runway &amp; Burn Rate Calculator | Cash Flow Planning | PocketRuler.app</title>
   <meta name="description" content="Free interactive runway calculator for solopreneurs, freelancers, and digital nomads. Calculate cash runway horizon, zero cash date, panic survival mode, and burnout capacity with multi-currency arbitrage." />
   <meta name="keywords" content="solopreneur runway calculator, burn rate calculator, freelance cash runway, startup runway calculator, digital nomad finance, zero cash date, burnout capacity calculator, pocketruler" />
@@ -78,8 +81,8 @@
     }
   </style>
 
-  <!-- Chart.js 4.4.4 CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <!-- Chart.js 4.4.4 CDN with SRI -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" integrity="sha384-NrKB+u6Ts6AtkIhwPixiKTzgSKNblyhlk0Sohlgar9UHUBzai/sgnNNWWd291xqt" crossorigin="anonymous"></script>
 
   <!-- Schema.org WebApplication JSON-LD -->
   <script type="application/ld+json">

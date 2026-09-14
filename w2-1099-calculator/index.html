@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;" />
   <title>W-2 to 1099 Calculator & Equivalent Rate Converter | PocketRuler.app</title>
   <meta name="description" content="Free W-2 to 1099 calculator to calculate your true break-even contractor hourly rate. Models SECA vs FICA taxes, health insurance, 401(k) match, PTO capacity, and Section 199A QBI deductions." />
   <meta name="keywords" content="w2 to 1099 calculator, 1099 equivalent hourly rate, w2 vs 1099 take home pay, contractor rate calculator, seca tax calculator, 1099 break even rate, qbi deduction calculator" />
@@ -108,13 +111,13 @@
     }
   </style>
 
-  <!-- KaTeX for Mathematical LaTeX Rendering -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous" />
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\(', right: '\\)', display: false}] });"></script>
+  <!-- KaTeX for Mathematical LaTeX Rendering with SRI -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\(', right: '\\)', display: false}] });"></script>
 
-  <!-- Chart.js 4.4.4 CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <!-- Chart.js 4.4.4 CDN with SRI -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" integrity="sha384-NrKB+u6Ts6AtkIhwPixiKTzgSKNblyhlk0Sohlgar9UHUBzai/sgnNNWWd291xqt" crossorigin="anonymous"></script>
 
   <!-- Schema.org WebApplication JSON-LD -->
   <script type="application/ld+json">
@@ -256,6 +259,7 @@
         <a href="#calculatorCard" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Calculator</a>
         <a href="#taxWaterfallSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Tax Breakdown</a>
         <a href="#guideSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Tax Methodology</a>
+        <a href="../blog/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Blog</a>
         <a href="#faqSection" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">FAQs</a>
       </nav>
 
@@ -1236,6 +1240,7 @@
       <div class="space-y-2.5">
         <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Resources</h4>
         <ul class="space-y-1.5 text-slate-600 dark:text-slate-300">
+          <li><a href="../blog/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 font-semibold transition-colors">Blog &amp; Industry Trends</a></li>
           <li><a href="../relocation-calculator/guide.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Expat Tax &amp; Visa Guide</a></li>
           <li><a href="../relocation-calculator/methodology.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Methodology &amp; Formulas</a></li>
           <li><a href="../about.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About Us &amp; Team</a></li>
@@ -1402,6 +1407,7 @@
       <!-- Legal & Company -->
       <div class="space-y-1 pt-2 border-t border-slate-100 dark:border-slate-800">
         <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-1">Platform &amp; Legal</div>
+        <a href="../blog/index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">📰 Blog &amp; Trends</a>
         <a href="../about.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">About Us</a>
         <a href="../contact.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Contact</a>
         <a href="../privacy.html" class="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</a>

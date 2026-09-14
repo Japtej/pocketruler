@@ -158,7 +158,9 @@
    * State Income Tax calculation
    */
   function calcStateTax(agi, stateCode) {
-    const config = STATE_TAX_CONFIGS[stateCode] || STATE_TAX_CONFIGS.generic;
+    const config = (stateCode && Object.hasOwn(STATE_TAX_CONFIGS, stateCode))
+      ? STATE_TAX_CONFIGS[stateCode]
+      : STATE_TAX_CONFIGS.generic;
     if (config.type === 'none') return 0;
     const taxable = Math.max(0, agi - config.deduction);
     if (config.type === 'flat') {
@@ -717,7 +719,10 @@ Best regards,
     if (params.has('unbillable')) state.cWeeklyUnbillable = parseFloat(params.get('unbillable')) || state.cWeeklyUnbillable;
     if (params.has('overhead')) state.cOverheadAnnual = parseFloat(params.get('overhead')) || state.cOverheadAnnual;
     if (params.has('chealth')) state.cHealthCostMonthly = parseFloat(params.get('chealth')) || state.cHealthCostMonthly;
-    if (params.has('state')) state.stateCode = params.get('state') || state.stateCode;
+    if (params.has('state')) {
+      const st = params.get('state');
+      if (st && Object.hasOwn(STATE_TAX_CONFIGS, st)) state.stateCode = st;
+    }
     if (params.has('qbi')) state.qbiEnabled = params.get('qbi') === '1';
     if (params.has('rate')) state.cDirectHourlyRate = parseFloat(params.get('rate')) || state.cDirectHourlyRate;
   }

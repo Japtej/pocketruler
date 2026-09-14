@@ -676,7 +676,7 @@ Best regards,
 
     // Embed Code
     const embedUrl = 'https://pocketruler.app/';
-    const embedCode = `<iframe src="${embedUrl}" width="100%" height="850" style="border:0; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" title="PocketRuler Freelance Rate vs. Retainer Calculator" loading="lazy"></iframe><p style="font-size:12px;text-align:center;margin-top:8px;color:#64748b;">Free tool by <a href="${embedUrl}" target="_blank" style="color:#059669;text-decoration:underline;">PocketRuler.app</a></p>`;
+    const embedCode = `<iframe src="${embedUrl}" width="100%" height="850" style="border:0; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" title="PocketRuler Freelance Rate vs. Retainer Calculator" loading="lazy"></iframe><p style="font-size:12px;text-align:center;margin-top:8px;color:#64748b;">Free tool by <a href="${embedUrl}" target="_blank" rel="noopener noreferrer" style="color:#059669;text-decoration:underline;">PocketRuler.app</a></p>`;
     
     if (el.embedCodeSnippet) el.embedCodeSnippet.value = embedCode;
 

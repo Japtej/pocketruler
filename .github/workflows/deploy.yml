@@ -27,10 +27,17 @@ jobs:
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Build public distribution bundle
+        run: |
+          mkdir -p _site
+          cp -r * _site/ 2>/dev/null || true
+          find _site -name "*.md" -type f -delete
+          rm -rf _site/scripts _site/_site
+
       - name: Upload static website artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
