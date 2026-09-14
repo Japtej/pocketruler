@@ -1088,22 +1088,23 @@
           1. The Anatomy of Solopreneur Burn Rate: Why Corporate SaaS Models Fail You
         </h3>
         <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-          Traditional corporate accounting defines burn rate as the pace at which a company depletes its shareholder capital before generating positive cash flow from operations. In standard VC vernacular:
+          Traditional corporate accounting defines burn rate as the pace at which a venture-backed company depletes shareholder capital before achieving profitability. In standard VC vernacular:
         </p>
-        <div class="bg-slate-50 dark:bg-slate-800/70 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 overflow-x-auto">
-          \[ \text{Corporate Gross Burn} = \text{Payroll} + \text{Office Leases} + \text{Marketing CAC} + \text{Hosting SaaS} \]
+        <div class="bg-slate-900 text-slate-100 p-4 sm:p-5 rounded-2xl border border-slate-800 font-mono text-xs sm:text-sm overflow-x-auto shadow-inner">
+          <div class="text-emerald-400 font-semibold mb-1">// Traditional Corporate SaaS Model</div>
+          <span class="text-rose-400 font-bold">Corporate Gross Burn</span> = Payroll + Office Leases + Marketing CAC + Server Hosting
         </div>
         <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-          Applying this model directly to a solo consulting practice or indie business causes catastrophic forecasting errors. When an individual operates as a solopreneur, payroll is not an arbitrary variable cost that can be lowered by laying off staff. Your personal cost of living <em>is</em> the primary operating cost of the enterprise. If you default on your health insurance, fall behind on residential rent, or cannot purchase nutritious food, the operating engine of your company completely ceases functioning.
+          Applying this model directly to a solo consulting practice or indie business causes catastrophic forecasting errors. When you operate as a solopreneur, payroll is not an arbitrary variable cost that can be lowered by laying off staff. Your personal cost of living <em>is</em> the primary operating cost of the enterprise. If you default on your health insurance, fall behind on residential rent, or cannot purchase groceries, the operating engine of your company completely ceases functioning.
         </p>
         <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-          Therefore, precision solopreneur financial engineering demands a <strong>Blended Burn Rate Architecture</strong>. Every dollar that leaves your bank accounts—whether paying for Amazon Web Services, Figma subscriptions, home heating, or personal groceries—must be grouped into distinct volatility tiers:
+          Therefore, precision solopreneur financial engineering demands a <strong>Blended Burn Rate Architecture</strong>. Every dollar that leaves your bank accounts—whether paying for cloud hosting, Figma subscriptions, home heating, or personal groceries—must be grouped into distinct volatility tiers:
         </p>
         <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-slate-600 dark:text-slate-300">
-          <li><strong>Tier 1: Non-Negotiable Survival Outflows (\(E_{\text{essential}}\))</strong>: Residential shelter (rent or mortgage), basic groceries, utilities, healthcare premiums, and minimum debt servicing obligations. These expenses cannot be cut without compromising basic survival and cognitive performance.</li>
-          <li><strong>Tier 2: Discretionary Quality-of-Life Outflows (\(E_{\text{discretionary}}\))</strong>: Restaurant dining, gym memberships, streaming services, recreational travel, and entertainment. In a financial emergency, these costs can immediately be slashed to zero via our Panic Mode toggle.</li>
-          <li><strong>Tier 3: Fixed Business Overhead (\(E_{\text{business}}\))</strong>: Software licenses (GitHub, Google Workspace, Canva), domain hosting, accounting retainers, professional liability insurance, and hardware depreciation.</li>
-          <li><strong>Tier 4: Statutory Tax Reserves (\(T_{\text{reserve}}\))</strong>: Unlike corporate entities with deferred net operating losses, solopreneurs are personally liable for self-employment tax, national income tax, and municipal surcharges. Setting aside 20% to 35% of every gross dollar received is mathematically mandatory to avoid insolvency when quarterly estimated payments come due.</li>
+          <li><strong>Tier 1: Non-Negotiable Survival Outflows (<code class="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">E_essential</code>)</strong>: Residential shelter (rent or mortgage), basic groceries, utilities, healthcare premiums, and minimum debt servicing obligations. These expenses cannot be cut without compromising basic survival and cognitive performance.</li>
+          <li><strong>Tier 2: Discretionary Quality-of-Life Outflows (<code class="font-mono text-amber-600 dark:text-amber-400 font-semibold">E_discretionary</code>)</strong>: Restaurant dining, gym memberships, streaming services, recreational travel, and entertainment. In a financial emergency, these costs can immediately be slashed to zero via our Panic Mode toggle.</li>
+          <li><strong>Tier 3: Fixed Business Overhead (<code class="font-mono text-blue-600 dark:text-blue-400 font-semibold">E_business</code>)</strong>: Software licenses (GitHub, Google Workspace, Canva), domain hosting, accounting retainers, professional liability insurance, and hardware depreciation.</li>
+          <li><strong>Tier 4: Statutory Tax Reserves (<code class="font-mono text-purple-600 dark:text-purple-400 font-semibold">T_reserve</code>)</strong>: Unlike corporate entities with deferred net operating losses, solopreneurs are personally liable for self-employment tax, national income tax, and municipal surcharges. Setting aside 20% to 35% of every gross dollar received is mathematically mandatory to avoid insolvency when quarterly estimated payments come due.</li>
         </ul>
       </section>
 
@@ -1118,47 +1119,47 @@
 
         <!-- Formula 1: Liquid Reserves -->
         <div class="bg-slate-50 dark:bg-slate-800/70 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
-          <h4 class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Formula 1: Effective Liquid Cash Reserves (\(R_0\))</h4>
-          <div class="font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 overflow-x-auto py-1">
-            \[ R_0 = R_{\text{personal}} + R_{\text{business}} + (AR \times C_{\text{confidence}}) \]
+          <h4 class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Formula 1: Effective Liquid Cash Reserves (R₀)</h4>
+          <div class="font-mono text-xs sm:text-sm bg-slate-900 text-slate-100 p-3.5 rounded-xl border border-slate-800 overflow-x-auto">
+            <span class="text-emerald-400 font-bold">R₀</span> = R_personal + R_business + (Accounts_Receivable &times; Confidence_Rate)
           </div>
           <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-            Where \(R_{\text{personal}}\) is liquid personal cash, \(R_{\text{business}}\) is operating cash, \(AR\) is total unpaid accounts receivable, and \(C_{\text{confidence}} \in [0.0, 1.0]\) is the realization probability slider. Delinquent invoices are discounted accordingly.
+            Where <strong>R_personal</strong> is liquid personal cash, <strong>R_business</strong> is operating cash balance, <strong>Accounts_Receivable</strong> is total unpaid client invoices, and <strong>Confidence_Rate</strong> (0% to 100%) discounts delinquent invoices to protect against non-payment.
           </p>
         </div>
 
         <!-- Formula 2: Total Gross Inflow -->
         <div class="bg-slate-50 dark:bg-slate-800/70 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
-          <h4 class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Formula 2: Total Gross Monthly Inflows (\(I_{\text{gross}}\))</h4>
-          <div class="font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 overflow-x-auto py-1">
-            \[ I_{\text{gross}} = I_{\text{retainer}} + I_{\text{project}} + \text{Convert}\left(I_{\text{foreign}}, \text{curr}_{\text{foreign}} \to \text{curr}_{\text{base}}\right) \]
+          <h4 class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Formula 2: Total Gross Monthly Inflows (I_gross)</h4>
+          <div class="font-mono text-xs sm:text-sm bg-slate-900 text-slate-100 p-3.5 rounded-xl border border-slate-800 overflow-x-auto">
+            <span class="text-blue-400 font-bold">I_gross</span> = Recurring_Retainers + Project_Income + ConvertFX(Foreign_Retainer, FX_Rate)
           </div>
           <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-            Where foreign client retainers are dynamically exchanged into your primary spending currency using live API exchange rates.
+            Where foreign client retainers are dynamically exchanged into your primary spending currency using real-time foreign exchange spot rates.
           </p>
         </div>
 
         <!-- Formula 3: Net Burn Rate -->
         <div class="bg-slate-50 dark:bg-slate-800/70 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
-          <h4 class="text-xs font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider">Formula 3: Blended Net Monthly Burn Rate (\(B_{\text{net}}\))</h4>
-          <div class="font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 overflow-x-auto py-1">
-            \[ E_{\text{total}} = E_{\text{essential}} + \left(\text{PanicMode} ? 0 : E_{\text{discretionary}}\right) + E_{\text{business}} + \left(I_{\text{gross}} \times \frac{T_{\text{rate}}}{100}\right) \]
-            \[ B_{\text{net}} = E_{\text{total}} - I_{\text{gross}} \]
+          <h4 class="text-xs font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider">Formula 3: Blended Net Monthly Burn Rate (B_net)</h4>
+          <div class="font-mono text-xs sm:text-sm bg-slate-900 text-slate-100 p-3.5 rounded-xl border border-slate-800 overflow-x-auto space-y-1.5">
+            <div><span class="text-rose-400 font-bold">Total_Outflows</span> = E_essential + (PanicMode ? 0 : E_discretionary) + E_business + (I_gross &times; Tax_Rate%)</div>
+            <div><span class="text-amber-400 font-bold">Net_Burn (B_net)</span> = Total_Outflows &minus; I_gross</div>
           </div>
           <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-            If \(B_{\text{net}} \le 0\), the business is cash flow positive (\(\text{Runway} = \infty\)). If \(B_{\text{net}} > 0\), capital is being drained at rate \(B_{\text{net}}\) per month. Note that statutory tax reserve requirements scale proportionally with revenue: if income drops to zero during a contract dry spell, tax reserve liability simultaneously drops to zero.
+            If <strong>B_net &le; 0</strong>, the business is cash flow positive (<code class="font-mono font-bold text-emerald-500">Runway = &infin;</code>). If <strong>B_net &gt; 0</strong>, cash reserves deplete at rate <strong>B_net</strong> per month. Note that statutory tax reserve requirements scale proportionally with revenue: if income drops to zero during a contract dry spell, tax reserve liability simultaneously drops to zero.
           </p>
         </div>
 
         <!-- Formula 4: Runway Horizon -->
         <div class="bg-slate-50 dark:bg-slate-800/70 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
-          <h4 class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Formula 4: Runway Horizon &amp; Month-by-Month Decay (\(R(t)\))</h4>
-          <div class="font-mono text-xs sm:text-sm text-slate-800 dark:text-slate-200 overflow-x-auto py-1">
-            \[ \text{Runway Months} = \frac{R_0}{B_{\text{net}}} \]
-            \[ R(t) = \max\left(0, R_0 - t \times B_{\text{scenario}}\right) \]
+          <h4 class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Formula 4: Runway Horizon &amp; Month-by-Month Decay R(t)</h4>
+          <div class="font-mono text-xs sm:text-sm bg-slate-900 text-slate-100 p-3.5 rounded-xl border border-slate-800 overflow-x-auto space-y-1.5">
+            <div><span class="text-amber-400 font-bold">Runway_Months</span> = Effective_Reserves (R₀) &divide; Net_Burn (B_net)</div>
+            <div><span class="text-emerald-400 font-bold">Balance(t)</span> = max(0, R₀ &minus; [t &times; Scenario_Burn])</div>
           </div>
           <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-            The Zero Cash Date is rendered as \( \text{Date}_{\text{current}} + \text{Runway Months} \). On the 24-month decay graph, each scenario models cumulative bank depletion under zero revenue, 50% revenue shock, and current contractual trajectories.
+            The Zero Cash Date is calculated as <strong>Current_Date + Runway_Months</strong>. On the 24-month decay graph, each scenario models cumulative bank depletion under zero revenue, 50% revenue shock, and current contractual trajectories.
           </p>
         </div>
       </section>
@@ -1276,19 +1277,19 @@
               <tr>
                 <td class="py-3 px-4 font-bold text-slate-900 dark:text-white">Tier 1: Survival</td>
                 <td class="py-3 px-4 font-mono">3 Months</td>
-                <td class="py-3 px-4 font-mono">\(3 \times E_{\text{essential}}\)</td>
+                <td class="py-3 px-4 font-mono font-medium text-slate-800 dark:text-slate-200">3 &times; E<sub>essential</sub></td>
                 <td class="py-3 px-4">Prevents immediate destitution if a key client defaults. Lets you sleep without panic attacks.</td>
               </tr>
               <tr>
                 <td class="py-3 px-4 font-bold text-emerald-600 dark:text-emerald-400">Tier 2: Resilient</td>
                 <td class="py-3 px-4 font-mono">6 Months</td>
-                <td class="py-3 px-4 font-mono">\(6 \times (E_{\text{essential}} + E_{\text{biz}})\)</td>
+                <td class="py-3 px-4 font-mono font-medium text-slate-800 dark:text-slate-200">6 &times; (E<sub>essential</sub> + E<sub>biz</sub>)</td>
                 <td class="py-3 px-4">Gives you leverage to fire abusive or low-paying clients. Time to pivot positioning or launch new services.</td>
               </tr>
               <tr>
                 <td class="py-3 px-4 font-bold text-blue-600 dark:text-blue-400">Tier 3: Anti-Fragile</td>
                 <td class="py-3 px-4 font-mono">12+ Months</td>
-                <td class="py-3 px-4 font-mono">\(12 \times E_{\text{total}}\)</td>
+                <td class="py-3 px-4 font-mono font-medium text-slate-800 dark:text-slate-200">12 &times; E<sub>total</sub></td>
                 <td class="py-3 px-4">Total economic sovereignty. You can take an entire quarter off to build SaaS products or weather recessions with complete serenity.</td>
               </tr>
             </tbody>

@@ -854,8 +854,8 @@
         <p class="text-xs sm:text-sm leading-relaxed">
           On providers like Anthropic that levy an initial 25% surcharge for cache writes (e.g. $3.75/1M to populate the cache versus $3.00 standard input), prompt caching reaches positive financial ROI as soon as a single cached prefix is read two or more times within its 5-minute Time-To-Live (TTL):
         </p>
-        <div class="p-4 bg-slate-50 dark:bg-slate-800/80 rounded-xl font-mono text-xs border border-slate-200 dark:border-slate-700 text-center">
-          $$\text{Net Prompt Savings} = N_{\text{hits}} \times (P_{\text{base}} - P_{\text{read}}) - P_{\text{write\_overhead}}$$
+        <div class="p-4 bg-slate-900 text-slate-100 rounded-xl font-mono text-xs sm:text-sm border border-slate-800 text-center overflow-x-auto shadow-inner">
+          <span class="text-emerald-400 font-bold">Net Prompt Savings</span> = N<sub>hits</sub> &times; (P<sub>base</sub> &minus; P<sub>read</sub>) &minus; P<sub>write_overhead</sub>
         </div>
         <p class="text-xs sm:text-sm leading-relaxed">
           For high-volume customer support agents and multi-document RAG systems serving hundreds of concurrent sessions, maintaining a static system prompt and common document embeddings achieves an effective 80% to 88% blended discount on all input traffic.
@@ -954,40 +954,41 @@
 
         <div class="space-y-3 font-mono text-xs">
           <!-- Equation 1: Total Queries -->
-          <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
-            <div class="font-sans font-bold text-slate-900 dark:text-white mb-1">1. Monthly Query Aggregate ($Q$)</div>
-            <div class="text-center overflow-x-auto py-1">
-              $$Q = \text{MAU} \times q_{\text{user}}$$
+          <div class="p-4 bg-slate-900 text-slate-100 rounded-xl border border-slate-800 text-xs sm:text-sm shadow-inner">
+            <div class="font-sans font-bold text-emerald-400 mb-1.5 text-xs sm:text-sm">1. Monthly Query Aggregate (Q)</div>
+            <div class="overflow-x-auto py-1">
+              <span class="text-blue-400 font-bold">Q</span> = MAU &times; q<sub>user</sub>
             </div>
-            <div class="text-[11px] font-sans text-slate-500 mt-1">Where $\text{MAU}$ is Monthly Active Users and $q_{\text{user}}$ is average queries per user.</div>
+            <div class="text-xs font-sans text-slate-400 mt-1.5 leading-relaxed">Where <strong>MAU</strong> is Monthly Active Users and <strong>q<sub>user</sub></strong> is average queries per user.</div>
           </div>
 
           <!-- Equation 2: Token Aggregates with Prompt Cache Split -->
-          <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
-            <div class="font-sans font-bold text-slate-900 dark:text-white mb-1">2. Input &amp; Output Token Partitions ($T_{\text{in}}, T_{\text{out}}$)</div>
-            <div class="text-center overflow-x-auto py-1">
-              $$T_{\text{in}} = Q \times t_{\text{in\_query}}, \quad T_{\text{out}} = Q \times t_{\text{out\_query}}$$
-              $$T_{\text{cached}} = T_{\text{in}} \times c, \quad T_{\text{uncached}} = T_{\text{in}} \times (1 - c)$$
+          <div class="p-4 bg-slate-900 text-slate-100 rounded-xl border border-slate-800 text-xs sm:text-sm shadow-inner">
+            <div class="font-sans font-bold text-emerald-400 mb-1.5 text-xs sm:text-sm">2. Input &amp; Output Token Partitions (T<sub>in</sub>, T<sub>out</sub>)</div>
+            <div class="overflow-x-auto py-1 space-y-1.5">
+              <div><span class="text-blue-400 font-bold">T<sub>in</sub></span> = Q &times; t<sub>in_query</sub>, &emsp; <span class="text-blue-400 font-bold">T<sub>out</sub></span> = Q &times; t<sub>out_query</sub></div>
+              <div><span class="text-amber-400 font-bold">T<sub>cached</sub></span> = T<sub>in</sub> &times; c, &emsp; <span class="text-amber-400 font-bold">T<sub>uncached</sub></span> = T<sub>in</sub> &times; (1 &minus; c)</div>
             </div>
-            <div class="text-[11px] font-sans text-slate-500 mt-1">Where $c \in [0, 0.90]$ represents the prompt caching hit rate ratio.</div>
+            <div class="text-xs font-sans text-slate-400 mt-1.5 leading-relaxed">Where <strong>c</strong> &in; [0, 0.90] represents the prompt caching hit rate ratio.</div>
           </div>
 
           <!-- Equation 3: Master API Cost Formula -->
-          <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
-            <div class="font-sans font-bold text-slate-900 dark:text-white mb-1">3. Master Commercial API Spend ($\text{Cost}_{\text{USD}}$)</div>
-            <div class="text-center overflow-x-auto py-1">
-              $$\text{Cost}_{\text{USD}} = \left( \frac{T_{\text{uncached}} \cdot P_{\text{in}} + T_{\text{cached}} \cdot P_{\text{cached}} + T_{\text{out}} \cdot P_{\text{out}}}{10^6} \right) \cdot (1 - D_{\text{batch}}) \cdot (1 + F_{\text{fx}}) \cdot (1 + R_{\text{vat}})$$
+          <div class="p-4 bg-slate-900 text-slate-100 rounded-xl border border-slate-800 text-xs sm:text-sm shadow-inner">
+            <div class="font-sans font-bold text-emerald-400 mb-1.5 text-xs sm:text-sm">3. Master Commercial API Spend (Cost<sub>USD</sub>)</div>
+            <div class="overflow-x-auto py-1.5">
+              <span class="text-rose-400 font-bold">Cost<sub>USD</sub></span> = [ (T<sub>uncached</sub> &times; P<sub>in</sub> + T<sub>cached</sub> &times; P<sub>cached</sub> + T<sub>out</sub> &times; P<sub>out</sub>) / 10<sup>6</sup> ] &times; (1 &minus; D<sub>batch</sub>) &times; (1 + F<sub>fx</sub>) &times; (1 + R<sub>vat</sub>)
             </div>
-            <div class="text-[11px] font-sans text-slate-500 mt-1">
-              Where $P$ is the pricing per 1M tokens, $D_{\text{batch}} \in \{0, 0.50\}$, $F_{\text{fx}}$ is the bank markup (0% to 3.5%), and $R_{\text{vat}}$ is the domestic tax rate.
+            <div class="text-xs font-sans text-slate-400 mt-1.5 leading-relaxed">
+              Where <strong>P</strong> is pricing per 1M tokens, <strong>D<sub>batch</sub></strong> is batch discount (50%), <strong>F<sub>fx</sub></strong> is bank FX fee (0% to 3.5%), and <strong>R<sub>vat</sub></strong> is domestic tax rate.
             </div>
           </div>
 
           <!-- Equation 4: Unit Economics -->
-          <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
-            <div class="font-sans font-bold text-slate-900 dark:text-white mb-1">4. Unit Economics (Cost Per User &amp; Cost Per Query)</div>
-            <div class="text-center overflow-x-auto py-1">
-              $$\text{CPU} = \frac{\text{Cost}_{\text{USD}}}{\text{MAU}}, \qquad \text{CPQ} = \frac{\text{Cost}_{\text{USD}}}{Q}, \qquad \text{CPK} = \text{CPQ} \times 1{,}000$$
+          <div class="p-4 bg-slate-900 text-slate-100 rounded-xl border border-slate-800 text-xs sm:text-sm shadow-inner">
+            <div class="font-sans font-bold text-emerald-400 mb-1.5 text-xs sm:text-sm">4. Unit Economics (Cost Per User &amp; Cost Per Query)</div>
+            <div class="overflow-x-auto py-1 space-y-1.5">
+              <div><span class="text-emerald-400 font-bold">CPU</span> = Cost<sub>USD</sub> &divide; MAU</div>
+              <div><span class="text-blue-400 font-bold">CPQ</span> = Cost<sub>USD</sub> &divide; Q, &emsp; <span class="text-amber-400 font-bold">Cost Per 1,000 Queries</span> = CPQ &times; 1,000</div>
             </div>
           </div>
         </div>
