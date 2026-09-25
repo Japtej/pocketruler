@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;" />
+  <title>Subscription &amp; Silent Drain Audit | PocketRuler.app</title>
+  <meta name="description" content="Free interactive Subscription &amp; Silent Drain Audit calculator by PocketRuler.app. Calculate your annual recurring SaaS drain, hours of work required to pay for subscriptions, and 5-year compound investment potential." />
+  <meta name="keywords" content="subscription calculator, saas drain audit, recurring expense calculator, pocketruler, financial audit" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="canonical" href="https://pocketruler.app/subscription-calculator/" />
+  <meta property="og:title" content="Subscription &amp; Silent Drain Audit | PocketRuler.app" />
+  <meta property="og:description" content="Auditing recurring software and media subscriptions. Calculate annual cost, work hours required, and 5-year compound investment return." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/subscription-calculator/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+  <meta property="og:image" content="https://pocketruler.app/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" integrity="sha384-NrKB+u6Ts6AtkIhwPixiKTzgSKNblyhlk0Sohlgar9UHUBzai/sgnNNWWd291xqt" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Subscription & Silent Drain Audit",
+    "url": "https://pocketruler.app/subscription-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Calculate annual subscription drain, work hours required to pay for recurring bills, and 5-year investment compounding."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why do recurring subscriptions drain bank accounts so effectively?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Subscriptions exploit automatic billing and 'out of sight, out of mind' psychology. Small $10-$15 monthly charges feel trivial individually, but compound into thousands of dollars in hidden annual overhead." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is the 5-year compound investment potential calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It calculates the future value of investing those monthly subscription fees into a diversified index fund yielding an estimated 7% annual return compounded monthly over 5 years." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
+
+  <header id="site-header" data-badge="Personal Finance" data-badge-color="emerald" data-subtitle="Silent subscription drain &amp; SaaS audit tool" data-active="subscription" class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200 min-h-[72px]">
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow space-y-10">
+    
+    <!-- Hero Section -->
+    <section class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse"></span>
+        <span>Expense Audit &bull; 100% Free &amp; Private</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+        Subscription &amp; <span class="text-emerald-600 dark:text-emerald-400">Silent Drain Audit</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Uncover how much monthly software, streaming, and app subscriptions are quietly bleeding from your bank account. See your true annual drain and 5-year investment potential.
+      </p>
+    </section>
+
+    <!-- AdSense Slot 1 -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-5">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle" style="display:block; width:100%; min-height:90px;" data-ad-client="ca-pub-3008088352823319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+      </div>
+    </aside>
+
+    <!-- Calculator Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Input Panel -->
+      <div class="lg:col-span-6 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center justify-between">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            <span>Your Subscriptions</span>
+          </span>
+          <button type="button" id="addCustomSubBtn" class="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline">+ Add Custom</button>
+        </h3>
+
+        <!-- Hourly Wage Benchmark for Work-Hours Calculation -->
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-3">
+          <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Your Hourly Take-Home Wage Benchmark</div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-500 dark:text-slate-400 mb-1">Hourly Rate ($)</label>
+              <input type="number" id="hourlyWage" value="35" min="5" step="1" class="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-500 dark:text-slate-400 mb-1">Currency</label>
+              <select id="currencySelect" class="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                <option value="USD" selected>USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="CAD">CAD ($)</option>
+                <option value="AUD">AUD ($)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subscription Checklist Items -->
+        <div id="subListContainer" class="space-y-3 max-h-[380px] overflow-y-auto pr-1">
+          <!-- Dynamically populated or rendered via JS -->
+        </div>
+
+      </div>
+
+      <!-- Output Panel -->
+      <div class="lg:col-span-6 space-y-6">
+        
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white">Audit Summary &amp; Impact</h2>
+
+          <!-- Summary Cards Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 space-y-1">
+              <div class="text-[11px] font-bold text-emerald-800 dark:text-emerald-300 uppercase tracking-wide">Monthly Drain</div>
+              <div id="monthlyDrainVal" class="text-2xl font-black text-emerald-700 dark:text-emerald-300">$0.00</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">Total active monthly bills</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 space-y-1">
+              <div class="text-[11px] font-bold text-blue-800 dark:text-blue-300 uppercase tracking-wide">Annual Drain</div>
+              <div id="annualDrainVal" class="text-2xl font-black text-blue-700 dark:text-blue-300">$0.00</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">Total every 12 months</div>
+            </div>
+          </div>
+
+          <!-- Hours of Work & 5-Year Growth Cards -->
+          <div class="space-y-3">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Hours of Labor Required / Year</div>
+                <div class="text-[11px] text-slate-500 dark:text-slate-400">Time worked just to pay these bills</div>
+              </div>
+              <div id="workHoursVal" class="text-lg font-black text-amber-600 dark:text-amber-400">0 hrs</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-purple-50/70 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-purple-900 dark:text-purple-300">5-Year Invested Potential (7%)</div>
+                <div class="text-[11px] text-purple-700/80 dark:text-purple-400/80 font-medium">If invested in index funds instead</div>
+              </div>
+              <div id="fiveYearVal" class="text-lg font-black text-purple-700 dark:text-purple-300">$0.00</div>
+            </div>
+          </div>
+
+          <!-- Chart Container -->
+          <div class="relative w-full h-56 flex items-center justify-center pt-2">
+            <canvas id="subChart"></canvas>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- AdSense Slot 2 -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-8">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px;" data-ad-client="ca-pub-3008088352823319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+      </div>
+    </aside>
+
+    <!-- Comprehensive Editorial Content -->
+    <article class="bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-8 text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+      
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">The Psychology of Subscription Creep</h2>
+        <p>
+          Software-as-a-Service (SaaS) and streaming companies figured out a profound economic secret: recurring billing bypasses human pain receptors far better than one-time lump-sum purchases. When you see a $12.99 monthly charge for cloud storage, a $15.99 video streaming service, and a $20 AI writing assistant, your brain classifies them as trivial background expenses.
+        </p>
+        <p>
+          Yet when aggregated annually, those three modest subscriptions silently siphon nearly $600 out of your pocket every single year. Worse yet, because these charges occur on auto-pilot, millions of subscribers continue paying for tools and services they haven't touched in months.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Formula Breakdown &amp; Opportunity Cost</h2>
+        <p>
+          To evaluate the true cost of subscriptions, this calculator measures three financial metrics:
+        </p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>Annual Drain:</strong> $\sum (\text{Monthly Subscription} \times 12)$. Simple summation of recurring cash outflows.</li>
+          <li><strong>Labor Hours Required:</strong> $\frac{\text{Annual Drain}}{\text{Hourly Net Take-Home Wage}}$. This converts abstract currency into concrete hours of your life spent working just to maintain your software stack.</li>
+          <li><strong>5-Year Compound Growth:</strong> Future Value formula assuming monthly contributions into an index fund yielding an estimated 7% annual return. Small recurring leaks become substantial wealth over time.</li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="space-y-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+        
+        <div class="space-y-4">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">Why do recurring subscriptions drain bank accounts so effectively?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Subscriptions exploit automatic billing and out-of-sight psychology, making small monthly fees feel harmless while compounding into major annual overhead.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">How is the 5-year compound investment potential calculated?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">It projects the future value of investing monthly subscription cash flows into a diversified index fund yielding 7% annually over 5 years.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Footer -->
+      <div class="bg-slate-100 dark:bg-slate-900/60 rounded-xl p-4 border border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 mt-8 space-y-1">
+        <div class="font-bold text-slate-700 dark:text-slate-300">Methodology &amp; Data Citations</div>
+        <p>Calculations execute 100% client-side. Financial benchmarks aligned with compound interest formulas and consumer subscription audit standards.</p>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/currency.js"></script>
+  <script src="../js/components.js"></script>
+
+  <script>
+    (function() {
+      const defaultSubs = [
+        { name: 'Netflix / Streaming', cost: 15.99, active: true },
+        { name: 'Spotify / Music', cost: 11.99, active: true },
+        { name: 'Cloud Storage (iCloud/Google)', cost: 2.99, active: true },
+        { name: 'ChatGPT Plus / AI Tool', cost: 20.00, active: true },
+        { name: 'Gym Membership', cost: 49.00, active: true },
+        { name: 'Adobe Creative Cloud', cost: 54.99, active: false },
+        { name: 'Substack / Newsletters', cost: 10.00, active: false },
+        { name: 'VPN Service', cost: 8.99, active: true }
+      ];
+
+      const subListContainer = document.getElementById('subListContainer');
+      const hourlyWageInput = document.getElementById('hourlyWage');
+      const currencySelect = document.getElementById('currencySelect');
+      const addCustomSubBtn = document.getElementById('addCustomSubBtn');
+
+      const monthlyDrainVal = document.getElementById('monthlyDrainVal');
+      const annualDrainVal = document.getElementById('annualDrainVal');
+      const workHoursVal = document.getElementById('workHoursVal');
+      const fiveYearVal = document.getElementById('fiveYearVal');
+
+      let chartInstance = null;
+
+      function renderSubs() {
+        subListContainer.innerHTML = '';
+        defaultSubs.forEach((sub, idx) => {
+          const div = document.createElement('div');
+          div.className = 'flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 gap-3';
+          div.innerHTML = `
+            <div class="flex items-center gap-3 flex-grow">
+              <input type="checkbox" id="sub_check_${idx}" ${sub.active ? 'checked' : ''} class="w-4 h-4 accent-emerald-600 rounded cursor-pointer sub-toggle" data-index="${idx}" />
+              <label for="sub_check_${idx}" class="text-xs font-bold text-slate-800 dark:text-slate-200 cursor-pointer truncate">${sub.name}</label>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-xs text-slate-400">$</span>
+              <input type="number" id="sub_cost_${idx}" value="${sub.cost}" min="0" step="0.50" class="w-20 px-2 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold text-slate-900 dark:text-white text-right sub-cost-input" data-index="${idx}" />
+              <span class="text-[10px] text-slate-400">/mo</span>
+            </div>
+          `;
+          subListContainer.appendChild(div);
+        });
+
+        // Add event listeners
+        document.querySelectorAll('.sub-toggle').forEach(el => {
+          el.addEventListener('change', (e) => {
+            const i = e.target.getAttribute('data-index');
+            defaultSubs[i].active = e.target.checked;
+            calculate();
+          });
+        });
+
+        document.querySelectorAll('.sub-cost-input').forEach(el => {
+          el.addEventListener('input', (e) => {
+            const i = e.target.getAttribute('data-index');
+            defaultSubs[i].cost = parseFloat(e.target.value) || 0;
+            calculate();
+          });
+        });
+      }
+
+      addCustomSubBtn.addEventListener('click', () => {
+        const name = prompt('Enter subscription name:', 'New Subscription');
+        if (!name) return;
+        const cost = parseFloat(prompt('Enter monthly cost:', '9.99')) || 9.99;
+        defaultSubs.push({ name, cost, active: true });
+        renderSubs();
+        calculate();
+      });
+
+      function initChart() {
+        const ctx = document.getElementById('subChart').getContext('2d');
+        chartInstance = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Monthly Drain', 'Annual Drain', '5-Yr Invested Potential'],
+            datasets: [{
+              label: 'Amount',
+              data: [0, 0, 0],
+              backgroundColor: ['#10b981', '#3b82f6', '#8b5cf6'],
+              borderRadius: 8
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              y: {
+                beginAtZero: true,
+                grid: { color: document.documentElement.classList.contains('dark') ? '#1e293b' : '#f1f5f9' },
+                ticks: { color: document.documentElement.classList.contains('dark') ? '#94a3b8' : '#64748b', font: { size: 10 } }
+              },
+              x: {
+                grid: { display: false },
+                ticks: { color: document.documentElement.classList.contains('dark') ? '#94a3b8' : '#64748b', font: { size: 10 } }
+              }
+            }
+          }
+        });
+      }
+
+      function calculate() {
+        const cur = currencySelect.value;
+        const wage = parseFloat(hourlyWageInput.value) || 35;
+
+        let monthlyTotal = 0;
+        defaultSubs.forEach(s => {
+          if (s.active) monthlyTotal += s.cost;
+        });
+
+        const annualTotal = monthlyTotal * 12;
+        const workHours = wage > 0 ? Math.round(annualTotal / wage) : 0;
+
+        // 5-year future value of monthly annuity at 7% annual (r = 0.07/12)
+        const r = 0.07 / 12;
+        const n = 60; // 5 years * 12 months
+        const fv = monthlyTotal > 0 ? monthlyTotal * ((Math.pow(1 + r, n) - 1) / r) : 0;
+
+        const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: cur, maximumFractionDigits: 0 });
+
+        monthlyDrainVal.textContent = formatter.format(monthlyTotal);
+        annualDrainVal.textContent = formatter.format(annualTotal);
+        workHoursVal.textContent = workHours + ' hrs';
+        fiveYearVal.textContent = formatter.format(fv);
+
+        if (chartInstance) {
+          chartInstance.data.datasets[0].data = [monthlyTotal, annualTotal, fv];
+          chartInstance.update();
+        }
+      }
+
+      [hourlyWageInput, currencySelect].forEach(el => {
+        el.addEventListener('input', calculate);
+        el.addEventListener('change', calculate);
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        renderSubs();
+        initChart();
+        calculate();
+      });
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        renderSubs();
+        initChart();
+        calculate();
+      }
+    })();
+  </script>
+</body>
+</html>

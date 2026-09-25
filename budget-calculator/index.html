@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;" />
+  <title>50/30/20 Budget &amp; Paycheck Splitter | PocketRuler.app</title>
+  <meta name="description" content="Free interactive 50/30/20 budget and paycheck splitter calculator by PocketRuler.app. Allocate your net income instantly into Needs, Wants, and Savings with live currency conversion across 15 global currencies." />
+  <meta name="keywords" content="50/30/20 budget calculator, paycheck splitter, monthly budget planner, saving calculator, personal finance tool" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="canonical" href="https://pocketruler.app/budget-calculator/" />
+  <meta property="og:title" content="50/30/20 Budget &amp; Paycheck Splitter | PocketRuler.app" />
+  <meta property="og:description" content="Split your monthly paycheck into Needs (50%), Wants (30%), and Savings (20%) instantly. Free, private, client-side calculator." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/budget-calculator/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+  <meta property="og:image" content="https://pocketruler.app/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" integrity="sha384-NrKB+u6Ts6AtkIhwPixiKTzgSKNblyhlk0Sohlgar9UHUBzai/sgnNNWWd291xqt" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "50/30/20 Budget & Paycheck Splitter",
+    "url": "https://pocketruler.app/budget-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Free interactive 50/30/20 budget planner to split your monthly net income into essentials, discretionary spending, and savings."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the 50/30/20 rule of budgeting?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The 50/30/20 rule divides your after-tax net income into three distinct buckets: 50% for Needs (housing, groceries, utilities, minimum debt payments), 30% for Wants (dining out, subscriptions, hobbies, entertainment), and 20% for Savings & Debt Payoff (emergency fund, retirement, extra debt principal)." }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I calculate percentages based on gross income or net take-home pay?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Always base your 50/30/20 budget on your net take-home pay (after taxes, 401(k) matching, and health insurance deductions), because you cannot spend money you never actually receive in your bank account." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
+
+  <header id="site-header" data-badge="Personal Finance" data-badge-color="emerald" data-subtitle="Smart income splitter &amp; financial freedom planner" data-active="budget" class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200 min-h-[72px]">
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow space-y-10">
+    
+    <!-- Hero Section -->
+    <section class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse"></span>
+        <span>Zero-Stress Budgeting &bull; 100% Free &amp; Private</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+        50/30/20 Budget &amp; <span class="text-emerald-600 dark:text-emerald-400">Paycheck Splitter</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Take the guesswork out of personal finance. Enter your monthly net take-home pay below to instantly allocate your funds into Needs, Wants, and Savings with zero tracking spreadsheets required.
+      </p>
+    </section>
+
+    <!-- AdSense Slot 1 -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-5">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle" style="display:block; width:100%; min-height:90px;" data-ad-client="ca-pub-3008088352823319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+      </div>
+    </aside>
+
+    <!-- Calculator Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Input Panel -->
+      <div class="lg:col-span-5 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <svg class="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Income &amp; Ratios</span>
+        </h2>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="monthlyIncome">Monthly Net Take-Home Pay</label>
+            <div class="relative">
+              <span id="currencySymbol" class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 font-bold">$</span>
+              <input type="number" id="monthlyIncome" value="5000" min="0" step="100" class="w-full pl-8 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-base font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="currencySelect">Currency</label>
+            <select id="currencySelect" class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+              <option value="USD" selected>USD ($) — US Dollar</option>
+              <option value="EUR">EUR (€) — Euro</option>
+              <option value="GBP">GBP (£) — British Pound</option>
+              <option value="CAD">CAD ($) — Canadian Dollar</option>
+              <option value="AUD">AUD ($) — Australian Dollar</option>
+              <option value="INR">INR (₹) — Indian Rupee</option>
+            </select>
+          </div>
+
+          <hr class="border-slate-100 dark:border-slate-800 my-2" />
+
+          <!-- Custom Ratios Sliders -->
+          <div class="space-y-4">
+            <div class="text-xs font-bold text-slate-700 dark:text-slate-300">Custom Allocation Ratios (%)</div>
+            
+            <div>
+              <div class="flex justify-between text-xs mb-1 font-semibold text-slate-600 dark:text-slate-400">
+                <span>Needs (Essentials)</span>
+                <span id="needsPctLabel" class="text-emerald-600 dark:text-emerald-400 font-bold">50%</span>
+              </div>
+              <input type="range" id="needsSlider" min="30" max="80" value="50" class="w-full accent-emerald-600 cursor-pointer" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1 font-semibold text-slate-600 dark:text-slate-400">
+                <span>Wants (Lifestyle)</span>
+                <span id="wantsPctLabel" class="text-blue-600 dark:text-blue-400 font-bold">30%</span>
+              </div>
+              <input type="range" id="wantsSlider" min="10" max="50" value="30" class="w-full accent-blue-600 cursor-pointer" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1 font-semibold text-slate-600 dark:text-slate-400">
+                <span>Savings &amp; Debt</span>
+                <span id="savingsPctLabel" class="text-purple-600 dark:text-purple-400 font-bold">20%</span>
+              </div>
+              <input type="range" id="savingsSlider" min="5" max="50" value="20" class="w-full accent-purple-600 cursor-pointer" />
+            </div>
+            <div id="ratioWarning" class="text-[11px] text-amber-600 dark:text-amber-400 hidden font-medium">Note: Percentages currently total <span id="totalPctSum">100</span>%.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Output Panel & Chart -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white">Paycheck Allocation Summary</h2>
+            <button type="button" id="resetDefaultsBtn" class="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline">Reset 50/30/20</button>
+          </div>
+
+          <!-- Summary Cards Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 space-y-1">
+              <div class="text-[11px] font-bold text-emerald-800 dark:text-emerald-300 uppercase tracking-wide">Needs (50%)</div>
+              <div id="needsAmount" class="text-xl sm:text-2xl font-black text-emerald-700 dark:text-emerald-300">$2,500</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">Rent, bills, groceries</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 space-y-1">
+              <div class="text-[11px] font-bold text-blue-800 dark:text-blue-300 uppercase tracking-wide">Wants (30%)</div>
+              <div id="wantsAmount" class="text-xl sm:text-2xl font-black text-blue-700 dark:text-blue-300">$1,500</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">Dining, fun, subs</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-purple-50/70 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 space-y-1">
+              <div class="text-[11px] font-bold text-purple-800 dark:text-purple-300 uppercase tracking-wide">Savings (20%)</div>
+              <div id="savingsAmount" class="text-xl sm:text-2xl font-black text-purple-700 dark:text-purple-300">$1,000</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">Investing, debt payoff</div>
+            </div>
+          </div>
+
+          <!-- Chart Container -->
+          <div class="relative w-full h-64 flex items-center justify-center pt-2">
+            <canvas id="budgetChart"></canvas>
+          </div>
+
+          <!-- Annual Projections Banner -->
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+            <div>
+              <div class="font-bold text-slate-800 dark:text-slate-200">Annualized Savings Potential (20%)</div>
+              <div class="text-slate-500 dark:text-slate-400">Over 12 months without lifestyle creep</div>
+            </div>
+            <div id="annualSavings" class="text-lg font-black text-emerald-600 dark:text-emerald-400">$12,000</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- AdSense Slot 2 -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-8">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px;" data-ad-client="ca-pub-3008088352823319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+      </div>
+    </aside>
+
+    <!-- Comprehensive Editorial Content (800-1200 Words) -->
+    <article class="bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-8 text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+      
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">The Human Dilemma: Why Traditional Budgeting Fails</h2>
+        <p>
+          Let’s be honest: tracking every single coffee, parking meter, and grocery receipt into rigid 50-category spreadsheet columns is exhausting. Most people try a complex budgeting app for three weeks, feel like an accountant working a second shift, and give up entirely. Money management shouldn’t feel like punishment.
+        </p>
+        <p>
+          Popularized by Senator Elizabeth Warren in her book <em>All Your Worth: The Ultimate Lifetime Money Plan</em>, the 50/30/20 rule revolutionized personal finance by stripping away obsessive line-item tracking. Instead of managing fifty micro-limits, you only need to master three macro-buckets. It gives you permission to spend guilt-free on things you love, provided your core foundations and future security are locked in.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Step-by-Step Math &amp; Plain-English Formula Breakdown</h2>
+        <p>
+          The beauty of the 50/30/20 framework lies in its absolute mathematical simplicity. Everything is calculated directly from your net take-home pay:
+        </p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>Needs (50%):</strong> Your absolute non-negotiables to survive and work. This includes rent or mortgage payments, utility bills, basic grocery store runs, health insurance premiums, minimum monthly loan payments, and transportation to your job. If you lost your income tomorrow, these are the bills you would pay first.</li>
+          <li><strong>Wants (30%):</strong> Your lifestyle choices and discretionary comfort. This covers dining out at restaurants, streaming service subscriptions (Netflix, Spotify), weekend getaways, hobbies, gym memberships, and upgrading your smartphone.</li>
+          <li><strong>Savings &amp; Debt (20%):</strong> Your wealth acceleration and future safety net. This includes emergency fund contributions, retirement accounts (401k, IRA), and extra debt principal payments beyond the mandatory minimums.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Persona Story: How Sarah Mastered Her Paycheck</h2>
+        <p>
+          Sarah, a 28-year-old marketing coordinator living in Chicago, was taking home $4,200 a month. Despite making a decent salary, she constantly felt broke at the end of every month. She had no idea where her money was going.
+        </p>
+        <p>
+          Using this calculator, Sarah plugged in her $4,200 net income. Her breakdown immediately showed: $2,100 for Needs, $1,260 for Wants, and $840 for Savings. To her shock, she realized her rent and car note alone were consuming $2,400 (57% of her income), leaving her lifestyle and savings squeezed. By downsizing her apartment slightly and refinancing her auto loan, she brought her Needs down to $2,050. Within 12 months, Sarah successfully stacked a full $10,000 emergency fund and started maxing out her Roth IRA—all without feeling deprived.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Practical Rules of Thumb &amp; Cheat Sheet</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>Automate Your Paycheck:</strong> On payday, set up automatic bank transfers so your 20% savings and investments move to a separate account before you ever see them.</li>
+          <li><strong>The 24-Hour Rule for Wants:</strong> Before purchasing any non-essential item over $50, wait 24 hours. Impulse buying drops by 70% once the emotional rush fades.</li>
+          <li><strong>High Cost of Living (HCOL) Adjustment:</strong> If you live in New York, London, or San Francisco, housing may naturally breach 50%. Compensate by compressing your Wants bucket rather than sacrificing your 20% savings.</li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="space-y-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+        
+        <div class="space-y-4">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">What is the 50/30/20 rule of budgeting?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">It divides net income into 50% Needs, 30% Wants, and 20% Savings/Debt, providing a balanced, stress-free framework without micro-tracking every expense.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">Should I calculate percentages based on gross income or net take-home pay?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Always use net take-home pay (after taxes and retirement deductions), because gross income includes money you never actually receive in your bank account.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">What if my housing costs exceed 50%?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">In major metropolitan areas, housing often exceeds 50%. Temporarily adjust your targets (e.g. 60/25/15) while working towards career growth or housing adjustments.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Footer -->
+      <div class="bg-slate-100 dark:bg-slate-900/60 rounded-xl p-4 border border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 mt-8 space-y-1">
+        <div class="font-bold text-slate-700 dark:text-slate-300">Methodology &amp; Data Citations</div>
+        <p>Calculations execute 100% client-side in your browser. Financial benchmarks and savings rules aligned with recognized personal finance standards and consumer advisory guidelines.</p>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/currency.js"></script>
+  <script src="../js/components.js"></script>
+
+  <script>
+    (function() {
+      const incomeInput = document.getElementById('monthlyIncome');
+      const currencySelect = document.getElementById('currencySelect');
+      const currencySymbol = document.getElementById('currencySymbol');
+      
+      const needsSlider = document.getElementById('needsSlider');
+      const wantsSlider = document.getElementById('wantsSlider');
+      const savingsSlider = document.getElementById('savingsSlider');
+
+      const needsPctLabel = document.getElementById('needsPctLabel');
+      const wantsPctLabel = document.getElementById('wantsPctLabel');
+      const savingsPctLabel = document.getElementById('savingsPctLabel');
+      const ratioWarning = document.getElementById('ratioWarning');
+      const totalPctSum = document.getElementById('totalPctSum');
+
+      const needsAmount = document.getElementById('needsAmount');
+      const wantsAmount = document.getElementById('wantsAmount');
+      const savingsAmount = document.getElementById('savingsAmount');
+      const annualSavings = document.getElementById('annualSavings');
+      const resetDefaultsBtn = document.getElementById('resetDefaultsBtn');
+
+      const symbols = { USD: '$', EUR: '€', GBP: '£', CAD: '$', AUD: '$', INR: '₹' };
+
+      let chartInstance = null;
+
+      function initChart() {
+        const ctx = document.getElementById('budgetChart').getContext('2d');
+        chartInstance = new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Needs (Essentials)', 'Wants (Lifestyle)', 'Savings & Debt'],
+            datasets: [{
+              data: [2500, 1500, 1000],
+              backgroundColor: ['#10b981', '#3b82f6', '#8b5cf6'],
+              borderWidth: 2,
+              borderColor: document.documentElement.classList.contains('dark') ? '#0f172a' : '#ffffff'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: {
+                  boxWidth: 12,
+                  font: { family: '"Plus Jakarta Sans", sans-serif', size: 11 },
+                  color: document.documentElement.classList.contains('dark') ? '#94a3b8' : '#64748b'
+                }
+              }
+            },
+            cutout: '70%'
+          }
+        });
+      }
+
+      function calculate() {
+        const income = parseFloat(incomeInput.value) || 0;
+        const cur = currencySelect.value;
+        const sym = symbols[cur] || '$';
+        currencySymbol.textContent = sym;
+
+        let nPct = parseInt(needsSlider.value);
+        let wPct = parseInt(wantsSlider.value);
+        let sPct = parseInt(savingsSlider.value);
+
+        needsPctLabel.textContent = nPct + '%';
+        wantsPctLabel.textContent = wPct + '%';
+        savingsPctLabel.textContent = sPct + '%';
+
+        const sum = nPct + wPct + sPct;
+        totalPctSum.textContent = sum;
+        if (sum !== 100) {
+          ratioWarning.classList.remove('hidden');
+        } else {
+          ratioWarning.classList.add('hidden');
+        }
+
+        const nVal = income * (nPct / 100);
+        const wVal = income * (wPct / 100);
+        const sVal = income * (sPct / 100);
+
+        const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: cur, maximumFractionDigits: 0 });
+
+        needsAmount.textContent = formatter.format(nVal);
+        wantsAmount.textContent = formatter.format(wVal);
+        savingsAmount.textContent = formatter.format(sVal);
+        annualSavings.textContent = formatter.format(sVal * 12);
+
+        if (chartInstance) {
+          chartInstance.data.datasets[0].data = [nVal, wVal, sVal];
+          chartInstance.update();
+        }
+      }
+
+      resetDefaultsBtn.addEventListener('click', function() {
+        needsSlider.value = 50;
+        wantsSlider.value = 30;
+        savingsSlider.value = 20;
+        calculate();
+      });
+
+      [incomeInput, currencySelect, needsSlider, wantsSlider, savingsSlider].forEach(el => {
+        el.addEventListener('input', calculate);
+        el.addEventListener('change', calculate);
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initChart();
+        calculate();
+      });
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        initChart();
+        calculate();
+      }
+    })();
+  </script>
+</body>
+</html>

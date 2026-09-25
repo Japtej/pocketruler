@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;" />
+  <title>Side Hustle &amp; Platform Fee Profit Calculator | PocketRuler.app</title>
+  <meta name="description" content="Free interactive Side Hustle &amp; Platform Fee Profit Calculator by PocketRuler.app. Calculate net take-home profit after Etsy, eBay, Fiverr, Airbnb, or custom platform fees, payment processing, COGS, and income taxes." />
+  <meta name="keywords" content="side hustle calculator, platform fee calculator, etsy fee calculator, fiverr fee calculator, net profit calculator, pocketruler" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="canonical" href="https://pocketruler.app/side-hustle-calculator/" />
+  <meta property="og:title" content="Side Hustle &amp; Platform Fee Profit Calculator | PocketRuler.app" />
+  <meta property="og:description" content="Calculate true net profit margins on Etsy, eBay, Fiverr, Airbnb, or custom gigs after platform cuts, payment fees, shipping, and taxes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/side-hustle-calculator/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+  <meta property="og:image" content="https://pocketruler.app/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" integrity="sha384-NrKB+u6Ts6AtkIhwPixiKTzgSKNblyhlk0Sohlgar9UHUBzai/sgnNNWWd291xqt" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Side Hustle & Platform Fee Profit Calculator",
+    "url": "https://pocketruler.app/side-hustle-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Calculate true take-home profit after marketplace fees (Etsy, eBay, Fiverr, Airbnb), payment processing, and taxes."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do marketplace platform fees impact side hustle profits?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Platforms like Etsy, eBay, and Fiverr take between 6.5% and 20% in listing, transaction, and commission fees. Factoring these in is crucial to ensure your gross revenue translates into actual living profit." }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I account for self-employment taxes on side hustle income?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Independent contractor and side hustle earnings are subject to self-employment tax (SECA) and income tax, which typically consumes 15% to 30% of your net earnings depending on your tax bracket." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
+
+  <header id="site-header" data-badge="Personal Finance" data-badge-color="emerald" data-subtitle="Side hustle &amp; marketplace fee profit calculator" data-active="sidehustle" class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200 min-h-[72px]">
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow space-y-10">
+    
+    <!-- Hero Section -->
+    <section class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse"></span>
+        <span>Side Hustle Economics &bull; 100% Free &amp; Private</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+        Side Hustle &amp; Platform <span class="text-emerald-600 dark:text-emerald-400">Fee Calculator</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Discover your true take-home profit on Etsy, eBay, Fiverr, Airbnb, or custom gigs after marketplace commissions, payment processing, shipping, COGS, and taxes.
+      </p>
+    </section>
+
+    <!-- AdSense Slot 1 -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-5">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle" style="display:block; width:100%; min-height:90px;" data-ad-client="ca-pub-3008088352823319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+      </div>
+    </aside>
+
+    <!-- Calculator Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Input Panel -->
+      <div class="lg:col-span-5 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <svg class="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Platform &amp; Sales Data</span>
+        </h2>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="platformSelect">Marketplace Preset</label>
+            <select id="platformSelect" class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+              <option value="etsy">Etsy Marketplace (~6.5% + fees)</option>
+              <option value="ebay">eBay Store (~13.25% fee)</option>
+              <option value="fiverr">Fiverr Freelance (20% cut)</option>
+              <option value="airbnb">Airbnb Host (~3% fee)</option>
+              <option value="uber">Uber / Rideshare (~25% cut)</option>
+              <option value="custom" selected>Custom Platform (% Fee)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="grossSales">Monthly Gross Sales / Revenue</label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 font-bold">$</span>
+              <input type="number" id="grossSales" value="2500" min="0" step="50" class="w-full pl-8 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-base font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="platformFeePct">Platform Fee (%)</label>
+              <input type="number" id="platformFeePct" value="10" min="0" max="50" step="0.5" class="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="paymentFeePct">Payment Processing (%)</label>
+              <input type="number" id="paymentFeePct" value="2.9" min="0" max="10" step="0.1" class="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="cogsExpenses">COGS / Materials ($)</label>
+              <input type="number" id="cogsExpenses" value="400" min="0" step="25" class="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="taxRatePct">Est. Income Tax (%)</label>
+              <input type="number" id="taxRatePct" value="20" min="0" max="50" step="1" class="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white">Profit &amp; Fee Breakdown</h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 space-y-1">
+              <div class="text-[11px] font-bold text-emerald-800 dark:text-emerald-300 uppercase">Net Take-Home</div>
+              <div id="netProfitVal" class="text-xl sm:text-2xl font-black text-emerald-700 dark:text-emerald-300">$0.00</div>
+              <div id="profitMarginVal" class="text-[10px] text-slate-500 dark:text-slate-400">0% margin</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-rose-50/70 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 space-y-1">
+              <div class="text-[11px] font-bold text-rose-800 dark:text-rose-300 uppercase">Total Fees &amp; Cut</div>
+              <div id="totalFeesVal" class="text-xl sm:text-2xl font-black text-rose-700 dark:text-rose-300">$0.00</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">Platform + processing</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 space-y-1">
+              <div class="text-[11px] font-bold text-blue-800 dark:text-blue-300 uppercase">Estimated Tax</div>
+              <div id="taxVal" class="text-xl sm:text-2xl font-black text-blue-700 dark:text-blue-300">$0.00</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">Set aside for tax</div>
+            </div>
+          </div>
+
+          <!-- Chart Container -->
+          <div class="relative w-full h-60 flex items-center justify-center pt-2">
+            <canvas id="profitChart"></canvas>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- AdSense Slot 2 -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-8">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px;" data-ad-client="ca-pub-3008088352823319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+      </div>
+    </aside>
+
+    <!-- Comprehensive Editorial Content -->
+    <article class="bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-8 text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+      
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Understanding Marketplace Hidden Costs</h2>
+        <p>
+          Side hustles are booming, whether selling handcrafted goods on Etsy, freelancing on Fiverr, or renting properties on Airbnb. However, many beginners make the fatal mistake of looking only at gross revenue. When a marketplace takes a 10% commission, payment gateways take 2.9%, materials cost 20%, and taxes claim another 20%, your actual take-home profit can be half of what you expected.
+        </p>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="space-y-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+        
+        <div class="space-y-4">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">How do marketplace platform fees impact side hustle profits?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Platforms take commissions ranging from 6.5% to 25%, making fee awareness essential for pricing your products or services correctly.</p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">Should I account for self-employment taxes?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Yes, always set aside 15% to 30% for federal, state, and self-employment taxes to prevent surprise tax bills at year-end.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Footer -->
+      <div class="bg-slate-100 dark:bg-slate-900/60 rounded-xl p-4 border border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 mt-8 space-y-1">
+        <div class="font-bold text-slate-700 dark:text-slate-300">Methodology &amp; Data Citations</div>
+        <p>Calculations execute 100% client-side. Fee benchmarks derived from standard marketplace public fee structures (Etsy, eBay, Fiverr, Airbnb, Uber).</p>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/currency.js"></script>
+  <script src="../js/components.js"></script>
+
+  <script>
+    (function() {
+      const platformSelect = document.getElementById('platformSelect');
+      const grossSalesInput = document.getElementById('grossSales');
+      const platformFeePctInput = document.getElementById('platformFeePct');
+      const paymentFeePctInput = document.getElementById('paymentFeePct');
+      const cogsExpensesInput = document.getElementById('cogsExpenses');
+      const taxRatePctInput = document.getElementById('taxRatePct');
+
+      const netProfitVal = document.getElementById('netProfitVal');
+      const profitMarginVal = document.getElementById('profitMarginVal');
+      const totalFeesVal = document.getElementById('totalFeesVal');
+      const taxVal = document.getElementById('taxVal');
+
+      let chartInstance = null;
+
+      const platformPresets = {
+        etsy: { platform: 6.5, payment: 3.0 },
+        ebay: { platform: 13.25, payment: 2.35 },
+        fiverr: { platform: 20.0, payment: 0.0 },
+        airbnb: { platform: 3.0, payment: 0.0 },
+        uber: { platform: 25.0, payment: 0.0 },
+        custom: { platform: 10.0, payment: 2.9 }
+      };
+
+      platformSelect.addEventListener('change', () => {
+        const p = platformPresets[platformSelect.value];
+        if (p) {
+          platformFeePctInput.value = p.platform;
+          paymentFeePctInput.value = p.payment;
+          calculate();
+        }
+      });
+
+      function initChart() {
+        const ctx = document.getElementById('profitChart').getContext('2d');
+        chartInstance = new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Net Take-Home', 'Platform & Payment Fees', 'COGS / Expenses', 'Estimated Tax'],
+            datasets: [{
+              data: [0, 0, 0, 0],
+              backgroundColor: ['#10b981', '#f43f5e', '#3b82f6', '#8b5cf6'],
+              borderWidth: 2,
+              borderColor: document.documentElement.classList.contains('dark') ? '#0f172a' : '#ffffff'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: { boxWidth: 12, font: { size: 11 }, color: document.documentElement.classList.contains('dark') ? '#94a3b8' : '#64748b' }
+              }
+            },
+            cutout: '70%'
+          }
+        });
+      }
+
+      function calculate() {
+        const gross = parseFloat(grossSalesInput.value) || 0;
+        const pFee = gross * ((parseFloat(platformFeePctInput.value) || 0) / 100);
+        const payFee = gross * ((parseFloat(paymentFeePctInput.value) || 0) / 100);
+        const cogs = parseFloat(cogsExpensesInput.value) || 0;
+        const taxRate = (parseFloat(taxRatePctInput.value) || 0) / 100;
+
+        const totalFees = pFee + payFee;
+        const taxableIncome = Math.max(0, gross - totalFees - cogs);
+        const tax = taxableIncome * taxRate;
+        const netProfit = Math.max(0, taxableIncome - tax);
+        const margin = gross > 0 ? Math.round((netProfit / gross) * 100) : 0;
+
+        const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+        netProfitVal.textContent = formatter.format(netProfit);
+        profitMarginVal.textContent = margin + '% profit margin';
+        totalFeesVal.textContent = formatter.format(totalFees);
+        taxVal.textContent = formatter.format(tax);
+
+        if (chartInstance) {
+          chartInstance.data.datasets[0].data = [netProfit, totalFees, cogs, tax];
+          chartInstance.update();
+        }
+      }
+
+      [grossSalesInput, platformFeePctInput, paymentFeePctInput, cogsExpensesInput, taxRatePctInput].forEach(el => {
+        el.addEventListener('input', calculate);
+        el.addEventListener('change', calculate);
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initChart();
+        calculate();
+      });
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        initChart();
+        calculate();
+      }
+    })();
+  </script>
+</body>
+</html>

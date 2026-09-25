@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;" />
+  <title>Car Ownership vs. Uber &amp; Public Transit Calculator | PocketRuler.app</title>
+  <meta name="description" content="Free interactive Car Ownership vs. Uber &amp; Public Transit Calculator by PocketRuler.app. Compare total monthly cost of car ownership (loan, gas, insurance, parking, depreciation) against rideshares and transit passes." />
+  <meta name="keywords" content="car cost calculator, car ownership vs uber, transit cost calculator, commuting calculator, pocketruler" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="canonical" href="https://pocketruler.app/car-cost-calculator/" />
+  <meta property="og:title" content="Car Ownership vs. Uber &amp; Public Transit Calculator | PocketRuler.app" />
+  <meta property="og:description" content="Compare total monthly car expenses against Uber ridesharing and public transit passes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/car-cost-calculator/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+  <meta property="og:image" content="https://pocketruler.app/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" integrity="sha384-NrKB+u6Ts6AtkIhwPixiKTzgSKNblyhlk0Sohlgar9UHUBzai/sgnNNWWd291xqt" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Car Ownership vs. Uber & Public Transit Calculator",
+    "url": "https://pocketruler.app/car-cost-calculator/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Compare car ownership costs against Uber ridesharing and public transit."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are the hidden costs of car ownership?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Beyond monthly car payments and fuel, car ownership includes auto insurance, parking fees, routine maintenance, repairs, and rapid asset depreciation." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
+
+  <header id="site-header" data-badge="Lifestyle" data-badge-color="emerald" data-subtitle="Car ownership vs uber &amp; transit calculator" data-active="car" class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200 min-h-[72px]">
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow space-y-10">
+    
+    <!-- Hero Section -->
+    <section class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse"></span>
+        <span>Mobility Economics &bull; 100% Free &amp; Private</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+        Car Ownership vs. Uber &amp; <span class="text-emerald-600 dark:text-emerald-400">Transit Calculator</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Compare the total monthly cost of owning a personal vehicle against ridesharing (Uber/Lyft) and public transit passes.
+      </p>
+    </section>
+
+    <!-- AdSense Slot 1 -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-5">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle" style="display:block; width:100%; min-height:90px;" data-ad-client="ca-pub-3008088352823319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+      </div>
+    </aside>
+
+    <!-- Calculator Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Input Panel -->
+      <div class="lg:col-span-6 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <svg class="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+          <span>Car vs. Transit Expenses</span>
+        </h2>
+
+        <div class="space-y-4">
+          <div class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Personal Car Expenses (Monthly)</div>
+          
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-500 mb-1">Car Loan / Lease ($)</label>
+              <input type="number" id="carLoan" value="450" min="0" step="25" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-500 mb-1">Auto Insurance ($)</label>
+              <input type="number" id="carInsurance" value="160" min="0" step="10" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <label class="block text-[10px] font-semibold text-slate-500 mb-1">Gas / Charging ($)</label>
+              <input type="number" id="carGas" value="180" min="0" step="10" class="w-full px-2.5 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-semibold text-slate-500 mb-1">Maintenance ($)</label>
+              <input type="number" id="carMaint" value="75" min="0" step="10" class="w-full px-2.5 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-semibold text-slate-500 mb-1">Parking / Tolls ($)</label>
+              <input type="number" id="carParking" value="120" min="0" step="10" class="w-full px-2.5 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white" />
+            </div>
+          </div>
+
+          <hr class="border-slate-100 dark:border-slate-800 my-2" />
+
+          <div class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Uber &amp; Public Transit Alternatives (Monthly)</div>
+          
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-500 mb-1">Monthly Uber / Rideshares ($)</label>
+              <input type="number" id="transitUber" value="250" min="0" step="25" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-500 mb-1">Public Transit Pass ($)</label>
+              <input type="number" id="transitPass" value="95" min="0" step="10" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-900 dark:text-white" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="lg:col-span-6 space-y-6">
+        
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white">Monthly Comparison Summary</h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 space-y-1">
+              <div class="text-[11px] font-bold text-emerald-800 dark:text-emerald-300 uppercase">Car Ownership Total</div>
+              <div id="carTotalVal" class="text-xl sm:text-2xl font-black text-emerald-700 dark:text-emerald-300">$985</div>
+              <div class="text-[10px] text-slate-500">Per month</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 space-y-1">
+              <div class="text-[11px] font-bold text-blue-800 dark:text-blue-300 uppercase">Transit &amp; Uber Total</div>
+              <div id="transitTotalVal" class="text-xl sm:text-2xl font-black text-blue-700 dark:text-blue-300">$345</div>
+              <div class="text-[10px] text-slate-500">Per month</div>
+            </div>
+          </div>
+
+          <!-- Difference Banner -->
+          <div class="p-4 rounded-xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 flex items-center justify-between">
+            <div>
+              <div class="text-xs font-bold text-purple-900 dark:text-purple-300">Annual Savings via Transit/Uber</div>
+              <div class="text-[11px] text-purple-700/80">Compared to car ownership</div>
+            </div>
+            <div id="annualSavingsVal" class="text-lg font-black text-purple-700 dark:text-purple-300">$7,680</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- AdSense Slot 2 -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-8">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px;" data-ad-client="ca-pub-3008088352823319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+      </div>
+    </aside>
+
+    <!-- Comprehensive Editorial Content -->
+    <article class="bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-8 text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+      
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">The True Cost of Car Ownership</h2>
+        <p>
+          For urban and suburban residents, owning a personal car is often assumed to be a mandatory lifestyle expense. However, when you aggregate monthly loan payments, comprehensive insurance, fuel, maintenance, municipal parking, and vehicle depreciation, the true monthly cost frequently exceeds $800 to $1,200. In many cities, replacing car ownership with a combination of public transit and strategic ridesharing saves thousands of dollars annually.
+        </p>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="space-y-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+        
+        <div class="space-y-4">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">What are the hidden costs of car ownership?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Beyond monthly payments and fuel, car ownership includes insurance, parking fees, routine maintenance, repairs, and rapid asset depreciation.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Footer -->
+      <div class="bg-slate-100 dark:bg-slate-900/60 rounded-xl p-4 border border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 mt-8 space-y-1">
+        <div class="font-bold text-slate-700 dark:text-slate-300">Methodology &amp; Data Citations</div>
+        <p>Calculations execute 100% client-side using standard automotive ownership cost benchmarks.</p>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/currency.js"></script>
+  <script src="../js/components.js"></script>
+
+  <script>
+    (function() {
+      const carLoan = document.getElementById('carLoan');
+      const carInsurance = document.getElementById('carInsurance');
+      const carGas = document.getElementById('carGas');
+      const carMaint = document.getElementById('carMaint');
+      const carParking = document.getElementById('carParking');
+
+      const transitUber = document.getElementById('transitUber');
+      const transitPass = document.getElementById('transitPass');
+
+      const carTotalVal = document.getElementById('carTotalVal');
+      const transitTotalVal = document.getElementById('transitTotalVal');
+      const annualSavingsVal = document.getElementById('annualSavingsVal');
+
+      function calculate() {
+        const cTotal = (parseFloat(carLoan.value) || 0) +
+                       (parseFloat(carInsurance.value) || 0) +
+                       (parseFloat(carGas.value) || 0) +
+                       (parseFloat(carMaint.value) || 0) +
+                       (parseFloat(carParking.value) || 0);
+
+        const tTotal = (parseFloat(transitUber.value) || 0) +
+                       (parseFloat(transitPass.value) || 0);
+
+        const annualDiff = (cTotal - tTotal) * 12;
+
+        const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+        carTotalVal.textContent = formatter.format(cTotal);
+        transitTotalVal.textContent = formatter.format(tTotal);
+        annualSavingsVal.textContent = formatter.format(Math.max(0, annualDiff));
+      }
+
+      [carLoan, carInsurance, carGas, carMaint, carParking, transitUber, transitPass].forEach(el => {
+        el.addEventListener('input', calculate);
+      });
+
+      calculate();
+    })();
+  </script>
+</body>
+</html>

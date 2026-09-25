@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;" />
+  <title>Recipe Scaler &amp; Culinary Unit Converter | PocketRuler.app</title>
+  <meta name="description" content="Free interactive Recipe Scaler &amp; Culinary Unit Converter by PocketRuler.app. Instantly scale ingredient quantities for any serving size and convert between cups, grams, ounces, milliliters, and Fahrenheit/Celsius." />
+  <meta name="keywords" content="recipe scaler, ingredient scaling calculator, cooking unit converter, kitchen calculator, pocketruler" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="canonical" href="https://pocketruler.app/recipe-scaler/" />
+  <meta property="og:title" content="Recipe Scaler &amp; Culinary Unit Converter | PocketRuler.app" />
+  <meta property="og:description" content="Scale recipe ingredient quantities for any serving size instantly and convert kitchen measurements." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/recipe-scaler/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+  <meta property="og:image" content="https://pocketruler.app/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Recipe Scaler & Culinary Unit Converter",
+    "url": "https://pocketruler.app/recipe-scaler/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Scale recipe quantities and convert culinary measurements instantly."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does recipe scaling math work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Scaled Quantity equals Original Quantity multiplied by (Target Servings ÷ Original Servings)." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
+
+  <header id="site-header" data-badge="Lifestyle" data-badge-color="emerald" data-subtitle="Recipe scaler &amp; culinary unit converter" data-active="recipe" class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200 min-h-[72px]">
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow space-y-10">
+    
+    <!-- Hero Section -->
+    <section class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse"></span>
+        <span>Culinary Utility &bull; 100% Free &amp; Private</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+        Recipe Scaler &amp; Culinary <span class="text-emerald-600 dark:text-emerald-400">Unit Converter</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Instantly scale ingredient quantities for any serving size and convert between kitchen measurements effortlessly.
+      </p>
+    </section>
+
+    <!-- AdSense Slot 1 -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-5">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle" style="display:block; width:100%; min-height:90px;" data-ad-client="ca-pub-3008088352823319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+      </div>
+    </aside>
+
+    <!-- Calculator Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Input Panel -->
+      <div class="lg:col-span-6 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            <span>Ingredients &amp; Servings</span>
+          </h2>
+          <button type="button" id="addIngredientBtn" class="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline">+ Add Ingredient</button>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="origServings">Original Servings</label>
+            <input type="number" id="origServings" value="4" min="1" class="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold text-slate-900 dark:text-white" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="targetServings">Target Servings</label>
+            <input type="number" id="targetServings" value="8" min="1" class="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-bold text-slate-900 dark:text-white" />
+          </div>
+        </div>
+
+        <div id="ingredientsListContainer" class="space-y-3 max-h-[320px] overflow-y-auto pr-1">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="lg:col-span-6 space-y-6">
+        
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white">Scaled Ingredient List</h2>
+
+          <div id="scaledListOutput" class="space-y-2 max-h-[380px] overflow-y-auto pr-1">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- AdSense Slot 2 -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-8">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px;" data-ad-client="ca-pub-3008088352823319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+      </div>
+    </aside>
+
+    <!-- Comprehensive Editorial Content -->
+    <article class="bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-8 text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+      
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Precision Culinary Scaling</h2>
+        <p>
+          Whether cooking for a dinner party of 12 or meal-prepping for one, adjusting recipe quantities manually without math errors can be frustrating. This recipe scaler instantly multiplies or divides every ingredient proportionally based on serving counts.
+        </p>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="space-y-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+        
+        <div class="space-y-4">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">How does recipe scaling math work?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Scaled Quantity equals Original Quantity multiplied by (Target Servings ÷ Original Servings).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Footer -->
+      <div class="bg-slate-100 dark:bg-slate-900/60 rounded-xl p-4 border border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 mt-8 space-y-1">
+        <div class="font-bold text-slate-700 dark:text-slate-300">Methodology &amp; Data Citations</div>
+        <p>Calculations execute 100% client-side using proportional culinary conversion algorithms.</p>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/currency.js"></script>
+  <script src="../js/components.js"></script>
+
+  <script>
+    (function() {
+      let ingredients = [
+        { name: 'All-Purpose Flour', qty: 2, unit: 'cups' },
+        { name: 'Granulated Sugar', qty: 1, unit: 'cup' },
+        { name: 'Unsalted Butter', qty: 1.5, unit: 'sticks' },
+        { name: 'Large Eggs', qty: 2, unit: 'whole' },
+        { name: 'Vanilla Extract', qty: 1, tsp: 'tsp' },
+        { name: 'Whole Milk', qty: 0.75, unit: 'cups' }
+      ];
+
+      const origServings = document.getElementById('origServings');
+      const targetServings = document.getElementById('targetServings');
+      const ingredientsListContainer = document.getElementById('ingredientsListContainer');
+      const scaledListOutput = document.getElementById('scaledListOutput');
+      const addIngredientBtn = document.getElementById('addIngredientBtn');
+
+      function render() {
+        ingredientsListContainer.innerHTML = '';
+        scaledListOutput.innerHTML = '';
+
+        const orig = parseFloat(origServings.value) || 4;
+        const target = parseFloat(targetServings.value) || 8;
+        const ratio = target / orig;
+
+        ingredients.forEach((ing, idx) => {
+          // Input row
+          const div = document.createElement('div');
+          div.className = 'flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs';
+          div.innerHTML = `
+            <input type="text" value="${ing.name}" class="bg-transparent font-bold text-slate-900 dark:text-white w-28 focus:outline-none ing-name" data-index="${idx}" />
+            <input type="number" value="${ing.qty}" min="0" step="0.25" class="w-16 px-2 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded font-bold text-right ing-qty" data-index="${idx}" />
+            <input type="text" value="${ing.unit}" class="bg-transparent text-slate-500 w-16 focus:outline-none ing-unit" data-index="${idx}" />
+            <button type="button" class="text-rose-500 hover:underline ml-auto remove-ing" data-index="${idx}">✕</button>
+          `;
+          ingredientsListContainer.appendChild(div);
+
+          // Scaled output row
+          const scaledQty = Math.round((ing.qty * ratio) * 100) / 100;
+          const outRow = document.createElement('div');
+          outRow.className = 'flex items-center justify-between p-3 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-xs';
+          outRow.innerHTML = `
+            <span class="font-bold text-slate-800 dark:text-slate-200">${ing.name}</span>
+            <span class="font-black text-emerald-700 dark:text-emerald-300">${scaledQty} ${ing.unit}</span>
+          `;
+          scaledListOutput.appendChild(outRow);
+        });
+
+        // Event bindings
+        document.querySelectorAll('.ing-name').forEach(el => {
+          el.addEventListener('input', e => { ingredients[e.target.getAttribute('data-index')].name = e.target.value; });
+        });
+        document.querySelectorAll('.ing-qty').forEach(el => {
+          el.addEventListener('input', e => {
+            ingredients[e.target.getAttribute('data-index')].qty = parseFloat(e.target.value) || 0;
+            render();
+          });
+        });
+        document.querySelectorAll('.ing-unit').forEach(el => {
+          el.addEventListener('input', e => { ingredients[e.target.getAttribute('data-index')].unit = e.target.value; });
+        });
+        document.querySelectorAll('.remove-ing').forEach(el => {
+          el.addEventListener('click', e => {
+            ingredients.splice(e.target.getAttribute('data-index'), 1);
+            render();
+          });
+        });
+      }
+
+      addIngredientBtn.addEventListener('click', () => {
+        ingredients.push({ name: 'New Ingredient', qty: 1, unit: 'cup' });
+        render();
+      });
+
+      [origServings, targetServings].forEach(el => {
+        el.addEventListener('input', render);
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>

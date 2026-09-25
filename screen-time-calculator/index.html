@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;" />
+  <title>Screen Time &amp; Opportunity Cost Converter | PocketRuler.app</title>
+  <meta name="description" content="Free interactive Screen Time &amp; Opportunity Cost Converter by PocketRuler.app. Calculate annual hours lost and financial value equivalent of smartphone and social media screen time." />
+  <meta name="keywords" content="screen time calculator, opportunity cost calculator, phone addiction calculator, productivity tool, pocketruler" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="canonical" href="https://pocketruler.app/screen-time-calculator/" />
+  <meta property="og:title" content="Screen Time &amp; Opportunity Cost Converter | PocketRuler.app" />
+  <meta property="og:description" content="Convert daily phone scrolling hours into annual lost time and financial opportunity value." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/screen-time-calculator/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+  <meta property="og:image" content="https://pocketruler.app/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Screen Time & Opportunity Cost Converter",
+    "url": "https://pocketruler.app/screen-time-calculator/",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Convert daily social media and smartphone screen time into annual hours lost and financial opportunity value."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is annual screen time opportunity cost calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Annual hours lost equals Daily Screen Time Hours multiplied by 365. Financial value lost equals Annual Hours Lost multiplied by your hourly wage goal." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
+
+  <header id="site-header" data-badge="Productivity" data-badge-color="emerald" data-subtitle="Screen time opportunity cost calculator" data-active="screentime" class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200 min-h-[72px]">
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow space-y-10">
+    
+    <!-- Hero Section -->
+    <section class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse"></span>
+        <span>Time Wealth &bull; 100% Free &amp; Private</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+        Screen Time &amp; Opportunity <span class="text-emerald-600 dark:text-emerald-400">Cost Converter</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Convert your daily smartphone scrolling hours into annual lost time, financial opportunity value, and equivalent books you could have read.
+      </p>
+    </section>
+
+    <!-- AdSense Slot 1 -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-5">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle" style="display:block; width:100%; min-height:90px;" data-ad-client="ca-pub-3008088352823319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+      </div>
+    </aside>
+
+    <!-- Calculator Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Input Panel -->
+      <div class="lg:col-span-5 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <svg class="w-5 h-5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>Screen Habits</span>
+        </h2>
+
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+              <span>Daily Screen Time</span>
+              <span id="hoursLabel" class="text-emerald-600 dark:text-emerald-400">3.5 hours</span>
+            </div>
+            <input type="range" id="dailyHours" min="0.5" max="10" step="0.5" value="3.5" class="w-full accent-emerald-600 cursor-pointer" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5" for="hourlyValue">Hourly Value Goal ($)</label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 font-bold">$</span>
+              <input type="number" id="hourlyValue" value="40" min="10" step="5" class="w-full pl-8 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-base font-bold text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:outline-none" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+          <h2 class="text-lg font-bold text-slate-900 dark:text-white">Opportunity Cost Summary</h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 space-y-1">
+              <div class="text-[11px] font-bold text-emerald-800 dark:text-emerald-300 uppercase">Annual Hours Lost</div>
+              <div id="annualHoursVal" class="text-xl sm:text-2xl font-black text-emerald-700 dark:text-emerald-300">1,277 hrs</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">Over 365 days</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 space-y-1">
+              <div class="text-[11px] font-bold text-blue-800 dark:text-blue-300 uppercase">Financial Value</div>
+              <div id="financialVal" class="text-xl sm:text-2xl font-black text-blue-700 dark:text-blue-300">$51,100</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">At your hourly goal</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-purple-50/70 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 space-y-1">
+              <div class="text-[11px] font-bold text-purple-800 dark:text-purple-300 uppercase">Books Equivalent</div>
+              <div id="booksVal" class="text-xl sm:text-2xl font-black text-purple-700 dark:text-purple-300">51 books</div>
+              <div class="text-[10px] text-slate-500 dark:text-slate-400">At 25 hrs/book</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- AdSense Slot 2 -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-8">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1.5 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle" style="display:block; width:100%; min-height:250px;" data-ad-client="ca-pub-3008088352823319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}</script>
+      </div>
+    </aside>
+
+    <!-- Comprehensive Editorial Content -->
+    <article class="bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-8 text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+      
+      <section class="space-y-4">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">The True Currency of Smartphone Attention</h2>
+        <p>
+          Time is our only non-renewable asset. When smartphone apps engineer infinite scroll algorithms to capture 3 or 4 hours of your attention every single day, you are quietly surrendering over 1,300 hours a year—the equivalent of working an entire part-time job or mastering two new languages.
+        </p>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="space-y-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+        
+        <div class="space-y-4">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">How is annual screen time opportunity cost calculated?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Daily hours multiplied by 365, then multiplied by your hourly wage goal to reveal financial opportunity value.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Footer -->
+      <div class="bg-slate-100 dark:bg-slate-900/60 rounded-xl p-4 border border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 mt-8 space-y-1">
+        <div class="font-bold text-slate-700 dark:text-slate-300">Methodology &amp; Data Citations</div>
+        <p>Calculations execute 100% client-side. Time valuation benchmarks based on standard professional productivity models.</p>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/currency.js"></script>
+  <script src="../js/components.js"></script>
+
+  <script>
+    (function() {
+      const dailyHours = document.getElementById('dailyHours');
+      const hoursLabel = document.getElementById('hoursLabel');
+      const hourlyValue = document.getElementById('hourlyValue');
+
+      const annualHoursVal = document.getElementById('annualHoursVal');
+      const financialVal = document.getElementById('financialVal');
+      const booksVal = document.getElementById('booksVal');
+
+      function calculate() {
+        const hrs = parseFloat(dailyHours.value) || 0;
+        const wage = parseFloat(hourlyValue.value) || 40;
+
+        hoursLabel.textContent = hrs + ' hours';
+        const annualHours = Math.round(hrs * 365);
+        const finVal = annualHours * wage;
+        const books = Math.round(annualHours / 25);
+
+        annualHoursVal.textContent = new Intl.NumberFormat().format(annualHours) + ' hrs';
+        financialVal.textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(finVal);
+        booksVal.textContent = books + ' books';
+      }
+
+      [dailyHours, hourlyValue].forEach(el => {
+        el.addEventListener('input', calculate);
+      });
+
+      calculate();
+    })();
+  </script>
+</body>
+</html>

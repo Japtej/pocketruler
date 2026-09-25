@@ -113,50 +113,70 @@
       }
     });
 
-    // Setup mobile drawer controls if present
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const mobileBackdrop = document.getElementById('mobileDrawerBackdrop');
-    const openBtn = document.getElementById('openMobileMenuBtn') || document.getElementById('mobileMenuToggle');
-    const closeBtn = document.getElementById('closeMobileMenuBtn') || document.getElementById('mobileDrawerClose');
+    // Mobile drawer controls with dynamic event delegation
+    function getDrawerElements() {
+      return {
+        drawer: document.getElementById('mobileDrawer'),
+        backdrop: document.getElementById('mobileDrawerBackdrop')
+      };
+    }
 
     function openDrawer() {
-      if (!mobileDrawer) return;
-      mobileDrawer.classList.remove('hidden');
-      if (mobileBackdrop) mobileBackdrop.classList.remove('hidden');
-      // trigger reflow for smooth animation
+      const { drawer, backdrop } = getDrawerElements();
+      if (!drawer) return;
+      drawer.classList.remove('hidden');
+      if (backdrop) backdrop.classList.remove('hidden');
       setTimeout(() => {
-        mobileDrawer.classList.remove('translate-x-full');
-        mobileDrawer.classList.add('translate-x-0');
-        if (mobileBackdrop) {
-          mobileBackdrop.classList.remove('opacity-0');
-          mobileBackdrop.classList.add('opacity-100');
+        drawer.classList.remove('translate-x-full');
+        drawer.classList.add('translate-x-0');
+        if (backdrop) {
+          backdrop.classList.remove('opacity-0');
+          backdrop.classList.add('opacity-100');
         }
       }, 10);
       document.body.classList.add('overflow-hidden');
     }
 
     function closeDrawer() {
-      if (!mobileDrawer) return;
-      mobileDrawer.classList.remove('translate-x-0');
-      mobileDrawer.classList.add('translate-x-full');
-      if (mobileBackdrop) {
-        mobileBackdrop.classList.remove('opacity-100');
-        mobileBackdrop.classList.add('opacity-0');
+      const { drawer, backdrop } = getDrawerElements();
+      if (!drawer) return;
+      drawer.classList.remove('translate-x-0');
+      drawer.classList.add('translate-x-full');
+      if (backdrop) {
+        backdrop.classList.remove('opacity-100');
+        backdrop.classList.add('opacity-0');
       }
       setTimeout(() => {
-        mobileDrawer.classList.add('hidden');
-        if (mobileBackdrop) mobileBackdrop.classList.add('hidden');
+        drawer.classList.add('hidden');
+        if (backdrop) backdrop.classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
       }, 300);
     }
 
-    if (openBtn) openBtn.addEventListener('click', openDrawer);
-    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-    if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeDrawer);
+    // Expose drawer controls globally
+    window.PocketRulerDrawer = {
+      open: openDrawer,
+      close: closeDrawer
+    };
+
+    // Delegated click listener for drawer triggers
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('#openMobileMenuBtn') || e.target.closest('#mobileMenuToggle')) {
+        e.preventDefault();
+        openDrawer();
+      } else if (e.target.closest('#closeMobileMenuBtn') || e.target.closest('#mobileDrawerClose')) {
+        e.preventDefault();
+        closeDrawer();
+      } else if (e.target.id === 'mobileDrawerBackdrop') {
+        e.preventDefault();
+        closeDrawer();
+      }
+    });
 
     // Escape key closes mobile drawer
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && mobileDrawer && !mobileDrawer.classList.contains('hidden')) {
+      const { drawer } = getDrawerElements();
+      if (e.key === 'Escape' && drawer && !drawer.classList.contains('hidden')) {
         closeDrawer();
       }
     });
