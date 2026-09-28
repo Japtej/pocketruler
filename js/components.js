@@ -312,16 +312,17 @@
       </div>
 
       <!-- Col 3: Resources & Guides -->
-      <div class="space-y-2.5">
-        <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Resources</h4>
-        <ul class="space-y-1.5 text-slate-600 dark:text-slate-300">
-          <li><a href="${root}blog/" class="hover:text-emerald-600 dark:hover:text-emerald-400 font-semibold transition-colors">Blog &amp; Industry Trends</a></li>
-          <li><a href="${root}relocation-calculator/guide.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Expat Tax &amp; Visa Guide</a></li>
-          <li><a href="${root}relocation-calculator/methodology.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Methodology &amp; Formulas</a></li>
-          <li><a href="${root}about.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About Us &amp; Mission</a></li>
-          <li><a href="${root}contact.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Contact &amp; Feedback</a></li>
-        </ul>
-      </div>
+            <div class="space-y-2.5">
+              <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">Resources</h4>
+              <ul class="space-y-1.5 text-slate-600 dark:text-slate-300">
+                <li><a href="${root}blog/" class="hover:text-emerald-600 dark:hover:text-emerald-400 font-semibold transition-colors">Blog & Industry Trends</a></li>
+                <li><a href="${root}editorial-standards.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Editorial Standards & Methodology</a></li>
+                <li><a href="${root}relocation-calculator/guide.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Expat Tax & Visa Guide</a></li>
+                <li><a href="${root}relocation-calculator/methodology.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Methodology & Formulas</a></li>
+                <li><a href="${root}about.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About Us & Mission</a></li>
+                <li><a href="${root}contact.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Contact & Feedback</a></li>
+              </ul>
+            </div>
 
       <!-- Col 4: Legal & AdSense Compliance -->
       <div class="space-y-2.5">
