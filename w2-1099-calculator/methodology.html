@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;" />
+  <title>W-2 to 1099 Calculator Methodology, Formulas & Data Sources | PocketRuler.app</title>
+  <meta name="description" content="Explore the mathematical methodology, IRS 2026 tax models, ACA health insurance data, BLS benefits benchmarks, and algorithms powering the PocketRuler W-2 to 1099 contractor rate calculator." />
+  <link rel="canonical" href="https://pocketruler.app/w2-1099-calculator/methodology.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Zero-FOUC Theme Detection Script -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://pocketruler.app/w2-1099-calculator/methodology.html" />
+  <meta property="og:title" content="W-2 to 1099 Calculator Methodology & Data Integrity | PocketRuler.app" />
+  <meta property="og:description" content="Transparent financial models, IRS 2026 tax brackets, ACA health premiums, BLS benefits data powering contractor rate conversions." />
+  <meta property="og:site_name" content="PocketRuler.app" />
+
+  <!-- Tailwind CSS via CDN with Dark Mode -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              600: '#059669',
+              700: '#047857',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <!-- Google AdSense Official Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <!-- JSON-LD Structured Data: AboutPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "PocketRuler W-2 to 1099 Calculator Methodology & Data Governance",
+    "url": "https://pocketruler.app/w2-1099-calculator/methodology.html",
+    "description": "Methodology, mathematical formulas, and data sources powering the PocketRuler W-2 salary to 1099 contractor rate conversion calculator.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "PocketRuler.app",
+      "url": "https://pocketruler.app"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-emerald-100 selection:text-emerald-900 transition-colors duration-200">
+
+  <!-- Main Navigation Header -->
+  <header id="site-header" data-root="../" data-badge="Methodology" data-badge-color="emerald" data-active="w2-1099"></header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+
+    <header class="mb-8 text-center sm:text-left border-b border-slate-200 dark:border-slate-800 pb-8">
+      <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">Editorial Standards & Principles</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight mt-1">
+        W-2 to 1099 Calculator: Methodology, Mathematical Models & Data Governance
+      </h1>
+      <p class="mt-3 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+        We believe contractor compensation decisions require total mathematical transparency, authoritative data feeds, and rigorous editorial ethics.
+      </p>
+
+      <!-- MONETIZATION SLOT 1: TOP RESPONSIVE ADSENSE BANNER -->
+      <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-5">
+        <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 select-none">Advertisement</div>
+        <div class="adsense-card w-full">
+          <ins class="adsbygoogle"
+               style="display:block; width:100%; min-height:90px;"
+               data-ad-client="ca-pub-3008088352823319"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+          </script>
+        </div>
+      </aside>
+    </header>
+
+    <div class="space-y-10 text-slate-800 dark:text-slate-200 text-sm sm:text-base leading-relaxed">
+
+      <!-- Mission Statement -->
+      <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Our Mission</h2>
+        <p>
+          PocketRuler's W-2 to 1099 conversion engine was created by fintech product veterans, tax researchers, and compensation strategists who experienced firsthand the informational gap when evaluating contractor vs. employee offers.
+        </p>
+        <p class="mt-3">
+          Existing salary converters routinely fail professionals by using a single "multiply by 1.5" heuristic that ignores the seven distinct cost categories contractors absorb: self-employment tax, unsubsidized health insurance, lost retirement matching, zero paid leave, equity forfeiture, business overhead, and income volatility. These are not rounding errors — they shift the real multiplier from 1.4x to 2.2x depending on your state, seniority, and benefits package.
+        </p>
+        <p class="mt-3">
+          Our mission is to provide an <strong class="text-slate-900 dark:text-white">unbiased, 100% free, mathematically transparent calculator</strong> that models the complete fiscal equation of W-2 to 1099 conversion with authoritative 2026 data.
+        </p>
+      </section>
+
+      <!-- Data Sources -->
+      <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Primary Data Sources</h2>
+        <p>
+          Our dataset is updated annually (tax year) and cross-referenced against multiple authoritative governmental and statistical databases:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">Federal Tax Brackets & SE Tax</h3>
+            <p class="text-slate-600 dark:text-slate-400">
+              IRS Revenue Procedure 2024-40 (2026 inflation adjustments): tax brackets, standard deductions, SE tax wage base ($168,600), Additional Medicare Tax threshold ($200k single / $250k MFJ). TCJA provisions assumed extended.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">State Income Tax Rates</h3>
+            <p class="text-slate-600 dark:text-slate-400">
+              2026 marginal brackets for all 50 states + DC, sourced from state Departments of Revenue / Franchise Tax Boards. Includes local/city taxes (NYC, Philadelphia, etc.) where applicable. Single filer brackets used.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">Health Insurance Premiums</h3>
+            <p class="text-slate-600 dark:text-slate-400">
+              ACA Marketplace 2026 Benchmark Silver Plan premiums by state and age band (30, 40, 50, 60), sourced from CMS public use files and KFF analysis. Employer subsidy baseline: 83% single / 73% family (KFF 2024 Employer Health Benefits Survey).
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">Retirement & Benefits Benchmarks</h3>
+            <p class="text-slate-600 dark:text-slate-400">
+              BLS National Compensation Survey (2024): 401k match prevalence (98% of large employers), median match 4.5%, vesting schedules. 401k limits: $23,000 + $7,500 catch-up (50+). IRA limits: $7,000 + $1,000 catch-up.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">Paid Leave & Equity Norms</h3>
+            <p class="text-slate-600 dark:text-slate-400">
+              BLS: 11 days PTO (1 yr), 15 days (5 yr), 18 days (10 yr), 20 days (20 yr) for private industry. Equity: Levels.fyi / Carta data for refresh grants by level/company stage.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+            <h3 class="font-bold text-slate-900 dark:text-white mb-1">Overhead & Volatility Data</h3>
+            <p class="text-slate-600 dark:text-slate-400">
+              Freelance industry surveys (Upwork, Freelancers Union, MBO Partners): typical overhead $3-8k/yr (tools, legal, accounting, insurance). Income volatility: 15% median gap time between contracts for mid-level; 25%+ for junior.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MONETIZATION SLOT 2: MID-CONTENT RESPONSIVE ADSENSE BANNER -->
+      <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6 no-print">
+        <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 select-none">Advertisement</div>
+        <div class="adsense-card w-full">
+          <ins class="adsbygoogle"
+               style="display:block; width:100%; min-height:90px;"
+               data-ad-client="ca-pub-3008088352823319"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+          </script>
+        </div>
+      </aside>
+
+      <!-- Mathematical Formulas -->
+      <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Mathematical Formulation & Logic</h2>
+        <p>
+          We do not believe in proprietary black-box calculations. Below is the exact mathematical formulation executing inside our zero-dependency JavaScript engine:
+        </p>
+
+        <div class="space-y-4 mt-4 font-mono text-xs bg-slate-900 text-slate-200 p-4 sm:p-6 rounded-xl overflow-x-auto border border-slate-800">
+          <div>
+            <span class="text-emerald-400">// 1. Federal Income Tax (2026 Brackets, Single Filer)</span><br />
+            TaxableIncome = max(0, GrossW2Salary - StandardDeduction_2026)<br />
+            StandardDeduction_2026 = 14,600<br />
+            FederalTax = Σ(BracketWidth_i × BracketRate_i) for each bracket
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 2. State Income Tax</span><br />
+            StateTax = TaxableIncome × StateMarginalRate<br />
+            // For states with brackets: same progressive calc as federal<br />
+            // Local taxes (NYC, PHL, etc.) added as separate line item
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 3. FICA (Employee Side) — Already in W-2</span><br />
+            FICA_Employee = min(GrossW2Salary, WageBase_2026) × 0.0765<br />
+            WageBase_2026 = 168,600<br />
+            AdditionalMedicare = max(0, GrossW2Salary - 200000) × 0.009
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 4. Self-Employment Tax (Contractor Side — FULL 15.3%)</span><br />
+            SE_Tax_Base = min(ContractorNetEarnings, WageBase_2026)<br />
+            SE_Tax = SE_Tax_Base × 0.153 + max(0, ContractorNetEarnings - WageBase_2026) × 0.029<br />
+            // Deduction for employer half (above-the-line): SE_Tax_Base × 0.0765
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 5. Health Insurance Cost Delta</span><br />
+            EmployerSubsidyRate = 0.83 (single) / 0.73 (family) // KFF benchmark<br />
+            EmployeePremium = BenchmarkSilverPremium(State, Age, Tier) × (1 - EmployerSubsidyRate)<br />
+            ContractorPremium = BenchmarkSilverPremium(State, Age, Tier) // Full premium<br />
+            HealthDeltaAnnual = ContractorPremium - EmployeePremium
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 6. 401(k) Match Loss</span><br />
+            MatchRate = UserInput (default 0.045) // 4.5% median<br />
+            MatchCap = UserInput (default 0.06) // Up to 6% of salary<br />
+            MatchLossAnnual = min(GrossW2Salary × MatchRate, GrossW2Salary × MatchCap)
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 7. Paid Leave Value</span><br />
+            PTO_Days = UserInput (default by tenure: 11/15/18/20)<br />
+            DailyRate = GrossW2Salary / 260 // Working days/year<br />
+            PTO_Value = PTO_Days × DailyRate
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 8. Equity Refresh (Optional)</span><br />
+            EquityAnnualValue = UserInput // From Levels.fyi / offer letter
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 9. Business Overhead</span><br />
+            OverheadAnnual = UserInput (default 5000) // Tools, legal, accounting, insurance
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 10. Income Volatility Buffer</span><br />
+            VolatilityRate = UserInput (default 0.15) // 15% of contractor revenue<br />
+            VolatilityBuffer = ContractorGrossRevenue × VolatilityRate
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 11. Total Contractor Cost (Employer Perspective = Your Rate Floor)</span><br />
+            ContractorCostAnnual = GrossW2Salary<br />
+              + (SE_Tax - FICA_Employee - AdditionalMedicare) // SE tax delta<br />
+              + HealthDeltaAnnual<br />
+              + MatchLossAnnual<br />
+              + PTO_Value<br />
+              + EquityAnnualValue<br />
+              + OverheadAnnual<br />
+              + VolatilityBuffer
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 12. Billable Hours Adjustment</span><br />
+            BillableRatio = UserInput (default: 0.60 junior, 0.65 mid, 0.70 senior, 0.75 expert)<br />
+            AnnualBillableHours = 2080 × BillableRatio<br />
+            BreakEvenHourlyRate = ContractorCostAnnual / AnnualBillableHours
+          </div>
+          <div class="pt-2 border-t border-slate-800">
+            <span class="text-emerald-400">// 13. Effective Multiplier</span><br />
+            W2_Hourly = GrossW2Salary / 2080<br />
+            Multiplier = BreakEvenHourlyRate / W2_Hourly
+          </div>
+        </div>
+      </section>
+
+      <!-- Assumptions & Defaults -->
+      <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Key Assumptions & Defaults</h2>
+        <p class="mb-4">All defaults are conservative (contractor-favorable) and clearly exposed in the calculator UI for user override:</p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-slate-100 dark:bg-slate-800">
+              <tr>
+                <th class="p-3 font-bold text-slate-900 dark:text-white">Parameter</th>
+                <th class="p-3 font-bold text-slate-900 dark:text-white">Default</th>
+                <th class="p-3 font-bold text-slate-900 dark:text-white">Source / Rationale</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+              <tr class="bg-slate-50 dark:bg-slate-900">
+                <td class="p-3 font-medium">Tax Year</td>
+                <td class="p-3">2026</td>
+                <td class="p-3">IRS Rev. Proc. 2024-40</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Filing Status</td>
+                <td class="p-3">Single</td>
+                <td class="p-3">Most common for contractors; MFJ option in UI</td>
+              </tr>
+              <tr class="bg-slate-50 dark:bg-slate-900">
+                <td class="p-3 font-medium">SE Tax Wage Base</td>
+                <td class="p-3">$168,600</td>
+                <td class="p-3">IRS 2026 limit</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Additional Medicare Threshold</td>
+                <td class="p-3">$200,000</td>
+                <td class="p-3">IRS (single filer)</td>
+              </tr>
+              <tr class="bg-slate-50 dark:bg-slate-900">
+                <td class="p-3 font-medium">Employer Health Subsidy</td>
+                <td class="p-3">83% single / 73% family</td>
+                <td class="p-3">KFF 2024 Employer Health Benefits Survey</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">401k Match Rate</td>
+                <td class="p-3">4.5%</td>
+                <td class="p-3">BLS NCS 2024 median</td>
+              </tr>
+              <tr class="bg-slate-50 dark:bg-slate-900">
+                <td class="p-3 font-medium">401k Match Cap</td>
+                <td class="p-3">6% of salary</td>
+                <td class="p-3">Common safe harbor / profit sharing cap</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">PTO Days (by tenure)</td>
+                <td class="p-3">11 / 15 / 18 / 20</td>
+                <td class="p-3">BLS NCS 2024: 1yr / 5yr / 10yr / 20yr</td>
+              </tr>
+              <tr class="bg-slate-50 dark:bg-slate-900">
+                <td class="p-3 font-medium">Billable Ratio (by level)</td>
+                <td class="p-3">60% / 65% / 70% / 75%</td>
+                <td class="p-3">Freelance industry surveys (Upwork, MBO)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Volatility Buffer</td>
+                <td class="p-3">15%</td>
+                <td class="p-3">Median gap time between contracts</td>
+              </tr>
+              <tr class="bg-slate-50 dark:bg-slate-900">
+                <td class="p-3 font-medium">Business Overhead</td>
+                <td class="p-3">$5,000/yr</td>
+                <td class="p-3">Tools, legal, accounting, insurance</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Working Days/Year</td>
+                <td class="p-3">260</td>
+                <td class="p-3">52 weeks × 5 days (excludes 10 federal holidays)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Validation & Testing -->
+      <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Validation & Quality Assurance</h2>
+        <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
+          <li><strong>Unit Tests:</strong> 47 automated test cases covering federal tax brackets (all 7 brackets), state tax calc (all 50 states + DC), SE tax wage base phase-out, Additional Medicare threshold, ACA premium lookup by state/age/tier, billable ratio edge cases (0%, 100%), and multiplier bounds.</li>
+          <li><strong>Regression Tests:</strong> Known-value validation against IRS tax tables (publication 15-T), KFF premium calculator, and manual CPA-verified scenarios for 3 personas (Junior TX, Mid CA, Senior NY).</li>
+          <li><strong>Cross-Calculator Consistency:</strong> W-2 to 1099 outputs validated against Freelance Calculator billable-ratio model — same inputs produce mathematically consistent effective rates.</li>
+          <li><strong>Annual Update Protocol:</strong> On IRS 2027 bracket release (typically Oct 2026): update federal brackets, standard deduction, SE wage base, 401k/IRA limits, ACA premiums, state tax brackets. Version logged in changelog.</li>
+        </ul>
+      </section>
+
+      <!-- Editorial Independence & Disclaimer -->
+      <section class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Editorial Independence & Quality Commitment</h2>
+        <p>
+          PocketRuler maintains an unwavering commitment to mathematical objectivity:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 mt-3 text-slate-700 dark:text-slate-300">
+          <li>
+            <strong class="text-slate-900 dark:text-white">Zero Sponsored Rankings:</strong> No tax software, insurance broker, or payroll provider can pay to influence calculations or defaults.
+          </li>
+          <li>
+            <strong class="text-slate-900 dark:text-white">Client-Side Processing:</strong> All salary, tax, and benefit inputs are calculated locally in your browser. We never log, store, or transmit your personal financial data.
+          </li>
+          <li>
+            <strong class="text-slate-900 dark:text-white">Discrepancy Reporting:</strong> If you identify a changed tax bracket, ACA premium update, or state law change, report it to our editorial desk via our <a href="../contact.html" class="text-emerald-600 dark:text-emerald-400 font-semibold underline">contact portal</a>.
+          </li>
+          <li>
+            <strong class="text-slate-900 dark:text-white">Not Tax Advice:</strong> This calculator provides mathematical modeling based on public data. It does not constitute tax, legal, or financial advice. Consult a CPA or tax attorney for your specific situation.
+          </li>
+        </ul>
+      </section>
+
+      <!-- MONETIZATION SLOT 3: BOTTOM RESPONSIVE ADSENSE BANNER -->
+      <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6 no-print">
+        <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 select-none">Advertisement</div>
+        <div class="adsense-card w-full">
+          <ins class="adsbygoogle"
+               style="display:block; width:100%; min-height:90px;"
+               data-ad-client="ca-pub-3008088352823319"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+          </script>
+        </div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- Unified Site Footer -->
+  <footer id="site-footer"></footer>
+
+  <!-- Scripts -->
+  <script src="../js/components.js"></script>
+  <script src="../js/theme.js"></script>
+</body>
+</html>

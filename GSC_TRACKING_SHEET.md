@@ -11,39 +11,14 @@
 
 | # | URL | Type | Submitted to GSC | Indexed (Y/N) | Date Indexed | GSC Status (Coverage) | Notes |
 |---|-----|------|------------------|---------------|--------------|----------------------|-------|
-| 1 | https://pocketruler.app/ai-token-calculator/ | Tool | | | | | Flagship tool |
-| 2 | https://pocketruler.app/budget-calculator/ | Tool | | | | | |
-| 3 | https://pocketruler.app/debt-calculator/ | Tool | | | | | |
-| 4 | https://pocketruler.app/side-hustle-calculator/ | Tool | | | | | |
-| 5 | https://pocketruler.app/meeting-cost-calculator/ | Tool | | | | | |
-| 6 | https://pocketruler.app/screen-time-calculator/ | Tool | | | | | |
-| 7 | https://pocketruler.app/playback-speed-calculator/ | Tool | | | | | |
-| 7 | https://pocketruler.app/car-cost-calculator/ | Tool | | | | | |
-| 9 | https://pocketruler.app/sleep-calculator/ | Tool | | | | | |
-| 10 | https://pocketruler.app/recipe-scaler/ | Tool | | | | | |
-| 11 | https://pocketruler.app/subscription-calculator/ | Tool | | | | | |
-| 12 | https://pocketruler.app/freelance-calculator/ | Tool | | | | | Already indexed? |
-| 13 | https://pocketruler.app/w2-1099-calculator/ | Tool | | | | | Already indexed? |
-| 14 | https://pocketruler.app/relocation-calculator/ | Tool | | | | | Already indexed? |
-| 15 | https://pocketruler.app/runway-calculator/ | Tool | | | | | Already indexed? |
-| 16 | https://pocketruler.app/relocation-calculator/guide.html | Tool Guide | | | | | |
-| 17 | https://pocketruler.app/relocation-calculator/methodology.html | Tool Methodology | | | | | |
-
+| 1 | https://pocketruler.app/ai-token-calculator/ | Tool | 2026-09-28 |  |  |  | Flagship tool |  |\n| 2 | https://pocketruler.app/budget-calculator/ | Tool | 2026-09-28 |  |  |  |  |  |\n| 3 | https://pocketruler.app/debt-calculator/ | Tool | 2026-09-28 |  |  |  |  |  |\n| 4 | https://pocketruler.app/side-hustle-calculator/ | Tool | 2026-09-28 |  |  |  |  |  |\n| 5 | https://pocketruler.app/meeting-cost-calculator/ | Tool | 2026-09-28 |  |  |  |  |  |\n| 6 | https://pocketruler.app/screen-time-calculator/ | Tool | 2026-09-28 |  |  |  |  |  |\n| 7 | https://pocketruler.app/playback-speed-calculator/ | Tool | 2026-09-28 |  |  |  |  |  |\n| 7 | https://pocketruler.app/car-cost-calculator/ | Tool | 2026-09-28 |  |  |  |  |  |\n| 9 | https://pocketruler.app/sleep-calculator/ | Tool | 2026-09-28 |  |  |  |  |  |\n| 10 | https://pocketruler.app/recipe-scaler/ | Tool | 2026-09-28 |  |  |  |  |  |\n| 11 | https://pocketruler.app/subscription-calculator/ | Tool | 2026-09-28 |  |  |  |  |  |\n| 12 | https://pocketruler.app/freelance-calculator/ | Tool | 2026-09-28 |  |  |  | Already indexed? |  |\n| 13 | https://pocketruler.app/w2-1099-calculator/ | Tool | 2026-09-28 |  |  |  | Already indexed? |  |\n| 14 | https://pocketruler.app/relocation-calculator/ | Tool | 2026-09-28 |  |  |  | Already indexed? |  |\n| 15 | https://pocketruler.app/runway-calculator/ | Tool | 2026-09-28 |  |  |  | Already indexed? |  |\n| 16 | https://pocketruler.app/relocation-calculator/guide.html | Tool Guide | 2026-09-28 |  |  |  |  |  |\n| 17 | https://pocketruler.app/relocation-calculator/methodology.html | Tool Methodology | 2026-09-28 |  |  |  |  |  |\n
 ---
 
 ## Blog Articles (7 URLs) — Priority: MEDIUM
 
 | # | URL | Type | Submitted to GSC | Indexed (Y/N) | Date Indexed | GSC Status | Notes |
 |---|-----|------|------------------|---------------|--------------|------------|-------|
-| 1 | https://pocketruler.app/blog/ | Blog Index | | | | | |
-| 2 | https://pocketruler.app/blog/ai-api-price-collapse-deepseek-effect/ | Article | | | | | |
-| 3 | https://pocketruler.app/blog/the-1-person-team-remote-workers-agent-managers/ | Article | | | | | |
-| 4 | https://pocketruler.app/blog/how-much-should-i-charge-freelance-guide/ | Article | | | | | |
-| 5 | https://pocketruler.app/blog/should-i-quit-my-job-to-freelance-checklist/ | Article | | | | | |
-| 6 | https://pocketruler.app/blog/full-time-salary-vs-contractor-rate-explained/ | Article | | | | | |
-| 7 | https://pocketruler.app/blog/startup-cash-runway-net-burn-rate-mastery/ | Article | | | | | |
-| 8 | https://pocketruler.app/blog/relocating-remote-work-cost-of-living-tax-guide/ | Article | | | | | |
-
+| 1 | https://pocketruler.app/blog/ | Blog Index | 2026-09-28 |  |  |  |  |  |\n| 2 | https://pocketruler.app/blog/ai-api-price-collapse-deepseek-effect/ | Article | 2026-09-28 |  |  |  |  |  |\n| 3 | https://pocketruler.app/blog/the-1-person-team-remote-workers-agent-managers/ | Article | 2026-09-28 |  |  |  |  |  |\n| 4 | https://pocketruler.app/blog/how-much-should-i-charge-freelance-guide/ | Article | 2026-09-28 |  |  |  |  |  |\n| 5 | https://pocketruler.app/blog/should-i-quit-my-job-to-freelance-checklist/ | Article | 2026-09-28 |  |  |  |  |  |\n| 6 | https://pocketruler.app/blog/full-time-salary-vs-contractor-rate-explained/ | Article | 2026-09-28 |  |  |  |  |  |\n| 7 | https://pocketruler.app/blog/startup-cash-runway-net-burn-rate-mastery/ | Article | 2026-09-28 |  |  |  |  |  |\n| 8 | https://pocketruler.app/blog/relocating-remote-work-cost-of-living-tax-guide/ | Article | 2026-09-28 |  |  |  |  |  |\n
 ---
 
 ## Core Pages (5 URLs) — Priority: LOW (likely indexed)
