@@ -15,20 +15,8 @@
     if (meta && meta.getAttribute('content')) {
       return meta.getAttribute('content');
     }
-    // Auto-detect based on pathname depth
-    const path = window.location.pathname.replace(/\\/g, '/');
-    if (path.includes('/blog/') && (path.includes('/ai-api-price-collapse') || path.includes('/the-1-person-team'))) {
-      return '../../';
-    }
-    if (path.includes('/freelance-calculator/') ||
-        path.includes('/w2-1099-calculator/') ||
-        path.includes('/relocation-calculator/') ||
-        path.includes('/ai-token-calculator/') ||
-        path.includes('/runway-calculator/') ||
-        path.includes('/blog/')) {
-      return '../';
-    }
-    return '';
+    // Always use site root
+    return '/';
   }
 
   // Brand Badge Style Mapper
