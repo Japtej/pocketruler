@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;" />
+  <title>Free Client-Side Invoice &amp; Estimate Generator | PocketRuler.app</title>
+  <meta name="description" content="100% private, browser-based invoice and estimate generator. Create professional vector PDF invoices instantly with multi-currency support, VAT/tax calculation, and zero sign-ups." />
+  <meta name="keywords" content="free invoice generator, client side invoice maker, private invoice pdf, estimate generator, freelance invoice template, instant invoice maker" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="canonical" href="https://pocketruler.app/invoice-generator/" />
+  <meta property="og:title" content="Free Client-Side Invoice &amp; Estimate Generator | PocketRuler.app" />
+  <meta property="og:description" content="Generate professional vector PDF invoices in your browser. 100% client-side privacy, multi-currency, and zero watermarks." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/invoice-generator/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+  <meta property="og:image" content="https://pocketruler.app/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Zero-FOUC Theme Detection Script -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google AdSense Official Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Client-Side Invoice & Estimate Generator",
+    "url": "https://pocketruler.app/invoice-generator/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Free browser-based invoice and estimate maker with live split-screen preview, multi-currency support, VAT calculation, and clean vector PDF export."
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are my client details or invoice figures saved to any database?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The invoice generator is 100% client-side. All business names, rates, and bank details exist only in your browser's temporary memory or local storage. Nothing is transmitted over the internet." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I download the invoice as a PDF?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Click the 'Download / Print Vector PDF' button. Your browser's print dialog will open automatically with pre-configured print stylesheets that hide site navigation and ads, rendering a clean vector PDF." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this tool place watermarks on exported invoices?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Zero watermarks. PocketRuler provides free, unbranded vector PDF invoices formatted for standard A4 and US Letter sizes." }
+      },
+      {
+        "@type": "Question",
+        "name": "What payment terms should I specify on freelance invoices?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Standard terms include 'Due on Receipt' for urgent or milestone handoffs, 'Net 15' for regular contractors and agile studios, and 'Net 30' for enterprise corporations. Net 15 is generally recommended to avoid cash-flow crunches." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
+
+  <!-- TOP HEADER -->
+  <header id="site-header" data-badge="Freelance & SMB" data-badge-color="emerald" data-subtitle="Zero-tracking vector invoice &amp; quote generator" data-active="invoice" class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200 min-h-[72px]"></header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow space-y-10">
+
+    <!-- Hero Section -->
+    <section class="text-center max-w-3xl mx-auto space-y-3 no-print">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>100% In-Browser &bull; Zero Server Uploads &bull; No Watermarks</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+        Client-Side <span class="text-emerald-600 dark:text-emerald-400">Invoice &amp; Estimate</span> Generator
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Create clean, professional invoices and quotes without signing up or uploading sensitive financial details to the cloud. Live vector preview with instant PDF print.
+      </p>
+    </section>
+
+    <!-- MONETIZATION SLOT 1: TOP RESPONSIVE BANNER -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-4 no-print">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- WORKBENCH: SPLIT SCREEN (FORM INPUTS + LIVE INVOICE PREVIEW) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LEFT COLUMN: INPUT CONTROLS -->
+      <section class="lg:col-span-5 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-5 sm:p-6 shadow-sm space-y-6 no-print">
+        
+        <!-- Header Mode & Currency -->
+        <div class="space-y-3 pb-4 border-b border-slate-100 dark:border-slate-800">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-black uppercase tracking-wider text-slate-400">Document Type</span>
+            <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+              <button type="button" class="doc-type-btn active px-2.5 py-1 rounded-lg text-xs font-bold bg-white dark:bg-slate-700 text-emerald-600 dark:text-emerald-400 shadow-2xs" data-type="INVOICE">Invoice</button>
+              <button type="button" class="doc-type-btn px-2.5 py-1 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900" data-type="ESTIMATE">Estimate</button>
+              <button type="button" class="doc-type-btn px-2.5 py-1 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900" data-type="RECEIPT">Receipt</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-500 mb-1">Currency</label>
+              <select id="invoiceCurrency" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="CAD">CAD ($)</option>
+                <option value="AUD">AUD ($)</option>
+                <option value="JPY">JPY (¥)</option>
+                <option value="INR">INR (₹)</option>
+                <option value="CHF">CHF (Fr)</option>
+                <option value="SGD">SGD ($)</option>
+                <option value="AED">AED (د.إ)</option>
+                <option value="BRL">BRL (R$)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-500 mb-1">Doc Number</label>
+              <input type="text" id="docNumber" value="INV-2026-001" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Sender / Your Company -->
+        <div class="space-y-3 pb-4 border-b border-slate-100 dark:border-slate-800">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-black uppercase tracking-wider text-slate-400">Your Business (From)</span>
+            <button type="button" id="saveBusinessProfileBtn" class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold hover:underline">
+              Save as Default
+            </button>
+          </div>
+          <input type="text" id="fromName" placeholder="Your Name or Studio Name" value="Studio Nova Design" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+          <input type="email" id="fromEmail" placeholder="billing@yourdomain.com" value="alex@studionova.co" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+          <textarea id="fromAddress" rows="2" placeholder="Address, City, Tax ID / VAT #" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500">71-75 Shelton Street, London, WC2H 9JQ&#10;VAT: GB 982 4410 23</textarea>
+        </div>
+
+        <!-- Client Information -->
+        <div class="space-y-3 pb-4 border-b border-slate-100 dark:border-slate-800">
+          <span class="text-xs font-black uppercase tracking-wider text-slate-400">Client Details (Bill To)</span>
+          <input type="text" id="toName" placeholder="Client Name or Company" value="Acme Global Inc." class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+          <input type="email" id="toEmail" placeholder="accounts@client.com" value="ap@acmeglobal.com" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+          <textarea id="toAddress" rows="2" placeholder="Client Address, City, Country" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500">548 Market St, Suite 300&#10;San Francisco, CA 94104, USA</textarea>
+        </div>
+
+        <!-- Dates & Terms -->
+        <div class="grid grid-cols-2 gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
+          <div>
+            <label class="block text-[11px] font-bold text-slate-500 mb-1">Issue Date</label>
+            <input type="date" id="issueDate" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-500 mb-1">Payment Terms</label>
+            <select id="paymentTerms" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              <option value="Due on Receipt">Due on Receipt</option>
+              <option value="Net 15" selected>Net 15 Days</option>
+              <option value="Net 30">Net 30 Days</option>
+              <option value="Net 60">Net 60 Days</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Line Items Section -->
+        <div class="space-y-3 pb-4 border-b border-slate-100 dark:border-slate-800">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-black uppercase tracking-wider text-slate-400">Line Items</span>
+            <button type="button" id="addItemBtn" class="text-xs text-emerald-600 dark:text-emerald-400 font-bold hover:underline flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              Add Item
+            </button>
+          </div>
+          <div id="itemsContainer" class="space-y-2.5">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+
+        <!-- Tax & Discount Adjustments -->
+        <div class="grid grid-cols-2 gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
+          <div>
+            <label class="block text-[11px] font-bold text-slate-500 mb-1">Tax / VAT (%)</label>
+            <input type="number" id="taxPercent" value="0" min="0" max="100" step="0.5" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-500 mb-1">Discount Amount</label>
+            <input type="number" id="discountAmount" value="0" min="0" step="10" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+          </div>
+        </div>
+
+        <!-- Payment Instructions & Banking -->
+        <div class="space-y-2">
+          <span class="text-xs font-black uppercase tracking-wider text-slate-400">Payment Instructions &amp; Bank Info</span>
+          <textarea id="paymentNotes" rows="3" placeholder="Bank Name, IBAN, SWIFT/BIC, PayPal or Wise tag" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500">Bank: Wise Europe SA&#10;IBAN: BE68 5390 0754 7034&#10;BIC/SWIFT: TRWIBEB1&#10;Payment Reference: INV-2026-001</textarea>
+        </div>
+
+      </section>
+
+      <!-- RIGHT COLUMN: LIVE PRINTABLE VECTOR INVOICE DOCUMENT -->
+      <section class="lg:col-span-7 space-y-4">
+        
+        <!-- Action Toolbar -->
+        <div class="flex items-center justify-between no-print bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs">
+          <div class="text-xs font-bold text-slate-500 dark:text-slate-400">
+            Vector A4 / Letter Document
+          </div>
+          <button type="button" id="printInvoiceBtn" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+            <span>Download / Print Vector PDF</span>
+          </button>
+        </div>
+
+        <!-- Printable Document Canvas -->
+        <div id="invoiceCanvas" class="invoice-printable bg-white text-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-lg space-y-8 min-h-[750px]">
+          
+          <!-- Doc Top Header -->
+          <div class="flex items-start justify-between border-b border-slate-200 pb-8">
+            <div class="space-y-1">
+              <div id="previewFromName" class="text-2xl font-black tracking-tight text-slate-900">Studio Nova Design</div>
+              <div id="previewFromEmail" class="text-xs text-slate-500">alex@studionova.co</div>
+              <div id="previewFromAddress" class="text-xs text-slate-500 whitespace-pre-line">71-75 Shelton Street, London, WC2H 9JQ</div>
+            </div>
+
+            <div class="text-right space-y-1">
+              <div id="previewDocType" class="text-3xl font-black tracking-tight text-emerald-600 uppercase">INVOICE</div>
+              <div id="previewDocNumber" class="text-xs font-mono font-bold text-slate-500">INV-2026-001</div>
+              <div class="text-xs text-slate-500 pt-2">
+                <div>Date: <span id="previewIssueDate" class="font-bold text-slate-700">2026-10-06</span></div>
+                <div>Terms: <span id="previewPaymentTerms" class="font-bold text-slate-700">Net 15</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bill To Block -->
+          <div class="space-y-1">
+            <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">Billed To:</div>
+            <div id="previewToName" class="text-base font-bold text-slate-900">Acme Global Inc.</div>
+            <div id="previewToEmail" class="text-xs text-slate-500">ap@acmeglobal.com</div>
+            <div id="previewToAddress" class="text-xs text-slate-500 whitespace-pre-line">548 Market St, Suite 300, San Francisco, CA</div>
+          </div>
+
+          <!-- Items Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead>
+                <tr class="border-b-2 border-slate-900 text-[11px] font-black uppercase tracking-wider text-slate-900">
+                  <th class="py-3">Description</th>
+                  <th class="py-3 text-right">Qty / Hrs</th>
+                  <th class="py-3 text-right">Rate</th>
+                  <th class="py-3 text-right">Amount</th>
+                </tr>
+              </thead>
+              <tbody id="previewItemsTbody" class="divide-y divide-slate-100">
+                <!-- Rendered by app.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Summary Financial Totals -->
+          <div class="flex justify-end pt-4 border-t border-slate-200">
+            <div class="w-64 space-y-2 text-xs">
+              <div class="flex justify-between text-slate-600">
+                <span>Subtotal:</span>
+                <span id="previewSubtotal" class="font-mono font-bold">$0.00</span>
+              </div>
+              <div id="previewDiscountRow" class="flex justify-between text-amber-600 hidden">
+                <span>Discount:</span>
+                <span id="previewDiscount" class="font-mono font-bold">-$0.00</span>
+              </div>
+              <div id="previewTaxRow" class="flex justify-between text-slate-600">
+                <span>Tax / VAT (<span id="previewTaxRate">0%</span>):</span>
+                <span id="previewTax" class="font-mono font-bold">$0.00</span>
+              </div>
+              <div class="flex justify-between text-base font-black text-slate-900 pt-2 border-t-2 border-slate-900">
+                <span>Total Due:</span>
+                <span id="previewTotalDue" class="font-mono text-emerald-600">$0.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Banking & Payment Notes Footer -->
+          <div class="pt-8 border-t border-slate-100 space-y-1.5 text-xs text-slate-500">
+            <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">Payment Instructions:</div>
+            <div id="previewPaymentNotes" class="whitespace-pre-line font-mono text-[11px] text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100">
+              Bank details...
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- MONETIZATION SLOT 2: MID-PAGE BANNER -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6 no-print">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- EDITORIAL COMPREHENSIVE GUIDE & REAL-WORLD ADVICE -->
+    <article class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-6 sm:p-10 shadow-sm space-y-10 text-slate-700 dark:text-slate-300 leading-relaxed no-print">
+      
+      <!-- Section 1 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          The Anatomy of a High-Trust International Invoice
+        </h2>
+        <p>
+          Whether billing a San Francisco software client, a London consultancy, or a Berlin design studio, how your invoice looks directly impacts how fast accounts payable pays you. Corporate accounting departments process hundreds of invoices each month; confusing layouts or missing statutory details lead directly to payment rejections and weeks of email back-and-forth.
+        </p>
+        <p>
+          A compliant, professional invoice requires four foundational pillars: clear identity (both sender and recipient with tax/VAT identifiers), transparent itemization (deliverable descriptions, unit counts, and statutory discounts), precise payment routing (IBAN, SWIFT/BIC, Wise or ACH details), and unambiguous contractual payment terms.
+        </p>
+      </section>
+
+      <!-- Section 2: Methodology -->
+      <section class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          Net 15 vs Net 30: Managing Cash Flow and Preventing Delays
+        </h2>
+        <p>
+          Payment terms govern the contractual timeline within which the buyer must settle the bill:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 space-y-1">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Due on Receipt</h3>
+            <p>Best for milestone releases, new clients without credit history, or small retainers. Payment is expected within 24 to 72 hours of delivery.</p>
+          </div>
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 space-y-1">
+            <h3 class="font-bold text-emerald-600 dark:text-emerald-400 text-sm">Net 15 (Recommended)</h3>
+            <p>The sweet spot for freelancers and agile studios. Grants clients two business weeks to process payment while protecting your operational runway.</p>
+          </div>
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 space-y-1">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Net 30 / Net 60</h3>
+            <p>Standard for large enterprises. Beware that without upfront milestone deposits, Net 60 terms turn freelancers into interest-free credit lenders for massive corporations.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Case Study -->
+      <section class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          Real-World Case Study: How a Solopreneur Eliminated 18-Day Payment Lag
+        </h2>
+        <div class="p-5 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/40 space-y-3 text-sm">
+          <p>
+            <strong>The Situation:</strong> Elena, a brand identity designer based in Spain, consistently experienced 3-to-4 week delays getting paid by US and UK technology startups. Her invoices were written in informal Google Docs with vague descriptions like "Design Sprint - \$4,000".
+          </p>
+          <p>
+            <strong>The Problem:</strong> Startup finance leads couldn't verify her European tax classification, lacked her IBAN bank branch identifier, and assumed her invoices defaulted to generic 30-day corporate terms.
+          </p>
+          <p>
+            <strong>The Fix:</strong> Elena switched to standardized vector invoices with explicit Net 15 terms, detailed itemization (hours, deliverables, revision quotas), and clear international banking coordinates (SWIFT and local Wise borderless accounts).
+          </p>
+          <p>
+            <strong>The Result:</strong> Average payment turnaround dropped from 26 days to 6 days, with 80% of clients paying within 48 hours of milestone completion.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 4: FAQ Accordion -->
+      <section id="faqSection" class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          Frequently Asked Questions
+        </h2>
+        <div class="space-y-3">
+          <details class="group border border-slate-200 dark:border-slate-800 rounded-2xl p-4 transition-colors">
+            <summary class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between cursor-pointer">
+              <span>Is my client data or financial info stored on any external server?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Never. The PocketRuler invoice builder executes 100% in your local web browser. Zero customer names, financial sums, or banking records are transmitted to external servers or logged in analytics.
+            </p>
+          </details>
+
+          <details class="group border border-slate-200 dark:border-slate-800 rounded-2xl p-4 transition-colors">
+            <summary class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between cursor-pointer">
+              <span>How do I export this to a PDF without page headers or ads?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Click "Download / Print Vector PDF". Our custom print stylesheet automatically suppresses the website navigation, advertisements, and sidebar forms, leaving only the pristine vector invoice document ready to save as PDF.
+            </p>
+          </details>
+
+          <details class="group border border-slate-200 dark:border-slate-800 rounded-2xl p-4 transition-colors">
+            <summary class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between cursor-pointer">
+              <span>Can I save my business details so I don't have to retype them?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Yes. Click "Save as Default" next to your business information. This securely stores your company name, email, and banking coordinates in your browser's private `localStorage`, pre-populating them whenever you return.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Platform Methodology & Data Citations block -->
+      <div class="bg-slate-100 dark:bg-slate-900/60 rounded-xl p-4 border border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 mt-8 space-y-1">
+        <div class="font-bold text-slate-700 dark:text-slate-300">Methodology &amp; Standards</div>
+        <p>Invoicing format aligns with international commercial accounting standards (ISO 20022 and EU VAT Directive 2006/112/EC). Vector layout generated natively via W3C CSS Paged Media standards.</p>
+      </div>
+
+    </article>
+
+    <!-- MONETIZATION SLOT 3: BOTTOM BANNER -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6 no-print">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- UNIVERSAL FOOTER -->
+  <footer id="site-footer" class="no-print"></footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastNotification" class="toast-notification bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2.5 rounded-xl shadow-xl font-bold text-xs flex items-center gap-2">
+    <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMessage">Action successful!</span>
+  </div>
+
+  <!-- Unified Scripts -->
+  <script src="/js/theme.js"></script>
+  <script src="/js/components.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

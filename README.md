@@ -4,7 +4,8 @@
 
 **Live Domain:** [https://pocketruler.app](https://pocketruler.app)  
 **Primary Architecture Guide:** [PROJECT_TEMPLATE.md](PROJECT_TEMPLATE.md) *(Mandatory reading for any developer or AI agent before making changes)*  
-**Master Design, AdSense & SEO Guidelines:** [DESIGN_GUIDELINES.md](DESIGN_GUIDELINES.md) *(Design system tokens, WCAG 2.1/2.2 AA, AdSense viewability >70%, and Core Web Vitals)*
+**Master Design, AdSense & SEO Guidelines:** [DESIGN_GUIDELINES.md](DESIGN_GUIDELINES.md) *(Design system tokens, WCAG 2.1/2.2 AA, AdSense viewability >70%, and Core Web Vitals)*  
+**Master SEO & Generative Engine Optimization Guide:** [SEO_OPTIMIZATION_GUIDE.md](SEO_OPTIMIZATION_GUIDE.md) *(Technical SEO, Schema JSON-LD, Core Web Vitals, GEO / AI Search Citations, and automated audit tool)*
 
 ---
 
@@ -61,6 +62,21 @@ PocketRuler.app is designed as a **digital pocket knife**:
    - Multi-currency client retainer arbitrage: automatically converts foreign client earnings (USD, EUR, etc.) into local spending currency.
    - "Panic Mode" bare-bones survival switch, 24-month multi-scenario decay curves (Chart.js), and Burnout Capacity Barometer.
    - Emergency safety milestone buffer progress tracking (3-month, 6-month, 12-month goals).
+
+7. **Team Timezone Overlap Matrix & Golden Hour Finder** (`/timezone-calculator/`):
+   - 24-hour visual heat map for distributed remote teams across 16 global hubs.
+   - Automatic "Golden Overlap Window" calculation and 1-click formatted Slack/Teams/Email invite generator.
+   - 100% client-side calculation using native Intl APIs, zero server tracking.
+
+8. **Client-Side Private Invoice & Estimate Generator** (`/invoice-generator/`):
+   - 100% in-browser vector PDF generator (Invoice, Estimate, Receipt).
+   - Multi-currency, tax/VAT calculation, line item builder, and localStorage business profile saver.
+   - Zero watermarks, zero sign-up, and zero server transmission.
+
+9. **Creator Brand Sponsorship Rate Engine** (`/creator-rate-calculator/`):
+   - Defensible sponsorship pricing across YouTube, TikTok, Instagram, Newsletters, and Podcasts.
+   - Multi-factor CPM modeling based on verified reach, niche, and Tier 1 audience demographics.
+   - Commercial rights stacking (paid ad whitelisting, competitor exclusivity) and 1-click counter-pitch proposal memo generator.
 
 7. **Deep-Dive Knowledge Base & Transparency Pages**:
    - **Expat Tax & Visa Guide** (`/relocation-calculator/guide.html`): 2,000+ word structured guide on tax treaties, nomad visas, and 183-day residency rules.

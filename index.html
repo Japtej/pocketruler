@@ -89,7 +89,6 @@
 
   <!-- TOP HEADER (Unified Component) -->
   <header id="site-header" data-badge="Free Utilities" data-badge-color="emerald" data-subtitle="A digital pocket knife of handy online tools" data-active="home" class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200 min-h-[72px]"></header>
-  </header>
 
   <!-- MAIN DASHBOARD CONTENT -->
   <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow space-y-10">
@@ -161,19 +160,19 @@
         <!-- Category Pills -->
         <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto" role="tablist">
           <button type="button" class="filter-pill active px-3.5 py-1.5 rounded-lg border border-emerald-600 bg-emerald-600 text-white text-xs font-bold transition-colors" data-filter="all">
-            All Tools
+            All Tools (18)
           </button>
           <button type="button" class="filter-pill px-3.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors" data-filter="finance">
             Money &amp; Rates
           </button>
-          <button type="button" class="filter-pill px-3.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors" data-filter="relocation">
-            Relocation &amp; Travel
+          <button type="button" class="filter-pill px-3.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors" data-filter="remote">
+            Teams &amp; Remote
+          </button>
+          <button type="button" class="filter-pill px-3.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors" data-filter="creator">
+            Creators &amp; Media
           </button>
           <button type="button" class="filter-pill px-3.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors" data-filter="math">
             Everyday Math
-          </button>
-          <button type="button" class="filter-pill px-3.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold transition-colors" data-filter="roadmap">
-            Roadmap
           </button>
         </div>
       </div>
@@ -373,35 +372,151 @@
           </a>
         </article>
 
-        <!-- Upcoming Tool 4: Invoice & Scope Estimator -->
-        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-5" data-category="finance roadmap" data-title="invoice scope estimator billing milestones projects">
-          <div class="space-y-3">
+        <!-- Tool: Team Timezone Overlap Matrix & Golden Hour Finder -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border-2 border-blue-500/30 dark:border-blue-500/40 p-6 sm:p-8 shadow-sm hover:shadow-md hover:border-blue-500 transition-all flex flex-col justify-between space-y-6 group" data-category="remote" data-title="team timezone overlap matrix golden hour remote work meeting scheduler world clock async">
+          <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-xs font-bold text-sm">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-xs font-bold">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
-              <span class="text-[10px] bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-bold px-2 py-0.5 rounded-full border border-amber-200 dark:border-amber-800 uppercase tracking-wider">
-                In Development
+              <span class="text-[10px] bg-blue-50 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 font-bold px-2.5 py-1 rounded-full border border-blue-200 dark:border-blue-800 uppercase tracking-wider">
+                Golden Hour &bull; 1-Click Slack Invite
               </span>
             </div>
+
             <div>
               <div class="flex items-center gap-2 mb-1">
-                <span class="text-[10px] font-bold text-amber-700 dark:text-amber-300 uppercase bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 rounded">Money &bull; Planned</span>
+                <span class="text-[10px] font-bold text-blue-700 dark:text-blue-300 uppercase bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded">Remote Teams &bull; New Engine</span>
               </div>
-              <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">
-                Milestone &amp; Scope Estimator
+              <h3 class="text-xl font-black text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                Team Timezone Overlap &amp; Golden Hour Finder
               </h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                Break down project phases, deposit milestones, and deliverable deadlines without wrestling complicated spreadsheets.
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                Coordinate meetings across global distributed teams without timezone fatigue. 24-hour visual waking heat map with automatic Golden Overlap detection and 1-click formatted Slack invites.
               </p>
             </div>
+
+            <ul class="text-xs text-slate-600 dark:text-slate-300 space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>24-Hour Timeline Heat Map:</strong> Visualizes working, shoulder, and sleep hours</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>Automatic Golden Window:</strong> Solves optimal hours with highest team overlap</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>1-Click Invite Copy:</strong> Ready-to-paste local times for Slack, Teams, or email</span>
+              </li>
+            </ul>
           </div>
-          <div class="py-2.5 px-4 bg-slate-50 dark:bg-slate-800/60 text-slate-400 dark:text-slate-500 rounded-xl text-xs font-semibold text-center border border-slate-200 dark:border-slate-750 cursor-not-allowed">
-            Preview &bull; Coming Soon
-          </div>
+
+          <a href="/timezone-calculator/" class="w-full py-3 px-5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow-xs text-center transition-colors flex items-center justify-center gap-2">
+            Open Timezone Matrix
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+          </a>
         </article>
 
-        <!-- Tool 4: Solopreneur Runway & Burn Rate Calculator -->
+        <!-- Tool: Private Client-Side Invoice Generator -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border-2 border-emerald-500/30 dark:border-emerald-500/40 p-6 sm:p-8 shadow-sm hover:shadow-md hover:border-emerald-500 transition-all flex flex-col justify-between space-y-6 group" data-category="finance" data-title="private invoice generator client side quote estimate vector pdf billing freelance zero signup">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-xs font-bold">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <span class="text-[10px] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-bold px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-800 uppercase tracking-wider">
+                100% In-Browser &bull; Vector PDF
+              </span>
+            </div>
+
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded">Finance &bull; New Engine</span>
+              </div>
+              <h3 class="text-xl font-black text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                Client-Side Invoice &amp; Estimate Generator
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                Generate professional vector PDF invoices, estimates, and receipts without signing up or uploading sensitive company data. Live split-screen preview with multi-currency and VAT support.
+              </p>
+            </div>
+
+            <ul class="text-xs text-slate-600 dark:text-slate-300 space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>Zero Cloud Tracking:</strong> Financial records exist only in browser memory</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>Instant Vector PDF Export:</strong> Clean print-ready formatting with zero watermarks</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>LocalStorage Profile Saver:</strong> Remembers your business details locally</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="/invoice-generator/" class="w-full py-3 px-5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow-xs text-center transition-colors flex items-center justify-center gap-2">
+            Open Invoice Generator
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+          </a>
+        </article>
+
+        <!-- Tool: Creator Brand Sponsorship Rate Engine -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border-2 border-purple-500/30 dark:border-purple-500/40 p-6 sm:p-8 shadow-sm hover:shadow-md hover:border-purple-500 transition-all flex flex-col justify-between space-y-6 group" data-category="creator" data-title="creator sponsorship rate engine brand deal pricing youtube tiktok newsletter podcast cpm whitelisting pitch memo">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-2xl bg-purple-600 text-white flex items-center justify-center shadow-xs font-bold">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                </svg>
+              </div>
+              <span class="text-[10px] bg-purple-50 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 font-bold px-2.5 py-1 rounded-full border border-purple-200 dark:border-purple-800 uppercase tracking-wider">
+                Multi-Platform &bull; Agency Benchmarks
+              </span>
+            </div>
+
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-bold text-purple-700 dark:text-purple-300 uppercase bg-purple-50 dark:bg-purple-950/60 px-2 py-0.5 rounded">Creators &bull; New Engine</span>
+              </div>
+              <h3 class="text-xl font-black text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                Creator Brand Sponsorship Rate Engine
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                Stop guessing or undercharging for brand sponsorships. Calculates 3-tier rates across YouTube, TikTok, Newsletters, and Podcasts with ad whitelisting rights and copy-ready pitch memos.
+              </p>
+            </div>
+
+            <ul class="text-xs text-slate-600 dark:text-slate-300 space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>Multi-Factor Pricing:</strong> Verified median reach, niche CPMs &amp; Tier 1 audience</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>Commercial Rights Stacking:</strong> Price paid ad whitelisting and competitor exclusivity</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>1-Click Counter-Pitch Memo:</strong> Professional response email ready to send</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="/creator-rate-calculator/" class="w-full py-3 px-5 bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow-xs text-center transition-colors flex items-center justify-center gap-2">
+            Open Creator Rate Engine
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+          </a>
+        </article>
+
+        <!-- Tool: Solopreneur Runway & Burn Rate Calculator -->
         <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border-2 border-emerald-500/30 dark:border-emerald-500/40 p-6 sm:p-8 shadow-sm hover:shadow-md hover:border-emerald-500 transition-all flex flex-col justify-between space-y-6 group" data-category="finance" data-title="runway calculator burn rate zero cash date solopreneur freelance savings panic mode burnout">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
@@ -438,7 +553,7 @@
               </li>
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                <span><strong>24-Month Depletion Curves &amp; Burnout Barometer:</strong> 0% &amp; 50% revenue stress tests</span>
+                <span><strong>24-Month Depletion Curves:</strong> 0% &amp; 50% revenue stress test decay curves</span>
               </li>
             </ul>
           </div>
@@ -449,32 +564,301 @@
           </a>
         </article>
 
-        <!-- Upcoming Tool 5: Everyday Math Tool -->
-        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-5" data-category="math roadmap" data-title="percentage difference split bill tip discount everyday math">
+        <!-- Tool: 50/30/20 Budget Splitter -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border-2 border-emerald-500/30 dark:border-emerald-500/40 p-6 sm:p-8 shadow-sm hover:shadow-md hover:border-emerald-500 transition-all flex flex-col justify-between space-y-6 group" data-category="finance" data-title="50 30 20 budget calculator paycheck splitter monthly income allocation savings needs wants">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-xs font-bold">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                </svg>
+              </div>
+              <span class="text-[10px] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-bold px-2.5 py-1 rounded-full border border-emerald-200 dark:border-emerald-800 uppercase tracking-wider">
+                15 Currencies &bull; Chart.js
+              </span>
+            </div>
+
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded">Finance &bull; Utility</span>
+              </div>
+              <h3 class="text-xl font-black text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                50/30/20 Budget &amp; Paycheck Splitter
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
+                Divide your take-home pay into Needs (50%), Wants (30%), and Savings (20%) instantly. Visual breakdown chart with custom slider percentages and live currency conversion.
+              </p>
+            </div>
+
+            <ul class="text-xs text-slate-600 dark:text-slate-300 space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>Dynamic Pie Chart:</strong> Real-time visual allocation across the 3 core buckets</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>Custom Percentage Sliders:</strong> Customize to 60/20/20 or 70/20/10 for high COL cities</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="/budget-calculator/" class="w-full py-3 px-5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow-xs text-center transition-colors flex items-center justify-center gap-2">
+            Open Budget Splitter
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+          </a>
+        </article>
+
+        <!-- Tool: Subscription Silent Drain Audit -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-5" data-category="finance" data-title="subscription calculator recurring silent drain saas audit compound interest leak">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <div class="w-10 h-10 rounded-xl bg-teal-500 text-white flex items-center justify-center shadow-xs font-bold text-sm">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/></svg>
+              <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-xs font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
               </div>
-              <span class="text-[10px] bg-teal-50 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 font-bold px-2 py-0.5 rounded-full border border-teal-200 dark:border-teal-800 uppercase tracking-wider">
-                In Development
+              <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-700 uppercase tracking-wider">
+                SaaS &bull; Audit
               </span>
             </div>
             <div>
               <div class="flex items-center gap-2 mb-1">
-                <span class="text-[10px] font-bold text-teal-700 dark:text-teal-300 uppercase bg-teal-50 dark:bg-teal-950/60 px-2 py-0.5 rounded">Everyday Math &bull; Planned</span>
+                <span class="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded">Finance &bull; Tool</span>
               </div>
               <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">
-                Quick Percentage &amp; Bill Splitter
+                Subscription &amp; Silent Drain Audit
               </h3>
               <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                Figure out percentage increases, discount savings, tax additions, and restaurant bill splits without breaking out paper or pen.
+                Audit monthly recurring software subscriptions, calculate total annual drain, and model 5-year compound growth lost to forgotten services.
               </p>
             </div>
           </div>
-          <div class="py-2.5 px-4 bg-slate-50 dark:bg-slate-800/60 text-slate-400 dark:text-slate-500 rounded-xl text-xs font-semibold text-center border border-slate-200 dark:border-slate-750 cursor-not-allowed">
-            Preview &bull; Coming Soon
+          <a href="/subscription-calculator/" class="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 rounded-xl text-xs font-bold text-center border border-slate-200 dark:border-slate-700 transition-colors">
+            Audit Subscriptions &rarr;
+          </a>
+        </article>
+
+        <!-- Tool: Debt Snowball vs Avalanche -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-5" data-category="finance" data-title="debt snowball avalanche payoff planner loan interest savings timeline">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-xs font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+              </div>
+              <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-700 uppercase tracking-wider">
+                Debt Free Matrix
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded">Finance &bull; Tool</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">
+                Debt Snowball vs. Avalanche Payoff
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                Compare psychological snowball momentum against mathematical interest avalanche to calculate exact months saved and interest eliminated.
+              </p>
+            </div>
           </div>
+          <a href="/debt-calculator/" class="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 rounded-xl text-xs font-bold text-center border border-slate-200 dark:border-slate-700 transition-colors">
+            Compare Payoff Strategies &rarr;
+          </a>
+        </article>
+
+        <!-- Tool: Side Hustle & Platform Fee Profit Calculator -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-5" data-category="finance" data-title="side hustle profit calculator platform fee etsy ebay fiverr tax cuts">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-xs font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-700 uppercase tracking-wider">
+                Etsy &bull; eBay &bull; Fiverr
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded">Finance &bull; Tool</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">
+                Side Hustle Profit &amp; Platform Fee Calculator
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                See your true net margin after marketplace transaction fees, payment processing cuts, shipping costs, and income tax withholdings.
+              </p>
+            </div>
+          </div>
+          <a href="/side-hustle-calculator/" class="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 rounded-xl text-xs font-bold text-center border border-slate-200 dark:border-slate-700 transition-colors">
+            Calculate Net Margin &rarr;
+          </a>
+        </article>
+
+        <!-- Tool: Real-Time Meeting Cost Ticker -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-5" data-category="remote" data-title="meeting cost ticker live burn rate zoom team waste calculator">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-blue-500 text-white flex items-center justify-center shadow-xs font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-700 uppercase tracking-wider">
+                Live Stopwatch
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-bold text-blue-700 dark:text-blue-300 uppercase bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded">Remote Teams &bull; Tool</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">
+                Real-Time Meeting Cost Burn Ticker
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                Watch dollars burn second-by-second during corporate Zoom calls based on attendee headcount, average salaries, and opportunity cost.
+              </p>
+            </div>
+          </div>
+          <a href="/meeting-cost-calculator/" class="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-700 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-300 rounded-xl text-xs font-bold text-center border border-slate-200 dark:border-slate-700 transition-colors">
+            Start Burn Ticker &rarr;
+          </a>
+        </article>
+
+        <!-- Tool: Screen Time Opportunity Cost -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-5" data-category="remote math" data-title="screen time calculator opportunity cost phone social media wasted hours financial value">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-blue-500 text-white flex items-center justify-center shadow-xs font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+              </div>
+              <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-700 uppercase tracking-wider">
+                Productivity
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-bold text-blue-700 dark:text-blue-300 uppercase bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded">Productivity &bull; Tool</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">
+                Screen Time Opportunity Cost Calculator
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                Translate daily doom-scrolling hours into lifetime lost days, books unread, and financial earnings foregone at your hourly earning rate.
+              </p>
+            </div>
+          </div>
+          <a href="/screen-time-calculator/" class="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-700 dark:text-slate-200 hover:text-blue-700 dark:hover:text-blue-300 rounded-xl text-xs font-bold text-center border border-slate-200 dark:border-slate-700 transition-colors">
+            Calculate Opportunity Cost &rarr;
+          </a>
+        </article>
+
+        <!-- Tool: Car Ownership vs Uber & Transit -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-5" data-category="remote math" data-title="car cost ownership vs uber public transit depreciation insurance gas parking comparison">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-purple-500 text-white flex items-center justify-center shadow-xs font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+              </div>
+              <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-700 uppercase tracking-wider">
+                Mobility Audit
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-bold text-purple-700 dark:text-purple-300 uppercase bg-purple-50 dark:bg-purple-950/60 px-2 py-0.5 rounded">Mobility &bull; Tool</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">
+                Car Ownership vs. Uber &amp; Transit
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                Compare true monthly car costs (depreciation, insurance, gas, maintenance, parking) against rideshare and public transit across 10 global cities.
+              </p>
+            </div>
+          </div>
+          <a href="/car-cost-calculator/" class="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-purple-50 dark:hover:bg-purple-950/40 text-slate-700 dark:text-slate-200 hover:text-purple-700 dark:hover:text-purple-300 rounded-xl text-xs font-bold text-center border border-slate-200 dark:border-slate-700 transition-colors">
+            Compare Mobility Costs &rarr;
+          </a>
+        </article>
+
+        <!-- Tool: Audiobook & Video Speed Saver -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-5" data-category="creator math" data-title="audiobook video playback speed calculator time saved 1.25x 1.5x 2x youtube audible">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-purple-500 text-white flex items-center justify-center shadow-xs font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-700 uppercase tracking-wider">
+                Media &bull; Math
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-bold text-purple-700 dark:text-purple-300 uppercase bg-purple-50 dark:bg-purple-950/60 px-2 py-0.5 rounded">Media &bull; Tool</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">
+                Audiobook &amp; Video Speed Saver
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                Calculate exact hours and minutes saved by listening or watching media at 1.25x, 1.5x, 1.75x, or 2x speed with comprehension benchmarks.
+              </p>
+            </div>
+          </div>
+          <a href="/playback-speed-calculator/" class="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-purple-50 dark:hover:bg-purple-950/40 text-slate-700 dark:text-slate-200 hover:text-purple-700 dark:hover:text-purple-300 rounded-xl text-xs font-bold text-center border border-slate-200 dark:border-slate-700 transition-colors">
+            Calculate Time Saved &rarr;
+          </a>
+        </article>
+
+        <!-- Tool: Sleep Cycle & REM Optimizer -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-5" data-category="math" data-title="sleep cycle calculator rem wake time bedtime 90 minute circadian rhythm">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-purple-500 text-white flex items-center justify-center shadow-xs font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+              </div>
+              <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-700 uppercase tracking-wider">
+                Circadian &bull; Cycles
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-bold text-purple-700 dark:text-purple-300 uppercase bg-purple-50 dark:bg-purple-950/60 px-2 py-0.5 rounded">Everyday &bull; Health</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">
+                Sleep Cycle &amp; REM Clock Optimizer
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                Find optimal bedtimes and wake-up alarms based on natural 90-minute REM sleep cycles to wake up refreshed without grogginess.
+              </p>
+            </div>
+          </div>
+          <a href="/sleep-calculator/" class="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-purple-50 dark:hover:bg-purple-950/40 text-slate-700 dark:text-slate-200 hover:text-purple-700 dark:hover:text-purple-300 rounded-xl text-xs font-bold text-center border border-slate-200 dark:border-slate-700 transition-colors">
+            Calculate Sleep Cycles &rarr;
+          </a>
+        </article>
+
+        <!-- Tool: Recipe Scaler & Unit Converter -->
+        <article class="tool-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between space-y-5" data-category="math" data-title="recipe scaler unit converter kitchen grams cups ounces servings baker math">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="w-10 h-10 rounded-xl bg-purple-500 text-white flex items-center justify-center shadow-xs font-bold text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+              </div>
+              <span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold px-2 py-0.5 rounded-full border border-slate-200 dark:border-slate-700 uppercase tracking-wider">
+                Kitchen &bull; Math
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-bold text-purple-700 dark:text-purple-300 uppercase bg-purple-50 dark:bg-purple-950/60 px-2 py-0.5 rounded">Everyday &bull; Cooking</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">
+                Recipe Scaler &amp; Unit Converter
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                Scale ingredient quantities seamlessly by serving size. Convert between metric grams/milliliters and imperial cups/spoons with smart culinary rounding.
+              </p>
+            </div>
+          </div>
+          <a href="/recipe-scaler/" class="py-2.5 px-4 bg-slate-100 dark:bg-slate-800 hover:bg-purple-50 dark:hover:bg-purple-950/40 text-slate-700 dark:text-slate-200 hover:text-purple-700 dark:hover:text-purple-300 rounded-xl text-xs font-bold text-center border border-slate-200 dark:border-slate-700 transition-colors">
+            Scale Ingredients &rarr;
+          </a>
         </article>
 
       </div>

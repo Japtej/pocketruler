@@ -416,6 +416,9 @@ html.dark .modal-overlay > div {
 
   .no-print,
   .adsense-placeholder,
+  .adsense-slot,
+  #site-header,
+  #site-footer,
   aside[role="region"],
   button,
   .toast-notification,
@@ -425,5 +428,47 @@ html.dark .modal-overlay > div {
   #faqSection {
     display: none !important;
   }
+
+  /* Invoice Print Isolation */
+  .invoice-printable {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* Timezone Matrix Grid & Hour Cells */
+.tz-hour-cell {
+  position: relative;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+.tz-hour-cell:hover {
+  transform: translateY(-2px);
+  z-index: 10;
+}
+.tz-hour-work {
+  background-color: #10b981;
+  color: #ffffff;
+}
+.tz-hour-shoulder {
+  background-color: #f59e0b;
+  color: #ffffff;
+}
+.tz-hour-sleep {
+  background-color: #334155;
+  color: #94a3b8;
+}
+html.dark .tz-hour-sleep {
+  background-color: #1e293b;
+  color: #64748b;
+}
+
+/* Modern Tabular Numbers for Jitter-Free Calculations */
+.font-mono-numbers {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-variant-numeric: tabular-nums;
 }
 

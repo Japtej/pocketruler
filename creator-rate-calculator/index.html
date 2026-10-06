@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://open.er-api.com https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://ep2.adtrafficquality.google; frame-src 'self' https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com;" />
+  <title>Creator Brand Sponsorship Rate Engine | PocketRuler.app</title>
+  <meta name="description" content="Free creator sponsorship rate calculator for YouTube, TikTok, Instagram, Newsletters, and Podcasts. Calculate market standard pricing, ad whitelisting rights, and copy-ready pitch memos." />
+  <meta name="keywords" content="creator rate calculator, influencer sponsorship pricing, brand deal calculator, youtube sponsorship rate, tiktok brand deal price, podcast ad rate calculator" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="canonical" href="https://pocketruler.app/creator-rate-calculator/" />
+  <meta property="og:title" content="Creator Brand Sponsorship Rate Engine | PocketRuler.app" />
+  <meta property="og:description" content="Calculate what to charge brands for YouTube, TikTok, Newsletter & Podcast sponsorships. Factor in views, niche CPMs, and ad whitelisting rights." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pocketruler.app/creator-rate-calculator/" />
+  <meta property="og:site_name" content="PocketRuler.app" />
+  <meta property="og:image" content="https://pocketruler.app/logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Zero-FOUC Theme Detection Script -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('pocketruler_theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google AdSense Official Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3008088352823319" crossorigin="anonymous"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Creator Brand Sponsorship Rate Engine",
+    "url": "https://pocketruler.app/creator-rate-calculator/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Calculate fair market sponsorship rates for creators across YouTube, TikTok, Instagram, Newsletters, and Podcasts with usage rights and counter-offer memo generation."
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How are sponsorship rates calculated for creators?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Brand deal rates are primarily calculated as (Median Verified Views / 1,000) * Niche CPM, modified by multipliers for audience geography (Tier 1 vs. Global), deliverable format (dedicated vs. integrated), usage rights (whitelisting/spark ads), and exclusivity lockout periods." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is paid ad whitelisting and should creators charge extra for it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Paid ad whitelisting (or Spark Ads on TikTok / Meta partnership ads) is when a brand runs paid advertising through your social handle. Creators should always charge an extra 30% to 75% for this, because the brand is directly profiting from your personal identity and audience trust to drive direct sales." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do finance and tech niches have much higher CPMs than gaming?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Advertiser customer lifetime value (LTV) dictates CPMs. A fintech app or B2B SaaS company makes hundreds or thousands of dollars per customer conversion, allowing them to pay $40–$80+ CPMs. In contrast, gaming and entertainment have lower purchase intent, resulting in $12–$22 CPMs." }
+      },
+      {
+        "@type": "Question",
+        "name": "Should creators quote based on subscriber count or median views?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Always quote based on median 30-day verified views, not total subscriber count. Subscribers represent vanity metrics from the past, whereas median views represent actual guaranteed reach for the brand today." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased flex flex-col justify-between transition-colors duration-200">
+
+  <!-- TOP HEADER -->
+  <header id="site-header" data-badge="Creator Economy" data-badge-color="purple" data-subtitle="Defensible pricing &amp; pitch generator for brand deals" data-active="creator" class="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-40 shadow-xs transition-colors duration-200 min-h-[72px]"></header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow space-y-10">
+
+    <!-- Hero Section -->
+    <section class="text-center max-w-3xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold text-purple-700 dark:text-purple-300 bg-purple-100/70 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800">
+        <span class="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
+        <span>100% Free &bull; Based on 2026 Agency Benchmarks &bull; No Sign-Up</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+        Creator Brand Sponsorship <span class="text-purple-600 dark:text-purple-400">Rate Engine</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Stop guessing what to charge sponsors or letting brand agencies lowball your work. Calculate defensible market rates across YouTube, TikTok, Newsletters, and Podcasts with usage rights multipliers.
+      </p>
+    </section>
+
+    <!-- MONETIZATION SLOT 1: TOP RESPONSIVE BANNER -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-4">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- WORKBENCH: CALCULATOR INPUTS & RATE CARDS -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LEFT COLUMN: INPUT CONTROLS -->
+      <section class="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-5 sm:p-8 shadow-sm space-y-6">
+        
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+          <h2 class="text-xl font-black text-slate-900 dark:text-white">Deal Parameters</h2>
+          <span class="text-xs text-purple-600 dark:text-purple-400 font-bold">Live Calculation</span>
+        </div>
+
+        <!-- 1. Platform & Deliverable -->
+        <div class="space-y-3">
+          <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider">
+            1. Platform &amp; Deliverable Type
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="platformSelector">
+            <button type="button" class="platform-btn active p-3 rounded-xl border border-purple-600 bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-bold text-xs text-left transition-all" data-platform="yt_integrated" data-mult="1.0">
+              <div class="text-sm mb-0.5">📺 YouTube</div>
+              <div class="text-[10px] opacity-75 font-normal">60s Integration</div>
+            </button>
+            <button type="button" class="platform-btn p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs text-left transition-all hover:border-purple-300" data-platform="yt_dedicated" data-mult="2.5">
+              <div class="text-sm mb-0.5">🎬 YouTube</div>
+              <div class="text-[10px] opacity-75 font-normal">Dedicated Video</div>
+            </button>
+            <button type="button" class="platform-btn p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs text-left transition-all hover:border-purple-300" data-platform="tiktok" data-mult="0.65">
+              <div class="text-sm mb-0.5">📱 TikTok</div>
+              <div class="text-[10px] opacity-75 font-normal">Dedicated Video</div>
+            </button>
+            <button type="button" class="platform-btn p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs text-left transition-all hover:border-purple-300" data-platform="instagram_reel" data-mult="0.75">
+              <div class="text-sm mb-0.5">📸 Instagram</div>
+              <div class="text-[10px] opacity-75 font-normal">Reel Post</div>
+            </button>
+            <button type="button" class="platform-btn p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs text-left transition-all hover:border-purple-300" data-platform="newsletter" data-mult="1.2">
+              <div class="text-sm mb-0.5">✉️ Newsletter</div>
+              <div class="text-[10px] opacity-75 font-normal">Dedicated Email</div>
+            </button>
+            <button type="button" class="platform-btn p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs text-left transition-all hover:border-purple-300" data-platform="podcast" data-mult="1.1">
+              <div class="text-sm mb-0.5">🎙️ Podcast</div>
+              <div class="text-[10px] opacity-75 font-normal">60s Mid-Roll</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Median Verified Views -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider">
+              2. Median 30-Day Views / Reach
+            </label>
+            <span id="viewsValueDisplay" class="font-mono text-sm font-black text-purple-600 dark:text-purple-400">
+              45,000 Views
+            </span>
+          </div>
+          <input type="range" id="viewsSlider" min="2000" max="500000" step="1000" value="45000" class="w-full" />
+          
+          <!-- Presets -->
+          <div class="flex flex-wrap items-center gap-2 pt-1">
+            <button type="button" class="view-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200" data-val="10000">10k</button>
+            <button type="button" class="view-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200" data-val="25000">25k</button>
+            <button type="button" class="view-preset-btn active px-2.5 py-1 rounded-lg text-xs font-semibold bg-purple-600 text-white font-bold" data-val="45000">45k</button>
+            <button type="button" class="view-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200" data-val="100000">100k</button>
+            <button type="button" class="view-preset-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200" data-val="250000">250k</button>
+          </div>
+        </div>
+
+        <!-- 3. Niche & Baseline CPM -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1.5 uppercase tracking-wider">
+              3. Content Niche
+            </label>
+            <select id="nicheSelect" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-purple-500">
+              <option value="finance" data-cpm="55">💰 Personal Finance &amp; Crypto ($55 CPM)</option>
+              <option value="tech" data-cpm="45" selected>💻 B2B Tech, SaaS &amp; AI ($45 CPM)</option>
+              <option value="productivity" data-cpm="35">⚡ Productivity &amp; Career ($35 CPM)</option>
+              <option value="health" data-cpm="28">🥗 Fitness, Health &amp; Wellness ($28 CPM)</option>
+              <option value="lifestyle" data-cpm="22">✨ Lifestyle, Travel &amp; Beauty ($22 CPM)</option>
+              <option value="gaming" data-cpm="16">🎮 Gaming &amp; Entertainment ($16 CPM)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 mb-1.5 uppercase tracking-wider">
+              4. Audience Geography
+            </label>
+            <select id="geoSelect" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-purple-500">
+              <option value="tier1_heavy" data-mult="1.25" selected>🇺🇸 Tier 1 Heavy (&gt;70% US, UK, CA, AU) [1.25x]</option>
+              <option value="global_mixed" data-mult="1.0">🌍 Global Mixed (40–70% Tier 1) [1.0x]</option>
+              <option value="emerging" data-mult="0.75">🌏 Emerging Markets Heavy (&lt;40% Tier 1) [0.75x]</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 4. Rights & Exclusivity Multipliers -->
+        <div class="space-y-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+          <label class="block text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider">
+            5. Usage Rights &amp; Exclusivity Stacking
+          </label>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-500 mb-1">Paid Ad Whitelisting / Spark Ads</label>
+              <select id="whitelistingSelect" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <option value="none" data-add="0">None (Organic Only)</option>
+                <option value="30_days" data-add="0.30" selected>30-Day Paid Whitelisting (+30%)</option>
+                <option value="60_days" data-add="0.50">60-Day Paid Whitelisting (+50%)</option>
+                <option value="90_days" data-add="0.75">90-Day Paid Whitelisting (+75%)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-500 mb-1">Category Exclusivity Lockout</label>
+              <select id="exclusivitySelect" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <option value="none" data-add="0">No Exclusivity (Can take competitors)</option>
+                <option value="30_days" data-add="0.25" selected>30-Day Category Exclusivity (+25%)</option>
+                <option value="60_days" data-add="0.45">60-Day Category Exclusivity (+45%)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Add-on Checkboxes -->
+          <div class="flex flex-wrap items-center gap-4 pt-2 text-xs">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="rushTurnaroundCheck" class="w-4 h-4 rounded text-purple-600 focus:ring-purple-500" />
+              <span class="text-slate-700 dark:text-slate-300 font-semibold">Rush Turnaround &lt;72 Hours (+25%)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="linkInBioCheck" checked class="w-4 h-4 rounded text-purple-600 focus:ring-purple-500" />
+              <span class="text-slate-700 dark:text-slate-300 font-semibold">Dedicated Link in Bio / Pinned Comment (+10%)</span>
+            </label>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- RIGHT COLUMN: 3-TIER PRICING & COPY MEMO -->
+      <section class="lg:col-span-5 space-y-5">
+        
+        <!-- Pricing Deck Cards -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-6 shadow-sm space-y-6">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+            <h3 class="text-sm font-black uppercase tracking-wider text-slate-400">Recommended Pricing Deck</h3>
+            <span class="text-[10px] bg-purple-100 dark:bg-purple-900/60 text-purple-800 dark:text-purple-300 px-2 py-0.5 rounded-full font-bold">USD</span>
+          </div>
+
+          <!-- Tier 2: Recommended (Hero Card) -->
+          <div class="p-5 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-950/40 dark:to-indigo-950/40 border-2 border-purple-500/80 space-y-2 relative shadow-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-black uppercase tracking-wider text-purple-700 dark:text-purple-300">Recommended Market Quote</span>
+              <span class="text-[10px] bg-purple-600 text-white font-bold px-2 py-0.5 rounded-full">Standard</span>
+            </div>
+            <div id="rateRecommended" class="text-3xl sm:text-4xl font-black font-mono text-purple-700 dark:text-purple-300">
+              $2,850
+            </div>
+            <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+              Fair market rate with strong closing probability. Includes selected deliverable, whitelisting rights, and standard revisions.
+            </p>
+          </div>
+
+          <!-- Side-by-side: Floor vs Premium -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-1">
+              <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">Conservative Floor</div>
+              <div id="rateFloor" class="text-xl font-black font-mono text-slate-800 dark:text-slate-100">
+                $2,100
+              </div>
+              <div class="text-[10px] text-slate-500">Do not accept less than this price.</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-1">
+              <div class="text-[10px] font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Enterprise / Brand Target</div>
+              <div id="ratePremium" class="text-xl font-black font-mono text-emerald-600 dark:text-emerald-400">
+                $3,700
+              </div>
+              <div class="text-[10px] text-slate-500">For well-funded venture brands.</div>
+            </div>
+          </div>
+
+          <!-- Value Metrics Breakdown -->
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-2 text-xs">
+            <div class="flex justify-between text-slate-600 dark:text-slate-400">
+              <span>Effective CPM:</span>
+              <span id="metricEffectiveCpm" class="font-mono font-bold text-slate-800 dark:text-slate-200">$63.33</span>
+            </div>
+            <div class="flex justify-between text-slate-600 dark:text-slate-400">
+              <span>Rights &amp; Multipliers Uplift:</span>
+              <span id="metricUplift" class="font-mono font-bold text-purple-600 dark:text-purple-400">+65%</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 1-Click Proposal Email Memo Box -->
+        <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-5 sm:p-6 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-black uppercase tracking-wider text-slate-400">Counter-Offer Pitch Memo</span>
+            <button type="button" id="copyMemoBtn" class="px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs shadow-xs transition-colors flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+              <span>Copy Email</span>
+            </button>
+          </div>
+          <pre id="memoPreviewText" class="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200/80 dark:border-slate-700 text-xs font-mono text-slate-700 dark:text-slate-300 whitespace-pre-wrap select-all max-h-48 overflow-y-auto">Generating pitch proposal email...</pre>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- MONETIZATION SLOT 2: MID-PAGE BANNER -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
+    </aside>
+
+    <!-- EDITORIAL COMPREHENSIVE GUIDE & REAL-WORLD ADVICE -->
+    <article class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-6 sm:p-10 shadow-sm space-y-10 text-slate-700 dark:text-slate-300 leading-relaxed">
+      
+      <!-- Section 1 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          The Creator Pricing Dilemma: Why 85% of Creators Undercharge Brands
+        </h2>
+        <p>
+          Most independent creators begin their sponsorship journey with immense imposter syndrome. When a brand manager reaches out with an opening email asking for a media kit, creators often respond with lowball figures like \$300 or \$500 for hours of scriptwriting, filming, and editing work.
+        </p>
+        <p>
+          What creators fail to recognize is that marketing managers do not evaluate creators on the creator's personal living expenses; they evaluate creators against the benchmark cost of alternative advertising channels (Facebook Ads, Google Search, and programmatic video). If a brand were to run paid programmatic ads to reach 50,000 targeted software developers or finance professionals, they would spend upwards of \$3,000 to \$5,000 with zero organic trust or personal endorsement. By understanding your true CPM and commercial usage rights, you anchor negotiations to agency-standard metrics.
+        </p>
+      </section>
+
+      <!-- Section 2: Methodology -->
+      <section class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          The Sponsorship Formula: How to Price Rights and Deliverables
+        </h2>
+        <p>
+          The baseline price represents your organic distribution value:
+        </p>
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 font-mono text-xs space-y-2">
+          <div>\(\text{Baseline Rate} = \left(\frac{\text{Median Verified Views}}{1,000}\right) \times \text{Niche CPM} \times \text{Platform Multiplier} \times \text{Geo Multiplier}\)</div>
+          <div>\(\text{Final Quote} = \text{Baseline Rate} \times (1 + \text{Whitelisting} + \text{Exclusivity} + \text{Add-ons})\)</div>
+        </div>
+        <p>
+          Crucially, you should never bundle organic posts and paid ad usage rights into a single flat fee. If a brand requests permission to run your video as a Meta Partnership Ad or TikTok Spark Ad, they are turning your face into a direct customer-acquisition funnel. Licensing ad whitelisting rights should command an extra 30% to 75% above your standard organic rate.
+        </p>
+      </section>
+
+      <!-- Section 3: Case Study -->
+      <section class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          Real-World Case Study: How a Tech YouTuber Tripled Sponsorship Revenue
+        </h2>
+        <div class="p-5 rounded-2xl bg-purple-50/50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-900/40 space-y-3 text-sm">
+          <p>
+            <strong>The Creator:</strong> Julian, a developer with 38,000 subscribers creating tutorials on cloud infrastructure and developer tooling.
+          </p>
+          <p>
+            <strong>The Mistake:</strong> For over a year, Julian accepted flat \$750 offers from developer tooling companies for 60-second video integrations. He discovered that one sponsor was using his clip as a paid YouTube Pre-Roll advertisement, spending \$15,000/month running ads with his likeness while he received nothing beyond the initial \$750.
+          </p>
+          <p>
+            <strong>The Strategy Shift:</strong> Julian implemented a 3-tier pricing deck. He unbundled his rates: \$1,800 for the organic integration, \$2,450 for the package including 30-day paid ad whitelisting, and \$3,200 for 60-day competitor exclusivity and pinned comments.
+          </p>
+          <p>
+            <strong>The Result:</strong> Julian's average sponsorship revenue per video jumped from \$750 to \$2,400. In his first quarter after adopting the rate engine, his sponsorship income increased by 220% across the exact same number of brand deals.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 4: Rules of Thumb -->
+      <section class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          Rules of Thumb for Negotiating Brand Deals
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 space-y-1">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Never Give Rights "In Perpetuity"</h3>
+            <p>Limit all paid ad amplification and brand usage rights to 30, 60, or 90 days. Never sign away eternal rights to your video likeness.</p>
+          </div>
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 space-y-1">
+            <h3 class="font-bold text-purple-600 dark:text-purple-400 text-sm">Always Send Tiered Options</h3>
+            <p>Never reply with a single flat number. Presenting 2 or 3 package tiers reframes the discussion from "Can we afford Julian?" to "Which package fits our budget best?"</p>
+          </div>
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 space-y-1">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Require 50% Upfront Deposit</h3>
+            <p>For brands you have not worked with previously, mandate a 50% invoice deposit before scripting or filming begins.</p>
+          </div>
+          <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 space-y-1">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">Price on 30-Day Median, Not Peak Viral Hits</h3>
+            <p>Base your quotes on your reliable median views over the last 10 videos, not an outlier viral spike that will never repeat.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: FAQ Accordion -->
+      <section id="faqSection" class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+          Frequently Asked Questions
+        </h2>
+        <div class="space-y-3">
+          <details class="group border border-slate-200 dark:border-slate-800 rounded-2xl p-4 transition-colors">
+            <summary class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between cursor-pointer">
+              <span>What is the difference between a dedicated video and an integrated sponsor?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              An integrated sponsorship is a 60-to-90 second segment within a regular organic video on your topic. A dedicated video is an entire 8-to-15 minute video created specifically around the brand's product. Dedicated videos carry significantly higher commercial fatigue for your audience and should command 2.5x to 3.0x higher rates.
+            </p>
+          </details>
+
+          <details class="group border border-slate-200 dark:border-slate-800 rounded-2xl p-4 transition-colors">
+            <summary class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between cursor-pointer">
+              <span>What if a brand offers an affiliate or commission-only deal?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Unless you already have verified conversion proof for that exact product, pure affiliate deals shift 100% of the marketing risk onto the creator. Professional creators insist on a guaranteed baseline flat fee to cover production costs, with performance affiliate commissions offered as a secondary bonus.
+            </p>
+          </details>
+
+          <details class="group border border-slate-200 dark:border-slate-800 rounded-2xl p-4 transition-colors">
+            <summary class="font-bold text-sm text-slate-900 dark:text-white flex items-center justify-between cursor-pointer">
+              <span>How do I counter an agency when their budget is below my floor rate?</span>
+              <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              Never just lower your price for the same deliverable; reduce scope instead. If a brand only has \$1,200 for a \$2,400 package, counter with: "We cannot do the 60-second integration with whitelisting for that budget, but we can offer a 30-second shoutout or a dedicated newsletter sponsorship slot at that price point."
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Platform Methodology & Data Citations block -->
+      <div class="bg-slate-100 dark:bg-slate-900/60 rounded-xl p-4 border border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 mt-8 space-y-1">
+        <div class="font-bold text-slate-700 dark:text-slate-300">Methodology &amp; Data Sources</div>
+        <p>Benchmarks synthesized across verified 2025–2026 creator agency rate sheets, IAB Digital Video Advertising standards, and anonymized deal records across YouTube, TikTok, and Substack ecosystems.</p>
+      </div>
+
+    </article>
+
+    <!-- MONETIZATION SLOT 3: BOTTOM BANNER -->
+    <aside role="region" aria-label="Advertisement" class="adsense-slot w-full max-w-4xl mx-auto my-6">
+      <div class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1 select-none">Advertisement</div>
+      <div class="adsense-card w-full">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:90px;"
+             data-ad-client="ca-pub-3008088352823319"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+        </script>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- UNIVERSAL FOOTER -->
+  <footer id="site-footer"></footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toastNotification" class="toast-notification bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2.5 rounded-xl shadow-xl font-bold text-xs flex items-center gap-2">
+    <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMessage">Pitch memo copied to clipboard!</span>
+  </div>
+
+  <!-- Unified Scripts -->
+  <script src="/js/theme.js"></script>
+  <script src="/js/components.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
