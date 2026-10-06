@@ -686,10 +686,10 @@
         </p>
         <ul class="list-disc list-inside space-y-2 text-xs sm:text-sm leading-relaxed pl-2">
           <li>
-            <strong>Parallel Prefill (Input Processing):</strong> All input prompt tokens are ingested simultaneously in a single compute-bound matrix multiplication operation ($\mathcal{O}(1)$ forward execution step). The GPUs operate at peak tensor core utilization (FLOP bound), amortizing memory access costs across the entire context window.
+            <strong>Parallel Prefill (Input Processing):</strong> All input prompt tokens are ingested simultaneously in a single compute-bound matrix multiplication operation (O(1) forward execution step). The GPUs operate at peak tensor core utilization (FLOP bound), amortizing memory access costs across the entire context window.
           </li>
           <li>
-            <strong>Autoregressive Decoding (Output Generation):</strong> Language models generate text sequentially, token-by-token. To produce each single new token, the server must reload the full neural network weights (e.g., hundreds of billions of parameters across tensor-parallel GPUs) from High Bandwidth Memory into on-chip SRAM registers. This causes memory bandwidth saturation ($\text{memory-bound bottleneck}$), severely throttling inference throughput to tens of milliseconds per token.
+            <strong>Autoregressive Decoding (Output Generation):</strong> Language models generate text sequentially, token-by-token. To produce each single new token, the server must reload the full neural network weights (e.g., hundreds of billions of parameters across tensor-parallel GPUs) from High Bandwidth Memory into on-chip SRAM registers. This causes memory bandwidth saturation (memory-bound bottleneck), severely throttling inference throughput to tens of milliseconds per token.
           </li>
           <li>
             <strong>Key-Value (KV) Cache Memory Bloat:</strong> As generation length expands, the attention layers must maintain attention keys and values for every past token in GPU VRAM for the duration of the stream, consuming gigabytes of active memory per concurrent client.
@@ -935,7 +935,7 @@
             </summary>
             <div class="mt-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed space-y-2">
               <p>
-                As a standard heuristic for natural English prose, <strong>1 word equals approximately 1.33 tokens</strong> (or $75\text{ words} = 100\text{ tokens}$). However, token density diverges substantially across other domains:
+                As a standard heuristic for natural English prose, <strong>1 word equals approximately 1.33 tokens</strong> (or 75 words &approx; 100 tokens). However, token density diverges substantially across other domains:
               </p>
               <ul class="list-disc list-inside pl-1 space-y-1">
                 <li><strong>JSON Data &amp; SQL Schemas:</strong> Averages 1.8 to 2.2 tokens per word due to quotes, braces, colons, and indentation whitespace.</li>

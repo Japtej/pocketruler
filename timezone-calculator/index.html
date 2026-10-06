@@ -260,9 +260,9 @@
         <p>
           The PocketRuler Timezone Matrix uses coordinated universal time (UTC) as a common mathematical baseline to normalize differing local time zones.
         </p>
-        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 font-mono text-xs space-y-2">
-          <div>\(\text{UTC Hour} = (\text{Local Hour} - \text{UTC Offset}) \pmod{24}\)</div>
-          <div>\(\text{Overlap Score} = \sum_{i=1}^{N} \text{Availability Weight}_i \quad (\text{Work} = 1.0, \text{Shoulder} = 0.5, \text{Sleep} = 0.0)\)</div>
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 font-mono text-xs sm:text-sm space-y-2">
+          <div><strong class="text-emerald-600 dark:text-emerald-400">UTC Hour</strong> = (Local Hour &minus; UTC Offset) mod 24</div>
+          <div><strong class="text-emerald-600 dark:text-emerald-400">Overlap Score</strong> = &sum;(Availability Weight) &nbsp; <span class="text-slate-400 dark:text-slate-500">(Work = 1.0, Shoulder = 0.5, Sleep = 0.0)</span></div>
         </div>
         <p>
           Each individual's 24-hour cycle is segmented into three distinct physiological tiers:
